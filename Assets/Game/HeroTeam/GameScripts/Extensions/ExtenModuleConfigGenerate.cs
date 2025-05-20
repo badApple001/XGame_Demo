@@ -15,7 +15,8 @@ namespace GameScripts.HeroTeam
     public partial class DModuleIDEx
     {
 		public static int GEN_CUR_EX = 24;     
-        //@AppendDeclareModuleID
+        public static readonly int MODULE_ID_HEROTEAM =  ++GEN_CUR_EX;     //模块 - 英雄小队
+		//@AppendDeclareModuleID
     }
 	
 	/// <summary>
@@ -23,7 +24,8 @@ namespace GameScripts.HeroTeam
     /// </summary>
     public class GameGlobalEx : GameGlobal
     {
-        //@AppendDeclareModuleInstanceVars
+        public static HeroTeam.IHeroTeamModule HeroTeam = null;
+		//@AppendDeclareModuleInstanceVars
     }
 
     /// <summary>
@@ -33,11 +35,13 @@ namespace GameScripts.HeroTeam
     {
         public static void Setup(IModule[] modules)
         {
+			GameGlobalEx.HeroTeam = Setup<HeroTeam.HeroTeamModule>(DModuleIDEx.MODULE_ID_HEROTEAM, modules);
 			//@AppendSetupModuleInstanceVar
         }
 
         public static void Clear()
         {
+			GameGlobalEx.HeroTeam = null;
 			//@AppendClearModuleInstanceVar
         }
 

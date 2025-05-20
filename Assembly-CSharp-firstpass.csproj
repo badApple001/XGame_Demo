@@ -1187,25 +1187,21 @@
       <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
       <Name>uhypertext-scrpits</Name>
     </ProjectReference>
-    <ProjectReference Include="spine-unity-examples.csproj">
-      <Project>{4F41DADC-CB0A-5853-4CD8-10EF89573C3D}</Project>
-      <Name>spine-unity-examples</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity-examples-editor.csproj">
-      <Project>{AF676176-8153-9C40-127F-2D95286ACF28}</Project>
-      <Name>spine-unity-examples-editor</Name>
-    </ProjectReference>
     <ProjectReference Include="spine-unity.csproj">
       <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
       <Name>spine-unity</Name>
     </ProjectReference>
-    <ProjectReference Include="spine-csharp.csproj">
-      <Project>{5C786801-D11D-7169-BA15-FFE5A8FD9041}</Project>
-      <Name>spine-csharp</Name>
-    </ProjectReference>
     <ProjectReference Include="spine-unity-editor.csproj">
       <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
       <Name>spine-unity-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-timeline.csproj">
+      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
+      <Name>spine-timeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-timeline-editor.csproj">
+      <Project>{BE24A5CF-1929-1307-FAAE-5A2E4E00A926}</Project>
+      <Name>spine-timeline-editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

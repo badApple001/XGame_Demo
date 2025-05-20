@@ -515,7 +515,13 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamLogin\UIHeroTeamLogin_Generate.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame_Generate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\GameActorChatBox.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\UI\GameActorChatBox.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModule.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\IHeroTeamModule.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModuleMessageHandler.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\Data\HeroTeamLocalData.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\Data\HeroTeamDataManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\Event\DHeroTeamEvent.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
