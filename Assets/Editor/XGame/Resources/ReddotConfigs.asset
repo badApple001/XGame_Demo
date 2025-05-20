@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1570348885, guid: 006aeba06c6f4854895fe0d7ef6c8c82, type: 3}
+  m_Name: ReddotConfigs
+  m_EditorClassIdentifier: 
+  Items:
+  - Desc: "100#\u3010\u5347\u661F\u3011#(Ref-0)"
+    ID: 100
+    Name: "\u5347\u661F"
+    resRefs: []
+  - Desc: "101#\u3010\u82F1\u7075\u53EC\u5524\u3011#(Ref-0)"
+    ID: 101
+    Name: "\u82F1\u7075\u53EC\u5524"
+    resRefs: []
+  - Desc: "102#\u301010\u8FDE\u62BD\u3011#(Ref-0)"
+    ID: 102
+    Name: "10\u8FDE\u62BD"
+    resRefs: []
+  - Desc: "200#\u3010\u5B97\u95E8\u5165\u53E3\u3011#(Ref-0)"
+    ID: 200
+    Name: "\u5B97\u95E8\u5165\u53E3"
+    resRefs: []
+  - Desc: "201#\u3010\u5B97\u95E8\u3011#(Ref-0)"
+    ID: 201
+    Name: "\u5B97\u95E8"
+    resRefs: []
+  - Desc: "210#\u3010\u529F\u6CD5\u5165\u53E3\u3011#(Ref-0)"
+    ID: 210
+    Name: "\u529F\u6CD5\u5165\u53E3"
+    resRefs: []
+  - Desc: "211#\u3010\u529F\u6CD5\u9875\u7B7E\u3011#(Ref-0)"
+    ID: 211
+    Name: "\u529F\u6CD5\u9875\u7B7E"
+    resRefs: []
+  - Desc: "212#\u3010\u529F\u6CD5\u3011#(Ref-0)"
+    ID: 212
+    Name: "\u529F\u6CD5"
+    resRefs: []
+  - Desc: "213#\u3010\u53E4\u5B9D\u5165\u53E3\u3011#(Ref-0)"
+    ID: 213
+    Name: "\u53E4\u5B9D\u5165\u53E3"
+    resRefs: []
+  - Desc: "214#\u3010\u53E4\u5B9D\u3011#(Ref-0)"
+    ID: 214
+    Name: "\u53E4\u5B9D"
+    resRefs: []
+  - Desc: "215#\u3010\u6E38\u5386\u5165\u53E3\u3011#(Ref-0)"
+    ID: 215
+    Name: "\u6E38\u5386\u5165\u53E3"
+    resRefs: []
+  - Desc: "220#\u3010\u5B97\u95E8\u5927\u9635\u5165\u53E3\u3011#(Ref-0)"
+    ID: 220
+    Name: "\u5B97\u95E8\u5927\u9635\u5165\u53E3"
+    resRefs: []
+  - Desc: "221#\u3010\u5B97\u95E8\u5927\u9635\u5207\u6362\u3011#(Ref-0)"
+    ID: 221
+    Name: "\u5B97\u95E8\u5927\u9635\u5207\u6362"
+    resRefs: []
+  - Desc: "222#\u3010\u5B97\u95E8\u5927\u9635\u9635\u6CD5\u3011#(Ref-0)"
+    ID: 222
+    Name: "\u5B97\u95E8\u5927\u9635\u9635\u6CD5"
+    resRefs: []
+  - Desc: "223#\u3010\u5B97\u95E8\u5927\u9635\u4E00\u952E\u5347\u7EA7\u3011#(Ref-0)"
+    ID: 223
+    Name: "\u5B97\u95E8\u5927\u9635\u4E00\u952E\u5347\u7EA7"
+    resRefs: []
+  - Desc: "224#\u3010\u5B97\u95E8\u5927\u9635\u5F1F\u5B50\u3011#(Ref-0)"
+    ID: 224
+    Name: "\u5B97\u95E8\u5927\u9635\u5F1F\u5B50"
+    resRefs: []
+  - Desc: "301#\u3010\u5546\u57CE\u7EA2\u70B9\u3011#(Ref-0)"
+    ID: 301
+    Name: "\u5546\u57CE\u7EA2\u70B9"
+    resRefs: []
+  - Desc: "302#\u3010\u5546\u5E97\u7EA2\u70B9\u3011#(Ref-0)"
+    ID: 302
+    Name: "\u5546\u5E97\u7EA2\u70B9"
+    resRefs: []
+  - Desc: "303#\u3010\u5546\u5E97\u683C\u5B50\u7EA2\u70B9\u3011#(Ref-0)"
+    ID: 303
+    Name: "\u5546\u5E97\u683C\u5B50\u7EA2\u70B9"
+    resRefs: []
+  - Desc: "310#\u3010\u4E3B\u754C\u9762\u5C55\u5F00\u83DC\u5355\u5165\u53E3\u3011#(Ref-0)"
+    ID: 310
+    Name: "\u4E3B\u754C\u9762\u5C55\u5F00\u83DC\u5355\u5165\u53E3"
+    resRefs: []
+  - Desc: "311#\u3010\u7269\u54C1\u4F7F\u7528\u7EA2\u70B9\u3011#(Ref-0)"
+    ID: 311
+    Name: "\u7269\u54C1\u4F7F\u7528\u7EA2\u70B9"
+    resRefs: []
+  - Desc: "312#\u3010\u90AE\u4EF6\u9644\u4EF6\u7EA2\u70B9\u3011#(Ref-0)"
+    ID: 312
+    Name: "\u90AE\u4EF6\u9644\u4EF6\u7EA2\u70B9"
+    resRefs: []
+  - Desc: "320#\u3010\u767B\u5F55\u6D3B\u52A8\u5165\u53E3\u3011#(Ref-2)"
+    ID: 320
+    Name: "\u767B\u5F55\u6D3B\u52A8\u5165\u53E3"
+    resRefs:
+    - resRef:
+        path: Game/ImmortalFamily/GameResources/Prefabs/UI/UIMain.prefab
+        guid: 
+      goPath: UIMain/SevenDaySign
+    - resRef:
+        path: Game/ImmortalFamily/GameResources/Prefabs/UI/Widgets/FunctionIcon.prefab
+        guid: 
+      goPath: FunctionIcon
+  - Desc: "321#\u3010\u62BD\u5956\u5B9D\u7BB1\u7EA2\u70B9\u3011#(Ref-1)"
+    ID: 321
+    Name: "\u62BD\u5956\u5B9D\u7BB1\u7EA2\u70B9"
+    resRefs:
+    - resRef:
+        path: Game/ImmortalFamily/GameResources/Prefabs/UI/UIMain.prefab
+        guid: 
+      goPath: UIMain/NewPlayerGift
+  PrefabPath: Assets/Game/ImmortalFamily/GameResources/Prefabs/UI
