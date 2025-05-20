@@ -17,6 +17,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
     {
         protected override void OnUpdateUI()
         {
+
+
         }
 		
 		//@<<< ExecuteEventHandlerGenerator >>>

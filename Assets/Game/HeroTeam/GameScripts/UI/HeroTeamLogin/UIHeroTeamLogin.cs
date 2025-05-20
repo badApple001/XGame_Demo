@@ -10,6 +10,8 @@ using UnityEngine.UI;
 using XGame.UI.Framework;
 using XGame.UI.Framework.Flex;
 using XGame.UI.Framework.EffList;
+using System;
+using XGameEngine.Player;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamLogin
 {
@@ -24,12 +26,33 @@ namespace GameScripts.HeroTeam.UI.HeroTeamLogin
 		private void OnBtn_LoginClicked() //@Window 
 		{
             GameGlobalEx.LoginModule.Login( );
+
+            Debug.Log( FromUnixTimestamp( HeroTeamDataManager.Ins.Data.LastLoginTimestamps ).ToString( ) );
+            HeroTeamDataManager.Ins.Data.LastLoginTimestamps = ToUnixTimestamp( DateTime.Now );
+        }
+
+        public static long ToUnixTimestamp( DateTime dateTime )
+        {
+            // 确保时间为 UTC
+            DateTime utcTime = dateTime.ToUniversalTime( );
+
+            // Unix 时间戳起点
+            DateTime epoch = new DateTime( 1970, 1, 1, 0, 0, 0, DateTimeKind.Utc );
+
+            // 计算总秒数
+            return ( long ) ( utcTime - epoch ).TotalSeconds;
+        }
+
+        public static DateTime FromUnixTimestamp( long timestamp )
+        {
+            DateTime epoch = new DateTime( 1970, 1, 1, 0, 0, 0, DateTimeKind.Utc );
+            return epoch.AddSeconds( timestamp );
         }
 
     }
-	
-	//@<<< EffectiveListGenerator >>>
-	//@<<< FlexItemGenerator >>>
-	
-	
+
+    //@<<< EffectiveListGenerator >>>
+    //@<<< FlexItemGenerator >>>
+
+
 }
