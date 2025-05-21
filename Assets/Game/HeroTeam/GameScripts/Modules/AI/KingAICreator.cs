@@ -5,8 +5,9 @@ using XGame.Utils;
 namespace GameScripts.HeroTeam
 {
 
-    public class BossAICreator : Singleton<BossAICreator>, IAIActionCreator
+    public class KingAICreator : Singleton<KingAICreator>, IAIActionCreator
     {
+
 
         //¹¹Ôìº¯Êý
         public void Setup( )
@@ -40,7 +41,7 @@ namespace GameScripts.HeroTeam
                 //case AI_ACTION_TYPE.AI_ACTION_MOVE_FORWARD:
                 //    return itemPoolMgr.Pop<AIMoveAction>( context );
                 case AI_ACTION_TYPE.AI_ACTION_CIRCLE_SKILL:
-                    return itemPoolMgr.Pop<AISkillAction>(context);
+                    return itemPoolMgr.Pop<AISkillAction>( context );
                 //case AI_ACTION_TYPE.AI_ACTION_COLLISION_EXPLOSION:
                 //    return itemPoolMgr.Pop<AICollisionExplosionAction>( context );
                 // case AI_ACTION_TYPE.AI_ACTION_ROUTE_MOVE:

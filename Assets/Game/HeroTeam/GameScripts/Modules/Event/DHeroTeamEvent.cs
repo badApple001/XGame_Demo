@@ -13,8 +13,11 @@ namespace GameScripts.HeroTeam
         public readonly static ushort EVENT_HEROTEAM_BASE = 10001;
 
         /// <summary> 本地数据发生了变化 </summary>
-        public readonly static ushort EVENT_LOCALDATA_CHANGED_CREATE = EVENT_HEROTEAM_BASE++; 
-       
+        public readonly static ushort EVENT_LOCALDATA_CHANGED_CREATE = EVENT_HEROTEAM_BASE++;
+
+        /// <summary> 开始战斗 </summary>
+        public readonly static ushort EVENT_START_BATTLE = EVENT_HEROTEAM_BASE++;
+
         //最大值
         public const ushort EVENT_ALL_MAXID = 30000;
 
@@ -28,8 +31,7 @@ namespace GameScripts.HeroTeam
     {
         public static readonly byte SOURCE_TYPE_UNKNOW = 0;    // 类型ID根
         public static readonly byte SOURCE_TYPE_LOCALDATA = 1;    //本地数据事件类型
-        public static readonly byte SOURCE_TYPE_MONSTER = 2;   //怪物事件类型
-        public static readonly byte SOURCE_TYPE_PLAYER = 3;    //玩家事件类型
+        public static readonly byte SOURCE_TYPE_ENTITY = 2;//实体事件类型
     };
 
 

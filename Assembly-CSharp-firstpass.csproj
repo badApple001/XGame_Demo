@@ -134,8 +134,8 @@
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Components\IK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\Grounder\GrounderQuadruped.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKSolverArm.cs" />
-    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKSolverFABRIK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Scripts\AxisTools.cs" />
+    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKSolverFABRIK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKEffector.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\TwoHandedProp.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\CCD IK\Scripts\MechSpiderParticles.cs" />
@@ -211,8 +211,8 @@
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\EffectorOffset.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\RecoilTest.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\TwistSolver.cs" />
-    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Components\CCDIK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\Grounder\Grounding.cs" />
+    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Components\CCDIK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\FBIKChain.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Scripts\BipedLimbOrientations.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\Constraints\ConstraintRotationOffset.cs" />
@@ -1139,6 +1139,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="spine-timeline.csproj">
+      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
+      <Name>spine-timeline</Name>
+    </ProjectReference>
     <ProjectReference Include="HotUpdate.csproj">
       <Project>{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}</Project>
       <Name>HotUpdate</Name>
@@ -1159,6 +1163,10 @@
       <Project>{84E3DEBF-A955-DA74-DE13-C4861FEE2C61}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{6937D9FB-8FCD-C0F6-BE4F-4A48C1459CBD}</Project>
       <Name>Unity.TextMeshPro</Name>
@@ -1166,6 +1174,10 @@
     <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
       <Project>{FA2439B6-C36C-3780-99A9-7287B350ABEB}</Project>
       <Name>Unity.ScriptableBuildPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
+      <Name>spine-unity-editor</Name>
     </ProjectReference>
     <ProjectReference Include="UpdateCode.csproj">
       <Project>{C43B0F94-7B95-BF7A-0AAA-54E416F3A125}</Project>
@@ -1183,25 +1195,13 @@
       <Project>{D04307D6-A264-82DA-DA61-003196DB8069}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="uhypertext-scrpits.csproj">
-      <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
-      <Name>uhypertext-scrpits</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity.csproj">
-      <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
-      <Name>spine-unity</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity-editor.csproj">
-      <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
-      <Name>spine-unity-editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-timeline.csproj">
-      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
-      <Name>spine-timeline</Name>
-    </ProjectReference>
     <ProjectReference Include="spine-timeline-editor.csproj">
       <Project>{BE24A5CF-1929-1307-FAAE-5A2E4E00A926}</Project>
       <Name>spine-timeline-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="uhypertext-scrpits.csproj">
+      <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
+      <Name>uhypertext-scrpits</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

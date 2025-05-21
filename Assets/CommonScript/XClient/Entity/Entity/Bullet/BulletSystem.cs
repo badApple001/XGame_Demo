@@ -100,12 +100,12 @@ namespace XClient.Entity
                         //ЦЎзг
                         FlowDamageText(creatureEntity.GetPos(), -damage);
 
-                        TankHealth th = creatureEntity.GetComponent<TankHealth>();
-                        if(th!=null)
-                        {
-                            hp = creatureEntity.GetHP();
-                            th.SetHP((float)hp);
-                        }
+                        //TankHealth th = creatureEntity.GetComponent<TankHealth>();
+                        //if(th!=null)
+                        //{
+                        //    hp = creatureEntity.GetHP();
+                        //    th.SetHP((float)hp);
+                        //}
 
                         return true;
                     }

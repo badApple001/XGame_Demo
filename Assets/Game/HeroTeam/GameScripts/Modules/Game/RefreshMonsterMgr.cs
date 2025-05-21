@@ -299,6 +299,40 @@ namespace GameScripts.Monster
             return 0;
         }
 
+
+        public ulong RefreshHero( int monsterID, Vector3 pos, ulong camp )
+        {
+            if ( monsterLauncherHero != null )
+            {
+                monsterLauncherHero.listMonsterIDs.Clear( );
+                monsterLauncherHero.listMonsterIDs.Add( monsterID );
+                monsterLauncherHero.listRefreshParam.Clear( );
+                monsterLauncherHero.listRefreshParam.Add( 1 );
+                monsterLauncherHero.paramType = PARAM_TYPE.PARAM_TYPE_COUNT;
+                monsterLauncherHero.limit_MonsterCount = 1000;
+                monsterLauncherHero.bRandomPos = false;
+                monsterLauncherHero.refreshPos = pos;
+                //monsterLauncher.camp = CampDef.GetLocalCamp( camp );
+                monsterLauncherHero.listFriendCamps.Clear( );
+                List<IMonster> listMonster = monsterLauncherHero.RefreshMonster( );
+                if ( listMonster.Count > 0 )
+                {
+                    IMonster monster = listMonster[ 0 ];
+                    cfg_Monster cfg = monster.config as cfg_Monster;
+                    //释放出生技能
+                    __CastBornSkill( monster, cfg.bornskillIDs );
+
+                    //修改属性
+                    __SyncAttribute( monster, 0, 0 );
+
+                    return monster.id;
+                }
+            }
+            return 0;
+        }
+
+        
+
         //获取我方路由点
         public List<Vector3> GetSelfRoutePoints( )
         {

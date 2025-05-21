@@ -19,6 +19,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		public static UIHeroTeamGame Instance { get; private set; }
 	    
 		//@Begin_Widget_Variables
+		private Button btn_BtnFight = null;
 		//@End_Widget_Variables
 		
 		protected override void OnSetupOrClearWndInstance(bool isCreate)
@@ -36,23 +37,27 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		
 		protected override void InitWidgets() //@Window 
 		{
+			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(0);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
 		protected override void ClearWidgets() //@Window 
 		{
 			OnClearWidgets();
+			btn_BtnFight = null;
 
 		} //@End_ClearWidgets
 
 		protected override void SubscribeEvents() //@Window
 		{
 			UnsubscribeEvents();
+			btn_BtnFight?.onClick.AddListener(OnBtn_BtnFightClicked);
 			OnSubscribeEvents();
 		} //@End_SubscribeEvents
 		
 		protected override void UnsubscribeEvents() //@Window
 		{
+			btn_BtnFight?.onClick.RemoveAllListeners();
 			OnUnsubscribeEvents();
 		} //@End_UnsubscribeEvents
     }

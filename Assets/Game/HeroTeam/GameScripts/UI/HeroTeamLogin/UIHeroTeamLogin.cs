@@ -51,8 +51,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamLogin
 
     }
 
-    //@<<< EffectiveListGenerator >>>
-    //@<<< FlexItemGenerator >>>
+	//@<<< EffectiveListGenerator >>>
+	//@<<< FlexItemGenerator >>>
 
 
 }

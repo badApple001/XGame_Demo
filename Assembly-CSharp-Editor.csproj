@@ -132,10 +132,10 @@
     <Compile Include="Assets\Editor\XGame\EditorGameSchame.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\ExecutionOrderSetter.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\GUI\ReferenceFinderWindow.cs" />
+    <Compile Include="Assets\Editor\Builder\XUPorter\XCConfigurationList.cs" />
     <Compile Include="Assets\Editor\Tools\CodeReviewTools.cs" />
     <Compile Include="Assets\Editor\SpliteJsonAltas\SplitJsonAltas.cs" />
     <Compile Include="Assets\Editor\AssetsTool\Importer\Helper\AssetImportHelper.cs" />
-    <Compile Include="Assets\Editor\Builder\XUPorter\XCConfigurationList.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\EditorHelper.cs" />
     <Compile Include="Assets\Editor\Attribute\ObjectAttributeDefineAttribute.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\AssetConfig\AssetConfigEditor.cs" />
@@ -191,9 +191,9 @@
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDSettingEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\MaterialEditor\FlowLight\FlowLight_StandardShaderGUI.cs" />
     <Compile Include="Assets\Editor\AssetsTool\SpineAssets.cs" />
+    <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Editor\notice.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\CommandBuildBoot.cs" />
     <Compile Include="Assets\Editor\AssetsTool\Importer\Editor\AssetProcessMenu.cs" />
-    <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Editor\notice.cs" />
     <Compile Include="Assets\Editor\Util\EditorGameScheme.cs" />
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDPostProcessor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ResTools\Texture\FastPackerPolicy.cs" />
@@ -299,8 +299,8 @@
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\BaseStateMachineEditor.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\PrefabLayer\GroupEndLayer.cs" />
     <Compile Include="Assets\Editor\Monitor\MonitorWindow.cs" />
-    <Compile Include="Assets\Editor\AssetsTool\ResTools\Prefab\ReplaceScrollRectWindow.cs" />
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDEditorWindow.cs" />
+    <Compile Include="Assets\Editor\AssetsTool\ResTools\Prefab\ReplaceScrollRectWindow.cs" />
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDFileInfo.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\AssetVerifyTool\Control\VerifyManager.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\TrailPreviewUtillity.cs" />
@@ -1383,6 +1383,10 @@
       <Project>{075A8A06-755D-8732-2919-A4C453AA8ED0}</Project>
       <Name>Assembly-CSharp-Editor-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="spine-timeline.csproj">
+      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
+      <Name>spine-timeline</Name>
+    </ProjectReference>
     <ProjectReference Include="HotUpdate.csproj">
       <Project>{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}</Project>
       <Name>HotUpdate</Name>
@@ -1403,6 +1407,10 @@
       <Project>{84E3DEBF-A955-DA74-DE13-C4861FEE2C61}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{6937D9FB-8FCD-C0F6-BE4F-4A48C1459CBD}</Project>
       <Name>Unity.TextMeshPro</Name>
@@ -1410,6 +1418,10 @@
     <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
       <Project>{FA2439B6-C36C-3780-99A9-7287B350ABEB}</Project>
       <Name>Unity.ScriptableBuildPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
+      <Name>spine-unity-editor</Name>
     </ProjectReference>
     <ProjectReference Include="UpdateCode.csproj">
       <Project>{C43B0F94-7B95-BF7A-0AAA-54E416F3A125}</Project>
@@ -1427,25 +1439,13 @@
       <Project>{D04307D6-A264-82DA-DA61-003196DB8069}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="uhypertext-scrpits.csproj">
-      <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
-      <Name>uhypertext-scrpits</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity.csproj">
-      <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
-      <Name>spine-unity</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity-editor.csproj">
-      <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
-      <Name>spine-unity-editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-timeline.csproj">
-      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
-      <Name>spine-timeline</Name>
-    </ProjectReference>
     <ProjectReference Include="spine-timeline-editor.csproj">
       <Project>{BE24A5CF-1929-1307-FAAE-5A2E4E00A926}</Project>
       <Name>spine-timeline-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="uhypertext-scrpits.csproj">
+      <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
+      <Name>uhypertext-scrpits</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

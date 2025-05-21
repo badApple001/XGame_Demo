@@ -68,7 +68,6 @@
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Scrollbar.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Text.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\RawImage.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Mask.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\UIElements\PanelRaycaster.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Toggle.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\IGraphicEnabledDisabled.cs" />
@@ -122,6 +121,7 @@
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\GraphicRegistry.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\CanvasUpdateRegistry.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\GraphicRebuildTracker.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Mask.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Culling\Clipping.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\Raycasters\PhysicsRaycaster.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\RectMask2D.cs" />
@@ -136,8 +136,8 @@
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\LayoutRebuilder.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\AnimationTriggers.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\Properties\AssemblyInfo.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\IMask.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\IMask.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\EventHandle.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\LayoutGroup.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\GridLayoutGroup.cs" />

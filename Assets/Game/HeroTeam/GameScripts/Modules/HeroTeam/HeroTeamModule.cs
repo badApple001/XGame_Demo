@@ -59,7 +59,8 @@ namespace GameScripts.HeroTeam.HeroTeam
 
 
             //初始化AI 创建者
-            MonsterSystem.Instance.SetAICreator( BossAICreator.Instance );
+            KingAICreator.Instance.Setup( );
+
 
             State = ModuleState.Success;
             return true;

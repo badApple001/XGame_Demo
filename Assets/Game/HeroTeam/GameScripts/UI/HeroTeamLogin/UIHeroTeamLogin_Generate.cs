@@ -20,6 +20,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamLogin
 	    
 		//@Begin_Widget_Variables
 		private Button btn_Login = null;
+		private InputField input_InputID = null;
+		private InputField input_InputPassword = null;
 		//@End_Widget_Variables
 		
 		protected override void OnSetupOrClearWndInstance(bool isCreate)
@@ -38,6 +40,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamLogin
 		protected override void InitWidgets() //@Window 
 		{
 			btn_Login = Meta.Widgets.GetWidgetComponent<Button>(0);
+			input_InputID = Meta.Widgets.GetWidgetComponent<InputField>(1);
+			input_InputPassword = Meta.Widgets.GetWidgetComponent<InputField>(2);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
@@ -45,6 +49,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamLogin
 		{
 			OnClearWidgets();
 			btn_Login = null;
+			input_InputID = null;
+			input_InputPassword = null;
 
 		} //@End_ClearWidgets
 
