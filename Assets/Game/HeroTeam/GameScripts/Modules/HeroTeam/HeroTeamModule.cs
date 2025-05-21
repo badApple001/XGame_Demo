@@ -7,6 +7,8 @@ Description: 模块 - 英雄小队
 ***************************************************************************/
 
 using XClient.Common;
+using XClient.Entity;
+using XGame.Entity;
 
 namespace GameScripts.HeroTeam.HeroTeam
 {
@@ -51,7 +53,14 @@ namespace GameScripts.HeroTeam.HeroTeam
         public bool Start()
         {
 			m_MessageHandler?.Start();
-		 
+
+            //初始化子弹提供者
+            //EnvProviderMgr.Instance.SetBulletEnvProvider( KingBulletEnvProvider.Instance );
+
+
+            //初始化AI 创建者
+            MonsterSystem.Instance.SetAICreator( BossAICreator.Instance );
+
             State = ModuleState.Success;
             return true;
         }

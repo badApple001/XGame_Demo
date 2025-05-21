@@ -17,24 +17,6 @@ MonoBehaviour:
     path: G_Resources/App/GameManager.prefab
     guid: bc10487d3b1eb5943a151709d199bca5
   settings:
-  - name: 2DCardDemo
-    codeBaseDir: GameScripts
-    resBaseDir: GameResources
-    globalNameSpace: GameScripts
-    projectNameSpace: CardDemo
-    resolutionWidth: 1080
-    resolutionHeight: 2340
-    setupScenePath: 
-    gameInitConfig: {fileID: 11400000, guid: ed3b88792947aad4f82b7ee68ed539c5, type: 2}
-  - name: 3DTank
-    codeBaseDir: GameScripts
-    resBaseDir: GameResources
-    globalNameSpace: GameScripts
-    projectNameSpace: Tank
-    resolutionWidth: 1920
-    resolutionHeight: 1080
-    setupScenePath: Assets/Game/3DTank/GameResources/Tank/Complete/Scenes/CompleteMainScene.unity
-    gameInitConfig: {fileID: 11400000, guid: f7e86c1e75e48dd42aefe6be0fb9522b, type: 2}
   - name: HeroTeam
     codeBaseDir: GameScripts
     resBaseDir: GameResources

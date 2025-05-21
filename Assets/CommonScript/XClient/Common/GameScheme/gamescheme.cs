@@ -16,14 +16,14 @@ public class cfg_LightingEffect : IDataObj
 	public string strResPath;  // 资源路径
 	public int iType;  // 光效类型
 	public float fScale;  // 缩放比例
-	public int bSpineRes;  // 是否为Spine资源(1是/其他不是）
+	public int bSpineRes;  // 是否为Spine资源(1�?其他不是�?
 	public string szSpineAnimName;  // Spine动画名称
-	public float fMaxLiveTime;  // 最大存活时间
+	public float fMaxLiveTime;  // 最大存活时�?
 	public sbyte iDisableBindFollow;  // 是否禁止绑定跟随
 	public sbyte iNeedQualityCtrl;  // 是否禁用进行画质控制
 	public sbyte iNeedQualityCtrlByDistance;  // 是否禁用距离画质控制
-	public int[] arrBindOffset;  // int[-1]  绑定点偏移(厘米)
-	public string szBindPoint;  // 绑定点名称
+	public int[] arrBindOffset;  // int[-1]  绑定点偏�?厘米)
+	public string szBindPoint;  // 绑定点名�?
 
 	public IDataObj Clone(){return new cfg_LightingEffect();}
 	public void Load(IDataChunk pDataChunk)
@@ -80,12 +80,12 @@ public class cfg_Audio : IDataObj
 	public int audioType;  // 音效类别标签
 	public int loop;  // 是否循环
 	public float volume;  // 播放音量大小
-	public float pitch;  // 速度变化量
+	public float pitch;  // 速度变化�?
 	public float fFadeInTime;  // 渐入时长
 	public float fFadeOutTime;  // 渐出时长
-	public sbyte i3D;  // 是否为3D音效
-	public float fMinDistance;  // 3D音效衰减最小距离
-	public float fMaxDistance;  // 3D音效衰减最大距离
+	public sbyte i3D;  // 是否�?D音效
+	public float fMinDistance;  // 3D音效衰减最小距�?
+	public float fMaxDistance;  // 3D音效衰减最大距�?
 
 	public IDataObj Clone(){return new cfg_Audio();}
 	public void Load(IDataChunk pDataChunk)
@@ -142,7 +142,7 @@ public class cfg_I18N : IDataObj
 	public string en;  // 英文
 	public string jp;  // 日文
 	public string ko;  // 韓文
-	public string pi;  // 菲律賓
+	public string pi;  // 菲律�?
 	public string vi;  // 越南
 	public string th;  // 泰語
 	public string po;  // 葡萄牙語
@@ -201,7 +201,7 @@ public class cfg_I18NBrief : IDataObj
 	public string en;  // 英文
 	public string jp;  // 日文
 	public string ko;  // 韓文
-	public string pi;  // 菲律賓
+	public string pi;  // 菲律�?
 	public string vi;  // 越南
 	public string th;  // 泰語
 	public string po;  // 葡萄牙語
@@ -257,7 +257,7 @@ public class cfg_Icon : IDataObj
 {
 	public uint nID;  // ID
 	public string strIconName;  // 图标名字
-	public string strAtlasPath;  // 图集路径（整合在一张图集内）
+	public string strAtlasPath;  // 图集路径（整合在一张图集内�?
 	public string strIconPath;  // 图标名字
 
 	public IDataObj Clone(){return new cfg_Icon();}
@@ -307,8 +307,8 @@ public class cfg_Shop : IDataObj
 	public string szNDesc;  // 商店描述
 	public int iResetType;  // 重置方式
 	public int iRefreshCostType;  // 刷新所需要的货币类型
-	public int iRefreshCost;  // 刷新消耗
-	public int[] arrGoods;  // int[32]  商品格1
+	public int iRefreshCost;  // 刷新消�?
+	public int[] arrGoods;  // int[32]  商品�?
 
 	public IDataObj Clone(){return new cfg_Shop();}
 	public void Load(IDataChunk pDataChunk)
@@ -360,7 +360,7 @@ public class cfg_ShopGoods : IDataObj
 {
 	public int iGoodsGroup;  // 商品组ID
 	public int[] arrGoodsID;  // int[-1]  物品ID
-	public int[] arrGoodsNum;  // int[-1]  每份商品包含的物品数量
+	public int[] arrGoodsNum;  // int[-1]  每份商品包含的物品数�?
 	public int[] arrCurrency;  // int[-1]  所需货币类型
 	public int[] arrPrice;  // int[-1]  价格
 	public int[] arrBuyLimit;  // int[-1]  购买次数限制
@@ -415,8 +415,8 @@ public class cfg_Monster : IDataObj
 	public uint nID;  // ID
 	public string szName;  // 怪物名称
 	public string szResPath;  // 模型路径
-	public int iMonsterType;  // 怪物类型（0:棋子;1:普通;2:精英;3:boss;4:城墙）
-	public int iAttack;  // 攻击力
+	public int iMonsterType;  // 怪物类型�?:棋子;1:普�?2:精英;3:boss;4:城墙�?
+	public int iAttack;  // 攻击�?
 	public int iAttackSpeed;  // 攻击速度
 	public int baseHP;  // 生命
 	public int iPhyDefense;  // 物防
@@ -424,7 +424,7 @@ public class cfg_Monster : IDataObj
 	public float fbaseSpeed;  // 移动速度
 	public int iPowerAttackRate;  // 暴击概率
 	public int iPowerAttackCoff;  // 暴击伤害系数
-	public int[] bornskillIDs;  // int[-1]  出生技能
+	public int[] bornskillIDs;  // int[-1]  出生技�?
 	public int[] AIID;  // int[-1]  AIID数组
 	public int iIconID;  // 图片
 	public int iQuality;  // 品级
@@ -627,11 +627,11 @@ public class cfg_Talent : IDataObj
 	public int iTalentID;  // 天赋ID
 	public string szName;  // 名字（仅辅助不使用）
 	public int iType;  // 类型
-	public int iMaxLevel;  // 最大等级
-	public int iRow;  // 行位置
-	public int iCol;  // 列位置
+	public int iMaxLevel;  // 最大等�?
+	public int iRow;  // 行位�?
+	public int iCol;  // 列位�?
 	public int[] arrParentID;  // int[-1]  父天赋ID
-	public int[] arrOpenType;  // int[-1]  开放模式：0=直接开放；1=对应父天赋需要等级
+	public int[] arrOpenType;  // int[-1]  开放模式：0=直接开放；1=对应父天赋需要等�?
 
 	public IDataObj Clone(){return new cfg_Talent();}
 	public void Load(IDataChunk pDataChunk)
@@ -682,26 +682,26 @@ public class cfg_Skill : IDataObj
 	public int iLevel;  // 等级
 	public string szName;  // 名字
 	public int iIcon;  // 图标
-	public string skillSign;  // 技能标识
+	public string skillSign;  // 技能标�?
 	public int isHurt;  // 子弹是否造成伤害
 	public int isActive;  // 是否主动
-	public int isGenAttack;  // 是否普攻（1：普攻;2：技能）
+	public int isGenAttack;  // 是否普攻�?：普�?2：技能）
 	public float skillCD;  // 技能CD
-	public float skillMonRange;  // 技能监测范围
+	public float skillMonRange;  // 技能监测范�?
 	public float castTime;  // 读条时长
 	public string szCastAction;  // 施法动作
 	public string triggerEffect;  // 触发特效
 	public int triggerTiming;  // 触发时机
 	public int triggerParams;  // 触发参数
 	public float innerCD;  // 内置CD
-	public int triggerCount;  // 最大触发次数
+	public int triggerCount;  // 最大触发次�?
 	public string targetRule;  // 选取目标
 	public float[] targetParams;  // float[-1]  选取目标参数
 	public float[] castPos;  // float[-1]  施法位置
 	public int isNeedCastTarget;  // 是否需要选取施法目标
-	public int iVisibleType;  // 子弹显示方式(0双方可见，1己方可见，2敌方可见)
+	public int iVisibleType;  // 子弹显示方式(0双方可见�?己方可见�?敌方可见)
 	public int iBulletGroupID;  // 子弹组ID
-	public string commandSkillList;  // 技能命令效果组合
+	public string commandSkillList;  // 技能命令效果组�?
 	public float fDamageRate;  // 子弹伤害系数
 	public int iAudioID;  // 攻击音效ID
 
@@ -886,11 +886,11 @@ public class cfg_Card : IDataObj
 	public int[] arrSkills;  // int[-1]  技能组
 	public int iAvatarPicID;  // Avatar形象图片IC
 	public int iStar;  // 星级
-	public int iMaxStar;  // 最大星级
+	public int iMaxStar;  // 最大星�?
 	public int iFetterID;  // 羁绊ID
 	public int[] arrSelectAreaParams;  // int[-1]  区域选择参数
-	public int iAttackDistType;  // 攻击距离类型（1远/2近）
-	public int iVocation;  // 职业（1输出/2防御/3辅助/4控制）
+	public int iAttackDistType;  // 攻击距离类型�?�?2近）
+	public int iVocation;  // 职业�?输出/2防御/3辅助/4控制�?
 
 	public IDataObj Clone(){return new cfg_Card();}
 	public void Load(IDataChunk pDataChunk)
@@ -947,8 +947,8 @@ class cfg_Card_idx0_cmper : IComparer<IIndexObj>
 public class cfg_CardGroup : IDataObj
 {
 	public int iID;  // 物品ID
-	public string iRoleLvMin;  // 玩家最小等级要求（目前无效）
-	public int iRoleLvMax;  // 玩家最高等级需求（目前无效）
+	public string iRoleLvMin;  // 玩家最小等级要求（目前无效�?
+	public int iRoleLvMax;  // 玩家最高等级需求（目前无效�?
 	public int[] arrCards;  // int[-1]  Card表ID
 	public int[] arrCardsNums;  // int[-1]  对应数量
 
@@ -997,9 +997,9 @@ public class cfg_CardShop : IDataObj
 	public int iID;  // 商店ID
 	public int iLevel;  // 等级
 	public int iLvlUpExp;  // 升级所需经验
-	public uint[] arrUpdCost;  // uint[-1]  升级消耗（金币/经验）
-	public int iRefreshCost;  // 刷新消耗
-	public uint[] arrPros;  // uint[-1]  概率（万分比）
+	public uint[] arrUpdCost;  // uint[-1]  升级消耗（金币/经验�?
+	public int iRefreshCost;  // 刷新消�?
+	public uint[] arrPros;  // uint[-1]  概率（万分比�?
 
 	public IDataObj Clone(){return new cfg_CardShop();}
 	public void Load(IDataChunk pDataChunk)
@@ -1139,7 +1139,7 @@ class cfg_RefreshLevelMonster_idx0_cmper : IComparer<IIndexObj>
 public class cfg_Attribute : IDataObj
 {
 	public int iAtrributeID;  // 技能ID
-	public int iAttackCoff;  // 攻击力系数
+	public int iAttackCoff;  // 攻击力系�?
 	public int iHPCoff;  // 生命系数
 	public int iPhyCoff;  // 物防系数
 	public int iMagicCoff;  // 法防系数
@@ -1194,7 +1194,7 @@ class cfg_Attribute_idx0_cmper : IComparer<IIndexObj>
 public class cfg_Attribute_idx1 : IIndexObj
 {
 	public int iAtrributeID;  // 技能ID
-	public int iAttackCoff;  // 攻击力系数
+	public int iAttackCoff;  // 攻击力系�?
 	public uint __dataarea_offset__;  // 
 
 	public IDataObj Clone(){return new cfg_Attribute_idx1();}
@@ -1225,11 +1225,11 @@ class cfg_Attribute_idx1_cmper : IComparer<IIndexObj>
 public class cfg_CardCompose : IDataObj
 {
 	public int iCardID;  // 合成卡ID
-	public int[] arrSelfCompose;  // int[-1]  自身合成结果（同ID）
-	public int[] arrCompose1;  // int[-1]  不同卡合成1
-	public int[] arrCompose2;  // int[-1]  不同卡合成2
-	public int[] arrCompose3;  // int[-1]  不同卡合成3
-	public int[] arrCompose4;  // int[-1]  不同卡合成4
+	public int[] arrSelfCompose;  // int[-1]  自身合成结果（同ID�?
+	public int[] arrCompose1;  // int[-1]  不同卡合�?
+	public int[] arrCompose2;  // int[-1]  不同卡合�?
+	public int[] arrCompose3;  // int[-1]  不同卡合�?
+	public int[] arrCompose4;  // int[-1]  不同卡合�?
 
 	public IDataObj Clone(){return new cfg_CardCompose();}
 	public void Load(IDataChunk pDataChunk)
@@ -1381,11 +1381,11 @@ class cfg_Buff_idx1_cmper : IComparer<IIndexObj>
 public class cfg_Misc : IDataObj
 {
 	public int nType;  // 类型(不要改变)
-	public int nNumVal;  // 数值
-	public float nFloatVal;  // 浮点值
-	public string szStrVal;  // 字符串值
-	public int[] szArray;  // int[-1]  动态数组
-	public float[] szFloatArray;  // float[-1]  动态数组
+	public int nNumVal;  // 数�?
+	public float nFloatVal;  // 浮点�?
+	public string szStrVal;  // 字符串�?
+	public int[] szArray;  // int[-1]  动态数�?
+	public float[] szFloatArray;  // float[-1]  动态数�?
 
 	public IDataObj Clone(){return new cfg_Misc();}
 	public void Load(IDataChunk pDataChunk)
@@ -1543,7 +1543,7 @@ public class cfg_Equip : IDataObj
 	public string szName;  // 名字
 	public int iAttack;  // 伤害
 	public int iIconID;  // 图片
-	public int iBulletNum;  // 弹药量
+	public int iBulletNum;  // 弹药�?
 	public float iMultiply;  // 倍率
 	public int iShootNum;  // 每行动点射击次数
 	public int iMonsterID;  // 怪物ID
@@ -1787,16 +1787,16 @@ class cfg_Coin_idx0_cmper : IComparer<IIndexObj>
 public class cfg_Hero : IDataObj
 {
 	public int iID;  // 英雄id
-	public int iGroupID;  // 所属的英雄组
+	public int iGroupID;  // 所属的英雄�?
 	public int iQuality;  // 品阶
 	public int iAttackType;  // 攻击类型:0物理1法术
 	public int iMaxLevel;  // 等级上限
 	public int iSkill1;  // 1技能id
 	public int iSkill2;  // 2技能id
-	public int iSkill3;  // 3技能
+	public int iSkill3;  // 3技�?
 	public int iSkill4;  // 4技能id
-	public int iDefSkill;  // 普攻技能
-	public int iHp;  // 初始生命值
+	public int iDefSkill;  // 普攻技�?
+	public int iHp;  // 初始生命�?
 	public int iPhyAttack;  // 初始攻击
 	public int iMagicAttack;  // 初始攻击
 	public int iPhyDefense;  // 初始防御
@@ -1805,8 +1805,8 @@ public class cfg_Hero : IDataObj
 	public int iCriticalResist;  // 抗暴%
 	public int iCriticalRaise;  // 暴击伤害%
 	public int iCriticalReduce;  // 暴击伤害减免%
-	public int iAccurate;  // 精准值
-	public int iResistance;  // 抵抗值
+	public int iAccurate;  // 精准�?
+	public int iResistance;  // 抵抗�?
 	public int iDamageRaise;  // 伤害增加%
 	public int iPhyDmgReduce;  // 物理减伤%
 	public int iMagDmgReduce;  // 法术减伤%
@@ -1875,7 +1875,7 @@ class cfg_Hero_idx0_cmper : IComparer<IIndexObj>
 
 public class cfg_Hero_idx1 : IIndexObj
 {
-	public int iGroupID;  // 所属的英雄组
+	public int iGroupID;  // 所属的英雄�?
 	public int iQuality;  // 品阶
 	public uint __dataarea_offset__;  // 
 
@@ -1909,7 +1909,7 @@ public class cfg_HeroGroup : IDataObj
 	public int iID;  // 英雄id
 	public string szName;  // 英雄名字
 	public string szIntro;  // 英雄称号
-	public int iSkinID;  // 皮肤ID（SkinInfo表中定义）
+	public int iSkinID;  // 皮肤ID（SkinInfo表中定义�?
 	public int iIconID;  // 头像id
 	public int iCardImgID;  // 大卡形像ID
 	public int iVocation;  // 职业1战士;2坦克;3游侠;4法师;5辅助
@@ -1963,8 +1963,8 @@ class cfg_HeroGroup_idx0_cmper : IComparer<IIndexObj>
 public class cfg_HeroFusion : IDataObj
 {
 	public int iQuality;  // 融合品阶
-	public int iComposeCost;  // 合成消耗
-	public int iComposeSuccRate;  // 合成成功率
+	public int iComposeCost;  // 合成消�?
+	public int iComposeSuccRate;  // 合成成功�?
 	public int iComposeFail;  // 合成失败掉星
 	public int iDrawExp;  // 重复抽卡给的经验
 
@@ -2011,8 +2011,8 @@ class cfg_HeroFusion_idx0_cmper : IComparer<IIndexObj>
 public class cfg_Task : IDataObj
 {
 	public int iID;  //  任务ID
-	public string szName;  // 任务名
-	public int[] arrCondParams;  // int[-1]  投资完成条件的参数
+	public string szName;  // 任务�?
+	public int[] arrCondParams;  // int[-1]  投资完成条件的参�?
 	public int iPrizeID;  // 奖励ID
 	public string Icon;  // "奖励图标
 
@@ -2103,7 +2103,7 @@ class cfg_PrizeGroup_idx0_cmper : IComparer<IIndexObj>
 public class cfg_PrizeMain : IDataObj
 {
 	public int iPrizeID;  // 奖励ID
-	public int iRandType;  // 随机形式1=不随机2=随机其中一个3=每个单独随机
+	public int iRandType;  // 随机形式1=不随�?=随机其中一�?=每个单独随机
 	public int iPrizeItemType;  // 奖励ID形式:1=物品ID 2=英雄ID 3=prizegroup物品组ID 4=红包id
 	public int iDiamond;  // 奖励钻石
 	public int iBindDiamond;  // 奖励绑定钻石
@@ -2112,15 +2112,15 @@ public class cfg_PrizeMain : IDataObj
 	public int iMoney;  // 奖励金钱
 	public int iRedPack;  // 红包ID
 	public int[] arrItem1;  // int[-1]  物品ID
-	public int[] arrNum1;  // int[-1]  奖励的数量
+	public int[] arrNum1;  // int[-1]  奖励的数�?
 	public int[] arrProb1;  // int[-1]  概率配置
 	public int iFace;  // 头像ID
 	public int iFrame;  // 头像框ID
 	public int iTitle;  // 称号ID
-	public int iWorth;  // 奖励价值
-	public int[] arrClientProb;  // int[-1]  客户端概率
+	public int iWorth;  // 奖励价�?
+	public int[] arrClientProb;  // int[-1]  客户端概�?
 	public int[] arrDisItemID;  // int[-1]  显示用ID
-	public int[] arrDisItemNum;  // int[-1]  显示用数量
+	public int[] arrDisItemNum;  // int[-1]  显示用数�?
 
 	public IDataObj Clone(){return new cfg_PrizeMain();}
 	public void Load(IDataChunk pDataChunk)
@@ -2185,7 +2185,7 @@ public class cfg_Goods : IDataObj
 	public int iMainClass;  // 物品大类
 	public int iSubClass;  // 物品小类
 	public int iMinUseLevel;  // 使用等级
-	public int iIconID;  // 物品栏图片
+	public int iIconID;  // 物品栏图�?
 	public int iSalesPrice;  // 售价
 	public string szDesc;  // 道具描述（废弃）
 
@@ -2237,12 +2237,12 @@ class cfg_Goods_idx0_cmper : IComparer<IIndexObj>
 public class cfg_GoodsUse : IDataObj
 {
 	public int iGoodsID;  // 物品ID
-	public sbyte iConsume;  // 消耗物品数量
+	public sbyte iConsume;  // 消耗物品数�?
 	public int[] arrPrizeID;  // int[-1]  奖励ID数组
 	public int iUsageType;  // 作用类型
 	public int iPrizeShowMode;  // 奖励显示模式
-	public int iMaxNumPerBatch;  // 每次最大使用数量
-	public int bShowReddot;  // 满足使用条件时是否显示红点
+	public int iMaxNumPerBatch;  // 每次最大使用数�?
+	public int bShowReddot;  // 满足使用条件时是否显示红�?
 	public int[] arrRandomPrize;  // int[-1]  随机显示奖励
 	public int[] arrQuickUseMode;  // int[-1]  是否支持快捷使用
 	public int iFuncJumpID;  // 功能跳转ID
@@ -2295,11 +2295,11 @@ class cfg_GoodsUse_idx0_cmper : IComparer<IIndexObj>
 public class cfg_TowerStage : IDataObj
 {
 	public int iID;  // ID(包含等级)
-	public string szName;  // 楼层名
+	public string szName;  // 楼层�?
 	public int iFormationID;  // 怪物阵容ID
 	public int iClickPrizeID;  // 点击奖励ID
 	public int iPassPrizeID;  // 过关奖励ID
-	public int[] arrOpenCondition;  // int[-1]  开放条件
+	public int[] arrOpenCondition;  // int[-1]  开放条�?
 	public int bBigPrize;  // 是否是大奖励
 	public int iStageMode;  // 关卡模式
 
@@ -2349,30 +2349,30 @@ class cfg_TowerStage_idx0_cmper : IComparer<IIndexObj>
 public class cfg_SkillA : IDataObj
 {
 	public int nID;  // 技能唯一ID
-	public string szName;  // 技能名称
+	public string szName;  // 技能名�?
 	public int nMainID;  // 技能主ID
-	public int nLevel;  // 技能等级
-	public uint nIcon;  // 技能图标
+	public int nLevel;  // 技能等�?
+	public uint nIcon;  // 技能图�?
 	public int iViewID;  // 技能表现ID
-	public int bPassive;  // 是否为被动技能
+	public int bPassive;  // 是否为被动技�?
 	public int iType;  // 技能性质类型
 	public int iCdTime;  // 长技能CD
-	public int iActivePublicCdGroup;  // 是否激活公共CD(公共CD在英雄配置表中配置)
+	public int iActivePublicCdGroup;  // 是否激活公共CD(公共CD在英雄配置表中配�?
 	public int iTargetGuide;  // 目标导向
-	public int iTargetType;  // 目标型技能筛选类型
+	public int iTargetType;  // 目标型技能筛选类�?
 	public int iTargetNum;  // 目标数量
 	public int iTargetCamp;  // 阵营导向
 	public int bTargetIncludeSelf;  // 自己作为目标
 	public int iDurationTime;  // 持续时间
 	public int iCrashTime;  // 命中时间(ms)
 	public int iHarmType;  // 伤害类型
-	public int iPriority;  // 优先级
-	public int[] arrDamageFactor;  // int[-1]  伤害万分比系数
+	public int iPriority;  // 优先�?
+	public int[] arrDamageFactor;  // int[-1]  伤害万分比系�?
 	public int[] arrDamageInterval;  // int[-1]  伤害间隔
 	public int[] arrTargetBuff;  // int[-1]  给目标附加buff
 	public int[] arrSelfBuff;  // int[-1]  给自己加buff
-	public int iParallelSkill;  // 并发技能
-	public string szDetail;  // 详细描述（-1为程序测试）
+	public int iParallelSkill;  // 并发技�?
+	public string szDetail;  // 详细描述�?1为程序测试）
 
 	public IDataObj Clone(){return new cfg_SkillA();}
 	public void Load(IDataChunk pDataChunk)
@@ -2436,7 +2436,7 @@ class cfg_SkillA_idx0_cmper : IComparer<IIndexObj>
 public class cfg_SkillA_idx1 : IIndexObj
 {
 	public int nMainID;  // 技能主ID
-	public int nLevel;  // 技能等级
+	public int nLevel;  // 技能等�?
 	public uint __dataarea_offset__;  // 
 
 	public IDataObj Clone(){return new cfg_SkillA_idx1();}
@@ -2469,7 +2469,7 @@ public class cfg_SkillViewA : IDataObj
 	public int nID;  // ID
 	public string szName;  // 名称
 	public int iAnim;  // 动画Id
-	public int iShowTime;  // 展示时间(必杀技使用：毫秒)
+	public int iShowTime;  // 展示时间(必杀技使用：毫�?
 	public int[] arrActionParams1;  // int[-1]  行为1
 	public int[] arrActionParams2;  // int[-1]  行为2
 	public int[] arrActionParams3;  // int[-1]  行为3
@@ -2479,7 +2479,7 @@ public class cfg_SkillViewA : IDataObj
 	public int[] arrActionParams7;  // int[-1]  行为4
 	public int iHitLightingEfcID;  // 命中光效
 	public int iHitAudioID;  // 命中音效
-	public int iHitLightingEfcBindPoint;  // 受击光效绑定点
+	public int iHitLightingEfcBindPoint;  // 受击光效绑定�?
 	public int[] arrHitPosOffset;  // int[-1]  命中光效偏移(单位厘米)
 
 	public IDataObj Clone(){return new cfg_SkillViewA();}
@@ -2541,12 +2541,12 @@ public class cfg_SkillBulletA : IDataObj
 	public string szSpineAnim;  // Spine动画名称
 	public int bSpineAnimLoop;  // Spine动画是否循环
 	public int iBallisticID;  // 弹道ID
-	public int iStartPosRefType;  // 起始位置参考
+	public int iStartPosRefType;  // 起始位置参�?
 	public int iStartBindPoint;  // 起始骨骼
 	public int iStartPosX;  // 起始坐标x(厘米)
 	public int iStartPosY;  // 起始坐标y(厘米)
 	public int iStartPosZ;  // 起始坐标z(厘米)
-	public int iDstPosRefType;  // 目标位置参考
+	public int iDstPosRefType;  // 目标位置参�?
 	public int iDstBindPoint;  // 目标绑定骨骼
 	public int iDstPosX;  // 目标坐标x(厘米)
 	public int iDstPosY;  // 目标坐标y(厘米)
@@ -2619,8 +2619,8 @@ public class cfg_BattleFormation : IDataObj
 	public int iVerifyMode;  // 校验模式
 	public int iBattleSceneID;  // 战斗场景ID
 	public int iOpBehaviour;  // 操作行为
-	public int[] arrNextRound;  // int[-1]  多回合战斗
-	public int iLevelCorrect;  // 等级修正值
+	public int[] arrNextRound;  // int[-1]  多回合战�?
+	public int iLevelCorrect;  // 等级修正�?
 
 	public IDataObj Clone(){return new cfg_BattleFormation();}
 	public void Load(IDataChunk pDataChunk)
@@ -2689,14 +2689,14 @@ public class cfg_MonsterA : IDataObj
 	public int iCriticalResist;  // 抗暴%
 	public int iCriticalRaise;  // 暴击伤害%
 	public int iCriticalReduce;  // 暴击伤害减免%
-	public int iAccurate;  // 精准值
-	public int iResistance;  // 抵抗值
+	public int iAccurate;  // 精准�?
+	public int iResistance;  // 抵抗�?
 	public int iDamageRaise;  // 伤害增加%
 	public int iPhyDmgReduce;  // 物理减伤%
 	public int iMagDmgReduce;  // 法术减伤%
 	public int iCureRaise;  // 治疗加成%
-	public int iPower;  // 战斗力
-	public int iDisplayPower;  // 显示战斗力
+	public int iPower;  // 战斗�?
+	public int iDisplayPower;  // 显示战斗�?
 
 	public IDataObj Clone(){return new cfg_MonsterA();}
 	public void Load(IDataChunk pDataChunk)
@@ -2813,19 +2813,19 @@ public class cfg_BattleBuffA : IDataObj
 	public int iAudioID;  // 音效ID
 	public int iPileRule;  // 同ID的BUFF叠加规则
 	public int iTimeRefreshRule;  // 时间刷新规则
-	public int iMaxLayer;  // 最大叠加层数
+	public int iMaxLayer;  // 最大叠加层�?
 	public uint dwFlag;  // 标识
 	public int bNotImmune;  // 不能免疫
 	public int bNotDispel;  // 不能驱散
 	public int dwEndCondition;  // 特殊结束条件(按位)
 	public int iDefaultTime;  // BUFF持续时间(ms)
 	public int[] arrEffect;  // int[-1]  固定效果数组
-	public int[] arrRandEffect;  // int[-1]  效果ID数组(有概率触发)
+	public int[] arrRandEffect;  // int[-1]  效果ID数组(有概率触�?
 	public int[] arrRandEffectProb;  // int[-1]  随机效果概率
 	public int iREffRndType;  // 随机方式
-	public int iEndAroseCondition;  // 添加后续buffer的条件
+	public int iEndAroseCondition;  // 添加后续buffer的条�?
 	public int[] arrEndAroseBuff;  // int[-1]  结束时触发buff
-	public int[] arrEndAroseProb;  // int[-1]  结束时触发buff的概率(万分比)
+	public int[] arrEndAroseProb;  // int[-1]  结束时触发buff的概�?万分�?
 
 	public IDataObj Clone(){return new cfg_BattleBuffA();}
 	public void Load(IDataChunk pDataChunk)
@@ -2887,8 +2887,8 @@ public class cfg_Summon : IDataObj
 	public int iLevel;  // 等级ID
 	public int iExp;  // 到下一级（十连召唤）的经验
 	public int iDmg;  // 点击伤害
-	public int iResPointMaxValue;  // 资源点上限
-	public int iResPointTime;  // 资源点时间
+	public int iResPointMaxValue;  // 资源点上�?
+	public int iResPointTime;  // 资源点时�?
 	public int iResPointRecover;  // 资源点恢复数
 
 	public IDataObj Clone(){return new cfg_Summon();}
@@ -2935,24 +2935,24 @@ class cfg_Summon_idx0_cmper : IComparer<IIndexObj>
 public class cfg_SkinInfo : IDataObj
 {
 	public int iID;  // 皮肤ID
-	public string szResPath;  // 主模型路径
+	public string szResPath;  // 主模型路�?
 	public string szUIResPath;  // 在UI展示的时候的资源路径
 	public string szHeroDetailResPath;  // 在英雄详情展示的资源路径
-	public string szSkillEffectPath;  // 技能光效路径
+	public string szSkillEffectPath;  // 技能光效路�?
 	public string szAnimIdle;  // 空闲-idle
 	public string szAnimStand;  // 站立-stand
 	public string szAnimWalk;  // 行走-walk
 	public string szAnimRun;  // 跑步-run
 	public string szAnimAttack;  // 普攻-attack
-	public string szAnimSkill01;  // 技能1-skill01
-	public string szAnimSkill02;  // 技能2-skill02
-	public string szAnimSkill03;  // 技能3-skill03
-	public string szAnimSkill04;  // 技能4-skill04
-	public string szAnimSkill05;  // 技能5-skill05
+	public string szAnimSkill01;  // 技�?-skill01
+	public string szAnimSkill02;  // 技�?-skill02
+	public string szAnimSkill03;  // 技�?-skill03
+	public string szAnimSkill04;  // 技�?-skill04
+	public string szAnimSkill05;  // 技�?-skill05
 	public string szAnimDeath;  // 死亡-death
 	public string szAnimHit;  // 受击-hit
 	public string szAnimVictory;  // 胜利-victory
-	public string szAnimFall;  // 击倒-fall
+	public string szAnimFall;  // 击�?fall
 	public string szHangRoot;  // 脚底挂点-root
 	public string szHangTop;  // 头顶挂点-top
 	public string szHangeChest;  // 胸部挂点-chest
@@ -3021,13 +3021,13 @@ class cfg_SkinInfo_idx0_cmper : IComparer<IIndexObj>
 public class cfg_Reddot : IDataObj
 {
 	public int iID;  // 红点ID
-	public int[] arrChildren;  // int[-1]  子节点
+	public int[] arrChildren;  // int[-1]  子节�?
 	public int enShowLimit;  // 显示限制
 	public int iPriority;  // 权重
 	public int[] arrStyleParams;  // int[-1]  显示风格
-	public int bUseSubID;  // 是否使用子ID(程序填)
+	public int bUseSubID;  // 是否使用子ID(程序�?
 	public int enFinishMode;  // 完成方式(程序填）
-	public string szFinishParams;  // 完成参数(程序填)
+	public string szFinishParams;  // 完成参数(程序�?
 	public int iFunctionID;  // 功能ID
 
 	public IDataObj Clone(){return new cfg_Reddot();}

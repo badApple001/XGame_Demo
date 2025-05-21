@@ -65,11 +65,11 @@ MonoBehaviour:
   - stateID: 1
     showWndsOnEnter:
     - GameScripts.HeroTeam.UI.HeroTeamLogin.UIHeroTeamLogin
-    closeWndsOnLeave: []
+    closeWndsOnLeave:
+    - GameScripts.HeroTeam.UI.HeroTeamLogin.UIHeroTeamLogin
   - stateID: 2
     showWndsOnEnter:
     - GameScripts.HeroTeam.UI.HeroTeamGame.UIHeroTeamGame
-    closeWndsOnLeave:
-    - GameScripts.HeroTeam.UI.HeroTeamLogin.UIHeroTeamLogin
+    closeWndsOnLeave: []
   MainWindowTypePath: 
   PrefabsDir: 

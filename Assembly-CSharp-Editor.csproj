@@ -67,13 +67,11 @@
     <Compile Include="Assets\Editor\AssetsTool\Importer\Define\RpcMethodClass.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\Config\ReferenceFinderConfig.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\SerializeTool.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\DepthOfFieldEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Editor_TweenSequence.cs" />
     <Compile Include="Assets\Editor\ShaderControl\Demo\Effect.cs" />
     <Compile Include="Assets\Editor\UI\TreeMenu.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXSortedDictionary.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\Data\ReferenceFinderData.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\NoiseAndGrainEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\Export\PackerEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\FadeInOut\Effect_FadeInOutMaterialFloatEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\ImageSliceAreaDetectTool.cs" />
@@ -119,7 +117,6 @@
     <Compile Include="Assets\ThirdParty\uHyperText\Editor\UHyperTextEditorUtility.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Shield\SpreadShieldEditor.cs" />
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDLayerGroupInfo.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\ColorCorrectionCurvesEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\SmokeTrailEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\Export\CustomExport.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Util\Editor_PrefabUpdate.cs" />
@@ -132,7 +129,6 @@
     <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\GUI\TreeView\Column\AssetTreeViewColumn.cs" />
     <Compile Include="Assets\Editor\Builder\iOS\XCodeProjectBuilder.cs" />
     <Compile Include="Assets\Editor\UI\EditorGUILayoutUtility.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\BloomEditor.cs" />
     <Compile Include="Assets\Editor\XGame\EditorGameSchame.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\ExecutionOrderSetter.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\GUI\ReferenceFinderWindow.cs" />
@@ -166,7 +162,6 @@
     <Compile Include="Assets\Editor\UGUIFont\Editor\Font\BMFont.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\Font\ByteReader.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\AssetConfig\UIRectPlugInEditor.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\ColorCorrectionLookupEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\FindUIReferanceRes.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\SpriteAtlasSearchTool.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\ImageOptimizeUtility.cs" />
@@ -200,7 +195,6 @@
     <Compile Include="Assets\Editor\AssetsTool\Importer\Editor\AssetProcessMenu.cs" />
     <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Editor\notice.cs" />
     <Compile Include="Assets\Editor\Util\EditorGameScheme.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\VignetteAndChromaticAberrationEditor.cs" />
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDPostProcessor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ResTools\Texture\FastPackerPolicy.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\Effect_WeaponTrailEditor.cs" />
@@ -212,8 +206,6 @@
     <Compile Include="Assets\Editor\AssetsTool\Importer\Define\ImportDefine.cs" />
     <Compile Include="Assets\Editor\Util\XGameEditorUtilityEx.cs" />
     <Compile Include="Assets\Editor\HybridCLR\HybridCLREditor.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\TonemappingEditor.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\BloomAndFlaresEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Util\EditorCoroutineRunner.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Skin\SkinPrefabOptimizer.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\XCMod.cs" />
@@ -227,7 +219,6 @@
     <Compile Include="Assets\Editor\Tools\2DModel\SpriteRenderAniEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\Export\AssetBundleIDMap.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\PrefabSpriteDetectTool.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\EdgeDetectionEditor.cs" />
     <Compile Include="Assets\Editor\AddressableAsset\GameScriptableObjectEditorWindow.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\UV\UVProjectorInspector.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\Plist\Plist.cs" />
@@ -242,7 +233,6 @@
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\TableView\TableView_Impl.cs" />
     <Compile Include="Assets\Editor\UIEnviroment\UIEditorEnvSettings.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\AssetVerifyTool\Strategy\DefaultMatVerifyStrategy.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\MoveSceneViewCamera.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\PrefabLayerFactory.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\PrefabLayer\PrefabLayerBase.cs" />
     <Compile Include="Assets\Editor\EditorUse.cs" />
@@ -250,7 +240,6 @@
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXObject.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\Font\BMGlyph.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\Export\AssetBundleBuildConfig.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\AntialiasingEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ResTools\Texture\TextureForamtHelper.cs" />
     <Compile Include="Assets\Editor\ResTools\Material\ShaderCollector.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\CustomImageReplace.cs" />
@@ -263,7 +252,6 @@
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\ModifyCodeCheck.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\Ugui2Psd_Setting.cs" />
     <Compile Include="Assets\Editor\MeshRenderSortingLayerAndOrderSetterEditor.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\CameraMotionBlurEditor.cs" />
     <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Editor\AndroidBuilder.cs" />
     <Compile Include="Assets\Editor\ResTools\ShaderEditor\MaterialOptimizer.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\BuildAppConfig.cs" />
@@ -274,9 +262,7 @@
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\AutoBuildDLL.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\ResInquireUtil.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\AssetVerifyTool\Util\VerifyPath.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\SunShaftsEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\TextureFormat\TexureFmtSetting.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Editor\ImageEffects\DepthOfFieldDeprecatedEditor.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\TestUIWindow\UIWindowTester.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\PrefabLayer\ExtendLayer.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\CustomABBuilder.cs" />

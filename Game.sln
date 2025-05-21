@@ -5,11 +5,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnityEngine.UI", "UnityEngi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{D8888F6A-ABE1-C49B-1A38-F65A81021668}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uhypertext-scrpits", "uhypertext-scrpits.csproj", "{1152853D-11DC-4655-445C-35D90140A4BC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOTween-Scripts", "DOTween-Scripts.csproj", "{0D7A2F57-167B-2237-56B8-A577A63B5D36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "spine-timeline", "spine-timeline.csproj", "{3E3A0C43-1B6D-9344-D080-5899E17E65D5}"
 EndProject
@@ -55,10 +55,6 @@ Global
 		{D8888F6A-ABE1-C49B-1A38-F65A81021668}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8888F6A-ABE1-C49B-1A38-F65A81021668}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8888F6A-ABE1-C49B-1A38-F65A81021668}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1152853D-11DC-4655-445C-35D90140A4BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1152853D-11DC-4655-445C-35D90140A4BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1152853D-11DC-4655-445C-35D90140A4BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -67,6 +63,10 @@ Global
 		{0D7A2F57-167B-2237-56B8-A577A63B5D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D7A2F57-167B-2237-56B8-A577A63B5D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D7A2F57-167B-2237-56B8-A577A63B5D36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E3A0C43-1B6D-9344-D080-5899E17E65D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E3A0C43-1B6D-9344-D080-5899E17E65D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E3A0C43-1B6D-9344-D080-5899E17E65D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
