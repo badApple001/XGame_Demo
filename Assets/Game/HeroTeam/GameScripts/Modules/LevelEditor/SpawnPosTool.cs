@@ -42,7 +42,7 @@ public class SpawnPosTool : MonoBehaviour
             int yScale = i / m_iCols;
             int xScale = i % m_iCols;
 
-            Vector3 pos = spawnPos + Vector3.right * xScale * m_fXInterval + Vector3.back * yScale * m_fYInterval;
+            Vector3 pos = spawnPos + Vector3.right * xScale * m_fXInterval + Vector3.down * yScale * m_fYInterval;
             transform.GetChild( i ).position = pos;
         }
 

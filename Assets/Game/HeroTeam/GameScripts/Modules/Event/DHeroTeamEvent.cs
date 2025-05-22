@@ -5,7 +5,7 @@ using UnityEngine;
 namespace GameScripts.HeroTeam
 {
 
-   
+
     public class DHeroTeamEvent
     {
 
@@ -17,6 +17,9 @@ namespace GameScripts.HeroTeam
 
         /// <summary> 开始战斗 </summary>
         public readonly static ushort EVENT_START_BATTLE = EVENT_HEROTEAM_BASE++;
+
+        /// <summary> 相机震动 </summary>
+        public readonly static ushort EVENT_CAMERA_SHAKE = EVENT_HEROTEAM_BASE++;
 
         //最大值
         public const ushort EVENT_ALL_MAXID = 30000;
@@ -32,6 +35,7 @@ namespace GameScripts.HeroTeam
         public static readonly byte SOURCE_TYPE_UNKNOW = 0;    // 类型ID根
         public static readonly byte SOURCE_TYPE_LOCALDATA = 1;    //本地数据事件类型
         public static readonly byte SOURCE_TYPE_ENTITY = 2;//实体事件类型
+        public static readonly byte SOURCE_TYPE_UI = 2;//UI事件类型
     };
 
 
@@ -41,17 +45,24 @@ namespace GameScripts.HeroTeam
     public class HeroTeamDataChangedEventContext
     {
         private HeroTeamDataChangedEventContext( ) { }
-        
-        public static HeroTeamDataChangedEventContext Ins { private set; get; } = new HeroTeamDataChangedEventContext( );
-       
-        public int EventKey = typeof( HeroTeamDataChangedEventContext ).GetHashCode();
 
+        public static HeroTeamDataChangedEventContext Ins { private set; get; } = new HeroTeamDataChangedEventContext( );
 
         ////////////////////////// 事件传递的数据 ///////////////////////////
-        public int iShareData;
+        public int nShareData;
     }
 
 
+    public class CameraShakeEventContext
+    {
+        private CameraShakeEventContext( ) { }
+        public static CameraShakeEventContext Ins { private set; get; } = new CameraShakeEventContext( );
 
+        public float intensity = 0.5f;
+        public float duration = 0.5f;
+        public int vibrato = 20;
+        public float randomness = 90f;
+        public bool fadeOut = true;
+    }
 
 }

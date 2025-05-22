@@ -19,7 +19,12 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		public static UIHeroTeamGame Instance { get; private set; }
 	    
 		//@Begin_Widget_Variables
+		private RectTransform tran_TopPanel = null;
+		private Image img_UIHp_Boss_Foreground = null;
+		private Text text_BossName = null;
+		private Text text_UIHp_Boss_Text = null;
 		private Button btn_BtnFight = null;
+		private RectTransform tran_BottomPanel = null;
 		//@End_Widget_Variables
 		
 		protected override void OnSetupOrClearWndInstance(bool isCreate)
@@ -37,14 +42,24 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		
 		protected override void InitWidgets() //@Window 
 		{
-			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(0);
+			tran_TopPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(0);
+			img_UIHp_Boss_Foreground = Meta.Widgets.GetWidgetComponent<Image>(1);
+			text_BossName = Meta.Widgets.GetWidgetComponent<Text>(2);
+			text_UIHp_Boss_Text = Meta.Widgets.GetWidgetComponent<Text>(3);
+			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(4);
+			tran_BottomPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(5);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
 		protected override void ClearWidgets() //@Window 
 		{
 			OnClearWidgets();
+			tran_TopPanel = null;
+			img_UIHp_Boss_Foreground = null;
+			text_BossName = null;
+			text_UIHp_Boss_Text = null;
 			btn_BtnFight = null;
+			tran_BottomPanel = null;
 
 		} //@End_ClearWidgets
 

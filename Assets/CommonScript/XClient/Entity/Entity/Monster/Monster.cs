@@ -415,6 +415,12 @@ namespace XClient.Entity
                     buffComponent.AddBuff(10004);
                 }
                 */
+                var bar = m_prefabPart.gameObject.GetComponentInChildren<HpBar>( );
+                if ( null != bar )
+                {
+                    Debug.Log( "血条绑定对象" );
+                    bar.SetEntity( this );
+                }
             }
         }
 

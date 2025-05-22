@@ -93,9 +93,15 @@ namespace GameScripts.Monster
             {
                 monsterLauncherMonster.enabled = false;
 
+
+
+
                 //所有人都不能打棋子
                 monsterLauncherMonster.listFriendCamps.Clear( );
                 //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_PIECE );
+
+                monsterLauncherHero.enabled = false;
+                monsterLauncherHero.listFriendCamps.Clear( );
             }
 
 
@@ -262,7 +268,7 @@ namespace GameScripts.Monster
             monsterLauncherMonster.listRefreshParam.Add( 1 );
             monsterLauncherMonster.paramType = PARAM_TYPE.PARAM_TYPE_COUNT;
             monsterLauncherMonster.limit_MonsterCount = 1000;
-            //monsterLauncher.camp = CampDef.GetLocalCamp( BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER );  //BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER;
+            monsterLauncherMonster.camp = CampDef.GetLocalCamp( BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER );  //BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER;
             monsterLauncherMonster.bRandomPos = false;
             monsterLauncherMonster.refreshPos = new Vector3( cfg.aryBossBornPos[ 0 ], cfg.aryBossBornPos[ 1 ], cfg.aryBossBornPos[ 2 ] );
 
@@ -292,6 +298,7 @@ namespace GameScripts.Monster
 
                 //释放出生技能
                 __CastBornSkill( monster, cfg_monster.bornskillIDs );
+
                 return monster.id;
 
             }
@@ -312,7 +319,7 @@ namespace GameScripts.Monster
                 monsterLauncherHero.limit_MonsterCount = 1000;
                 monsterLauncherHero.bRandomPos = false;
                 monsterLauncherHero.refreshPos = pos;
-                //monsterLauncher.camp = CampDef.GetLocalCamp( camp );
+                monsterLauncherHero.camp = CampDef.GetLocalCamp( camp );
                 monsterLauncherHero.listFriendCamps.Clear( );
                 List<IMonster> listMonster = monsterLauncherHero.RefreshMonster( );
                 if ( listMonster.Count > 0 )

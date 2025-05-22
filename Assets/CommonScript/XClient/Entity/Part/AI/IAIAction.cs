@@ -28,6 +28,8 @@ namespace XClient.Entity
         AI_ACTION_CIRCLE_SKILL,//循环施法
         AI_ACTION_COLLISION_EXPLOSION,//碰撞自爆
         AI_ACTION_ROUTE_MOVE,//根据路由点移动
+        AI_ACTION_NAVMESH_MOVE,//根据NavMesh移动
+        AI_ACTION_SORTING_LAYER = 7,//实时通过Y轴改变SortingLayer
     }
 
     //AI行为创建器

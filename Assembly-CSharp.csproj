@@ -58,15 +58,12 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\Tank\TankMovement.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSUnityPoolNode.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\Tank\TankHealth.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\Window\LOPUIWindowMetaEx.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorConfig.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\Mono\MonoFilterList.cs" />
     <Compile Include="Assets\CommonScript\XClient\PreLoad\PreLoadCache.cs" />
     <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\Test\Rotate.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionCurves.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateLogin.cs" />
     <Compile Include="Assets\CommonScript\Ani\SpriteRenderAni.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\InputEvents\InputEventCamera.cs" />
@@ -75,7 +72,6 @@
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorUtil.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterLauncher.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSEventEngineNode.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\SepiaTone.cs" />
     <Compile Include="Assets\CommonScript\XClient\Utils\CommonNetMessageRegister.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Entity\AgentEntity.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\LuaPackProcess.cs" />
@@ -89,7 +85,6 @@
     <Compile Include="Assets\CommonScript\XClient\Game\ReddotConfigData.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\TransferMessageSinkEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\PreProcessers\ShaderWarmupPreProcesser.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\Extensions\GameStateAssociateWindowsSetup.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\XmlLoader.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableObjectItemPoolNewCountNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\EffectActionBase.cs" />
@@ -97,10 +92,11 @@
     <Compile Include="Assets\CommonScript\XClient\Login\ServerSelectManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\GoodsEntity.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\Monster.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\UI\TankNavs\UITankNavs.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\BaseHandler.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ImageEffects.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameStateAssociateWindowsSetup.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\UIWindowEx.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\Buff.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\AISkillAction.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\TextSetting\TextSettingConfig.cs" />
     <Compile Include="Assets\CommonScript\XClient\GameGlobal.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\Test\TestSelectOneDataEventHandler.cs" />
@@ -111,31 +107,29 @@
     <Compile Include="Assets\CommonScript\XClient\Game\ShaderCollectionWarmUp.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\DelayActive.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\TitleBuffComponent.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModule.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\ResourcesManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Serializer\INetableSerializer.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\EdgeDetection.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModuleMessageHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\CreatureInfoBarPart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\RectTransformSizeSyncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\IGameNetCom.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameApp.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\PrefamceInfo.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\IHeroTeamModule.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\SpineResourcesLoader.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ContrastEnhance.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\TransformInfo.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Blur.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\BulletLauncher.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorDataUnit.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\IResLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateSwitchValidator.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\GameTime.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Modules\HeroCard\IHeroCardModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\GameNetCom.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\RoleDataPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\AI\IAIPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skill\ISkillPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\VirtualServer.cs" />
     <Compile Include="Assets\CommonScript\Ani\NetObjectAni.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\SunShafts.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\EntityModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\ButtonEx.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\VirtualNetObject.cs" />
@@ -143,6 +137,7 @@
     <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\MultiKeyDictionary.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\TextSetting\TextColorLibrary.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterDataPart.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSAssetNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\IDReco.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\ICollisionSink.cs" />
@@ -153,21 +148,17 @@
     <Compile Include="Assets\CommonScript\XClient\Login\LoginModule.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\Mono\MonoNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\HorOrVerLayoutGroupAutoExpandChild.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsHelper.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Serializer\NetableSerializerForCSMessage.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateSwitchValidator.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\BuffBaseComponent.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSNetModuleNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\CameraOrthographicProjectionSizeAdapter.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\Extensions\GameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCInnerNames.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\FileInquireUtil.cs" />
     <Compile Include="Assets\CommonScript\Spine\SpineResourcesLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModuleMessageHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\PreProcessers\GamePreProcesser.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\IRPCModule.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\Extensions\UIWindowContainerEx.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\Shell\ShellExplosion.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateBattle.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineTickTaskNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\OrmBuffer\OrmBufferManager.cs" />
@@ -175,25 +166,19 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Move\EntityMovePart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\HandleableResourceLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\LoginDataManager.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\Shell\ShellExplosion.cs" />
     <Compile Include="Assets\CommonScript\XClient\FlowText\IconFlowTextView.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\TrackMovement.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolNewCountNode.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Extensions\UIWindowEx.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameScheme\gamescheme.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\DepthOfFieldDeprecated.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\EventMonitor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateNone.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineSimpleTaskNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\NetCommDataManager.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\UI\UIDirectionControl.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\ICreatureInfoProvider.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\TextMeshProPreferreWidthSyncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DGlobalEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Reddot\ReddotModuleMessageHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\VirtualNetObjectManager.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Modules\HeroCard\HeroCardModule.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Extensions\UIWindowContainerEx.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableObjectItemPoolQueueCountNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UI2DTrigger.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\InnerResourceLoader\RequestData.cs" />
@@ -204,21 +189,16 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\ResourceLoadAdapter.cs" />
     <Compile Include="Assets\CommonScript\XClient\Reddot\ReddotModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateBase.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\CameraMotionBlur.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\BulletDataPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\NetModule\NetModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\Q1GameComsMonitor.cs" />
     <Compile Include="Assets\G_Artist\Shader\panda shader\PandaSampleShaderGUIV1.0.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\EntityModuleMessageHandler.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Bloom.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIRebuild.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\NetworkManager.cs" />
     <Compile Include="Assets\CommonScript\Ani\ImageMaterialAnim.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\commprotocol.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\IBulletEnvProvider.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\GlobalFog.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Extensions\GameStateAssociateWindowsSetup.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\Extensions\UIWindowEx.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UISound.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\IDRecoEntityMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\FrameMonitor.cs" />
@@ -229,32 +209,30 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\XGameAppBuilder.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\SelectOneOptionData.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IGameStateManager.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\Login\UILogin_Generate.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIDrag.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\TextMeshProAutoLink.cs" />
     <Compile Include="Assets\CommonScript\XClient\KeywordFilter\Scripts\kwFilterApi.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateContext.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skill\SkillCompontBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\TimerMonitor.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\Tank\TankShooting.cs" />
-    <Compile Include="Assets\CommonScript\XClient\Common\Src\GameHelp.cs" />
-    <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\ModuleDef\DModuleID.cs" />
-    <Compile Include="Assets\BaseScripts\AssetScripts\Utils\RawImageVideoDisplay.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\AllDisciple\UIAllDisciple_Generate.cs" />
-    <Compile Include="Assets\CommonScript\XClient\Game\ModuleSetup.cs" />
+    <Compile Include="Assets\CommonScript\XClient\Common\Src\GameHelp.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamLogin\UIHeroTeamLogin.cs" />
+    <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\MonoNetObject.cs" />
+    <Compile Include="Assets\BaseScripts\AssetScripts\Utils\RawImageVideoDisplay.cs" />
+    <Compile Include="Assets\CommonScript\XClient\Game\ModuleSetup.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\Window\UIWindowName\AssetConfigBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\ForwardMovement.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolQueueCountNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\I18N\I18NFontPreProcesser.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\UnityObjPoolResLoader.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Data\HeroTeamDataManager.cs" />
     <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\ReporterMessageReceiver.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\VisibleComponent.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\UIWindowExSetting.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIBatchDepthAnalyzeResultReader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\ISelectOneDataSource.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\PostEffectsBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\LoginStateManager.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\NetworkReachabilityMonitor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IModule.cs" />
@@ -262,43 +240,38 @@
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateGame.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\ICreatureEntity.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskLevel.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\UI\TankNavs\UITankNavs_Generate.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorMgr.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Tonemapping.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\SchemeModule\GameSchemeCom.cs" />
     <Compile Include="Assets\CommonScript\XClient\Room\RoomModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\PackDataMerge.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientObscurance.cs" />
     <Compile Include="Assets\CommonScript\Ani\SpineAni.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\CanvasCull.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DComID.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\KingAICreator.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\CollisionItem.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\INetVar.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\SchemeModule\EditorSchemeCenter.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEmojSelector.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\CanvasScalerEx.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\BloomAndFlares.cs" />
-    <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\SeedingVirMsgHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\ForwardMovement2D.cs" />
+    <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\SeedingVirMsgHandler.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Animation\SimpleAnimatioEventHandler.cs" />
     <Compile Include="Assets\CommonScript\Spine\SpineObject.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\LevelEditor\SpawnPosTool.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame_Generate.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonoTestClass.cs" />
     <Compile Include="Assets\CommonScript\Spine\SpineTimeLine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\XLua\ILuaProxyMono.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\NetTransferMessageRegister.cs" />
     <Compile Include="Assets\CommonScript\XClient\FlowText\FlowSpriteSwitcherView.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\CanvasRaycastFilter.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\Tank\TankHealth.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateGateway.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\InnerResourceLoader\ResourceData.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\NetDataPart.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\VignetteAndChromaticAberration.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\GMVirMsgHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\NetObjectTransform.cs" />
     <Compile Include="Assets\CommonScript\XClient\KeywordFilter\Scripts\CKwFilter.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ScreenOverlay.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\GameNotify.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\Camera\CameraControl.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\SpineSkinPart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\ResourceLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\ButtonAnimation.cs" />
@@ -306,17 +279,14 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DGlobalErrorCode.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\WhiteList.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\IVirtualServer.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ImageEffectBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Orm\CORM_packaux.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\UI\UIDirectionControl.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamLogin\UIHeroTeamLogin_Generate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\PersonEntity.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateMachine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\WWW\WWWRequest.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\Managers\GameManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IGame.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\IMonitorMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\NetObjectBehaviourTest.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\BlurOptimized.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetGameObjectEntity.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineMixSkinAnimation.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameSceneManager.cs" />
@@ -324,36 +294,28 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\EnvProviderMgr.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIBatchDepthRunningAnalyze.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\AI\IAIAction.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\Managers\TankManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\CSPackProcess.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Orm\COrmCSharpSerializer.cs" />
     <Compile Include="Assets\CommonScript\XClient\FlowText\CustomFowTextView.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateLogin.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\TextSetting\PSDTMPTextStyleSettings.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\Main\UIMain_Generate.cs" />
     <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\Test\TestReporter.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\XLua\ILua.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\Login\UILogin.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\GameManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\Random\RandomUtility.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\UI\TankLogin\UITankLogin.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\LoginModuleMessageHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\VirtualNet.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndGrain.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\Function.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\SelectOneDataSourceSelector.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\INetObject.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\ILuaEngine.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\MainNavs\UIMainNavs_Generate.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\Extensions\ExtenModuleConfigGenerate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\IMonster.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Agent.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\BloomOptimized.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Container\NetObjectElement.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\SchemeModule\New\CDefaultFileSystem.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineSkinAnimation.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\DepthOfField.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Event\DHeroTeamEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\NetID.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\Managers\TankManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateEnterRoom.cs" />
     <Compile Include="Assets\CommonScript\GamePlayConfig.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\InnerResourceLoader\InnerResourceLoader.cs" />
@@ -363,16 +325,11 @@
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSFrameUpdateNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskBorderBlur.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\RoleEntity.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Extensions\GameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IBuff.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Antialiasing.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\NoiseAndScratches.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\MessageSinkEvent.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ScreenSpaceAmbientOcclusion.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineBaseExcutorNodeBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IAgentModule.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Modules\HeroCard\HeroCardModuleMessageHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\INetEntity.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\ScrollRectController.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageView.cs" />
@@ -390,14 +347,12 @@
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateNone.cs" />
     <Compile Include="Assets\CommonScript\XClient\Utils\ModuleMessageHandler.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolNodeBase.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\Main\UIMain.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\Camera\CameraControl.cs" />
     <Compile Include="Assets\CommonScript\Ani\ImageAni.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\MonitorNodeBase.cs" />
     <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\ZipLibrary\ZipHelper.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Vortex.cs" />
-    <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskEffect.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\RefreshMonsterMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\AI\AIPart.cs" />
+    <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskEffect.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\RandCreater.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\IEntityModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\INetTransferModule.cs" />
@@ -406,27 +361,21 @@
     <Compile Include="Assets\CommonScript\XClient\LightEffect\EffectMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineMixSkinGraphic.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetVisibleEntity.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionLookup.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\LoginStateMachine.cs" />
-    <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\DefualtSpriteLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\NetVarImpl.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\Extensions\ExtenModuleConfigGenerate.cs" />
+    <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\DefualtSpriteLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\NetObject.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Twirl.cs" />
     <Compile Include="Assets\CommonScript\XClient\Room\RoomPropertySet.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\NetVar.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Entity\AgentVisiblePart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\InputEvents\InputEventPoint.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetEntity.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ContrastStretch.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\RectTransformSetter.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageItem.cs" />
     <Compile Include="Assets\BaseScripts\Utils\ElementCache.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIMoviePlayer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\CreatureInfoBarDesigner.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameRoots.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\Managers\GameManager.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Quads.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\I18N\I18NTranslater.cs" />
     <Compile Include="Assets\CommonScript\Extensions\GameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestEntityType.cs" />
@@ -440,13 +389,12 @@
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\BulletHitMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIJoystickCommon.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Data\HeroTeamLocalData.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameProjectSettings.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEmojItem.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetRecoObject.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Scripts\Tank\TankShooting.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\NetworkUtility.cs" />
     <Compile Include="Assets\CommonScript\XClient\Utils\CountdownManager.cs" />
-    <Compile Include="Assets\Game\3DTank\GameScripts\UI\TankLogin\UITankLogin_Generate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\NetModule\NetHeartBeatChecker.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\IResourcesLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\SystemSettings.cs" />
@@ -457,37 +405,34 @@
     <Compile Include="Assets\CommonScript\XClient\Agent\AgentModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\ModuleDef\IGameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\XGameSink.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\TiltShift.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\NetVarUtility.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageData.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\ILoginModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\NetDefine.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\AllDisciple\UIAllDisciple.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\ExtenModuleConfigGenerate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\HtmlToRtf.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\UHyperTextToolExtend.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Complete\Scripts\Tank\TankMovement.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Fisheye.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\minigamepol.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\NetMonitor.cs" />
-    <Compile Include="Assets\Game\2DCardDemo\GameScripts\UI\MainNavs\UIMainNavs.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\SchemeModule\CSchemeModule.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEventExtend.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineSkinGraphic.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Move\IEntityMovePart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IEffectAction.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\UI\GameActorChatBox.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Damage\DamagePart.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\MotionBlur.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\BodyEffectCompnent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Init\GameInitConfig.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\CreaseShading.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\Mono\MonitorMono.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterSystem.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\INetObjectBehaviour.cs" />
-    <Compile Include="Assets\CommonScript\XClient\Common\Interface\IRoomModule.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\SpinePrefabPart.cs" />
+    <Compile Include="Assets\CommonScript\XClient\Common\Interface\IRoomModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\INetCommDataHanlderInfo.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\MonoGameRuntimeTest.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolIncreaseCountNode.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\UIWindowContainerEx.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\NetCommData.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\EntityType.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skill\SkillPart.cs" />
@@ -499,194 +444,120 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IUpdateEngine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterDieEffectMgr.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorResultReader.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Grayscale.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\NetObjectManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\Test\TestSelectOneDataSources.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\ColorCorrectionRamp.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageTextEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
-    <Compile Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Scripts\Triangles.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameExtensions.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameStateAssociateWindowsSetup.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\UIWindowContainerEx.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\UIWindowEx.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\ExtenModuleConfigGenerate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamLogin\UIHeroTeamLogin.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamLogin\UIHeroTeamLogin_Generate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame_Generate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\UI\GameActorChatBox.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModule.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\IHeroTeamModule.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModuleMessageHandler.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\Data\HeroTeamLocalData.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\Data\HeroTeamDataManager.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Scripts\Event\DHeroTeamEvent.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\AISorttingLayerAction.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Camera\CameraController.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Skill\CampDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\HpBar.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\Tonemapper.shader" />
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\GlobalFog.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\VortexEffect.shader" />
     <None Include="Assets\ThirdParty\Spine\version.txt" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Dissolution_Blend_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskBorderBlur.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrain.shader" />
     <None Include="Assets\G_Artist\Shader\Blend_Comming_Prop.shader" />
     <None Include="Assets\BaseScripts\Dll\ICSharpCode.SharpZipLib.dll" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\DLAA.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Niuqu.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\frag_ao.cginc" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_blend.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset3.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskLevel.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlurDX11.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_LitA_ASE.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_LitA_ASE_UI.shader" />
     <None Include="Assets\G_Artist\Shader\panda shader\PandaShaderSampleV1.0.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_distort_blend.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Fonts\Bowlby_One\OFL.txt" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\VignettingShader.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurves.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Additive_Mask_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\Skybox Cubemap Extended.shader" />
     <None Include="Assets\G_Artist\Shader\UISpriteLine.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_LitB_ASE_UI.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Spine\acher\001.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\ScoreShader.shader" />
     <None Include="Assets\G_Artist\Shader\Effect_distortion_blend.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_Lit_ASE_DisA.shader" />
     <None Include="Assets\G_Artist\Shader\Test_Overdraw.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskEffectImge.shader" />
     <None Include="Assets\G_Artist\Shader\Blend_Comming_1.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\SSAOShader.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionCurvesSimple.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\Blend.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Dissolution_blend3.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Hand Painted Seamless ClayGround Texture\Documentation\Documentation.txt" />
     <None Include="Assets\G_Artist\Shader\UIGray.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_blend_fgui_list.shader" />
     <None Include="Assets\G_Artist\Shader\URP\CaptureBlur.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\SSAA.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\SunShaftsComposite.shader" />
     <None Include="Assets\Service\service.xml" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_AB.shader" />
     <None Include="Assets\BaseScripts\Dll\BaseToolsLib.dll" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ConvertDepth.shader" />
     <None Include="Assets\G_Artist\Shader\DissolveNoise.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Additive.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\TwirlEffect.shader" />
     <None Include="Assets\BaseScripts\Dll\XGameBase.dll" />
     <None Include="Assets\资源目录说明.txt" />
     <None Include="Assets\G_Artist\Shader\HYL_Sprite-Lit-Default_Add.shader" />
     <None Include="Assets\Service\serverlist.xml" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Apply.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Dissolution_Additvie_JZB.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Adaptation.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
     <None Include="Assets\G_Artist\Shader\Add_Fresnel.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\CameraMotionBlur.shader" />
     <None Include="Assets\G_Artist\Shader\Toon Outlinenone.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ScreenSpaceAmbientObscurance.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_add.shader" />
     <None Include="Assets\BaseScripts\Dll\XGameEngine.dll" />
     <None Include="Assets\link.xml" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\CreaseApply.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA3Console.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionSelective.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\RadialBlur.shader" />
     <None Include="Assets\G_Artist\Shader\Blend_TwoSides.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\VignetteShader.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\MotionBlurClear.shader" />
     <None Include="Assets\G_Artist\Shader\Electricity.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\SepiaToneEffect.shader" />
     <None Include="Assets\G_Artist\Shader\Blend_CenterGlow.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrection3DLut.shader" />
     <None Include="Assets\G_Artist\Shader\Toon Outline.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Additive_Mask.shader" />
     <None Include="Assets\CommonScript\XClient\KeywordFilter\Plugins\x86_64\libkwfilter.dll" />
     <None Include="Assets\G_Artist\Shader\Eff_Bullet.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\SimpleClear.shader" />
     <None Include="Assets\BaseScripts\Utils\Monitor\Config\monitor_mono_only_add.txt" />
     <None Include="Assets\G_Artist\Shader\PFX_Particles_Cutout.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Additive_Mask_Sprite.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ContrastComposite.shader" />
     <None Include="Assets\G_Artist\Shader\Comming_Screen.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\MinMaxReduction.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\BlurEffectConeTaps.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\Bokeh34.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ColorCorrectionEffect.shader" />
     <None Include="Assets\G_Artist\Shader\PFX_Aura.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\FisheyeShader.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Dissolution_blend.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Dissolution_Blend_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_AD.shader" />
     <None Include="Assets\G_Artist\Shader\ActorDieShader.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\G_Artist\Shader\ASE_Flipbook.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
     <None Include="Assets\G_Artist\Shader\PFX_Trail.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\G_Artist\Shader\ActorShader_Hit.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_AB.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBloom.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfField34.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldDX11.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Trail.shader" />
     <None Include="Assets\G_Artist\Shader\Actor_LitEff_ASE.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Blend_Mask.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\G_Artist\Shader\Test_2.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\MotionBlur.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableBlur.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\MobileBlur.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
     <None Include="Assets\G_Artist\Shader\ActorShader.shader" />
     <None Include="Assets\G_Artist\Shader\Blend_CenterGlow_CA.shader" />
     <None Include="Assets\G_Artist\Shader\Blend_Comming.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_Lit_ASE_DisB.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\PrepareSunShaftsBlur.shader" />
     <None Include="Assets\BaseScripts\Utils\Monitor\Config\monitor_mono_not_add.txt" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ShowAlphaChannel.shader" />
     <None Include="Assets\目录结构说明.txt" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\GrayscaleEffect.shader" />
     <None Include="Assets\G_Artist\Shader\2DLit.shader" />
     <None Include="Assets\BaseScripts\Dll\ICSharpCode.SharpZipLib.xml" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\ChromaticAberrationShader.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Spine\boss\mh_1014.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\UIGlow.shader" />
     <None Include="Assets\G_Artist\Shader\HYL_Sprite_UI_UV.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\NoiseAndGrainDX11.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />
     <None Include="Assets\StreamingAssets\updateconfig.xml" />
     <None Include="Assets\G_Artist\Shader\Sprites_ClipWithAngle.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\BlendModesOverlay.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\DepthOfFieldScatter.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\G_Artist\Shader\comming_scene.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Additive_Mask.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\EdgeDetectNormals.shader" />
     <None Include="Assets\ThirdParty\Spine\com.esotericsoftware.spine.timeline-3.8\version.txt" />
     <None Include="Assets\G_Artist\Shader\A_VFX_lizi_katong.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Dissolution_blend.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\G_Artist\Shader\PFX_Particles.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAA2.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderYUV.shader" />
     <None Include="Assets\G_Artist\Shader\UI-FogOfWarMaskEffectImge.shader" />
     <None Include="Assets\G_Resources\App\Shaders\UI-Blur.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -697,17 +568,13 @@
     <None Include="Assets\G_Artist\Shader\Toon Outline_Prop.shader" />
     <None Include="Assets\G_Artist\Shader\SetupLightShader.shader" />
     <None Include="Assets\G_Artist\Shader\SimpleEffectShader.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\Contrast Stretch\Luminance.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\NFAA.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_AD.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Dissolution_Additvie_JZB.shader" />
     <None Include="Assets\BaseScripts\Utils\Monitor\Config\monitor_app_white_list.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\版本文件.txt" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_distort_AD.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_Antialiasing\FXAAPreset2.shader" />
-    <None Include="Assets\Game\3DTank\GameResources\Tank\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\TiltShiftHdrLensBlur.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Shaders\HealthBarShader.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\G_Artist\Shader\HYL_Sprite-Lit-Default.shader" />
     <None Include="Assets\G_Artist\Shader\Effect_distortion_add.shader" />
@@ -1591,6 +1458,10 @@
       <Project>{D8888F6A-ABE1-C49B-1A38-F65A81021668}</Project>
       <Name>Assembly-CSharp-firstpass</Name>
     </ProjectReference>
+    <ProjectReference Include="spine-timeline.csproj">
+      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
+      <Name>spine-timeline</Name>
+    </ProjectReference>
     <ProjectReference Include="HotUpdate.csproj">
       <Project>{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}</Project>
       <Name>HotUpdate</Name>
@@ -1611,6 +1482,10 @@
       <Project>{84E3DEBF-A955-DA74-DE13-C4861FEE2C61}</Project>
       <Name>Unity.TextMeshPro.Editor</Name>
     </ProjectReference>
+    <ProjectReference Include="spine-unity.csproj">
+      <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
+      <Name>spine-unity</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.csproj">
       <Project>{6937D9FB-8FCD-C0F6-BE4F-4A48C1459CBD}</Project>
       <Name>Unity.TextMeshPro</Name>
@@ -1618,6 +1493,10 @@
     <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
       <Project>{FA2439B6-C36C-3780-99A9-7287B350ABEB}</Project>
       <Name>Unity.ScriptableBuildPipeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="spine-unity-editor.csproj">
+      <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
+      <Name>spine-unity-editor</Name>
     </ProjectReference>
     <ProjectReference Include="UpdateCode.csproj">
       <Project>{C43B0F94-7B95-BF7A-0AAA-54E416F3A125}</Project>
@@ -1635,25 +1514,13 @@
       <Project>{D04307D6-A264-82DA-DA61-003196DB8069}</Project>
       <Name>UnityEngine.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="uhypertext-scrpits.csproj">
-      <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
-      <Name>uhypertext-scrpits</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity.csproj">
-      <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
-      <Name>spine-unity</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity-editor.csproj">
-      <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
-      <Name>spine-unity-editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-timeline.csproj">
-      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
-      <Name>spine-timeline</Name>
-    </ProjectReference>
     <ProjectReference Include="spine-timeline-editor.csproj">
       <Project>{BE24A5CF-1929-1307-FAAE-5A2E4E00A926}</Project>
       <Name>spine-timeline-editor</Name>
+    </ProjectReference>
+    <ProjectReference Include="uhypertext-scrpits.csproj">
+      <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
+      <Name>uhypertext-scrpits</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

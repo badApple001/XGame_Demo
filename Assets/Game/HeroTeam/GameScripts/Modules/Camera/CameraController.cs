@@ -1,0 +1,64 @@
+using DG.Tweening;
+using GameScripts.HeroTeam;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using XClient.Common;
+using XClient.Entity.Net;
+using XGame.EventEngine;
+
+namespace GameScripts.HeroTeam
+{
+
+    public class CameraController : MonoBehaviour, IEventExecuteSink
+    {
+        private Transform m_trCamera = null;
+        private Vector3 m_vec3Original;
+        private Tween m_tweenShake;
+
+
+        public void OnExecute( ushort wEventID, byte bSrcType, uint dwSrcID, object pContext )
+        {
+
+            if ( wEventID == DHeroTeamEvent.EVENT_CAMERA_SHAKE )
+            {
+                // 防止多个震动叠加
+                if ( m_tweenShake != null && m_tweenShake.IsActive( ) )
+                    m_tweenShake.Kill( );
+
+                transform.localPosition = m_vec3Original;
+                if ( pContext is CameraShakeEventContext ctx )
+                {
+                    m_tweenShake = transform.DOShakePosition(
+                        duration : ctx.duration,
+                        strength: ctx.intensity,
+                        vibrato: ctx.vibrato,
+                        randomness: ctx.randomness,
+                        snapping: false,
+                        fadeOut: ctx.fadeOut
+                    ).OnComplete( ( ) =>
+                    {
+                        transform.localPosition = m_vec3Original;
+                    } );
+                }
+            }
+
+
+        }
+
+        // Start is called before the first frame update
+        void Start( )
+        {
+            m_trCamera = transform;
+            m_vec3Original = transform.localPosition;
+            GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "CameraController:Start" );
+        }
+
+
+        private void OnDestroy( )
+        {
+            GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0 );
+        }
+
+    }
+}

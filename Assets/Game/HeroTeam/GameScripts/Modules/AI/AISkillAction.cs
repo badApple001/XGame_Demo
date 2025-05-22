@@ -71,35 +71,33 @@ namespace GameScripts.HeroTeam
         public bool OnExeUpdate( )
         {
 
-            if ( m_bRun == false  )
-                return false;
+            if ( m_bRun )
+            {
+                ////假如已经到达目标点了
+                //PrefabPart visiblePart = m_Master.GetPart<PrefabPart>( );
+                //Vector3 curPos = visiblePart.transform.position;// m_Master.GetPos();
+                //if ( Vector3.Distance( curPos, m_targetPos ) <= 0.01f )
+                //{
+                //    m_bRun = false;
+                //    return false;
+                //}
 
+                ////没有在移动或者目标点大于0.1的，重新移动
+                //if ( m_forwardMovement.IsMoving( ) == false )
+                //{
 
+                //    //发送投票消息，询问是否能移动
+                //    // SEVENT_CAN_MOVE.Instance.srcID = m_Master.id;
+                //    // bool ret = GameGlobalEx.EventEgnine.FireVote(DGlobalEventEx.EVENT_CAN_MOVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, SEVENT_CAN_MOVE.Instance);
+                //    //if (ret)
+                //    {
+                //        m_forwardMovement.StartMove( m_Master.GetSpeed( ), curPos, m_targetPos );
+                //    }
+                //}
 
-            ////假如已经到达目标点了
-            //PrefabPart visiblePart = m_Master.GetPart<PrefabPart>( );
-            //Vector3 curPos = visiblePart.transform.position;// m_Master.GetPos();
-            //if ( Vector3.Distance( curPos, m_targetPos ) <= 0.01f )
-            //{
-            //    m_bRun = false;
-            //    return false;
-            //}
+            }
 
-            ////没有在移动或者目标点大于0.1的，重新移动
-            //if ( m_forwardMovement.IsMoving( ) == false )
-            //{
-
-            //    //发送投票消息，询问是否能移动
-            //    // SEVENT_CAN_MOVE.Instance.srcID = m_Master.id;
-            //    // bool ret = GameGlobalEx.EventEgnine.FireVote(DGlobalEventEx.EVENT_CAN_MOVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, SEVENT_CAN_MOVE.Instance);
-            //    //if (ret)
-            //    {
-            //        m_forwardMovement.StartMove( m_Master.GetSpeed( ), curPos, m_targetPos );
-            //    }
-            //}
-
-
-            return true;
+            return false;
         }
 
         public void OnReceiveEntityMessage( uint id, object data = null )
@@ -153,7 +151,7 @@ namespace GameScripts.HeroTeam
         {
             //订阅销毁消息
             IEventEngine eventEngine = XGameComs.Get<IEventEngine>( );
-            eventEngine.Subscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "AIMoveAction:Start" );
+            eventEngine.Subscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0, "AIMoveAction:Start" );
 
             // eventEngine.Subscibe(this, DGlobalEventEx.EVENT_STOP_MOVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "AIMoveAction:Start");// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
             // eventEngine.Subscibe(this, DGlobalEventEx.EVENT_MOVE_SPEED_UPDATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "AIMoveAction:Start");// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
@@ -163,7 +161,7 @@ namespace GameScripts.HeroTeam
         public void Stop( )
         {
             IEventEngine eventEngine = XGameComs.Get<IEventEngine>( );
-            eventEngine.UnSubscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_ENTITY, 0 );
+            eventEngine.UnSubscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0 );
 
             // eventEngine.UnSubscibe(this, DGlobalEventEx.EVENT_STOP_MOVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
             // eventEngine.UnSubscibe(this, DGlobalEventEx.EVENT_MOVE_SPEED_UPDATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
