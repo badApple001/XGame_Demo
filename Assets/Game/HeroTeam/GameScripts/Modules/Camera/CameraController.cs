@@ -1,10 +1,6 @@
 using DG.Tweening;
-using GameScripts.HeroTeam;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using XClient.Common;
-using XClient.Entity.Net;
 using XGame.EventEngine;
 
 namespace GameScripts.HeroTeam
@@ -30,7 +26,7 @@ namespace GameScripts.HeroTeam
                 if ( pContext is CameraShakeEventContext ctx )
                 {
                     m_tweenShake = transform.DOShakePosition(
-                        duration : ctx.duration,
+                        duration: ctx.duration,
                         strength: ctx.intensity,
                         vibrato: ctx.vibrato,
                         randomness: ctx.randomness,
@@ -42,8 +38,13 @@ namespace GameScripts.HeroTeam
                     } );
                 }
             }
-
-
+            else if ( wEventID == DHeroTeamEvent.EVENT_START_BATTLE )
+            {
+                m_trCamera.DOMoveY( 7.49f, 2f ).OnComplete( ( ) =>
+                {
+                    m_vec3Original = transform.localPosition;
+                } );
+            }
         }
 
         // Start is called before the first frame update
@@ -51,13 +52,16 @@ namespace GameScripts.HeroTeam
         {
             m_trCamera = transform;
             m_vec3Original = transform.localPosition;
+
             GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "CameraController:Start" );
+            GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0, "CameraController:Start" );
         }
 
 
         private void OnDestroy( )
         {
             GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0 );
+            GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0 );
         }
 
     }

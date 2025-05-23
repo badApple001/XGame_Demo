@@ -5,7 +5,7 @@ using XClient.Entity;
 
 public class HpBar : MonoBehaviour
 {
-    private SpriteRenderer m_SpriteRenderer;
+    [SerializeField] private SpriteRenderer m_SpriteRenderer;
     private MaterialPropertyBlock m_MPB;
 
     private static readonly int HealthID = Shader.PropertyToID( "_Health" );
@@ -19,7 +19,6 @@ public class HpBar : MonoBehaviour
 
     private void Awake( )
     {
-        m_SpriteRenderer = GetComponent<SpriteRenderer>( );
         m_MPB = new MaterialPropertyBlock( );
     }
 

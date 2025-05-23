@@ -16,7 +16,7 @@ using DG.Tweening;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
-    public partial class UIHeroTeamGame : UIWindowEx
+    public partial class UIHeroTeamGame : UIWindowEx, IEventExecuteSink
     {
         protected override void OnUpdateUI( )
         {
@@ -38,7 +38,30 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
         }
 
+        protected override void OnSubscribeEvents( )
+        {
+            base.OnSubscribeEvents( );
+            GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents" );
+        }
 
+        protected override void OnUnsubscribeEvents( )
+        {
+            base.OnUnsubscribeEvents( );
+            GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0 );
+        }
+
+        public void OnExecute( ushort wEventID, byte bSrcType, uint dwSrcID, object pContext )
+        {
+            if ( wEventID == DHeroTeamEvent.EVENT_BOSS_HP_CHANGED )
+            {
+                float health = Mathf.Clamp01( BossHpEventContext.Ins.Health );
+                var size = img_UIHp_Boss_Foreground.rectTransform.sizeDelta;
+                img_UIHp_Boss_Foreground.rectTransform.DOKill( );
+                var t = img_UIHp_Boss_Foreground.rectTransform.DOSizeDelta( new Vector2( 783.8218f * health, 70.585f ), 0.5f );
+                t.SetEase( Ease.OutCirc );
+            }
+
+        }
     }
 
     //@<<< EffectiveListGenerator >>>

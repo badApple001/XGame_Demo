@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ScriptableBuildPipeli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotUpdate", "HotUpdate.csproj", "{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamePlay", "GamePlay.csproj", "{DA8BF7EB-7DD7-9676-8BB5-15BF88E5EE37}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ScriptableBuildPipeline.Editor", "Unity.ScriptableBuildPipeline.Editor.csproj", "{5332BAB7-22EB-39E4-9A59-228234AAF2AE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{196F3426-96BD-E564-A156-57572DB80A48}"
@@ -95,6 +97,10 @@ Global
 		{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA8BF7EB-7DD7-9676-8BB5-15BF88E5EE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA8BF7EB-7DD7-9676-8BB5-15BF88E5EE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA8BF7EB-7DD7-9676-8BB5-15BF88E5EE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA8BF7EB-7DD7-9676-8BB5-15BF88E5EE37}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5332BAB7-22EB-39E4-9A59-228234AAF2AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5332BAB7-22EB-39E4-9A59-228234AAF2AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5332BAB7-22EB-39E4-9A59-228234AAF2AE}.Release|Any CPU.ActiveCfg = Release|Any CPU

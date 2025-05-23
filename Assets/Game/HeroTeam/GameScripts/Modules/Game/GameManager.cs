@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using XClient.Common;
-using GameScripts.Monster;
+using XGame;
 using XGame.EventEngine;
+using XGame.Entity;
+using GameScripts.Monster;
+using XClient.Common;
+using XClient.Entity;
 
 namespace GameScripts.HeroTeam
 {
@@ -39,10 +42,30 @@ namespace GameScripts.HeroTeam
 
         private void CreateHeros( )
         {
-            Debug.Log( m_vec3HeroSpawnPoints.Count );
-            for ( int i = 0; i < m_vec3HeroSpawnPoints.Count; i++ )
+
+            //临时， 后续移到配置表
+            Dictionary<int, int> dictTmpHeros = new Dictionary<int, int>( )
             {
-                RefreshMonsterMgr.Instance.RefreshHero( 1004, m_vec3HeroSpawnPoints[ i ], BATTLE_CAMP_DEF.BATTLE_CAMP_HERO );
+                { 1004,3 },
+                { 1005,2 },
+                { 1006,2 },
+                { 1007,3 },
+                { 1008,4 },
+                { 1009,3 },
+                { 1010,5 },
+                { 1011,3 },
+            };
+
+
+            foreach ( var cfg in dictTmpHeros )
+            {
+                for ( int i = 0; i < cfg.Value; i++ )
+                {
+                    Vector3 pos = m_vec3HeroSpawnPoints[ m_vec3HeroSpawnPoints.Count - 1 ];
+                    m_vec3HeroSpawnPoints.RemoveAt( m_vec3HeroSpawnPoints.Count - 1 );
+
+                    RefreshMonsterMgr.Instance.RefreshHero( cfg.Key, pos, BATTLE_CAMP_DEF.BATTLE_CAMP_HERO );
+                }
             }
 
         }
@@ -50,9 +73,14 @@ namespace GameScripts.HeroTeam
         private void CreateBoss( )
         {
 
-            cfg_HeroTeamBuff buff = GameGlobal.GameScheme.HeroTeamBuff_0( 1001 );
+            ulong bossEntityId = RefreshMonsterMgr.Instance.RefreshBoss( 3, 1, 1, 1 );
 
-            RefreshMonsterMgr.Instance.RefreshBoss( 3, 1, 1, 1 );
+            IEntity bossEntity = GameGlobal.EntityWorld.Local.GetEntity( bossEntityId );
+
+            if( bossEntity is IMonster monster )
+            {
+
+            }
         }
 
         private void OnEnable( )
@@ -74,19 +102,26 @@ namespace GameScripts.HeroTeam
         }
 
 
-        //private void Update( )
-        //{
-        //    if ( Input.GetKeyDown( KeyCode.Space ) )
-        //    {
-        //        var pContext = CameraShakeEventContext.Ins;
-        //        pContext.intensity = 1f;
-        //        pContext.duration = 0.5f;
-        //        pContext.vibrato = 30;
-        //        pContext.randomness = 100f;
-        //        pContext.fadeOut = true;
-        //        GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
-        //    }
-        //}
+        private void Update( )
+        {
+            if ( Input.GetKeyDown( KeyCode.Space ) )
+            {
+                var pContext = CameraShakeEventContext.Ins;
+                pContext.intensity = 1f;
+                pContext.duration = 0.5f;
+                pContext.vibrato = 30;
+                pContext.randomness = 100f;
+                pContext.fadeOut = true;
+                GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
+            }
+
+            if ( Input.GetKeyDown( KeyCode.Q ) )
+            {
+                var pContext = BossHpEventContext.Ins;
+                pContext.Health -= 0.2f;
+                GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
+            }
+        }
     }
 
 }

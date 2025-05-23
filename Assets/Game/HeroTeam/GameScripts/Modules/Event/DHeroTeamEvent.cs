@@ -20,6 +20,11 @@ namespace GameScripts.HeroTeam
 
         /// <summary> 相机震动 </summary>
         public readonly static ushort EVENT_CAMERA_SHAKE = EVENT_HEROTEAM_BASE++;
+        
+        /// <summary>
+        /// Boss血量发生了变化
+        /// </summary>
+        public readonly static ushort EVENT_BOSS_HP_CHANGED = EVENT_HEROTEAM_BASE++;
 
         //最大值
         public const ushort EVENT_ALL_MAXID = 30000;
@@ -52,7 +57,12 @@ namespace GameScripts.HeroTeam
         public int nShareData;
     }
 
-
+   
+    /// <summary>
+    /// Provides a context for configuring and managing camera shake events.
+    /// </summary>
+    /// <remarks>This class encapsulates parameters for camera shake effects, such as intensity, duration, and
+    /// randomness. It is implemented as a singleton, accessible via the <see cref="Ins"/> property.</remarks>
     public class CameraShakeEventContext
     {
         private CameraShakeEventContext( ) { }
@@ -63,6 +73,21 @@ namespace GameScripts.HeroTeam
         public int vibrato = 20;
         public float randomness = 90f;
         public bool fadeOut = true;
+    }
+
+
+    /// <summary>
+    /// Provides a context for managing and accessing the health of a boss entity in the game.
+    /// </summary>
+    /// <remarks>This class is a singleton, and its instance can be accessed through the <see cref="Ins"/>
+    /// property. The <see cref="Health"/> field represents the current health of the boss, where 1.0f typically
+    /// indicates full health.</remarks>
+    public class BossHpEventContext
+    {
+        private BossHpEventContext( ) { }
+        public static BossHpEventContext Ins { private set; get; } = new BossHpEventContext( );
+
+        public float Health = 1f;
     }
 
 }

@@ -215,7 +215,7 @@ namespace XClient.Entity
             //»ñÈ¡ÐÞ¸ÄÆ÷
             m_attrModifier = MonsterSystem.Instance.GetAttrModified();
 
-            SetSpeed((int)cfg.fbaseSpeed);
+            //SetSpeed((int)cfg.fbaseSpeed);
 
             base.OnInit(context);
         }

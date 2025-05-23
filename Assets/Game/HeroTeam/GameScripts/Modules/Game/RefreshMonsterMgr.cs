@@ -149,7 +149,7 @@ namespace GameScripts.Monster
                     IMonster monster = listMonster[ 0 ];
                     cfg_Monster cfg = monster.config as cfg_Monster;
                     //释放出生技能
-                    __CastBornSkill( monster, cfg.bornskillIDs );
+                    //__CastBornSkill( monster, cfg.bornskillIDs );
 
                     //修改属性
                     __SyncAttribute( monster, 0, 0 );
@@ -297,7 +297,7 @@ namespace GameScripts.Monster
                 cfg_Monster cfg_monster = monster.config as cfg_Monster;
 
                 //释放出生技能
-                __CastBornSkill( monster, cfg_monster.bornskillIDs );
+                //__CastBornSkill( monster, cfg_monster.bornskillIDs );
 
                 return monster.id;
 
@@ -327,7 +327,7 @@ namespace GameScripts.Monster
                     IMonster monster = listMonster[ 0 ];
                     cfg_Monster cfg = monster.config as cfg_Monster;
                     //释放出生技能
-                    __CastBornSkill( monster, cfg.bornskillIDs );
+                    //__CastBornSkill( monster, cfg.bornskillIDs );
 
                     //修改属性
                     __SyncAttribute( monster, 0, 0 );
@@ -367,57 +367,54 @@ namespace GameScripts.Monster
 
             //获取属性值
             cfg_Monster cfgMonster = monster.config as cfg_Monster;
-            int iAttack = cfgMonster.iAttack;
-            int iAttackSpeed = cfgMonster.iAttackSpeed;
-            int baseHP = cfgMonster.baseHP + addHP;
-            int iPhyDefense = cfgMonster.iPhyDefense;
-            int iMagicDefense = cfgMonster.iMagicDefense;
-            float fbaseSpeed = cfgMonster.fbaseSpeed;
-            int iPowerAttackRate = cfgMonster.iPowerAttackRate;
-            int iPowerAttackCoff = cfgMonster.iPowerAttackCoff;
+            //int iAttack = cfgMonster.iAttack;
+            //int iAttackSpeed = cfgMonster.iAttackSpeed;
+            //int baseHP = cfgMonster.baseHP + addHP;
+            //int iPhyDefense = cfgMonster.iPhyDefense;
+            //int iMagicDefense = cfgMonster.iMagicDefense;
+            //float fbaseSpeed = cfgMonster.fbaseSpeed;
+            //int iPowerAttackRate = cfgMonster.iPowerAttackRate;
+            //int iPowerAttackCoff = cfgMonster.iPowerAttackCoff;
 
+            ////缩放属性
+            //if ( attributeID > 0 )
+            //{
+            //    cfg_Attribute cfgAttr = GameGlobal.GameScheme.Attribute_0( attributeID );
+            //    if ( null != cfgAttr )
+            //    {
+            //        iAttack = ( iAttack * cfgAttr.iAttackCoff ) / 1000;
+            //        iAttackSpeed = iAttackSpeed * cfgAttr.iAttackSpeedCoff / 1000;
+            //        baseHP = baseHP * cfgAttr.iHPCoff / 1000;
+            //        iPhyDefense = iPhyDefense * cfgAttr.iPhyCoff / 1000;
+            //        iMagicDefense = iMagicDefense * cfgAttr.iMagicCoff / 1000;
+            //        fbaseSpeed = fbaseSpeed * cfgAttr.iSpeedCoff / 1000;
 
-            //缩放属性
-            if ( attributeID > 0 )
-            {
-                cfg_Attribute cfgAttr = GameGlobal.GameScheme.Attribute_0( attributeID );
-                if ( null != cfgAttr )
-                {
-                    iAttack = ( iAttack * cfgAttr.iAttackCoff ) / 1000;
-                    iAttackSpeed = iAttackSpeed * cfgAttr.iAttackSpeedCoff / 1000;
-                    baseHP = baseHP * cfgAttr.iHPCoff / 1000;
-                    iPhyDefense = iPhyDefense * cfgAttr.iPhyCoff / 1000;
-                    iMagicDefense = iMagicDefense * cfgAttr.iMagicCoff / 1000;
-                    fbaseSpeed = fbaseSpeed * cfgAttr.iSpeedCoff / 1000;
+            //        iPowerAttackRate = iPowerAttackRate * cfgAttr.iPowerRateCoff / 1000;
+            //        iPowerAttackCoff = iPowerAttackCoff * cfgAttr.iPowerAttackModifiedCoff / 1000;
 
-                    iPowerAttackRate = iPowerAttackRate * cfgAttr.iPowerRateCoff / 1000;
-                    iPowerAttackCoff = iPowerAttackCoff * cfgAttr.iPowerAttackModifiedCoff / 1000;
-
-                }
-                else
-                {
-                    Debug.LogError( "不存在的属性ID attributeID=" + attributeID );
-                }
-            }
+            //    }
+            //    else
+            //    {
+            //        Debug.LogError( "不存在的属性ID attributeID=" + attributeID );
+            //    }
+            //}
 
 
             //设置属性
-            //monster.SetIntAttr( CreatureAttributeDef.ATTACK, iAttack );
-            //monster.SetIntAttr( CreatureAttributeDef.ATTACK_SPEED, iAttackSpeed );
-            ////monster.SetIntAttr(CreatureAttributeDef.HP, baseHP);
-            //monster.SetIntAttr( CreatureAttributeDef.PHY_DEFENSE, iPhyDefense );
-            //monster.SetIntAttr( CreatureAttributeDef.MAGIC_DEFENSE, iMagicDefense );
-            //monster.SetIntAttr( CreatureAttributeDef.MOVE_SPEDD, ( int ) fbaseSpeed );
-            //monster.SetIntAttr( CreatureAttributeDef.POWER_ATTACK_RATE, iPowerAttackRate );
-            //monster.SetIntAttr( CreatureAttributeDef.POWER_ATTACK_COFF, iPowerAttackCoff );
+            monster.SetIntAttr( CreatureAttributeDef.ATTACK, cfgMonster.iAttack );
+            monster.SetIntAttr( CreatureAttributeDef.HP, cfgMonster.baseHP );
+            //monster.SetIntAttr( CreatureAttributeDef.ATTACK_SPEED, cfgMonster.fAttackSpeed );
+
+
 
             //设置移动速度
-            monster.SetSpeed( fbaseSpeed );
-
-            monster.SetHPDelta( baseHP - monster.GetHP( ) );
-
+            //monster.SetSpeed(  );
+            monster.SetHPDelta( cfgMonster.baseHP - monster.GetHP( ) );
             int maxHP = monster.GetHP( );
             monster.SetMaxHP( maxHP );
+
+
+
         }
 
         //计算技能组
