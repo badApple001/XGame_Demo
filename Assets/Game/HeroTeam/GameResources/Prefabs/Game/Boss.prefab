@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 915e94827e2e67746a3f96e10c26319a, type: 2}
+  - {fileID: 2100000, guid: 410f4a17733ed06468063c07c6dbe9f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d247ba06193faa74d9335f5481b2b56c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skeletonDataAsset: {fileID: 11400000, guid: 31aeaf67ff1bb9248b531fffd14c195b, type: 2}
+  skeletonDataAsset: {fileID: 11400000, guid: e9934e5bf40441c43a5034b43283c62d, type: 2}
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
@@ -118,7 +118,7 @@ MonoBehaviour:
     materialsInsideMask: []
     materialsOutsideMask: []
   disableRenderingOnOverride: 1
-  _animationName: act_idle
+  _animationName: idle
   loop: 1
   timeScale: 1
   freeze: 0
@@ -131,8 +131,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6955002283101631199}
-  - component: {fileID: 1256843751731720617}
-  - component: {fileID: 1256843751731720616}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -156,46 +154,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1256843751731720617
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955002283101631184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a0b1ece166dc14fbfea0b7781a483f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletLauncher: {fileID: 0}
-  headSkillEffPos: {fileID: 0}
-  bodySkillEffPos: {fileID: 0}
-  footSkillEffPos: {fileID: 0}
-  skillIDs: 
-  skillCooldingTime: []
-  reco: {fileID: 1256843751731720616}
-  buffComponent: {fileID: 0}
---- !u!114 &1256843751731720616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955002283101631184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e8358e93ce1254892829d83631b8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entID: 0
-  hitTrans: {fileID: 0}
-  entType: 0
-  camp: 0
-  beAttack: 1
-  canAttack: 1
-  listFriendCamps: 
-  listEnemyCamps: 
 --- !u!1 &6955002283671709069
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +179,7 @@ Transform:
   m_GameObject: {fileID: 6955002283671709069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 14, y: 14, z: 14}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4761282950330031715}

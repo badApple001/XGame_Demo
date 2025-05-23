@@ -65,7 +65,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _Health: 0.52
+    - _Health: 1
     - _LastHealth: 1
     - _Metallic: 0
     - _Mode: 0
@@ -74,7 +74,7 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _TrailAlpha: 0
+    - _TrailAlpha: 1
     - _TrailEnd: 1
     - _UVSec: 0
     - _ZWrite: 1
