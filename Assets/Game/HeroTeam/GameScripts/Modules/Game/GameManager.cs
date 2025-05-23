@@ -43,7 +43,7 @@ namespace GameScripts.HeroTeam
         private void CreateHeros( )
         {
 
-            //临时， 后续移到配置表
+            //临时， 后续移到关卡表
             Dictionary<int, int> dictTmpHeros = new Dictionary<int, int>( )
             {
                 { 1004,3 },
@@ -79,6 +79,11 @@ namespace GameScripts.HeroTeam
 
             if( bossEntity is IMonster monster )
             {
+
+                //所有的远程角色平均分布在外圈
+
+
+
 
             }
         }

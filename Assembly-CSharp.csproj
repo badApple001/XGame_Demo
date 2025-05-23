@@ -453,10 +453,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Skill\CampDef.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\HpBar.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\CommonDef.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Model\IModel.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Model\CreatureModel.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Data\IData.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Manager\ActorManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\LevelEditor\CalcHeroGridCoord.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
