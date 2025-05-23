@@ -131,7 +131,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6955002283101631199}
-  - component: {fileID: 79201863770050016}
+  - component: {fileID: 1116614498819455299}
+  - component: {fileID: 6296316447161168589}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -155,7 +156,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &79201863770050016
+--- !u!114 &1116614498819455299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,9 +165,37 @@ MonoBehaviour:
   m_GameObject: {fileID: 6955002283101631184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35ab22f8770ba894abf8b41cec3a0a34, type: 3}
+  m_Script: {fileID: 11500000, guid: b5a0b1ece166dc14fbfea0b7781a483f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletLauncher: {fileID: 0}
+  headSkillEffPos: {fileID: 0}
+  bodySkillEffPos: {fileID: 0}
+  footSkillEffPos: {fileID: 0}
+  skillIDs: 
+  skillCooldingTime: []
+  reco: {fileID: 6296316447161168589}
+  buffComponent: {fileID: 0}
+--- !u!114 &6296316447161168589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955002283101631184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78e8358e93ce1254892829d83631b8e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entID: 0
+  hitTrans: {fileID: 0}
+  entType: 0
+  camp: 0
+  beAttack: 1
+  canAttack: 1
+  listFriendCamps: 
+  listEnemyCamps: 
 --- !u!1 &6955002283671709069
 GameObject:
   m_ObjectHideFlags: 0

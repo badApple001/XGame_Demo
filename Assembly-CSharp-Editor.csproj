@@ -1447,10 +1447,6 @@
       <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
       <Name>uhypertext-scrpits</Name>
     </ProjectReference>
-    <ProjectReference Include="GamePlay.csproj">
-      <Project>{DA8BF7EB-7DD7-9676-8BB5-15BF88E5EE37}</Project>
-      <Name>GamePlay</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

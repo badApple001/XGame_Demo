@@ -453,6 +453,10 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Skill\CampDef.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\HpBar.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\CommonDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Model\IModel.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Model\CreatureModel.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Data\IData.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Gameplay\Manager\ActorManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
@@ -1529,10 +1533,6 @@
     <ProjectReference Include="uhypertext-scrpits.csproj">
       <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
       <Name>uhypertext-scrpits</Name>
-    </ProjectReference>
-    <ProjectReference Include="GamePlay.csproj">
-      <Project>{DA8BF7EB-7DD7-9676-8BB5-15BF88E5EE37}</Project>
-      <Name>GamePlay</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
