@@ -307,7 +307,7 @@ namespace GameScripts.Monster
         }
 
 
-        public ulong RefreshHero( int monsterID, Vector3 pos, ulong camp )
+        public ulong RefreshHero( int monsterID, Vector3 pos, ulong camp, List<Vector3> road )
         {
             if ( monsterLauncherHero != null )
             {
@@ -329,6 +329,8 @@ namespace GameScripts.Monster
                     //释放出生技能
                     //__CastBornSkill( monster, cfg.bornskillIDs );
 
+                    monster.SetRoad( road );
+
                     //修改属性
                     __SyncAttribute( monster, 0, 0 );
 
@@ -338,7 +340,7 @@ namespace GameScripts.Monster
             return 0;
         }
 
-        
+
 
         //获取我方路由点
         public List<Vector3> GetSelfRoutePoints( )
@@ -403,17 +405,14 @@ namespace GameScripts.Monster
             //设置属性
             monster.SetIntAttr( CreatureAttributeDef.ATTACK, cfgMonster.iAttack );
             monster.SetIntAttr( CreatureAttributeDef.HP, cfgMonster.baseHP );
-            //monster.SetIntAttr( CreatureAttributeDef.ATTACK_SPEED, cfgMonster.fAttackSpeed );
-
-
 
             //设置移动速度
-            //monster.SetSpeed(  );
+            monster.SetSpeed( 20 );
+
+            //设置hp
             monster.SetHPDelta( cfgMonster.baseHP - monster.GetHP( ) );
             int maxHP = monster.GetHP( );
             monster.SetMaxHP( maxHP );
-
-
 
         }
 

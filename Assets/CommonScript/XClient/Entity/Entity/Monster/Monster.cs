@@ -63,6 +63,10 @@ namespace XClient.Entity
         //int Ù–‘¡–±Ì
         private Dictionary<int, int> m_dicProp = new Dictionary<int, int>();
 
+        private List<Vector3> m_listRoads = new List<Vector3>();
+
+        private bool m_bIsBoss = false;
+
         public override Vector3 position => GetPos();
 
         public ulong GetCamp()
@@ -264,6 +268,7 @@ namespace XClient.Entity
             m_attrModifier = null;
             m_parent = null;
             m_bFaceLeft = false;
+            m_bIsBoss = false;
         }
 
         public override void OnUpdate()
@@ -491,6 +496,26 @@ namespace XClient.Entity
                 m_stateTrans.localPosition = new Vector3(0, 20);
                 m_stateTrans.localScale = m_bFaceLeft ? s_vLeftScale : s_vRightScale;
             }
+        }
+
+        public void SetRoad( List<Vector3> road )
+        {
+            m_listRoads = road;
+        }
+
+        public List<Vector3> GetRoad( )
+        {
+            return m_listRoads;
+        }
+
+        public void SetBoos( )
+        {
+            m_bIsBoss = true;
+        }
+
+        public bool IsBoos( )
+        {
+            return m_bIsBoss;
         }
     }
 }

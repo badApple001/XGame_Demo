@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1328374024799208799}
   - component: {fileID: 7177400948961936937}
   - component: {fileID: 7177400948961936936}
+  - component: {fileID: 1913220340}
+  - component: {fileID: 7610996140422909811}
   m_Layer: 0
   m_Name: Warrior
   m_TagString: Untagged
@@ -75,6 +77,33 @@ MonoBehaviour:
   canAttack: 1
   listFriendCamps: 
   listEnemyCamps: 
+--- !u!114 &1913220340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328374024799208784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64008b67c2d856f41b9359c1118575df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonAnimation: {fileID: 2025132841096067775}
+  skeletonGraphic: {fileID: 0}
+  defaultAniName: idle
+--- !u!114 &7610996140422909811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1328374024799208784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410705a801bf9fe47b715be5f1243b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1328374025369850381
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,6 +33,7 @@ using XGame.EventEngine;
 using XGame.FlowText;
 using XGame.FlyEffect;
 using XGame.LightingEff;
+using XGame.Poolable;
 using XGame.Timer;
 
 namespace XClient.Common
@@ -86,6 +87,9 @@ namespace XClient.Common
         /// 音效处理模块
         /// </summary>
         public static IAudioCom AudioCom => XGameComs.Get<IAudioCom>();
+
+
+        public static IItemPoolManager PoolManager => XGameComs.Get<IItemPoolManager>();
 
         /// <summary>
         /// 飞行效果

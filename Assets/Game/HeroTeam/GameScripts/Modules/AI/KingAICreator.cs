@@ -25,10 +25,10 @@ namespace GameScripts.HeroTeam
             //if ( itemPoolMgr.GetPool<AICollisionExplosionAction>( ) == null )
             //    itemPoolMgr.Register<AICollisionExplosionAction>( );
 
-            //   if (itemPoolMgr.GetPool<AIRouteMoveAction>() == null)
-            //        itemPoolMgr.Register<AIRouteMoveAction>();
+            if ( itemPoolMgr.GetPool<AIRouteMoveAction>( ) == null )
+                itemPoolMgr.Register<AIRouteMoveAction>( );
 
-            if( itemPoolMgr.GetPool<AISorttingLayerAction>( ) == null )
+            if ( itemPoolMgr.GetPool<AISorttingLayerAction>( ) == null )
                 itemPoolMgr.Register<AISorttingLayerAction>( );
 
             MonsterSystem.Instance.SetAICreator( this );
@@ -45,12 +45,12 @@ namespace GameScripts.HeroTeam
                 //    return itemPoolMgr.Pop<AIMoveAction>( context );
                 case AI_ACTION_TYPE.AI_ACTION_CIRCLE_SKILL:
                     return itemPoolMgr.Pop<AISkillAction>( context );
-                    //return null;
+                //return null;
 
                 //case AI_ACTION_TYPE.AI_ACTION_COLLISION_EXPLOSION:
                 //    return itemPoolMgr.Pop<AICollisionExplosionAction>( context );
-                // case AI_ACTION_TYPE.AI_ACTION_ROUTE_MOVE:
-                //  return itemPoolMgr.Pop<AIRouteMoveAction>(context);
+                case AI_ACTION_TYPE.AI_ACTION_ROUTE_MOVE:
+                    return itemPoolMgr.Pop<AIRouteMoveAction>( context );
                 case AI_ACTION_TYPE.AI_ACTION_SORTING_LAYER:
                     return itemPoolMgr.Pop<AISorttingLayerAction>( context );
                 default:

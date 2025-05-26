@@ -58,6 +58,7 @@
     <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\HpBar.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSUnityPoolNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\Window\LOPUIWindowMetaEx.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorConfig.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\EventMonitor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateNone.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineSimpleTaskNode.cs" />
+    <Compile Include="Assets\CommonScript\XClient\Common\Def\CommonDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\NetCommDataManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\ICreatureInfoProvider.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\TextMeshProPreferreWidthSyncer.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Assets\CommonScript\XClient\Network\NetworkManager.cs" />
     <Compile Include="Assets\CommonScript\Ani\ImageMaterialAnim.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\commprotocol.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\LevelEditor\CalcHeroGridCoord.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\IBulletEnvProvider.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UISound.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\IDRecoEntityMgr.cs" />
@@ -300,6 +303,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateLogin.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\TextSetting\PSDTMPTextStyleSettings.cs" />
     <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\Test\TestReporter.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Camera\CameraController.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\XLua\ILua.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\GameManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\Random\RandomUtility.cs" />
@@ -327,6 +331,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\RoleEntity.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IBuff.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Skill\CampDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\MessageSinkEvent.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineBaseExcutorNodeBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IAgentModule.cs" />
@@ -371,6 +376,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\InputEvents\InputEventPoint.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetEntity.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\RectTransformSetter.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\AISorttingLayerAction.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageItem.cs" />
     <Compile Include="Assets\BaseScripts\Utils\ElementCache.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIMoviePlayer.cs" />
@@ -448,12 +454,9 @@
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\Test\TestSelectOneDataSources.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageTextEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\AISorttingLayerAction.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Camera\CameraController.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Skill\CampDef.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\HpBar.cs" />
-    <Compile Include="Assets\CommonScript\XClient\Common\Def\CommonDef.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\LevelEditor\CalcHeroGridCoord.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\AIRouteMoveAction.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\ChatToast\Toast.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\ChatToast\ToastManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
@@ -577,6 +580,7 @@
     <None Include="Assets\G_Artist\Shader\Toon Outline_Prop.shader" />
     <None Include="Assets\G_Artist\Shader\SetupLightShader.shader" />
     <None Include="Assets\G_Artist\Shader\SimpleEffectShader.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_002\002.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\A_VFX_AD.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Dissolution_Additvie_JZB.shader" />
     <None Include="Assets\BaseScripts\Utils\Monitor\Config\monitor_app_white_list.txt" />

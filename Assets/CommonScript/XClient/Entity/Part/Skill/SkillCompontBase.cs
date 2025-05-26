@@ -28,6 +28,7 @@ public class SkillCompontBase : MonoBehaviour
     [Header("头部技能特效挂点")] public GameObject headSkillEffPos;
     [Header("身体技能特效挂点")] public GameObject bodySkillEffPos;
     [Header("脚部技能特效挂点")] public GameObject footSkillEffPos;
+    [Header("对话挂点")] public GameObject chatEffPos;
 
     [Header("技能列表")] public List<int> skillIDs = new List<int>();
 

@@ -194,6 +194,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 6240996}
@@ -764,6 +765,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 110910490}
@@ -947,17 +949,17 @@ PrefabInstance:
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.802502
+      value: 12.8025
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9325752
+      value: 0.9325733
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -1002,7 +1004,7 @@ PrefabInstance:
     - target: {fileID: 4837620950451194336, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_Name
-      value: Magician (3)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 4837620951640187450, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -1358,6 +1360,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 185251428}
@@ -1555,6 +1558,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 205517122}
@@ -1569,22 +1573,22 @@ PrefabInstance:
     - target: {fileID: 1995176293324153705, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_Name
-      value: Pastor (1)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.4462614
+      value: -4.4462647
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.026004
+      value: -9.026003
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
@@ -2759,22 +2763,22 @@ PrefabInstance:
     - target: {fileID: 3807907515402614853, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_Name
-      value: Druid (1)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.25833
+      value: -11.258331
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.690002
+      value: 9.690001
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
@@ -3259,6 +3263,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 456269530}
@@ -3418,6 +3423,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 480304662}
@@ -4027,6 +4033,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 662601154}
@@ -4102,6 +4109,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 676249789}
@@ -4332,7 +4340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714921783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 10, z: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4558,17 +4566,17 @@ PrefabInstance:
     - target: {fileID: 3807907515402614853, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_Name
-      value: Druid (2)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.356239
+      value: -8.356238
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
@@ -4754,22 +4762,22 @@ PrefabInstance:
     - target: {fileID: 7136365524479406837, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_Name
-      value: Warlock (2)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4462647
+      value: 4.4462614
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.026003
+      value: -9.026004
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
@@ -4890,6 +4898,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 821640740}
@@ -5354,12 +5363,12 @@ PrefabInstance:
     - target: {fileID: 468994012005136771, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 468994012005136771, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.446262
+      value: 4.446263
       objectReference: {fileID: 0}
     - target: {fileID: 468994012005136771, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
@@ -5409,7 +5418,7 @@ PrefabInstance:
     - target: {fileID: 468994012005136798, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
       propertyPath: m_Name
-      value: Hunter (2)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 468994012720947498, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
@@ -5658,6 +5667,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 885556292}
@@ -5807,23 +5817,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1100173975}
-  - {fileID: 219638173}
-  - {fileID: 1155451671}
-  - {fileID: 2058463201}
-  - {fileID: 962503387}
-  - {fileID: 1712710316}
-  - {fileID: 398799491}
-  - {fileID: 765318720}
-  - {fileID: 1424898346}
-  - {fileID: 1999402285}
-  - {fileID: 845154072}
-  - {fileID: 1080678028}
-  - {fileID: 1522482116}
-  - {fileID: 1818574235}
-  - {fileID: 120502964}
-  - {fileID: 1994228278}
-  - {fileID: 1028745123}
   - {fileID: 811298684}
+  - {fileID: 1028745123}
+  - {fileID: 1994228278}
+  - {fileID: 120502964}
+  - {fileID: 1818574235}
+  - {fileID: 1522482116}
+  - {fileID: 1080678028}
+  - {fileID: 845154072}
+  - {fileID: 1999402285}
+  - {fileID: 1424898346}
+  - {fileID: 765318720}
+  - {fileID: 398799491}
+  - {fileID: 1712710316}
+  - {fileID: 962503387}
+  - {fileID: 2058463201}
+  - {fileID: 1155451671}
+  - {fileID: 219638173}
   m_Father: {fileID: 714921784}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6275,22 +6285,22 @@ PrefabInstance:
     - target: {fileID: 1995176293324153705, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_Name
-      value: Pastor (4)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.8025
+      value: -12.802502
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9325733
+      value: 0.9325752
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
@@ -6832,6 +6842,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1013055126}
@@ -6851,22 +6862,22 @@ PrefabInstance:
     - target: {fileID: 7136365524479406837, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_Name
-      value: Warlock (1)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_RootOrder
-      value: 16
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.356241
+      value: 8.356238
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.7685757
+      value: -6.7685776
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
@@ -6987,6 +6998,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1030574860}
@@ -7174,6 +7186,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1039541720}
@@ -7549,6 +7562,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1053906044}
@@ -7563,12 +7577,12 @@ PrefabInstance:
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.356238
+      value: 8.356239
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -7618,7 +7632,7 @@ PrefabInstance:
     - target: {fileID: 4837620950451194336, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_Name
-      value: Magician
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 4837620951640187450, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -7643,7 +7657,7 @@ PrefabInstance:
     - target: {fileID: 1995176293324153705, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_Name
-      value: Pastor
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
@@ -7900,6 +7914,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1128950263}
@@ -7946,22 +7961,22 @@ PrefabInstance:
     - target: {fileID: 1995176293324153705, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_Name
-      value: Pastor (2)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.356238
+      value: -8.356241
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.7685776
+      value: -6.7685757
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
@@ -8782,6 +8797,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1252082296}
@@ -8941,6 +8957,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1272880389}
@@ -9767,6 +9784,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_trHeroSpawnRoot: {fileID: 529751507}
   m_trBossSpawnRoot: {fileID: 2088060679}
+  m_trAcherRoadRoot: {fileID: 912942052}
+  m_trTankRoadRoot: {fileID: 2122130848}
+  m_tWarriorRoadRoot: {fileID: 2065740201}
 --- !u!1001 &1424898345
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9777,12 +9797,12 @@ PrefabInstance:
     - target: {fileID: 468994012005136771, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 468994012005136771, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.446263
+      value: -4.446262
       objectReference: {fileID: 0}
     - target: {fileID: 468994012005136771, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
@@ -9832,7 +9852,7 @@ PrefabInstance:
     - target: {fileID: 468994012005136798, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
       propertyPath: m_Name
-      value: Hunter
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 468994012720947498, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
@@ -9975,6 +9995,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1440230386}
@@ -10050,6 +10071,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1462506944}
@@ -10125,6 +10147,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1484520753}
@@ -10260,17 +10283,17 @@ PrefabInstance:
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.258331
+      value: 11.25833
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.690001
+      value: 9.690002
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -10315,7 +10338,7 @@ PrefabInstance:
     - target: {fileID: 4837620950451194336, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_Name
-      value: Magician (1)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 4837620951640187450, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -10401,6 +10424,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1545311716}
@@ -11602,17 +11626,17 @@ PrefabInstance:
     - target: {fileID: 3807907515402614853, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_Name
-      value: Druid
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.802502
+      value: -12.802502
       objectReference: {fileID: 0}
     - target: {fileID: 3807907515402614872, guid: 54c74727fd45b004099b47e3fed4a33d,
         type: 3}
@@ -12401,6 +12425,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1817177360}
@@ -12415,12 +12440,12 @@ PrefabInstance:
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.802502
+      value: 12.802502
       objectReference: {fileID: 0}
     - target: {fileID: 4837620950451194333, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -12470,7 +12495,7 @@ PrefabInstance:
     - target: {fileID: 4837620950451194336, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
       propertyPath: m_Name
-      value: Magician (2)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 4837620951640187450, guid: a07c342df036343439dfbd92f3c61138,
         type: 3}
@@ -13050,6 +13075,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 1970018870}
@@ -13237,22 +13263,22 @@ PrefabInstance:
     - target: {fileID: 7136365524479406837, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_Name
-      value: Warlock
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.258331
+      value: 11.25833
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.309998
+      value: -3.3099995
       objectReference: {fileID: 0}
     - target: {fileID: 7136365524479406838, guid: fe411873774c3744f8c54c64db7c2d16,
         type: 3}
@@ -13367,7 +13393,7 @@ PrefabInstance:
     - target: {fileID: 468994012005136798, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
       propertyPath: m_Name
-      value: Hunter (1)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 468994012720947498, guid: 9e3eea8dc2212db41bf84e3d19c80348,
         type: 3}
@@ -13689,6 +13715,7 @@ MonoBehaviour:
   headSkillEffPos: {fileID: 0}
   bodySkillEffPos: {fileID: 0}
   footSkillEffPos: {fileID: 0}
+  chatEffPos: {fileID: 0}
   skillIDs: 
   skillCooldingTime: []
   reco: {fileID: 2027023062}
@@ -13819,22 +13846,22 @@ PrefabInstance:
     - target: {fileID: 1995176293324153705, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_Name
-      value: Pastor (3)
+      value: T
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.25833
+      value: -11.258331
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.3099995
+      value: -3.309998
       objectReference: {fileID: 0}
     - target: {fileID: 1995176293324153708, guid: 4c82821bcc8b0374588819061952a448,
         type: 3}

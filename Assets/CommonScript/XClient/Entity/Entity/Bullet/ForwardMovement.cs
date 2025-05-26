@@ -13,15 +13,19 @@
 ** 描  述: 
 ********************************************************************/
 
+using GameScripts;
+using Spine;
+using Spine.Unity;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XClient.Network;
+using XGame.Entity.Part;
 using static XClient.Entity.ForwardMovement;
 
 namespace XClient.Entity
 {
-    public class ForwardMovement :  NetObjectBehaviour<ForwardMovementData>
+    public class ForwardMovement : NetObjectBehaviour<ForwardMovementData>
     {
         public class ForwardMovementData : MonoNetObject
         {
@@ -38,24 +42,24 @@ namespace XClient.Entity
             public NetVarFloat m_speed;
 
 
-            protected override void OnSetupVars()
+            protected override void OnSetupVars( )
             {
-  
+
                 //IsDebug = true;
-                m_bMoving = SetupVar<NetVarBool>("m_bMoving");
-                m_startPos = SetupVar<NetVarVector3>("m_startPos");
-                m_targetPos = SetupVar<NetVarVector3>("m_targetPos");
-                m_speed = SetupVar<NetVarFloat>("m_speed");
+                m_bMoving = SetupVar<NetVarBool>( "m_bMoving" );
+                m_startPos = SetupVar<NetVarVector3>( "m_startPos" );
+                m_targetPos = SetupVar<NetVarVector3>( "m_targetPos" );
+                m_speed = SetupVar<NetVarFloat>( "m_speed" );
                 m_bMoving.Value = false;
 
-                
+
             }
         }
 
         //子弹拥有者
-         private ICreatureEntity m_master;
+        private ICreatureEntity m_master;
 
-        public void StartMove( float speed, Vector3 start,Vector3 target)
+        public void StartMove( float speed, Vector3 start, Vector3 target )
         {
             /*
             m_bMoving = true;
@@ -69,14 +73,14 @@ namespace XClient.Entity
             NetObj.m_bMoving.Value = true;
             NetObj.m_startPos.Value = start;
 
-           // Debug.LogError("target="+ target);
-      
+            // Debug.LogError("target="+ target);
+
 
         }
 
-        public void EnableSync(bool enableSync)
+        public void EnableSync( bool enableSync )
         {
-            NetObj.IsEnableSync = enableSync;   
+            NetObj.IsEnableSync = enableSync;
         }
 
         /*
@@ -89,55 +93,63 @@ namespace XClient.Entity
         */
 
         //是否在移动
-        public bool IsMoving()
+        public bool IsMoving( )
         {
             return NetObj.m_bMoving.Value;
         }
 
-        public void StopMove()
+        public void StopMove( )
         {
-             NetObj.m_bMoving.Value = false;
+            NetObj.m_bMoving.Value = false;
         }
 
-        void Start()
+
+        private Skeleton m_pSkeleton;
+        void Start( )
         {
             //NetObj.m_bMoving.Value = false;
+            var spineAni = GetComponent<SpineAni>( );
+            if( spineAni != null )
+            {
+                m_pSkeleton = spineAni.skeletonAnimation.skeleton;
+            }
         }
 
-        protected override void OnNetObjectCreate()
+        protected override void OnNetObjectCreate( )
         {
-            base.OnNetObjectCreate();
+            base.OnNetObjectCreate( );
 
-            NetObj.m_startPos.OnChange.AddListener((o, v) =>
+            NetObj.m_startPos.OnChange.AddListener( ( o, v ) =>
             {
-                if (NetObj.IsOwner==false)
+                if ( NetObj.IsOwner == false )
                 {
-                    transform.position = MonsterSystem.Instance.WorldPositionToBattlePosition(NetObj.m_startPos.Value, false);
-                   
-                }else
+                    transform.position = MonsterSystem.Instance.WorldPositionToBattlePosition( NetObj.m_startPos.Value, false );
+
+                }
+                else
                 {
                     transform.position = NetObj.m_startPos.Value;
                 }
-               
+
 
                 //if (!IsOwner)
                 //{
                 //    Debug.Log($"{NetObj.NetID} 开始移动！");
                 //}
-            });
+            } );
         }
 
 
         // Start is called before the first frame update
-        private void OnDisable()
+        private void OnDisable( )
         {
             NetObj.m_bMoving.Value = false;
         }
 
         // Update is called once per frame
-        protected override void OnUpdate()
+        protected override void OnUpdate( )
         {
-            if (NetObj.m_bMoving.Value==false) 
+            if ( NetObj.m_bMoving.Value == false )
                 return;
 
 
@@ -147,7 +159,7 @@ namespace XClient.Entity
                 this.gameObject.BetterSetActive(false);
                 return;
             }*/
-            
+
 
 
             //判断是否已经到达目的地了
@@ -161,24 +173,25 @@ namespace XClient.Entity
             //}
 
 
-          
 
-            float distance = Vector3.Distance(curPos, targetPos);
+
+            float distance = Vector3.Distance( curPos, targetPos );
             float detal = Time.deltaTime;
             float move_detal = NetObj.m_speed.Value * detal;
 
-            if (distance <= 0.01f || distance <= move_detal)
+            if ( distance <= 0.01f || distance <= move_detal )
             {
                 //m_master.SetPos(ref m_targetPos);
-                transform.position = targetPos; 
+                transform.position = targetPos;
                 NetObj.m_bMoving.Value = false;
                 return;
             }
 
 
-            Vector3 forward = (targetPos - curPos).normalized;
+            Vector3 forward = ( targetPos - curPos ).normalized;
             curPos += forward * move_detal;
 
+            m_pSkeleton.ScaleX = forward.x > 0 ? 1f : -1f;
             transform.position = curPos;
 
             //NetID.Temp.Set(NetObj.NetID);
@@ -186,7 +199,9 @@ namespace XClient.Entity
 
             //name = $"{NetID.Temp}";
 
-            transform.forward = forward;
+            //transform.forward = forward;
+
+
             //m_master.SetPos(ref curPos);
             //m_master.SetForward(ref forward);
 

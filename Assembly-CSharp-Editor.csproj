@@ -259,6 +259,7 @@
     <Compile Include="Assets\Editor\XGameStartup\CheckScriptsDll.cs" />
     <Compile Include="Assets\Editor\TextSetting\TextStyleSettingEditorWnd.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\SpriteAltasChecker.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Editor\CalcHeroGridCoordEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\AutoBuildDLL.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\ResInquireUtil.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\AssetVerifyTool\Util\VerifyPath.cs" />
@@ -320,7 +321,6 @@
     <Compile Include="Assets\Editor\XGame\GameApp\GameProjectSettingsEditor.cs" />
     <Compile Include="Assets\Editor\UI\HorizontalOrVerticalLayoutGroupExEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Util\PrefabUpdate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Editor\CalcHeroGridCoordEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\XGame\Dll\XGameEditor.dll" />

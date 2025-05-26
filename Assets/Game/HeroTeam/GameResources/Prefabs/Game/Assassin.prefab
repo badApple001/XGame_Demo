@@ -165,6 +165,8 @@ GameObject:
   - component: {fileID: 4161876702659125562}
   - component: {fileID: 4161876702659125563}
   - component: {fileID: 4161876702659125560}
+  - component: {fileID: 2791672876422097928}
+  - component: {fileID: -2077195761786116591}
   m_Layer: 0
   m_Name: Assassin
   m_TagString: Untagged
@@ -229,6 +231,33 @@ MonoBehaviour:
   canAttack: 1
   listFriendCamps: 
   listEnemyCamps: 
+--- !u!114 &2791672876422097928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4161876702659125561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64008b67c2d856f41b9359c1118575df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonAnimation: {fileID: 4161876700771134133}
+  skeletonGraphic: {fileID: 0}
+  defaultAniName: idle
+--- !u!114 &-2077195761786116591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4161876702659125561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410705a801bf9fe47b715be5f1243b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4161876701712364811
 PrefabInstance:
   m_ObjectHideFlags: 0

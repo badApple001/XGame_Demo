@@ -20,7 +20,7 @@ using XGame.Entity;
 
 namespace XClient.Entity
 {
-    
+
     public enum EMonsterAni
     {
         Idle,
@@ -36,9 +36,9 @@ namespace XClient.Entity
 
     public class MonsterAniHelper
     {
-        public static string GetAniName(EMonsterAni aniType)
+        public static string GetAniName( EMonsterAni aniType )
         {
-            switch (aniType)
+            switch ( aniType )
             {
                 case EMonsterAni.Idle:
                     return "idle";
@@ -63,10 +63,14 @@ namespace XClient.Entity
             }
         }
     }
-    
-    public interface IMonster: ICreatureEntity
-    {
 
+    public interface IMonster : ICreatureEntity
+    {
+        void SetRoad( List<Vector3> road );
+        List<Vector3> GetRoad( );
+
+        void SetBoos( );
+        bool IsBoos( );
     }
 
 }
