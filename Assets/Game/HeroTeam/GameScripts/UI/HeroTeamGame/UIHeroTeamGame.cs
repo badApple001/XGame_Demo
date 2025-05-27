@@ -28,7 +28,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         private void OnBtn_BtnFightClicked( ) //@Window 
         {
             btn_BtnFight.gameObject.SetActive( false );
-            GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0, null );
+            GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, null );
 
             var cg = tran_TopPanel.GetComponent<CanvasGroup>( );
             cg.gameObject.SetActive( true );

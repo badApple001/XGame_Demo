@@ -270,7 +270,8 @@ namespace GameScripts.Monster
             monsterLauncherMonster.limit_MonsterCount = 1000;
             monsterLauncherMonster.camp = CampDef.GetLocalCamp( BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER );  //BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER;
             monsterLauncherMonster.bRandomPos = false;
-            monsterLauncherMonster.refreshPos = new Vector3( cfg.aryBossBornPos[ 0 ], cfg.aryBossBornPos[ 1 ], cfg.aryBossBornPos[ 2 ] );
+            //monsterLauncherMonster.refreshPos = new Vector3( cfg.aryBossBornPos[ 0 ], cfg.aryBossBornPos[ 1 ], cfg.aryBossBornPos[ 2 ] );
+            monsterLauncherMonster.refreshPos = new Vector3( 1.01f, 13.38f );
 
             //…Ë÷√”—∑Ω
             monsterLauncherMonster.listFriendCamps.Clear( );

@@ -71,6 +71,9 @@ namespace XClient.Entity
 
         void SetBoos( );
         bool IsBoos( );
+
+        int GetHatred( );
+        void SetHatred( int value );
     }
 
 }

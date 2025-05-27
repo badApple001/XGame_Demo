@@ -15,8 +15,8 @@ namespace GameScripts.HeroTeam
         /// <summary> 本地数据发生了变化 </summary>
         public readonly static ushort EVENT_LOCALDATA_CHANGED_CREATE = EVENT_HEROTEAM_BASE++;
 
-        /// <summary> 开始战斗 </summary>
-        public readonly static ushort EVENT_START_BATTLE = EVENT_HEROTEAM_BASE++;
+        /// <summary> 开始游戏 </summary>
+        public readonly static ushort EVENT_START_GAME = EVENT_HEROTEAM_BASE++;
 
         /// <summary> 相机震动 </summary>
         public readonly static ushort EVENT_CAMERA_SHAKE = EVENT_HEROTEAM_BASE++;
@@ -25,6 +25,12 @@ namespace GameScripts.HeroTeam
         /// Boss血量发生了变化
         /// </summary>
         public readonly static ushort EVENT_BOSS_HP_CHANGED = EVENT_HEROTEAM_BASE++;
+
+        /// <summary>
+        /// 对话结束进入战斗状态
+        /// </summary>
+        public readonly static ushort EVENT_INTO_FIGHT_CHANGED = EVENT_HEROTEAM_BASE++;
+
 
         //最大值
         public const ushort EVENT_ALL_MAXID = 30000;

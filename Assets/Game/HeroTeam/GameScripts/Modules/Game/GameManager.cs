@@ -1,6 +1,8 @@
 using DG.Tweening;
 using GameScripts.Monster;
+using RootMotion;
 using Spine.Unity;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,44 +16,80 @@ using XGame.EventEngine;
 
 namespace GameScripts.HeroTeam
 {
-    public class GameManager : MonoBehaviour, IEventExecuteSink
+    public class GameManager : Singleton<GameManager>, IEventExecuteSink
     {
         [SerializeField] private Transform m_trHeroSpawnRoot;
         [SerializeField] private Transform m_trBossSpawnRoot;
 
-        [Header( "ÈıÖÖ¹¥»÷ÀàĞÍµÄµÀÂ·¸ù½Úµã" )]
+        [Header("åœ°å›¾è·¯å¾„èŠ‚ç‚¹")]
         [SerializeField] private Transform m_trAcherRoadRoot;
         [SerializeField] private Transform m_trTankRoadRoot;
         [SerializeField] private Transform m_tWarriorRoadRoot;
-        private List<Vector3> m_vec3HeroSpawnPoints = new List<Vector3>( );
+        private List<Vector3> m_vec3HeroSpawnPoints = new List<Vector3>();
 
 
         // Start is called before the first frame update
-        void Start( )
+        void Start()
         {
-            FillSpawnPoints( );
-            CreateHeros( );
+            FillSpawnPoints();
+            CreateHeros();
+            BulletManager.Instance.Setup();
             //CreateBoss( );
         }
 
-        private void FillSpawnPoints( )
+
+        /// <summary>
+        /// ä¸€ä¸ªåç¨‹å»¶è¿Ÿè°ƒç”¨æ¥å£
+        /// </summary>
+        /// <param name="delay"> ç­‰å¾…å¤šå°‘ç§’ </param>
+        /// <param name="callback"> å›è°ƒ </param>
+        public void AddTimer(float delay, Action callback)
         {
-            Debug.Assert( m_trHeroSpawnRoot != null && m_trHeroSpawnRoot.childCount > 0, "½ÇÉ«³öÉúµã²»ÄÜÎª¿Õ" );
-            for ( int i = 0; i < m_trHeroSpawnRoot.childCount; i++ )
+            StartCoroutine(OpenCoroutineTimer(delay, callback));
+        }
+
+        private IEnumerator OpenCoroutineTimer(float delay, Action callback)
+        {
+            yield return new WaitForSeconds(delay);
+            try
             {
-                Transform spawnPoint = m_trHeroSpawnRoot.GetChild( i );
-                m_vec3HeroSpawnPoints.Add( spawnPoint.position );
+                callback?.Invoke();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"åç¨‹å»¶è¿Ÿå›è°ƒç§»é™¤å´©æºƒ: {e.Message}");
+            }
+        }
+
+        /// <summary>
+        /// æ‰©å±•ä¸€ä¸ªåç¨‹æ¥å£
+        /// </summary>
+        /// <param name="routine"></param>
+        /// <returns></returns>
+        public Coroutine OpenCoroutine(IEnumerator routine)
+        {
+            return StartCoroutine(routine);
+        }
+
+
+
+        private void FillSpawnPoints()
+        {
+            Debug.Assert(m_trHeroSpawnRoot != null && m_trHeroSpawnRoot.childCount > 0, "ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ã²»ï¿½ï¿½Îªï¿½ï¿½");
+            for (int i = 0; i < m_trHeroSpawnRoot.childCount; i++)
+            {
+                Transform spawnPoint = m_trHeroSpawnRoot.GetChild(i);
+                m_vec3HeroSpawnPoints.Add(spawnPoint.position);
             }
         }
 
 
-
-        private void CreateHeros( )
+        private void CreateHeros()
         {
 
-            //ÁÙÊ±£¬ ºóĞøÒÆµ½¹Ø¿¨±í
-            //ĞèÒª´´½¨µÄ½ÇÉ«ÊıÁ¿
-            Dictionary<int, int> dictTmpHeros = new Dictionary<int, int>( )
+            //ï¿½ï¿½Ê±ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½ï¿½Ø¿ï¿½ï¿½ï¿½
+            //ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä½ï¿½É«ï¿½ï¿½ï¿½ï¿½
+            Dictionary<int, int> dictTmpHeros = new Dictionary<int, int>()
             {
                 { 1004,3 },
                 { 1005,2 },
@@ -63,125 +101,125 @@ namespace GameScripts.HeroTeam
                 { 1011,3 },
             };
 
-            //½üÕ½½ÇÉ«
-            List<int> arrTmpWarrior = new List<int>( )
+            //ï¿½ï¿½Õ½ï¿½ï¿½É«
+            List<int> arrTmpWarrior = new List<int>()
             {
                 1005,1005,
                 1006,1006
             };
 
-            //Ô¶³Ì½ÇÉ«
-            List<int> arrTmpAcher = new List<int>( )
+            //Ô¶ï¿½Ì½ï¿½É«
+            List<int> arrTmpAcher = new List<int>()
             {
                 1007,1007,1007,
                 1008,1008,1008,1008,
                 1009,1009,1009
             };
 
-            //Ì¹¿Ë½ÇÉ«
-            List<int> arrTmpTank = new List<int>( )
+            //Ì¹ï¿½Ë½ï¿½É«
+            List<int> arrTmpTank = new List<int>()
             {
                 1004,1004,1004,
             };
 
-            //ÖÎÁÆ½ÇÉ«
-            List<int> arrTmpHealer = new List<int>( )
+            //ï¿½ï¿½ï¿½Æ½ï¿½É«
+            List<int> arrTmpHealer = new List<int>()
             {
                 1010,1010,1010,1010,1010,
                 1011,1011,1011
             };
 
-            void InsertListEvenly( List<int> target, int[] source )
+            void InsertListEvenly(List<int> target, int[] source)
             {
                 int targetCount = target.Count;
                 int sourceCount = source.Length;
 
-                // ¼ÆËã²åÈë¼ä¸ô
-                int interval = targetCount / ( sourceCount + 1 );
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                int interval = targetCount / (sourceCount + 1);
 
-                // ´ÓºóÍùÇ°²åÈë£¬ÒÔ±ÜÃâ²åÈë²Ù×÷Ó°ÏìºóĞø²åÈëÎ»ÖÃ
+                // ï¿½Óºï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ë£¬ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
                 int sourceIndex = 0;
-                for ( int i = 1; i <= sourceCount; i++ )
+                for (int i = 1; i <= sourceCount; i++)
                 {
-                    // ¼ÆËã²åÈëÎ»ÖÃ
+                    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
                     int insertIndex = interval * i;
 
-                    // È·±£²åÈëÎ»ÖÃ²»³¬¹ıµ±Ç°ListµÄ´óĞ¡
-                    if ( insertIndex >= target.Count )
+                    // È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½Ã²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°Listï¿½Ä´ï¿½Ğ¡
+                    if (insertIndex >= target.Count)
                         break;
 
-                    // ÔÚÖ¸¶¨Î»ÖÃ²åÈëÔ´Êı×éµÄÔªËØ
-                    target.Insert( insertIndex, source[ sourceIndex ] );
+                    // ï¿½ï¿½Ö¸ï¿½ï¿½Î»ï¿½Ã²ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+                    target.Insert(insertIndex, source[sourceIndex]);
                     sourceIndex++;
                 }
             }
-            InsertListEvenly( arrTmpAcher, arrTmpHealer.ToArray( ) );
+            InsertListEvenly(arrTmpAcher, arrTmpHealer.ToArray());
 
 
-            void SpawnByRoadRoot( Transform rootNode, List<int> heroIds, bool autoNear = false, bool ergodic = true )
+            void SpawnByRoadRoot(Transform rootNode, List<int> heroIds, bool autoNear = false, bool ergodic = true)
             {
-                Debug.Assert( heroIds.Count != rootNode.childCount, "Ñ°Â·½Úµã²»¹»" );
-                for ( int i = 0; i < heroIds.Count; i++ )
+                Debug.Assert(heroIds.Count == rootNode.childCount, "Ñ°Â·ï¿½Úµã²»ï¿½ï¿½");
+                for (int i = 0; i < heroIds.Count; i++)
                 {
-                    Vector3 pos = m_vec3HeroSpawnPoints[ m_vec3HeroSpawnPoints.Count - 1 ];
-                    m_vec3HeroSpawnPoints.RemoveAt( m_vec3HeroSpawnPoints.Count - 1 );
+                    Vector3 pos = m_vec3HeroSpawnPoints[m_vec3HeroSpawnPoints.Count - 1];
+                    m_vec3HeroSpawnPoints.RemoveAt(m_vec3HeroSpawnPoints.Count - 1);
 
-                    List<Vector3> road = new List<Vector3>( );
+                    List<Vector3> road = new List<Vector3>();
 
-                    if ( autoNear )
+                    if (autoNear)
                     {
-                        if ( i >= heroIds.Count / 2 )
+                        if (i >= heroIds.Count / 2)
                         {
 
-                            for ( int j = rootNode.childCount - 1; j >= i; j-- )
+                            for (int j = rootNode.childCount - 1; j >= i; j--)
                             {
-                                var p = rootNode.GetChild( j ).position;
+                                var p = rootNode.GetChild(j).position;
                                 p.z = 0f;
-                                road.Add( p );
+                                road.Add(p);
                             }
                         }
                         else
                         {
-                            for ( int j = 0; j < rootNode.childCount / 2 - i; j++ )
+                            for (int j = 0; j < rootNode.childCount / 2 - i; j++)
                             {
-                                var p = rootNode.GetChild( j ).position;
+                                var p = rootNode.GetChild(j).position;
                                 p.z = 0f;
-                                road.Add( p );
+                                road.Add(p);
                             }
                         }
                     }
                     else
                     {
-                        if ( !ergodic )
+                        if (!ergodic)
                         {
-                            var p = rootNode.GetChild( i ).position;
+                            var p = rootNode.GetChild(i).position;
                             p.z = 0f;
-                            road.Add( p );
+                            road.Add(p);
                         }
                         else
                         {
-                            for ( int j = 0; j <= rootNode.childCount - 1 - i; j++ )
+                            for (int j = 0; j <= rootNode.childCount - 1 - i; j++)
                             {
-                                var p = rootNode.GetChild( j ).position;
+                                var p = rootNode.GetChild(j).position;
                                 p.z = 0f;
-                                road.Add( p );
+                                road.Add(p);
                             }
                         }
                     }
-                    RefreshMonsterMgr.Instance.RefreshHero( heroIds[ i ], pos, BATTLE_CAMP_DEF.BATTLE_CAMP_HERO, road );
+                    RefreshMonsterMgr.Instance.RefreshHero(heroIds[i], pos, BATTLE_CAMP_DEF.BATTLE_CAMP_HERO, road);
                 }
             }
 
             //arrTmpAcher
-            SpawnByRoadRoot( m_trAcherRoadRoot, arrTmpAcher, true );
+            SpawnByRoadRoot(m_trAcherRoadRoot, arrTmpAcher, true);
 
 
             //arrTmpWarrior
-            SpawnByRoadRoot( m_tWarriorRoadRoot, arrTmpWarrior );
+            SpawnByRoadRoot(m_tWarriorRoadRoot, arrTmpWarrior);
 
 
             //arrTmpTank
-            SpawnByRoadRoot( m_trTankRoadRoot, arrTmpTank, false, false );
+            SpawnByRoadRoot(m_trTankRoadRoot, arrTmpTank, false, false);
 
 
 
@@ -197,84 +235,91 @@ namespace GameScripts.HeroTeam
 
         }
 
-        private void CreateBoss( )
+        private void CreateBoss()
         {
 
             //IEntity bossEntity = GameGlobal.EntityWorld.Local.GetEntity( bossEntityId );
 
             //if ( bossEntity is IMonster monster )
             //{
-            //    //ËùÓĞµÄÔ¶³Ì½ÇÉ«Æ½¾ù·Ö²¼ÔÚÍâÈ¦
+            //    //ï¿½ï¿½ï¿½Ğµï¿½Ô¶ï¿½Ì½ï¿½É«Æ½ï¿½ï¿½ï¿½Ö²ï¿½ï¿½ï¿½ï¿½ï¿½È¦
 
             //    monster.
             //}
-            Invoke( "DelayCreateBoss", 3f );
+            Invoke("DelayCreateBoss", 3f);
         }
-        private void DelayCreateBoss( )
+        private void DelayCreateBoss()
         {
-            RefreshMonsterMgr.Instance.RefreshBoss( 3, 1, 1, 1 );
-            //ToastManager.Instance.Get( ).Show( "À­¸ñÄÉÂŞË¹£º¡°ÄãÎªÊ²Ã´Òª»½ĞÑÎÒ£¬°£¿ËË÷Í¼Ë¹£¬ÎªÊ²Ã´Òª´òÈÅÎÒ£¿¡°", 1f );
-        }
-
-
-        private void OnEnable( )
-        {
-            GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable" );
-        }
-        private void OnDisable( )
-        {
-            GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0 );
+            var bossEntityId = RefreshMonsterMgr.Instance.RefreshBoss(3, 1, 1, 1);
+            IEntity bossEntity = GameGlobal.EntityWorld.Local.GetEntity(bossEntityId);
+            if (bossEntity is IMonster monster)
+            {
+                m_BossEntity = monster;
+            }
+            //ToastManager.Instance.Get( ).Show( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÊ²Ã´Òªï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Ë¹ï¿½ï¿½ÎªÊ²Ã´Òªï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½", 1f );
         }
 
+        //å½“å‰åœºæ™¯å°±ä¸€ä¸ªbossï¼Œè®¿é—®é‡è¾ƒé«˜ï¼Œä¸ºäº†é¿å…æ¯æ¬¡éƒ½è¦éå†ï¼Œç›´æ¥ç¼“å­˜ä¸€ä¸ª
+        private IMonster m_BossEntity = null;
+        public IMonster GetBossEntity() => m_BossEntity;
 
-        public void OnExecute( ushort wEventID, byte bSrcType, uint dwSrcID, object pContext )
+
+        private void OnEnable()
         {
-            //Debug.Log( "¿ªÊ¼Õ½¶·" );
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+        }
+        private void OnDisable()
+        {
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
+        }
 
-            if ( wEventID == DHeroTeamEvent.EVENT_START_BATTLE )
+
+        public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
+        {
+            //Debug.Log( "ï¿½ï¿½Ê¼Õ½ï¿½ï¿½" );
+
+            if (wEventID == DHeroTeamEvent.EVENT_START_GAME)
             {
                 //GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, CameraShakeEventContext.Ins );
                 //GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, BossHpEventContext.Ins );
 
-                //²ú³öboss
-                CreateBoss( );
+                //ï¿½ï¿½ï¿½ï¿½boss
+                CreateBoss();
 
-                StartCoroutine( NpcBossChat( ) );
+                StartCoroutine(NpcBossChat());
             }
 
         }
 
-        private IEnumerator NpcBossChat( )
+        private IEnumerator NpcBossChat()
         {
-            //µÈ½ÇÉ«ÅÜÍê
-            yield return new WaitForSeconds( 2f );
+            yield return new WaitForSeconds(2f);
 
             uint handle = 0;
-            var loader = XGameComs.Get<IGAssetLoader>( );
-            var objPrefab = ( GameObject ) loader.LoadResSync<GameObject>( "Game/HeroTeam/GameResources/Prefabs/Game/Npc.prefab", out handle );
-            loader.UnloadRes( handle );
-            var npc = GameObject.Instantiate( objPrefab, new Vector3( -7f, -11.4f, 0 ), Quaternion.identity, null );
-            npc.transform.GetChild( 0 ).localScale = Vector3.one * 4;
-            var chatPoint = npc.transform.Find( "ChatPoint" );
+            var loader = XGameComs.Get<IGAssetLoader>();
+            var objPrefab = (GameObject)loader.LoadResSync<GameObject>("Game/HeroTeam/GameResources/Prefabs/Game/Npc.prefab", out handle);
+            loader.UnloadRes(handle);
+            var npc = GameObject.Instantiate(objPrefab, new Vector3(-7f, -11.4f, 0), Quaternion.identity, null);
+            npc.transform.GetChild(0).localScale = Vector3.one * 4;
+            var chatPoint = npc.transform.Find("ChatPoint");
 
-            List<string> chats = new List<string>( )
+            List<string> chats = new List<string>()
             {
-                "¹ÜÀíÕß°£¿ËË÷Í¼Ë¹£º¡°À­¸ñÄÉÂŞË¹£¬»ğÑæÖ®Íõ£¬Ëû±ÈÕâ¸öÊÀ½ç±¾Éí»¹Òª¹ÅÀÏ£¬ÔÚËûÃæÇ°Çü·ş°É£¬ÔÚÄãÃÇµÄÄ©ÈÕÃæÇ°Çü·ş°É£¡¡±",
-                "À­¸ñÄÉÂŞË¹£º¡°ÄãÎªÊ²Ã´Òª»½ĞÑÎÒ£¬°£¿ËË÷Í¼Ë¹£¬ÎªÊ²Ã´Òª´òÈÅÎÒ£¿¡°",
-                "¹ÜÀíÕß°£¿ËË÷Í¼Ë¹£º¡°ÊÇÒòÎªÕâĞ©ÈëÇÖÕß£¬ÎÒµÄÖ÷ÈË£¬ËûÃÇ´³ÈëÁËÄúµÄÊ¥µî£¬ÏëÒªÇÔÈ¡ÄãµÄÃØÃÜ¡£¡±",
-                "À­¸ñÄÉÂŞË¹£º¡°´À»õ£¬ÄãÈÃÕâĞ©²»ÖµÒ»ÌáµÄ³æ×Ó½øÈëÁËÕâ¸öÉñÊ¥µÄµØ·½£¬ÏÖÔÚ»¹½«ËûÃÇÒıµ½ÁËÎÒÕâÀïÀ´£¬ÄãÌ«ÈÃÎÒÊ§ÍûÁË£¬°£¿ËË÷Í¼Ë¹£¬ÄãÌ«ÈÃÎÒÊ§ÍûÁË£¡¡±",
-                "¹ÜÀíÕß°£¿ËË÷Í¼Ë¹£º¡°ÎÒµÄ»ğÑæ£¬Çë²»Òª¶á×ßÎÒµÄ»ğÑæ¡£¡±£¨¹ÜÀíÕß°£¿ËË÷Í¼Ë¹ËÀÍö£©",
-                "À­¸ñÄÉÂŞË¹£º¡°ÏÖÔÚÂÖµ½ÄãÃÇÁË£¬ÄãÃÇÓŞ´ÀµÄ×·Ñ°À­¸ñÄÉÂŞË¹µÄÁ¦Á¿£¬ÏÖÔÚÄãÃÇ¼´½«Ç×ÑÛ¼ûµ½Ëü¡£¡±"
+                "ç®¡ç†è€…åŸƒå…‹ç´¢å›¾æ–¯ï¼šâ€œæ‹‰æ ¼çº³ç½—æ–¯ï¼Œç«ç„°ä¹‹ç‹ï¼Œä»–æ¯”è¿™ä¸ªä¸–ç•Œæœ¬èº«è¿˜è¦å¤è€ï¼Œåœ¨ä»–é¢å‰å±ˆæœå§ï¼Œåœ¨ä½ ä»¬çš„æœ«æ—¥é¢å‰å±ˆæœå§ï¼â€",
+                "æ‹‰æ ¼çº³ç½—æ–¯ï¼šâ€œä½ ä¸ºä»€ä¹ˆè¦å”¤é†’æˆ‘ï¼ŒåŸƒå…‹ç´¢å›¾æ–¯ï¼Œä¸ºä»€ä¹ˆè¦æ‰“æ‰°æˆ‘ï¼Ÿâ€œ",
+                "ç®¡ç†è€…åŸƒå…‹ç´¢å›¾æ–¯ï¼šâ€œæ˜¯å› ä¸ºè¿™äº›å…¥ä¾µè€…ï¼Œæˆ‘çš„ä¸»äººï¼Œä»–ä»¬é—¯å…¥äº†æ‚¨çš„åœ£æ®¿ï¼Œæƒ³è¦çªƒå–ä½ çš„ç§˜å¯†ã€‚â€",
+                "æ‹‰æ ¼çº³ç½—æ–¯ï¼šâ€œè ¢è´§ï¼Œä½ è®©è¿™äº›ä¸å€¼ä¸€æçš„è™«å­è¿›å…¥äº†è¿™ä¸ªç¥åœ£çš„åœ°æ–¹ï¼Œç°åœ¨è¿˜å°†ä»–ä»¬å¼•åˆ°äº†æˆ‘è¿™é‡Œæ¥ï¼Œä½ å¤ªè®©æˆ‘å¤±æœ›äº†ï¼ŒåŸƒå…‹ç´¢å›¾æ–¯ï¼Œä½ å¤ªè®©æˆ‘å¤±æœ›äº†ï¼â€",
+                "ç®¡ç†è€…åŸƒå…‹ç´¢å›¾æ–¯ï¼šâ€œæˆ‘çš„ç«ç„°ï¼Œè¯·ä¸è¦å¤ºèµ°æˆ‘çš„ç«ç„°ã€‚â€ï¼ˆç®¡ç†è€…åŸƒå…‹ç´¢å›¾æ–¯æ­»äº¡ï¼‰",
+                "æ‹‰æ ¼çº³ç½—æ–¯ï¼šâ€œç°åœ¨è½®åˆ°ä½ ä»¬äº†ï¼Œä½ ä»¬æ„šè ¢çš„è¿½å¯»æ‹‰æ ¼çº³ç½—æ–¯çš„åŠ›é‡ï¼Œç°åœ¨ä½ ä»¬å³å°†äº²çœ¼è§åˆ°å®ƒã€‚â€"
             };
-
-            for ( int i = 0; i < chats.Count; i++ )
+            for (int i = 0; i < chats.Count; i++)
             {
-                var toast = ToastManager.Instance.Get( );
-                toast.Show( chats[ i ], 1f );
+                var toast = ToastManager.Instance.Get();
+                toast.Show(chats[i], 1f);
 
-                if ( i % 2 == 0 )
+                if (i % 2 == 0)
                 {
-                    toast.transform.SetParent( chatPoint );
+                    toast.transform.SetParent(chatPoint);
                     toast.transform.localPosition = Vector3.zero;
                 }
                 else
@@ -282,39 +327,40 @@ namespace GameScripts.HeroTeam
                     toast.transform.position = Vector3.up * 23f;
                 }
 
-                if ( i == chats.Count - 1 )
+                if (i == chats.Count - 1)
                 {
-                    //npcËÀÍö¶¯»­
-                    var sa = npc.GetComponentInChildren<SkeletonAnimation>( );
-                    sa.AnimationState.SetAnimation( 0, "dead", false );
+                    //npcï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                    var sa = npc.GetComponentInChildren<SkeletonAnimation>();
+                    sa.AnimationState.SetAnimation(0, "dead", false);
                 }
 
 
-                yield return new WaitForSeconds( 1f );
+                yield return new WaitForSeconds(1f);
             }
 
-            Destroy( npc );
+            Destroy(npc);
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
         }
 
-        private void Update( )
+        private void Update()
         {
-            if ( Input.GetKeyDown( KeyCode.Space ) )
-            {
-                var pContext = CameraShakeEventContext.Ins;
-                pContext.intensity = 1f;
-                pContext.duration = 0.5f;
-                pContext.vibrato = 30;
-                pContext.randomness = 100f;
-                pContext.fadeOut = true;
-                GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
-            }
+            // if ( Input.GetKeyDown( KeyCode.Space ) )
+            // {
+            //     var pContext = CameraShakeEventContext.Ins;
+            //     pContext.intensity = 1f;
+            //     pContext.duration = 0.5f;
+            //     pContext.vibrato = 30;
+            //     pContext.randomness = 100f;
+            //     pContext.fadeOut = true;
+            //     GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
+            // }
 
-            if ( Input.GetKeyDown( KeyCode.Q ) )
-            {
-                var pContext = BossHpEventContext.Ins;
-                pContext.Health -= 0.2f;
-                GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
-            }
+            // if ( Input.GetKeyDown( KeyCode.Q ) )
+            // {
+            //     var pContext = BossHpEventContext.Ins;
+            //     pContext.Health -= 0.2f;
+            //     GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
+            // }
         }
     }
 

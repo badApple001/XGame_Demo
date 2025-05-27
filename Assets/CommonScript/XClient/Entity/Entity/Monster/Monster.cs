@@ -1,19 +1,20 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	Monster.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.6.25
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  ¹ÖÎïÊµÌåÀà
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	Monster.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.6.25
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ï¿½ï¿½
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 using System.Collections.Generic;
+using GameScripts.HeroTeam;
 using Spine.Unity;
 using UnityEngine;
 using XClient.Common;
@@ -28,44 +29,46 @@ namespace XClient.Entity
 
         public static readonly Vector3 s_vRightScale = Vector3.one;
 
-        //×ÊÔ´Â·¾¶
+        //ï¿½ï¿½Ô´Â·ï¿½ï¿½
         private string m_resPath;
 
-        //ÒÆ¶¯ËÙ¶È
+        //ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
         private float m_speed;
 
         public int ceatureId;
-        //ÓÑ·½ÁÐ±í
+        //ï¿½Ñ·ï¿½ï¿½Ð±ï¿½
         private List<ulong> m_listFriendCamps;
 
-        //µÐ·½ÁÐ±í
+        //ï¿½Ð·ï¿½ï¿½Ð±ï¿½
         private List<ulong> m_listEnemyCamps;
 
-        //ÊÇ·ñ±¾µØ¶ÔÏó
+        //ï¿½Ç·ñ±¾µØ¶ï¿½ï¿½ï¿½
         private bool m_bLocalObject = false;
         private bool m_bFaceLeft = false;
         private Quaternion m_rotate = Quaternion.identity;
         private Transform m_parent;
 
-        //¹ÖÎïÊý¾ÝÍ¬²½²¿¼þ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private MonsterDataPart m_dataPart;
 
-        //Ô¤ÖÆÌå²¿¼þ
+        //Ô¤ï¿½ï¿½ï¿½å²¿ï¿½ï¿½
         private PrefabPart m_prefabPart;
 
 
-        //Ô¤ÖÆÌå²¿¼þ
-       // private SpineSkinPart m_skinPart;
+        //Ô¤ï¿½ï¿½ï¿½å²¿ï¿½ï¿½
+        private SpineSkinPart m_skinPart;
 
-        //ÊôÐÔÐÞ¸ÄÆ÷
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½
         private IATTRModifier m_attrModifier;
 
-        //intÊôÐÔÁÐ±í
+        //intï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
         private Dictionary<int, int> m_dicProp = new Dictionary<int, int>();
 
         private List<Vector3> m_listRoads = new List<Vector3>();
 
         private bool m_bIsBoss = false;
+
+        private int m_nHatred = 0;
 
         public override Vector3 position => GetPos();
 
@@ -190,7 +193,7 @@ namespace XClient.Entity
 
             if (cfg == null)
             {
-                Debug.LogError("²»´æÔÚµÄCreatureViewÅäÖÃ configId=" + configId);
+                Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½CreatureViewï¿½ï¿½ï¿½ï¿½ configId=" + configId);
             }
             else
             {
@@ -210,14 +213,14 @@ namespace XClient.Entity
 
                 if(string.IsNullOrEmpty(m_resPath))
                 {
-                    Debug.LogError("¹ÖÎïµÄ×ÊÔ´Â·¾¶Îª¿Õ configId=" + configId);
+                    Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Â·ï¿½ï¿½Îªï¿½ï¿½ configId=" + configId);
                 }
 
 
                 m_speed = 0;
             }
 
-            //»ñÈ¡ÐÞ¸ÄÆ÷
+            //ï¿½ï¿½È¡ï¿½Þ¸ï¿½ï¿½ï¿½
             m_attrModifier = MonsterSystem.Instance.GetAttrModified();
 
             //SetSpeed((int)cfg.fbaseSpeed);
@@ -229,10 +232,10 @@ namespace XClient.Entity
         {
             base.OnAfterInit(context);
 
-            //Êý¾ÝÔ­ÐÍ
+            //ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½
             m_dataPart = GetPart<MonsterDataPart>();
             m_prefabPart = GetPart<PrefabPart>();
-           // m_skinPart = GetPart<SpineSkinPart>();
+            //m_skinPart = GetPart<SpineSkinPart>();
             var ctx = context as NetEntityShareInitContext;
             m_bLocalObject = (ctx.isInitFromNet == false);
             if (m_bLocalObject)
@@ -312,6 +315,11 @@ namespace XClient.Entity
 
             m_dataPart.m_hp.RemoteValueDelta += hp;
             m_dataPart.m_hp.Value += hp;
+
+            //if( hp < 0 )
+            //{
+            //    GetSkeletonAnimation( ).AnimationState.SetAnimation( 0, "hit2", false );
+            //}
         }
 
         public float GetSpeed()
@@ -392,11 +400,11 @@ namespace XClient.Entity
 
                 reco.camp = (ulong)m_dataPart.m_camp.Value;
                 reco.entID = base.id;
-                reco.hitTrans = m_prefabPart.gameObject.GetComponent<SkillCompontBase>()
-                    .GetSkillEffNode(ECreaturePos.Center).transform;
+                // reco.hitTrans = m_prefabPart.gameObject.GetComponent<SkillCompontBase>()
+                    // .GetSkillEffNode(ECreaturePos.Center).transform;
                 reco.entType = base.type;
 
-                //±¾µØ¶ÔÏó¿ÉÒÔ±»´ò£¬Ò²ÄÜ¹¥»÷
+                //ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½Ò²ï¿½Ü¹ï¿½ï¿½ï¿½
                 if (m_bLocalObject)
                 {
                     reco.canAttack = true;
@@ -406,7 +414,7 @@ namespace XClient.Entity
                 }
                 else
                 {
-                    //Ô¶³Ì¶ÔÏó²»ÄÜ±»¹¥»÷,µ«ÊÇÄÜ°¤´ò
+                    //Ô¶ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½Ü±ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½Ü°ï¿½ï¿½ï¿½
                     reco.canAttack = false;
                     reco.beAttack = true;
                 }
@@ -421,10 +429,18 @@ namespace XClient.Entity
                     buffComponent.AddBuff(10004);
                 }
                 */
+
+                Actor actor = m_prefabPart.gameObject.GetComponent<Actor>();
+                if( null != actor)
+                {
+                    actor.SetMonsterCfg( ( cfg_Monster ) config );
+                    actor.SetCreatureEntity( this );
+                }
+
                 var bar = m_prefabPart.gameObject.GetComponentInChildren<HpBar>( );
                 if ( null != bar )
                 {
-                    Debug.Log( "ÑªÌõ°ó¶¨¶ÔÏó" );
+                    Debug.Log( "Ñªï¿½ï¿½ï¿½ó¶¨¶ï¿½ï¿½ï¿½" );
                     bar.SetEntity( this );
                 }
             }
@@ -516,6 +532,16 @@ namespace XClient.Entity
         public bool IsBoos( )
         {
             return m_bIsBoss;
+        }
+
+        public int GetHatred( )
+        {
+            return m_nHatred;
+        }
+
+        public void SetHatred( int value )
+        {
+            m_nHatred = value;
         }
     }
 }

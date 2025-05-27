@@ -18,7 +18,7 @@ namespace GameScripts.HeroTeam
 
             if ( wEventID == DHeroTeamEvent.EVENT_CAMERA_SHAKE )
             {
-                // ·ÀÖ¹¶à¸öÕð¶¯µþ¼Ó
+                // ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½ð¶¯µï¿½ï¿½ï¿½
                 if ( m_tweenShake != null && m_tweenShake.IsActive( ) )
                     m_tweenShake.Kill( );
 
@@ -38,9 +38,9 @@ namespace GameScripts.HeroTeam
                     } );
                 }
             }
-            else if ( wEventID == DHeroTeamEvent.EVENT_START_BATTLE )
+            else if ( wEventID == DHeroTeamEvent.EVENT_START_GAME )
             {
-                m_trCamera.DOMoveY( 7.49f, 2f ).OnComplete( ( ) =>
+                m_trCamera.DOMoveY( 15f, 2f ).OnComplete( ( ) =>
                 {
                     m_vec3Original = transform.localPosition;
                 } );
@@ -54,14 +54,14 @@ namespace GameScripts.HeroTeam
             m_vec3Original = transform.localPosition;
 
             GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "CameraController:Start" );
-            GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0, "CameraController:Start" );
+            GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "CameraController:Start" );
         }
 
 
         private void OnDestroy( )
         {
             GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0 );
-            GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0 );
+            GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0 );
         }
 
     }

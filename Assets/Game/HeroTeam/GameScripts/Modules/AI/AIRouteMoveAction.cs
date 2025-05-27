@@ -1,16 +1,16 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	AIRouteMoveAction.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.8.28
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  ¿ØÖÆÊµÌå°´Â·ÓÉµãÒÆ¶¯
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	AIRouteMoveAction.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.8.28
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½Êµï¿½å°´Â·ï¿½Éµï¿½ï¿½Æ¶ï¿½
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 using GameScripts;
@@ -29,52 +29,52 @@ namespace GameScripts.HeroTeam
 
     public class AIRouteMoveAction : IAIAction, IEventExecuteSink
     {
-        //ÐÐÎªµÄÓÅÏÈ¼¶
+        //ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½
         private int m_nPriority = 0;
 
-        //Õâ¸öAIµÄÓµÓÐÕß
+        //ï¿½ï¿½ï¿½AIï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½
         private ICreatureEntity m_Master;
 
-        //³õÊ¼»¯Î»ÖÃ
+        //ï¿½ï¿½Ê¼ï¿½ï¿½Î»ï¿½ï¿½
         private Vector3 m_startPos;
 
-        //Ä¿±êÎ»ÖÃ
+        //Ä¿ï¿½ï¿½Î»ï¿½ï¿½
         private Vector3 m_targetPos;
 
-        //ÒÆ¶¯µÄ¾àÀë
+        //ï¿½Æ¶ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½
         private float m_fDistance;
 
-        //ÊÇ·ñÔËÐÐ
+        //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
         private bool m_bRun = false;
 
-        //Ç°ÏòÒÆ¶¯×é¼þ
+        //Ç°ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½
         private ForwardMovement m_forwardMovement;
 
-        //spine×é¼þ¿ØÖÆ¶¯×÷
+        //spineï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½
         private SpineAni m_spineAni;
 
-        //µ±Ç°µÚ¼¸¶ÎÂ·
+        //ï¿½ï¿½Ç°ï¿½Ú¼ï¿½ï¿½ï¿½Â·
         private int m_moveSeg = 0;
 
-        //Â·ÓÉ±í¸ñ
+        //Â·ï¿½É±ï¿½ï¿½ï¿½
         private List<Vector3> m_listRoutePoints = null;
 
 
-        public bool Create( )
+        public bool Create()
         {
             return true;
         }
 
-        public int GetPriority( )
+        public int GetPriority()
         {
             return m_nPriority;
         }
 
-        public void Init( object context = null )
+        public void Init(object context = null)
         {
             cfg_AI cfg = context as cfg_AI;
             m_nPriority = cfg.iPriority;
-            m_fDistance = cfg.param[ 0 ];
+            m_fDistance = cfg.param[0];
 
 
             m_moveSeg = 0;
@@ -82,18 +82,18 @@ namespace GameScripts.HeroTeam
 
         }
 
-        public void OnExecute( ushort wEventID, byte bSrcType, uint dwSrcID, object pContext )
+        public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
 
-            if ( wEventID == DHeroTeamEvent.EVENT_START_BATTLE )
+            if (wEventID == DHeroTeamEvent.EVENT_START_GAME)
             {
-                //¿ÉÒÔÖ´ÐÐÒÆ¶¯ÁË
+                //ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½
                 m_bRun = true;
-                Debug.Log( "AI: ¿ªÊ¼Õ½¶·" );
+                Debug.Log("AI: ï¿½ï¿½Ê¼Õ½ï¿½ï¿½");
 
-                //³õÊ¼»¯ÒÆ¶¯¶Î
+                //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½
                 m_moveSeg = 0;
-                __InitNextSeg( );
+                __InitNextSeg();
             }
 
             //if (wEventID == DGlobalEventEx.EVENT_STOP_MOVE)
@@ -101,7 +101,7 @@ namespace GameScripts.HeroTeam
             //    SEVENT_STOP_MOVE context = (SEVENT_STOP_MOVE)pContext;
             //    if (m_Master != null && m_Master.id == context.srcID)
             //    {
-            //        //Í£Ö¹ÒÆ¶¯
+            //        //Í£Ö¹ï¿½Æ¶ï¿½
             //        if (m_forwardMovement != null && m_forwardMovement.IsMoving())
             //        {
             //            m_forwardMovement.StopMove();
@@ -114,7 +114,7 @@ namespace GameScripts.HeroTeam
             //    SEVENTP_MOVE_SPEED_UPDATE context = (SEVENTP_MOVE_SPEED_UPDATE)pContext;
             //    if (m_Master != null && m_Master.id == context.srcID)
             //    {
-            //        //Í£Ö¹ÒÆ¶¯
+            //        //Í£Ö¹ï¿½Æ¶ï¿½
             //        if (m_forwardMovement != null && m_forwardMovement.IsMoving())
             //        {
             //            m_forwardMovement.StopMove();
@@ -127,59 +127,73 @@ namespace GameScripts.HeroTeam
 
         }
 
-        public bool OnExeUpdate( )
+        public bool OnExeUpdate()
         {
 
-            if ( m_bRun == false )
+            if (m_bRun == false)
                 return false;
 
 
-            if ( m_Master.IsDie( ) )
+            if (m_Master.IsDie())
             {
-                m_forwardMovement.StopMove( );
-                m_spineAni?.DoAction( "death", false, true );
+                m_forwardMovement.StopMove();
+                m_spineAni?.DoAction("death", false, true);
                 return false;
             }
 
 
 
-            //¼ÙÈçÒÑ¾­µ½´ïÄ¿±êµãÁË
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½
             //PrefabPart visiblePart = m_Master.GetPart<PrefabPart>( );
-            Vector3 curPos = m_Master.GetPos( );// visiblePart.transform.position;// m_Master.GetPos();
-            if ( Vector3.Distance( curPos, m_targetPos ) <= 0.01f )
+            Vector3 curPos = m_Master.GetPos();// visiblePart.transform.position;// m_Master.GetPos();
+            if (Vector3.Distance(curPos, m_targetPos) <= 0.01f)
             {
-                //ÏÈÍ£Ö¹ÒÆ¶¯£¬ºóÐø´ÓÐÂ¿ªÊ¼ÒÆ¶¯
-                m_forwardMovement.StopMove( );
-                m_Master.SetPos( ref m_targetPos );
+                //ï¿½ï¿½Í£Ö¹ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½Ê¼ï¿½Æ¶ï¿½
+                m_forwardMovement.StopMove();
+                m_Master.SetPos(ref m_targetPos);
 
 
-                //µ½Ä¿µÄµØÁË,ÒÆ¶¯µ½ÏÂÒ»¶Î£¬Ã»ÓÐÏÂÒ»¶ÎÁË£¬¾ÍÒÆ¶¯½áÊø
+                //ï¿½ï¿½Ä¿ï¿½Äµï¿½ï¿½ï¿½,ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î£ï¿½Ã»ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
                 m_moveSeg++;
-                if ( __InitNextSeg( ) == false )
+                if (__InitNextSeg() == false)
                 {
-                    m_spineAni?.DoAction( "idle", true );
+                    m_spineAni?.DoAction("idle", true);
                     m_bRun = false;
+
+
+
+                    // //èŽ·å–è‡ªèº«é˜µè¥
+                    // var camp = m_Master.GetCamp();
+                    // //èŽ·å–åœ°æ–¹é˜µè¥
+                    // var foes = MonsterSystem.Instance.GetMonstersNotEqulCamp(camp);
+                    // //æ‰¾åˆ°æœ€è¿‘çš„ æœå‘
+                    // var bossEntity = GameManager.instance.GetBossEntity();
+                    var pSkeleton = m_Master.GetPart<PrefabPart>().transform.GetComponent<SpineAni>().skeletonAnimation.skeleton;
+                    // float x =  bossEntity.GetPos().x - m_Master.GetPos().x;
+                    float x = m_Master.GetPos().x;
+                    pSkeleton.ScaleX = x < 0 ? 1f : -1f;
+
                     return false;
                 }
             }
             else
             {
-                //ÏòÄ¿±êµãÒÆ¶¯
+                //ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
 
 
             }
 
-            //Ã»ÓÐÔÚÒÆ¶¯»òÕßÄ¿±êµã´óÓÚ0.1µÄ£¬ÖØÐÂÒÆ¶¯
-            if ( m_forwardMovement.IsMoving( ) == false )
+            //Ã»ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0.1ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
+            if (m_forwardMovement.IsMoving() == false)
             {
 
-                //·¢ËÍÍ¶Æ±ÏûÏ¢£¬Ñ¯ÎÊÊÇ·ñÄÜÒÆ¶¯
+                //ï¿½ï¿½ï¿½ï¿½Í¶Æ±ï¿½ï¿½Ï¢ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½
                 //SEVENT_CAN_MOVE.Instance.srcID = m_Master.id;
                 bool ret = true;// GameGlobalEx.EventEgnine.FireVote( DGlobalEventEx.EVENT_CAN_MOVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, SEVENT_CAN_MOVE.Instance );
-                if ( ret )
+                if (ret)
                 {
-                    m_forwardMovement.StartMove( m_Master.GetSpeed( ), curPos, m_targetPos );
-                    m_spineAni?.DoAction( "run", true );
+                    m_forwardMovement.StartMove(m_Master.GetSpeed(), curPos, m_targetPos);
+                    m_spineAni?.DoAction("run", true);
                 }
             }
 
@@ -187,12 +201,12 @@ namespace GameScripts.HeroTeam
             return false;
         }
 
-        public void OnReceiveEntityMessage( uint id, object data = null )
+        public void OnReceiveEntityMessage(uint id, object data = null)
         {
-            if ( id == EntityMessageID.ResLoaded )
+            if (id == EntityMessageID.ResLoaded)
             {
 
-                //Í¨¹ýÕóÓªÅÐ¶ÏÊÇ±¾µØ¶Ë»¹ÊÇÔ¶¶Ë
+                //Í¨ï¿½ï¿½ï¿½ï¿½Óªï¿½Ð¶ï¿½ï¿½Ç±ï¿½ï¿½Ø¶Ë»ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½
                 //ulong camp = m_Master.GetCamp( );
                 //if ( CampDef.IsLocalCamp( camp ) == false )
                 //{
@@ -200,9 +214,9 @@ namespace GameScripts.HeroTeam
                 //}
 
                 //m_listRoutePoints = RefreshMonsterMgr.Instance.GetSelfRoutePoints( );
-                if ( m_Master is IMonster m )
+                if (m_Master is IMonster m)
                 {
-                    m_listRoutePoints = m.GetRoad( );
+                    m_listRoutePoints = m.GetRoad();
                 }
 
                 /*
@@ -215,21 +229,21 @@ namespace GameScripts.HeroTeam
                 }
                 */
 
-               
+
 
                 //m_bRun = true;
 
-                PrefabPart visiblePart = m_Master.GetPart<PrefabPart>( );
-                if ( null != visiblePart && visiblePart.transform )
+                PrefabPart visiblePart = m_Master.GetPart<PrefabPart>();
+                if (null != visiblePart && visiblePart.transform)
                 {
-                    m_spineAni = visiblePart.transform.GetComponent<SpineAni>( );
-                    m_forwardMovement = visiblePart.transform.GetComponent<ForwardMovement>( );
-                    if ( m_forwardMovement )
+                    m_spineAni = visiblePart.transform.GetComponent<SpineAni>();
+                    m_forwardMovement = visiblePart.transform.GetComponent<ForwardMovement>();
+                    if (m_forwardMovement)
                     {
-                        //AIµÄÒÆ¶¯,Ã¿¸ö¿Í»§¶Ë×Ô¼º¹Ü£¬²»ÐèÒªÍ¬²½
-                        m_forwardMovement.EnableSync( false );
+                        //AIï¿½ï¿½ï¿½Æ¶ï¿½,Ã¿ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÍ¬ï¿½ï¿½
+                        m_forwardMovement.EnableSync(false);
 
-                        //¿ªÊ¼ÒÆ¶¯
+                        //ï¿½ï¿½Ê¼ï¿½Æ¶ï¿½
                         //m_forwardMovement.StartMove( m_Master.GetSpeed( ), m_startPos, m_targetPos );
                         //m_spineAni?.DoAction( "move", true );
                     }
@@ -238,18 +252,18 @@ namespace GameScripts.HeroTeam
             }
         }
 
-        public void Release( )
+        public void Release()
         {
-            Reset( );
+            Reset();
         }
 
-        public void Reset( )
+        public void Reset()
         {
-            Stop( );
-            if ( m_forwardMovement )
+            Stop();
+            if (m_forwardMovement)
             {
-                m_forwardMovement.StopMove( );
-                m_spineAni?.DoAction( "idle", true );
+                m_forwardMovement.StopMove();
+                m_spineAni?.DoAction("idle", true);
             }
 
             m_Master = null;
@@ -259,37 +273,37 @@ namespace GameScripts.HeroTeam
             m_bRun = false;
         }
 
-        public void SetMaster( ICreatureEntity master )
+        public void SetMaster(ICreatureEntity master)
         {
             m_Master = master;
 
         }
 
-        public void Start( )
+        public void Start()
         {
-            //¶©ÔÄÏú»ÙÏûÏ¢
-            IEventEngine eventEngine = XGameComs.Get<IEventEngine>( );
-            eventEngine.Subscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0, "AIRouteMoveAction:Start" );// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+            IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
+            eventEngine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "AIRouteMoveAction:Start");// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
             //eventEngine.Subscibe( this, DGlobalEventEx.EVENT_MOVE_SPEED_UPDATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "AIMoveAction:Start" );// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
 
         }
 
-        public void Stop( )
+        public void Stop()
         {
-            IEventEngine eventEngine = XGameComs.Get<IEventEngine>( );
-            eventEngine.UnSubscibe( this, DHeroTeamEvent.EVENT_START_BATTLE, DEventSourceType.SOURCE_TYPE_UI, 0 );// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
+            IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
+            eventEngine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
 
             //    eventEngine.UnSubscibe(this, DGlobalEventEx.EVENT_STOP_MOVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity)
             //    eventEngine.UnSubscibe(this, DGlobalEventEx.EVENT_MOVE_SPEED_UPDATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
         }
 
-        private bool __InitNextSeg( )
+        private bool __InitNextSeg()
         {
-            m_startPos = m_Master.GetPos( );
+            m_startPos = m_Master.GetPos();
             m_targetPos = m_startPos;
-            if ( m_moveSeg < m_listRoutePoints.Count )
+            if (m_moveSeg < m_listRoutePoints.Count)
             {
-                m_targetPos = m_listRoutePoints[ m_moveSeg ];
+                m_targetPos = m_listRoutePoints[m_moveSeg];
                 return true;
             }
 

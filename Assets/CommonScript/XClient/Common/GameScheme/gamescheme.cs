@@ -418,9 +418,9 @@ public class cfg_Monster : IDataObj
 	public int HeroClass;  // 角色职业（0:其它， 1：战士；2：圣骑士；3：盗贼；4：猎人；5：法师；6：术士；7：牧师；8：德鲁伊）
 	public int AttackType;  // 攻击方式（0:近战；1:远程；2:奶爸/奶妈；3:二五仔(混合型) ）
 	public int baseHP;  // 生命
-	public float fAttackSpeed;  // 攻击速度，每多少秒攻击1次
+	public float fAttackInterval;  // 攻击间隔，每多少秒攻击1次
 	public int iAttack;  // 攻击力
-	public int iSkills;  // 技能列表
+	public int[] Skills;  // int[-1]  技能列表
 	public int iAttackHatred;  // 攻击/治疗 仇恨值 百分比
 	public int[] AIID;  // int[-1]  AIID数组
 
@@ -433,9 +433,9 @@ public class cfg_Monster : IDataObj
 		HeroClass = pDataChunk.ReadINT32();
 		AttackType = pDataChunk.ReadINT32();
 		baseHP = pDataChunk.ReadINT32();
-		fAttackSpeed = pDataChunk.ReadFLOAT();
+		fAttackInterval = pDataChunk.ReadFLOAT();
 		iAttack = pDataChunk.ReadINT32();
-		iSkills = pDataChunk.ReadINT32();
+		Skills = pDataChunk.ReadINT32_Array(-1);
 		iAttackHatred = pDataChunk.ReadINT32();
 		AIID = pDataChunk.ReadINT32_Array(-1);
 	}
@@ -3156,14 +3156,36 @@ public class cfg_HeroTeamSkills : IDataObj
 {
 	public int iID;  // 
 	public string szName;  // 
+	public string szAnimName;  // 
 	public int iType;  // 
+	public int iRange;  // 
+	public int iValue;  // 
+	public int iPercentValue;  // 
+	public int iAbnormalTime;  // 
+	public int iHate;  // 
+	public int iSkillCD;  // 
+	public string szChat;  // 
+	public int hasSkillTip;  // 
+	public int iSkillTipTime;  // 
+	public int iSkillTipPrefabID;  // 
 
 	public IDataObj Clone(){return new cfg_HeroTeamSkills();}
 	public void Load(IDataChunk pDataChunk)
 	{
 		iID = pDataChunk.ReadINT32();
 		szName = pDataChunk.ReadSTRING();
+		szAnimName = pDataChunk.ReadSTRING();
 		iType = pDataChunk.ReadINT32();
+		iRange = pDataChunk.ReadINT32();
+		iValue = pDataChunk.ReadINT32();
+		iPercentValue = pDataChunk.ReadINT32();
+		iAbnormalTime = pDataChunk.ReadINT32();
+		iHate = pDataChunk.ReadINT32();
+		iSkillCD = pDataChunk.ReadINT32();
+		szChat = pDataChunk.ReadSTRING();
+		hasSkillTip = pDataChunk.ReadINT32();
+		iSkillTipTime = pDataChunk.ReadINT32();
+		iSkillTipPrefabID = pDataChunk.ReadINT32();
 	}
 
 };

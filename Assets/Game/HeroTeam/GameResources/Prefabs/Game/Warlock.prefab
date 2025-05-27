@@ -163,10 +163,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7136365524479406838}
-  - component: {fileID: 7136365524479406839}
   - component: {fileID: 7136365524479406836}
   - component: {fileID: 1032923482}
   - component: {fileID: -6981070843823206399}
+  - component: {fileID: 1656283070}
   m_Layer: 0
   m_Name: Warlock
   m_TagString: Untagged
@@ -191,26 +191,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7136365524479406839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7136365524479406837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a0b1ece166dc14fbfea0b7781a483f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletLauncher: {fileID: 0}
-  headSkillEffPos: {fileID: 0}
-  bodySkillEffPos: {fileID: 0}
-  footSkillEffPos: {fileID: 0}
-  skillIDs: 
-  skillCooldingTime: []
-  reco: {fileID: 7136365524479406836}
-  buffComponent: {fileID: 0}
 --- !u!114 &7136365524479406836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +236,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 410705a801bf9fe47b715be5f1243b53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1656283070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7136365524479406837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6204b68b1597894193e469631045c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &7136365524830739362

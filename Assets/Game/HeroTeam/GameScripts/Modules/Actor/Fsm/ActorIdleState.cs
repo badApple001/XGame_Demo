@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UniFramework.Machine;
+using UnityEngine;
+
+namespace GameScripts.HeroTeam
+{
+    public class ActorIdleState : ActorStateBase
+    {
+        private float m_AttackCoolding = 0f;
+        private float m_AttackInterval = 1f;
+        public override void OnCreate(StateMachine machine)
+        {
+            base.OnCreate(machine);
+        }
+
+        public override void OnEnter()
+        {
+            base.OnEnter();
+            m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
+            m_AttackCoolding = 0f;
+            m_AttackInterval = ((IActor)m_StateMachine.Owner).GetMonsterCfg().fAttackInterval;
+        }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+        }
+
+        public override void OnUpdate()
+        {
+            base.OnUpdate();
+            m_AttackCoolding += Time.deltaTime;
+
+            if (m_AttackCoolding >= m_AttackInterval)
+            {
+                m_AttackCoolding = 0f;
+
+                if (m_StateMachine != null)
+                {
+                    m_StateMachine.ChangeState<ActorAttackState>();
+                }
+            }
+        }
+    }
+}

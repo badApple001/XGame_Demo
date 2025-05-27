@@ -1,21 +1,26 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="Current">
   <!-- Generated file, do not modify, your changes will be overwritten (use AssetPostprocessor.OnGeneratedCSProject) -->
   <PropertyGroup>
-    <LangVersion>9.0</LangVersion>
+    <BaseIntermediateOutputPath>Temp\obj\$(Configuration)\$(MSBuildProjectName)</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)</IntermediateOutputPath>
   </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk" />
+  <ItemGroup>
+    <ProjectCapability Include="Unity" />
+  </ItemGroup>
   <PropertyGroup>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <EnableDefaultItems>false</EnableDefaultItems>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <LangVersion>9.0</LangVersion>
+    <Configurations>Debug;Release</Configurations>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>10.0.20506</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DDFBC18F-9396-3137-9CFE-DEB2CDB74636}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <BaseDirectory>.</BaseDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -39,28 +44,30 @@
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup>
-    <NoConfig>true</NoConfig>
+    <NoStandardLibraries>true</NoStandardLibraries>
     <NoStdLib>true</NoStdLib>
-    <AddAdditionalExplicitAssemblyReferences>false</AddAdditionalExplicitAssemblyReferences>
-    <ImplicitlyExpandNETStandardFacades>false</ImplicitlyExpandNETStandardFacades>
-    <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
+    <NoConfig>true</NoConfig>
+    <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+    <MSBuildWarningsAsMessages>MSB3277</MSBuildWarningsAsMessages>
   </PropertyGroup>
   <PropertyGroup>
-    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <UnityProjectGenerator>Package</UnityProjectGenerator>
     <UnityProjectGeneratorVersion>2.0.22</UnityProjectGeneratorVersion>
-    <UnityProjectGeneratorStyle>Legacy</UnityProjectGeneratorStyle>
+    <UnityProjectGeneratorStyle>SDK</UnityProjectGeneratorStyle>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>2021.3.38f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Enterprise\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Users\chenjiechao\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
+    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\HpBar.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSUnityPoolNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\Window\LOPUIWindowMetaEx.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\AIRouteMoveAction.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorConfig.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\Mono\MonoFilterList.cs" />
     <Compile Include="Assets\CommonScript\XClient\PreLoad\PreLoadCache.cs" />
@@ -72,7 +79,9 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DAudioGroupType.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorUtil.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterLauncher.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSEventEngineNode.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\ChatToast\Toast.cs" />
     <Compile Include="Assets\CommonScript\XClient\Utils\CommonNetMessageRegister.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Entity\AgentEntity.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\LuaPackProcess.cs" />
@@ -112,6 +121,8 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\ResourcesManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Serializer\INetableSerializer.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModuleMessageHandler.cs" />
+    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXLightFade.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\CreatureInfoBarPart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\RectTransformSizeSyncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\IGameNetCom.cs" />
@@ -159,6 +170,7 @@
     <Compile Include="Assets\CommonScript\Spine\SpineResourcesLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModuleMessageHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\PreProcessers\GamePreProcesser.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\IRPCModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateBattle.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineTickTaskNode.cs" />
@@ -173,13 +185,14 @@
     <Compile Include="Assets\CommonScript\XClient\Common\GameScheme\gamescheme.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\EventMonitor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateNone.cs" />
-    <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineSimpleTaskNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\CommonDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\NetCommDataManager.cs" />
+    <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineSimpleTaskNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\ICreatureInfoProvider.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\TextMeshProPreferreWidthSyncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DGlobalEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Reddot\ReddotModuleMessageHandler.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\VirtualNetObjectManager.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableObjectItemPoolQueueCountNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UI2DTrigger.cs" />
@@ -202,9 +215,11 @@
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\commprotocol.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\LevelEditor\CalcHeroGridCoord.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\IBulletEnvProvider.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectCycler.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UISound.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\IDRecoEntityMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\FrameMonitor.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\NetTransferModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\cgprotocol.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\ISchemeModule.cs" />
@@ -236,10 +251,12 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\UIWindowExSetting.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIBatchDepthAnalyzeResultReader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\ISelectOneDataSource.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectControllerPooled.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\LoginStateManager.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\NetworkReachabilityMonitor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIRotateAnim.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateGame.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\ICreatureEntity.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskLevel.cs" />
@@ -247,6 +264,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\SchemeModule\GameSchemeCom.cs" />
     <Compile Include="Assets\CommonScript\XClient\Room\RoomModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\PackDataMerge.cs" />
+    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXRotation.cs" />
     <Compile Include="Assets\CommonScript\Ani\SpineAni.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\CanvasCull.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DComID.cs" />
@@ -332,6 +350,7 @@
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IBuff.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Skill\CampDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Boss\Boss.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\MessageSinkEvent.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineBaseExcutorNodeBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IAgentModule.cs" />
@@ -360,6 +379,7 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskEffect.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\RandCreater.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\IEntityModule.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\INetTransferModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Damage\IDamagePart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\TextStyleSwitcher.cs" />
@@ -389,6 +409,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\CircleMovement.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\NetMessageHandle.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\INetVarSerializer.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Entity\AgentDataPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\FlowText\CanvasGroupFlowTextView.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UISettings.cs" />
@@ -396,6 +417,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\BulletHitMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIJoystickCommon.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Data\HeroTeamLocalData.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameProjectSettings.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEmojItem.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetRecoObject.cs" />
@@ -406,6 +428,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\SystemSettings.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Config\EtaMonitorConfig.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skill\SkillObject.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\ChatToast\ToastManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Reddot\IReddotModule.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskScreenTime.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\AgentModule.cs" />
@@ -424,8 +447,10 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEventExtend.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineSkinGraphic.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Move\IEntityMovePart.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSpriteBouncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IEffectAction.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\UI\GameActorChatBox.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\RandomUtils.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Damage\DamagePart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\BodyEffectCompnent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Init\GameInitConfig.cs" />
@@ -434,8 +459,9 @@
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\INetObjectBehaviour.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\SpinePrefabPart.cs" />
-    <Compile Include="Assets\CommonScript\XClient\Common\Interface\IRoomModule.cs" />
+    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\INetCommDataHanlderInfo.cs" />
+    <Compile Include="Assets\CommonScript\XClient\Common\Interface\IRoomModule.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\MonoGameRuntimeTest.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolIncreaseCountNode.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\UIWindowContainerEx.cs" />
@@ -454,13 +480,22 @@
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\Test\TestSelectOneDataSources.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageTextEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\AI\AIRouteMoveAction.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\ChatToast\Toast.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\ChatToast\ToastManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Actor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorIdleState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorAttackState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorSkillState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorHitState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorDeathState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorStateBase.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\IActor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\ActorDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\AttackDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\BulletManager\BulletManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
     <None Include="Assets\ThirdParty\Spine\version.txt" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Dissolution_Blend_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskBorderBlur.shader" />
@@ -469,6 +504,7 @@
     <None Include="Assets\G_Artist\Shader\Blend_Comming_Prop.shader" />
     <None Include="Assets\BaseScripts\Dll\ICSharpCode.SharpZipLib.dll" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Niuqu.shader" />
+    <None Include="Assets\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_blend.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskLevel.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_LitA_ASE.shader" />
@@ -476,6 +512,7 @@
     <None Include="Assets\G_Artist\Shader\panda shader\PandaShaderSampleV1.0.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_distort_blend.shader" />
+    <None Include="Assets\Epic Toon FX\Changelog.txt" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Additive_Mask_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\Skybox Cubemap Extended.shader" />
     <None Include="Assets\G_Artist\Shader\UISpriteLine.shader" />
@@ -516,6 +553,7 @@
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_045\045.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\Toon Outline.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Additive_Mask.shader" />
+    <None Include="Assets\Epic Toon FX\Shaders\ETFX_PowerboxLit.shader" />
     <None Include="Assets\CommonScript\XClient\KeywordFilter\Plugins\x86_64\libkwfilter.dll" />
     <None Include="Assets\G_Artist\Shader\Eff_Bullet.shader" />
     <None Include="Assets\BaseScripts\Utils\Monitor\Config\monitor_mono_only_add.txt" />
@@ -529,6 +567,7 @@
     <None Include="Assets\G_Artist\Shader\ActorDieShader.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\G_Artist\Shader\ASE_Flipbook.shader" />
+    <None Include="Assets\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
     <None Include="Assets\G_Artist\Shader\PFX_Trail.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -541,9 +580,11 @@
     <None Include="Assets\G_Artist\Shader\A_VFX_Trail.shader" />
     <None Include="Assets\G_Artist\Shader\Actor_LitEff_ASE.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Blend_Mask.shader" />
+    <None Include="Assets\Epic Toon FX\Shaders\ETFX_PowerboxUnlit.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_014\014.atlas.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\G_Artist\Shader\Test_2.shader" />
+    <None Include="Assets\Epic Toon FX\Upgrade\URP Compatibility.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_038\038.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\ActorShader.shader" />
@@ -1467,82 +1508,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{D8888F6A-ABE1-C49B-1A38-F65A81021668}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-timeline.csproj">
-      <Project>{3E3A0C43-1B6D-9344-D080-5899E17E65D5}</Project>
-      <Name>spine-timeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="HotUpdate.csproj">
-      <Project>{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}</Project>
-      <Name>HotUpdate</Name>
-    </ProjectReference>
-    <ProjectReference Include="DOTween-Scripts.csproj">
-      <Project>{0D7A2F57-167B-2237-56B8-A577A63B5D36}</Project>
-      <Name>DOTween-Scripts</Name>
-    </ProjectReference>
-    <ProjectReference Include="XGame-SDK.csproj">
-      <Project>{61DF8B8B-C03A-95C4-D06C-EAFC199CB1D3}</Project>
-      <Name>XGame-SDK</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.CacheServer.csproj">
-      <Project>{5996FFA5-7158-2FE1-B432-C4112E485DA4}</Project>
-      <Name>UnityEditor.CacheServer</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj">
-      <Project>{84E3DEBF-A955-DA74-DE13-C4861FEE2C61}</Project>
-      <Name>Unity.TextMeshPro.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity.csproj">
-      <Project>{E2596563-6568-91C5-B58A-5DFEDF347804}</Project>
-      <Name>spine-unity</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.TextMeshPro.csproj">
-      <Project>{6937D9FB-8FCD-C0F6-BE4F-4A48C1459CBD}</Project>
-      <Name>Unity.TextMeshPro</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj">
-      <Project>{FA2439B6-C36C-3780-99A9-7287B350ABEB}</Project>
-      <Name>Unity.ScriptableBuildPipeline</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-unity-editor.csproj">
-      <Project>{45DE6ADE-8ACF-3A39-9E38-F4D29D979464}</Project>
-      <Name>spine-unity-editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UpdateCode.csproj">
-      <Project>{C43B0F94-7B95-BF7A-0AAA-54E416F3A125}</Project>
-      <Name>UpdateCode</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj">
-      <Project>{5332BAB7-22EB-39E4-9A59-228234AAF2AE}</Project>
-      <Name>Unity.ScriptableBuildPipeline.Editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEditor.UI.csproj">
-      <Project>{6D88D9F1-9CBE-22EE-62F1-AB7D8769DC30}</Project>
-      <Name>UnityEditor.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{D04307D6-A264-82DA-DA61-003196DB8069}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
-    <ProjectReference Include="spine-timeline-editor.csproj">
-      <Project>{BE24A5CF-1929-1307-FAAE-5A2E4E00A926}</Project>
-      <Name>spine-timeline-editor</Name>
-    </ProjectReference>
-    <ProjectReference Include="uhypertext-scrpits.csproj">
-      <Project>{1152853D-11DC-4655-445C-35D90140A4BC}</Project>
-      <Name>uhypertext-scrpits</Name>
-    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj" />
+    <ProjectReference Include="spine-timeline.csproj" />
+    <ProjectReference Include="UniFramework.Machine.csproj" />
+    <ProjectReference Include="HotUpdate.csproj" />
+    <ProjectReference Include="DOTween-Scripts.csproj" />
+    <ProjectReference Include="XGame-SDK.csproj" />
+    <ProjectReference Include="UnityEditor.CacheServer.csproj" />
+    <ProjectReference Include="Unity.TextMeshPro.Editor.csproj" />
+    <ProjectReference Include="spine-unity.csproj" />
+    <ProjectReference Include="Unity.TextMeshPro.csproj" />
+    <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj" />
+    <ProjectReference Include="spine-unity-editor.csproj" />
+    <ProjectReference Include="UpdateCode.csproj" />
+    <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj" />
+    <ProjectReference Include="UnityEditor.UI.csproj" />
+    <ProjectReference Include="UnityEngine.UI.csproj" />
+    <ProjectReference Include="spine-timeline-editor.csproj" />
+    <ProjectReference Include="uhypertext-scrpits.csproj" />
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="GenerateTargetFrameworkMonikerAttribute" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
+  <ItemGroup>
+    <ProjectCapability Remove="LaunchProfiles" />
+    <ProjectCapability Remove="SharedProjectReferences" />
+    <ProjectCapability Remove="ReferenceManagerSharedProjects" />
+    <ProjectCapability Remove="ProjectReferences" />
+    <ProjectCapability Remove="ReferenceManagerProjects" />
+    <ProjectCapability Remove="COMReferences" />
+    <ProjectCapability Remove="ReferenceManagerCOM" />
+    <ProjectCapability Remove="AssemblyReferences" />
+    <ProjectCapability Remove="ReferenceManagerAssemblies" />
+  </ItemGroup>
 </Project>

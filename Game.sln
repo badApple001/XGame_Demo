@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XGame-SDK", "XGame-SDK.cspr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ScriptableBuildPipeline", "Unity.ScriptableBuildPipeline.csproj", "{FA2439B6-C36C-3780-99A9-7287B350ABEB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UniFramework.Machine", "UniFramework.Machine.csproj", "{1C750D07-E685-7C42-36DD-3F25EE5B402C}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HotUpdate", "HotUpdate.csproj", "{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.ScriptableBuildPipeline.Editor", "Unity.ScriptableBuildPipeline.Editor.csproj", "{5332BAB7-22EB-39E4-9A59-228234AAF2AE}"
@@ -91,6 +93,10 @@ Global
 		{FA2439B6-C36C-3780-99A9-7287B350ABEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA2439B6-C36C-3780-99A9-7287B350ABEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA2439B6-C36C-3780-99A9-7287B350ABEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C750D07-E685-7C42-36DD-3F25EE5B402C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C750D07-E685-7C42-36DD-3F25EE5B402C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C750D07-E685-7C42-36DD-3F25EE5B402C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C750D07-E685-7C42-36DD-3F25EE5B402C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCD3013A-949B-1338-D56C-6DAC9D0E5DDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
