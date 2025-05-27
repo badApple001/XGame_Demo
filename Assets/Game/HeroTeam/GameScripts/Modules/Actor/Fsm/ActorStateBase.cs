@@ -8,22 +8,24 @@ namespace GameScripts.HeroTeam
         protected SkeletonAnimation m_Anim;
         protected cfg_ActorAnimConfig m_ActorAnimConfig;
         protected StateMachine m_StateMachine;
-        public virtual void OnCreate( StateMachine machine )
+        protected IActor m_Owner;
+        public virtual void OnCreate(StateMachine machine)
         {
-            m_Anim = ( ( IActor ) machine.Owner ).GetSkeleton( );
+            m_Anim = ((IActor)machine.Owner).GetSkeleton();
             m_StateMachine = machine;
         }
 
         public virtual void OnEnter()
         {
-            m_ActorAnimConfig = ( ( IActor ) m_StateMachine.Owner ).GetAnimConfig( );
+            m_Owner = ((IActor)m_StateMachine.Owner);
+            m_ActorAnimConfig = ((IActor)m_StateMachine.Owner).GetAnimConfig();
         }
 
-        public virtual void OnExit( )
+        public virtual void OnExit()
         {
         }
 
-        public virtual void OnUpdate( )
+        public virtual void OnUpdate()
         {
         }
     }

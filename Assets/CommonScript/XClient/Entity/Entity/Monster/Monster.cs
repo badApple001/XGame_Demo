@@ -72,6 +72,8 @@ namespace XClient.Entity
 
         public override Vector3 position => GetPos();
 
+        private Transform transform;
+
         public ulong GetCamp()
         {
             return (ulong)m_dataPart.m_camp.Value;
@@ -389,9 +391,9 @@ namespace XClient.Entity
                 }
 
                 SetForward(ref forward);
-               // SetRotation(m_rotate);
+                // SetRotation(m_rotate);
 
-               // m_prefabPart.ResetColor();
+                // m_prefabPart.ResetColor();
                 IDReco reco = m_prefabPart.gameObject.GetComponent<IDReco>();
                 if (null == reco)
                 {
@@ -401,7 +403,7 @@ namespace XClient.Entity
                 reco.camp = (ulong)m_dataPart.m_camp.Value;
                 reco.entID = base.id;
                 // reco.hitTrans = m_prefabPart.gameObject.GetComponent<SkillCompontBase>()
-                    // .GetSkillEffNode(ECreaturePos.Center).transform;
+                // .GetSkillEffNode(ECreaturePos.Center).transform;
                 reco.entType = base.type;
 
                 //���ض�����Ա���Ҳ�ܹ���
@@ -431,18 +433,19 @@ namespace XClient.Entity
                 */
 
                 Actor actor = m_prefabPart.gameObject.GetComponent<Actor>();
-                if( null != actor)
+                if (null != actor)
                 {
-                    actor.SetMonsterCfg( ( cfg_Monster ) config );
-                    actor.SetCreatureEntity( this );
+                    actor.SetMonsterCfg((cfg_Monster)config);
+                    actor.SetCreatureEntity(this);
                 }
 
-                var bar = m_prefabPart.gameObject.GetComponentInChildren<HpBar>( );
-                if ( null != bar )
+                var bar = m_prefabPart.gameObject.GetComponentInChildren<HpBar>();
+                if (null != bar)
                 {
-                    Debug.Log( "Ѫ���󶨶���" );
-                    bar.SetEntity( this );
+                    bar.SetEntity(this);
                 }
+
+                transform = m_prefabPart.transform;
             }
         }
 
@@ -543,5 +546,7 @@ namespace XClient.Entity
         {
             m_nHatred = value;
         }
+
+        public Transform GetTr() => transform;
     }
 }

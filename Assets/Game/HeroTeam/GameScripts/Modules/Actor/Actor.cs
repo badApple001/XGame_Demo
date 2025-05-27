@@ -48,7 +48,7 @@ namespace GameScripts.HeroTeam
         /// </summary>
         private SkeletonAnimation m_SkeletonAnimation;
 
-        private void Start()
+        protected virtual void Start()
         {
             var spineAni = GetComponent<SpineAni>();
             Debug.Assert(spineAni != null, "spineAni Component not found.");
@@ -100,9 +100,9 @@ namespace GameScripts.HeroTeam
             return skills;
         }
 
-        private void Update() => m_fsmActor.Update();
+        protected virtual void Update() => m_fsmActor.Update();
 
-        private void OnDestroy()
+        protected virtual void OnDestroy()
         {
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             m_fsmActor = null;

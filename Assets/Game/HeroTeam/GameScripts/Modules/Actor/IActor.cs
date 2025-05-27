@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace GameScripts.HeroTeam
 {
-    interface IActor
+    public interface IActor
     {
         SkeletonAnimation GetSkeleton();
 

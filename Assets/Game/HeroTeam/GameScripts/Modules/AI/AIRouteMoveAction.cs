@@ -87,11 +87,9 @@ namespace GameScripts.HeroTeam
 
             if (wEventID == DHeroTeamEvent.EVENT_START_GAME)
             {
-                //����ִ���ƶ���
+                //开始路点寻路
                 m_bRun = true;
-                Debug.Log("AI: ��ʼս��");
-
-                //��ʼ���ƶ���
+                Debug.Log("AI: Start AIRouteMoveAction");
                 m_moveSeg = 0;
                 __InitNextSeg();
             }

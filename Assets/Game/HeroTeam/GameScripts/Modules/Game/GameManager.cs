@@ -28,12 +28,16 @@ namespace GameScripts.HeroTeam
         private List<Vector3> m_vec3HeroSpawnPoints = new List<Vector3>();
 
 
+        [Header("子弹池回收组")]
+        [SerializeField] Transform m_trBulletActiveRoot;
+        [SerializeField] Transform m_trBulletHiddenRoot;
+
         // Start is called before the first frame update
         void Start()
         {
             FillSpawnPoints();
             CreateHeros();
-            BulletManager.Instance.Setup();
+            BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
             //CreateBoss( );
         }
 
@@ -344,6 +348,7 @@ namespace GameScripts.HeroTeam
 
         private void Update()
         {
+            BulletManager.Instance.Update();
             // if ( Input.GetKeyDown( KeyCode.Space ) )
             // {
             //     var pContext = CameraShakeEventContext.Ins;
