@@ -76,6 +76,17 @@ namespace XClient.Entity
         void SetHatred(int value);
 
         Transform GetTr();
+
+        Transform GetLockTr();
+
+        /// <summary>
+        /// 躲避Boss技能
+        /// </summary>
+        /// <param name="bossPos"></param>
+        /// <param name="bossDir"></param>
+        /// <param name="radius"></param>
+        /// <param name="angleDeg"></param>
+        void EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg);
     }
 
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,63 +38,99 @@ namespace GameScripts.HeroTeam
 
         private void NormalAttack()
         {
-            var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
-            if (monsters.Count > 0)
+
+
+            IMonster target = null;
+            int damage = 0;
+            //奶妈职业
+            if (m_AttackType == AttackTypeDef.Sage)
             {
-                IMonster maxHatredMonster = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
-                var damage = m_Owner.GetCreatureEntity().GetIntAttr(CreatureAttributeDef.ATTACK);
-
-                if (null != maxHatredMonster)
+                var friends = MonsterSystem.Instance.GetMonstersByCamp(m_Owner.GetCreatureEntity().GetCamp());
+                float minHpRate = 1.01f;
+                foreach (var friend in friends)
                 {
-                    m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szAttack, false);
-
-                    if (m_AttackType == AttackTypeDef.Fencer)
+                    float rate = friend.GetHP() * 1.0f / friend.GetMaxHP();
+                    if (rate < minHpRate)
                     {
-                        //后续需要绑定动画帧事件
-                        GameManager.instance.AddTimer(0.5f, () =>
-                        {
-                            maxHatredMonster.SetHPDelta(-damage);
-                        });
+                        minHpRate = rate;
+                        target = friend;
                     }
-                    else
-                    {
-                        //后续需要绑定动画帧事件
-                        GameManager.instance.AddTimer(0.5f, () =>
-                                                {
-                                                    Shot(damage, maxHatredMonster);
-                                                });
-                    }
+                }
+                //治疗是加血 等于 减减血~~~
+                damage = -m_Owner.GetCreatureEntity().GetIntAttr(CreatureAttributeDef.ATTACK);
+            }
+            else
+            {
+                var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
+                if (monsters.Count > 0)
+                {
+                    target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
+                    damage = m_Owner.GetCreatureEntity().GetIntAttr(CreatureAttributeDef.ATTACK);
+                }
+            }
 
-                    GameManager.instance.AddTimer(1f, () =>
-                       {
-                           m_AttackCount++;
-                           m_StateMachine.ChangeState<ActorIdleState>();
-                       });
+
+            if (null != target)
+            {
+                float dirX = target.GetLockTr().position.x - m_Anim.transform.position.x;
+                m_Anim.skeleton.ScaleX = dirX > 0 ? 1f : -1f;
+                m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szAttack, false);
+
+                //仇恨值
+                IMonster m = m_Owner.GetCreatureEntity() as IMonster;
+                int newHatred = m.GetHatred() + Mathf.FloorToInt(m_Owner.GetMonsterCfg().iAttackHatred / 100f * damage);
+                m.SetHatred(newHatred);
+
+                if (m_AttackType == AttackTypeDef.Fencer)
+                {
+                    //后续需要绑定动画帧事件
+                    GameManager.instance.AddTimer(0.5f, () =>
+                    {
+                        target.SetHPDelta(-damage);
+                    });
                 }
                 else
                 {
-                    Debug.LogError("No valid target found for attack.");
+                    //后续需要绑定动画帧事件
+                    GameManager.instance.AddTimer(0.5f, () =>
+                                            {
+                                                Shot(damage, target);
+                                            });
                 }
             }
+            else
+            {
+                Debug.LogError("No valid target found for attack.");
+            }
+
+            GameManager.instance.AddTimer(1f, () =>
+                  {
+                      m_AttackCount++;
+                      m_StateMachine.ChangeState<ActorIdleState>();
+                  });
         }
 
         private void Shot(int damage, IMonster target)
         {
 
             //发射的骨骼点
-            // if (m_ShotBone == null)
-            // {
-            //     m_ShotBone = m_Owner.GetSkeleton().skeleton.FindBone(m_Owner.GetMonsterCfg().szShotBone);
-            // }
-            // Vector3 shotPos = m_ShotBone == null ? m_Owner.GetSkeleton().transform.position : new Vector3(m_ShotBone.WorldX, m_ShotBone.WorldY, 0);
-            //网上的资源骨骼Bone都不是很准确，还是先写死吧
-            //后续招了spine再约定好骨骼名称
-            Vector3 shotPos = m_Owner.GetSkeleton().transform.position + Vector3.up * 0.5f;
+            if (m_ShotBone == null && !string.IsNullOrEmpty(m_Owner.GetMonsterCfg().szShotBone))
+            {
+                m_ShotBone = m_Anim.skeleton.FindBone(m_Owner.GetMonsterCfg().szShotBone);
+            }
 
+            Vector3 shotPos;
+            if (m_ShotBone != null)
+            {
+                shotPos = m_Anim.transform.TransformPoint(new Vector3(m_ShotBone.WorldX, m_ShotBone.WorldY, 0));
+            }
+            else
+            {
+                shotPos = m_Anim.transform.position + Vector3.up * 0.5f;
+            }
 
             //创建一枚子弹/发球
-            var bullet = BulletManager.Instance.Get<Bullet>(m_cfgBullet);
-            bullet.GetTr().position = shotPos;
+            var bullet = BulletManager.Instance.Get<Bullet>(m_cfgBullet, shotPos);
             bullet.SetHarm(damage);
             bullet.SetSender(m_Owner.GetCreatureEntity().id);
             bullet.SetTarget(target);

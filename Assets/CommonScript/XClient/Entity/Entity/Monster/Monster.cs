@@ -14,6 +14,7 @@
 ********************************************************************/
 
 using System.Collections.Generic;
+using DG.Tweening;
 using GameScripts.HeroTeam;
 using Spine.Unity;
 using UnityEngine;
@@ -73,6 +74,12 @@ namespace XClient.Entity
         public override Vector3 position => GetPos();
 
         private Transform transform;
+
+
+        private Transform m_trLockTarget;
+
+        private GameObject m_refFace;
+
 
         public ulong GetCamp()
         {
@@ -213,7 +220,7 @@ namespace XClient.Entity
                 ceatureId = createMonsterContext.creatureID;
 
 
-                if(string.IsNullOrEmpty(m_resPath))
+                if (string.IsNullOrEmpty(m_resPath))
                 {
                     Debug.LogError("�������Դ·��Ϊ�� configId=" + configId);
                 }
@@ -322,6 +329,14 @@ namespace XClient.Entity
             //{
             //    GetSkeletonAnimation( ).AnimationState.SetAnimation( 0, "hit2", false );
             //}
+
+            //广播boss的生命值
+            if (IsBoos())
+            {
+                var pContext = BossHpEventContext.Ins;
+                pContext.Health = GetHP() * 1.0f / GetMaxHP();
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
+            }
         }
 
         public float GetSpeed()
@@ -446,6 +461,11 @@ namespace XClient.Entity
                 }
 
                 transform = m_prefabPart.transform;
+                m_trLockTarget = transform.Find("LockTarget");
+                if (m_trLockTarget == null)
+                    m_trLockTarget = transform;
+
+                m_refFace = transform.Find("Face")?.gameObject;
             }
         }
 
@@ -481,7 +501,7 @@ namespace XClient.Entity
 
         public bool IsLoaded()
         {
-            return m_prefabPart.gameObject!=null;
+            return m_prefabPart.gameObject != null;
         }
 
         public Transform GetTransform()
@@ -517,36 +537,81 @@ namespace XClient.Entity
             }
         }
 
-        public void SetRoad( List<Vector3> road )
+        public void SetRoad(List<Vector3> road)
         {
             m_listRoads = road;
         }
 
-        public List<Vector3> GetRoad( )
+        public List<Vector3> GetRoad()
         {
             return m_listRoads;
         }
 
-        public void SetBoos( )
+        public void SetBoos()
         {
             m_bIsBoss = true;
         }
 
-        public bool IsBoos( )
+        public bool IsBoos()
         {
             return m_bIsBoss;
         }
 
-        public int GetHatred( )
+        public int GetHatred()
         {
             return m_nHatred;
         }
 
-        public void SetHatred( int value )
+        public void SetHatred(int value)
         {
             m_nHatred = value;
         }
 
         public Transform GetTr() => transform;
+
+        public Transform GetLockTr() => m_trLockTarget;
+
+        public void EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg)
+        {
+
+            if (null != m_refFace)
+            {
+                m_refFace.SetActive(true);
+                GameManager.instance.AddTimer(2.5f, () => m_refFace.SetActive(false));
+            }
+
+
+            DodgeAndReturn(transform, bossPos, bossDir);
+        }
+
+        Vector2 GetSideDodgeDirection(Vector2 bossDir, Vector2 toNpc)
+        {
+            // 取 bossDir 的垂直方向（法向量）
+            Vector2 side = Vector2.Perpendicular(bossDir).normalized;
+
+            // 决定往左还是往右闪，依据 npc 在哪一侧
+            float sign = Mathf.Sign(Vector2.Dot(side, toNpc));
+            return side * sign;
+        }
+
+        public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir, float dodgeDistance = 2f, float waitTime = 2.5f, float duration = 0.2f)
+        {
+            Vector2 toNpc = (Vector2)tr.position - bossPos;
+            Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toNpc);
+
+            Vector3 startPos = tr.position;
+            Vector3 dodgeTarget = startPos + (Vector3)(dodgeDir * dodgeDistance);
+
+            tr.DOMove(dodgeTarget, duration)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() =>
+                {
+                    DOVirtual.DelayedCall(waitTime, () =>
+                    {
+                        tr.DOMove(startPos, duration).SetEase(Ease.InQuad);
+                    });
+                });
+        }
+
     }
 }

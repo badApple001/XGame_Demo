@@ -8,69 +8,75 @@ public class HpBar : MonoBehaviour
     [SerializeField] private SpriteRenderer m_SpriteRenderer;
     private MaterialPropertyBlock m_MPB;
 
-    private static readonly int HealthID = Shader.PropertyToID( "_Health" );
-    private static readonly int TrailAlphaID = Shader.PropertyToID( "_TrailAlpha" );
-    private static readonly int LastHealthID = Shader.PropertyToID( "_LastHealth" );
+    private static readonly int HealthID = Shader.PropertyToID("_Health");
+    private static readonly int TrailAlphaID = Shader.PropertyToID("_TrailAlpha");
+    private static readonly int LastHealthID = Shader.PropertyToID("_LastHealth");
 
     private float m_fCurrentHealth = 1.1f;
     private float m_fLastHealth = 1f;
     private float m_fTrailAlpha = 0f;
     private ICreatureEntity m_iEntity;
 
-    private void Awake( )
+    private void Awake()
     {
-        m_MPB = new MaterialPropertyBlock( );
+        m_MPB = new MaterialPropertyBlock();
     }
 
-    private void Update( )
+    private void Update()
     {
 
-        if ( m_iEntity != null )
+        if (m_iEntity != null)
         {
-            float newHealth = m_iEntity.GetHP( ) / m_iEntity.GetMaxHP( );
-            if( newHealth != m_fCurrentHealth )
+            float newHealth = m_iEntity.GetHP() * 1.0f / m_iEntity.GetMaxHP();
+            if (newHealth != m_fCurrentHealth)
             {
-                TakeDamage( newHealth );
+                TakeDamage(newHealth);
             }
         }
 
-
-        // ÍÏÎ²Í¸Ã÷¶ÈÂýÂý¼õÉÙ
-        if ( m_fTrailAlpha > 0f )
+        if (m_fTrailAlpha > 0f)
         {
-            m_fTrailAlpha -= Time.deltaTime * 1.5f; // ¿Éµ÷µ­³öËÙ¶È
-            m_fTrailAlpha = Mathf.Max( m_fTrailAlpha, 0f );
-            UpdateMaterial( );
+            m_fTrailAlpha -= Time.deltaTime * 1.5f;
+            m_fTrailAlpha = Mathf.Max(m_fTrailAlpha, 0f);
+            UpdateMaterial();
         }
     }
 
-    public void SetEntity( ICreatureEntity creatureEntity )
+    public void SetEntity(ICreatureEntity creatureEntity)
     {
         m_iEntity = creatureEntity;
     }
- 
-    // ¸üÐÂ²ÄÖÊ
-    private void UpdateMaterial( )
+
+    // ï¿½ï¿½ï¿½Â²ï¿½ï¿½ï¿½
+    private void UpdateMaterial()
     {
-        m_SpriteRenderer.GetPropertyBlock( m_MPB );
-        m_MPB.SetFloat( HealthID, m_fCurrentHealth );
-        m_MPB.SetFloat( LastHealthID, m_fLastHealth );
-        m_MPB.SetFloat( TrailAlphaID, m_fTrailAlpha );
-        m_SpriteRenderer.SetPropertyBlock( m_MPB );
+        m_SpriteRenderer.GetPropertyBlock(m_MPB);
+        m_MPB.SetFloat(HealthID, m_fCurrentHealth);
+        m_MPB.SetFloat(LastHealthID, m_fLastHealth);
+        m_MPB.SetFloat(TrailAlphaID, m_fTrailAlpha);
+        m_SpriteRenderer.SetPropertyBlock(m_MPB);
     }
 
-    // ÊÜÉËµ÷ÓÃ£¬ÉèÖÃµ±Ç°ÑªÁ¿£¬Æô¶¯ÍÏÎ²Ð§¹û
-    private void TakeDamage( float newHealth )
+    // ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ç°Ñªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î²Ð§ï¿½ï¿½
+    private void TakeDamage(float newHealth)
     {
-        newHealth = Mathf.Clamp01( newHealth );
+        newHealth = Mathf.Clamp01(newHealth);
 
-        if ( !Mathf.Approximately( newHealth, m_fCurrentHealth ) )
+        if (!Mathf.Approximately(newHealth, m_fCurrentHealth))
         {
-            m_fLastHealth = m_fCurrentHealth;
-            m_fCurrentHealth = newHealth;
+            if (newHealth > m_fCurrentHealth)
+            {
+                m_fLastHealth = newHealth;
+                m_fCurrentHealth = newHealth;
+            }
+            else
+            {
+                m_fLastHealth = m_fCurrentHealth;
+                m_fCurrentHealth = newHealth;
+            }
 
             m_fTrailAlpha = 1f;
-            UpdateMaterial( );
+            UpdateMaterial();
         }
     }
 }

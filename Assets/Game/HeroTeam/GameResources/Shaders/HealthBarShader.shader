@@ -54,22 +54,18 @@ Shader "Custom/HealthBarShader"
                 float minH = min(_Health, _LastHealth);
                 float maxH = max(_Health, _LastHealth);
 
-                // 主血条区域 [0, _Health]
                 float inside_health = step(uvx, _Health);
 
-                // 拖尾区域 [_Health, _TrailEnd]
                 float inside_trail = step(minH, uvx) * step(uvx, maxH);
 
-                fixed4 barColor = _Color; //lerp(_LeftColor, _RightColor, uvx / max(_Health, 0.0001));
+                fixed4 barColor = _Color;  
 
-                fixed4 trailColor = fixed4(1,1,1,_TrailAlpha); // 白色拖尾，透明度可控
+                fixed4 trailColor = fixed4(1,1,1,_TrailAlpha); 
 
-                // 综合颜色：主血条颜色或拖尾颜色，其他部分透明
                 fixed4 col = inside_health * barColor + inside_trail * trailColor;
 
-                // 保证透明度正确，超过1时裁剪
                 col.a = saturate(col.a);
-
+                
                 return col;
             }
             ENDCG

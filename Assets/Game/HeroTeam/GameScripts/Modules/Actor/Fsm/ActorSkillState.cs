@@ -77,6 +77,13 @@ namespace GameScripts.HeroTeam
                             rangeTipSr.gameObject.SetActive(false);
                         });
 
+                        var dir = Quaternion.Euler(0, 0, -randomAngle) * Vector2.left;
+                        List<IMonster> monsters = GetPlayersInSector(m_Anim.transform.position, dir, 15, 45);
+                        GameManager.instance.AddTimer(0.5f, () =>
+                        {
+                            monsters.ForEach(m => m.EludeBossSkill(m_Anim.transform.position, dir, 15, 45));
+                        });
+
                         yield return new WaitForSeconds(2f);
                         break;
                 }
@@ -85,7 +92,7 @@ namespace GameScripts.HeroTeam
             ((IActor)m_StateMachine.Owner).GetSkeleton().state.SetAnimation(0, skill.szAnimName, false);
 
 
-            GameManager.instance.AddTimer(2.0f, () =>
+            GameManager.instance.AddTimer(1.0f, () =>
             {
 
                 var pContext = CameraShakeEventContext.Ins;
@@ -102,12 +109,44 @@ namespace GameScripts.HeroTeam
                 m_StateMachine.ChangeState<ActorIdleState>();
             });
         }
+
         private IEnumerator Load_Skill_500001(cfg_HeroTeamSkills skill)
         {
 
             yield return null;
 
             ((Boss)m_StateMachine.Owner).GetSkeleton().state.SetAnimation(0, skill.szAnimName, false);
+
+
+            GameManager.instance.AddTimer(2.3f, () =>
+            {
+                m_StateMachine.ChangeState<ActorIdleState>();
+            });
+        }
+
+
+        private List<IMonster> GetPlayersInSector(Vector3 bossPos, Vector3 bossDir, float radius, float angle)
+        {
+
+            var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
+            float halfAngleRad = angle * 0.5f * Mathf.Deg2Rad;
+            List<IMonster> result = new List<IMonster>();
+            foreach (var monster in monsters)
+            {
+                var toPlayer = monster.GetPos() - bossPos;
+                if (toPlayer.magnitude > radius) continue;
+
+                Vector2 toPlayerNormalized = toPlayer.normalized;
+                float dot = Vector2.Dot(bossDir.normalized, toPlayerNormalized);
+                float angleToPlayer = Mathf.Acos(dot); // 角度弧度制
+
+                if (angleToPlayer <= halfAngleRad)
+                {
+                    result.Add(monster);
+                }
+            }
+
+            return result;
         }
 
 

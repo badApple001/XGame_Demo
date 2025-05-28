@@ -93,17 +93,17 @@ namespace GameScripts.HeroTeam
 
             //��ʱ�� �����Ƶ��ؿ���
             //��Ҫ�����Ľ�ɫ����
-            Dictionary<int, int> dictTmpHeros = new Dictionary<int, int>()
-            {
-                { 1004,3 },
-                { 1005,2 },
-                { 1006,2 },
-                { 1007,3 },
-                { 1008,4 },
-                { 1009,3 },
-                { 1010,5 },
-                { 1011,3 },
-            };
+            // Dictionary<int, int> dictTmpHeros = new Dictionary<int, int>()
+            // {
+            //     { 1004,3 },
+            //     { 1005,2 },
+            //     { 1006,2 },
+            //     { 1007,3 },
+            //     { 1008,4 },
+            //     { 1009,3 },
+            //     { 1010,5 },
+            //     { 1011,3 },
+            // };
 
             //��ս��ɫ
             List<int> arrTmpWarrior = new List<int>()
@@ -133,32 +133,38 @@ namespace GameScripts.HeroTeam
                 1011,1011,1011
             };
 
-            void InsertListEvenly(List<int> target, int[] source)
+            List<T> InsertListEvenly<T>(List<T> a, List<T> b)
             {
-                int targetCount = target.Count;
-                int sourceCount = source.Length;
+                var result = new List<T>();
+                int a_len = a.Count;
+                int b_len = b.Count;
 
-                // ���������
-                int interval = targetCount / (sourceCount + 1);
+                if (a_len == 0) return new List<T>(b);
+                if (b_len == 0) return new List<T>(a);
 
-                // �Ӻ���ǰ���룬�Ա���������Ӱ���������λ��
-                int sourceIndex = 0;
-                for (int i = 1; i <= sourceCount; i++)
+                // 每多少个 b 插入一个 a
+                double interval = (double)b_len / a_len;
+                int a_index = 0;
+                for (int i = 0; i < b_len; i++)
                 {
-                    // �������λ��
-                    int insertIndex = interval * i;
-
-                    // ȷ������λ�ò�������ǰList�Ĵ�С
-                    if (insertIndex >= target.Count)
-                        break;
-
-                    // ��ָ��λ�ò���Դ�����Ԫ��
-                    target.Insert(insertIndex, source[sourceIndex]);
-                    sourceIndex++;
+                    result.Add(b[i]);
+                    double target = (a_index + 1) * interval - 0.5; // 插入点尽量均匀
+                    if (i + 1 >= target && a_index < a_len)
+                    {
+                        result.Add(a[a_index]);
+                        a_index++;
+                    }
                 }
-            }
-            InsertListEvenly(arrTmpAcher, arrTmpHealer.ToArray());
 
+                // 如果还有剩余 a，全部塞进尾部
+                for (; a_index < a_len; a_index++)
+                {
+                    result.Add(a[a_index]);
+                }
+
+                return result;
+            }
+            arrTmpAcher = InsertListEvenly(arrTmpAcher, arrTmpHealer);
 
             void SpawnByRoadRoot(Transform rootNode, List<int> heroIds, bool autoNear = false, bool ergodic = true)
             {
@@ -259,6 +265,7 @@ namespace GameScripts.HeroTeam
             if (bossEntity is IMonster monster)
             {
                 m_BossEntity = monster;
+                m_BossEntity.SetBoos();
             }
             //ToastManager.Instance.Get( ).Show( "��������˹������ΪʲôҪ�����ң�������ͼ˹��ΪʲôҪ�����ң���", 1f );
         }
@@ -316,6 +323,15 @@ namespace GameScripts.HeroTeam
                 "管理者埃克索图斯：“我的火焰，请不要夺走我的火焰。”（管理者埃克索图斯死亡）",
                 "拉格纳罗斯：“现在轮到你们了，你们愚蠢的追寻拉格纳罗斯的力量，现在你们即将亲眼见到它。”"
             };
+
+            //跳过对话
+            if (true)
+            {
+                chats.Clear();
+                yield return new WaitForSeconds(1.5f);
+            }
+
+
             for (int i = 0; i < chats.Count; i++)
             {
                 var toast = ToastManager.Instance.Get();

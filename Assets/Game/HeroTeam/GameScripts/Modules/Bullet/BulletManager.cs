@@ -23,8 +23,8 @@ namespace GameScripts.HeroTeam
         private List<IBullet> m_ActiveBullets = new List<IBullet>();
         // private Stack<IBullet> m_FreeBulletPools = new Stack<IBullet>();
         private Transform m_trActiveRoot, m_trHidddenRoot;
-        private Dictionary<Type, GameObject> m_PrefabDict = new Dictionary<Type, GameObject>();
-        private Dictionary<Type, LinkedList<IBullet>> m_BulletPool = new Dictionary<Type, LinkedList<IBullet>>();
+        private Dictionary<int, GameObject> m_PrefabDict = new Dictionary<int, GameObject>();
+        private Dictionary<int, LinkedList<IBullet>> m_BulletPool = new Dictionary<int, LinkedList<IBullet>>();
         private Dictionary<GameObject, List<GameObject>> m_PrefabPool = new Dictionary<GameObject, List<GameObject>>();
         public void Setup(Transform activeRoot, Transform hiddenRoot)
         {
@@ -50,6 +50,7 @@ namespace GameScripts.HeroTeam
                     m_ActiveBullets[i] = m_ActiveBullets[m_ActiveBullets.Count - 1];
                     m_ActiveBullets[m_ActiveBullets.Count - 1] = null;
                     m_ActiveBullets.RemoveAt(m_ActiveBullets.Count - 1);
+                    bullet.OnCollision();
                     Recycle(bullet);
                     continue;
                 }
@@ -63,33 +64,33 @@ namespace GameScripts.HeroTeam
             bullet.GetTr().SetParent(m_trHidddenRoot, false);
 
             // m_FreeBulletPools.Push(bullet);
-            var type = bullet.GetType();
-            if (m_BulletPool.TryGetValue(type, out var pool))
+            if (m_BulletPool.TryGetValue(bullet.GetPoolId(), out var pool))
             {
+                Debug.Log($"池子: {bullet.GetPoolId()}");
                 pool.AddLast(new LinkedListNode<IBullet>(bullet));
             }
             else
             {
-                Debug.LogError($"没有注册的池子: {type}");
+                Debug.LogError($"没有注册的池子: {bullet.GetPoolId()}");
             }
         }
 
-        public IBullet Get<T>(cfg_HeroTeamBullet cfg) where T : Bullet, new()
+        public IBullet Get<T>(cfg_HeroTeamBullet cfg, Vector3 newPos) where T : Bullet, new()
         {
             IBullet bullet = null;
-            Type type = typeof(T);
-            if (!m_BulletPool.TryGetValue(type, out var pool))
+            if (!m_BulletPool.TryGetValue(cfg.iID, out var pool))
             {
                 pool = new LinkedList<IBullet>();
+                m_BulletPool.Add(cfg.iID, pool);
             }
             if (pool.Count == 0)
             {
-                if (!m_PrefabDict.TryGetValue(type, out var pref))
+                if (!m_PrefabDict.TryGetValue(cfg.iID, out var pref))
                 {
                     var resLoader = XGameComs.Get<IGAssetLoader>();
                     uint handle = 0;
                     pref = (GameObject)resLoader.LoadResSync<GameObject>(cfg.szResPath, out handle);
-                    m_PrefabDict.Add(type, pref);
+                    m_PrefabDict.Add(cfg.iID, pref);
                 }
                 var inst = GameObject.Instantiate(pref);
                 bullet = new T();
@@ -99,8 +100,10 @@ namespace GameScripts.HeroTeam
             else
             {
                 bullet = pool.Last.Value;
+                pool.RemoveLast();
             }
             bullet.GetTr().SetParent(m_trActiveRoot, false);
+            bullet.Active(newPos);
             m_ActiveBullets.Add(bullet);
             return bullet;
         }
