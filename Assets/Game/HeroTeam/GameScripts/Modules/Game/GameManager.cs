@@ -1,4 +1,5 @@
 using DG.Tweening;
+using GameScripts.HeroTeam.UI.Win;
 using GameScripts.Monster;
 using RootMotion;
 using Spine.Unity;
@@ -13,6 +14,7 @@ using XGame.Asset;
 using XGame.Entity;
 using XGame.Entity.Part;
 using XGame.EventEngine;
+using XGame.UI.Framework;
 
 namespace GameScripts.HeroTeam
 {
@@ -32,12 +34,19 @@ namespace GameScripts.HeroTeam
         [SerializeField] Transform m_trBulletActiveRoot;
         [SerializeField] Transform m_trBulletHiddenRoot;
 
+        [Header("特效池回收组")]
+        [SerializeField] Transform m_trEffectActiveRoot;
+        [SerializeField] Transform m_trEffectHiddenRoot;
+
+        GameObject m_refNpc;
+
         // Start is called before the first frame update
         void Start()
         {
+            BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
             FillSpawnPoints();
             CreateHeros();
-            BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
+            CreateNpc();
             //CreateBoss( );
         }
 
@@ -245,6 +254,17 @@ namespace GameScripts.HeroTeam
 
         }
 
+
+        private void CreateNpc()
+        {
+            uint handle = 0;
+            var loader = XGameComs.Get<IGAssetLoader>();
+            var objPrefab = (GameObject)loader.LoadResSync<GameObject>("Game/HeroTeam/GameResources/Prefabs/Game/Npc.prefab", out handle);
+            loader.UnloadRes(handle);
+            m_refNpc = GameObject.Instantiate(objPrefab, new Vector3(-4.4f, 10.1f, 0), Quaternion.identity, null);
+        }
+
+
         private void CreateBoss()
         {
 
@@ -304,16 +324,11 @@ namespace GameScripts.HeroTeam
 
         private IEnumerator NpcBossChat()
         {
+
             yield return new WaitForSeconds(2f);
 
-            uint handle = 0;
-            var loader = XGameComs.Get<IGAssetLoader>();
-            var objPrefab = (GameObject)loader.LoadResSync<GameObject>("Game/HeroTeam/GameResources/Prefabs/Game/Npc.prefab", out handle);
-            loader.UnloadRes(handle);
-            var npc = GameObject.Instantiate(objPrefab, new Vector3(-7f, -11.4f, 0), Quaternion.identity, null);
-            npc.transform.GetChild(0).localScale = Vector3.one * 4;
-            var chatPoint = npc.transform.Find("ChatPoint");
-
+            m_refNpc.transform.GetChild(0).localScale = Vector3.one * 4;
+            var chatPoint = m_refNpc.transform.Find("ChatPoint");
             List<string> chats = new List<string>()
             {
                 "管理者埃克索图斯：“拉格纳罗斯，火焰之王，他比这个世界本身还要古老，在他面前屈服吧，在你们的末日面前屈服吧！”",
@@ -324,12 +339,12 @@ namespace GameScripts.HeroTeam
                 "拉格纳罗斯：“现在轮到你们了，你们愚蠢的追寻拉格纳罗斯的力量，现在你们即将亲眼见到它。”"
             };
 
-            //跳过对话
-            if (true)
-            {
-                chats.Clear();
-                yield return new WaitForSeconds(1.5f);
-            }
+            // //跳过对话
+            // if (true)
+            // {
+            //     chats.Clear();
+            //     yield return new WaitForSeconds(1.5f);
+            // }
 
 
             for (int i = 0; i < chats.Count; i++)
@@ -350,7 +365,7 @@ namespace GameScripts.HeroTeam
                 if (i == chats.Count - 1)
                 {
                     //npc��������
-                    var sa = npc.GetComponentInChildren<SkeletonAnimation>();
+                    var sa = m_refNpc.GetComponentInChildren<SkeletonAnimation>();
                     sa.AnimationState.SetAnimation(0, "dead", false);
                 }
 
@@ -358,13 +373,12 @@ namespace GameScripts.HeroTeam
                 yield return new WaitForSeconds(1f);
             }
 
-            Destroy(npc);
+            Destroy(m_refNpc);
             GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
         }
 
         private void Update()
         {
-            BulletManager.Instance.Update();
             // if ( Input.GetKeyDown( KeyCode.Space ) )
             // {
             //     var pContext = CameraShakeEventContext.Ins;
@@ -382,6 +396,7 @@ namespace GameScripts.HeroTeam
             //     pContext.Health -= 0.2f;
             //     GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
             // }
+
         }
     }
 

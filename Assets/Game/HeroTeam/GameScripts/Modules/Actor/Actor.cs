@@ -48,8 +48,15 @@ namespace GameScripts.HeroTeam
         /// </summary>
         private SkeletonAnimation m_SkeletonAnimation;
 
+        /// <summary>
+        /// 缓存一份Transform引用
+        /// </summary>
+        private Transform m_Tr;
+
         protected virtual void Start()
         {
+            m_Tr = transform;
+
             var spineAni = GetComponent<SpineAni>();
             Debug.Assert(spineAni != null, "spineAni Component not found.");
             m_SkeletonAnimation = spineAni.skeletonAnimation;
@@ -60,9 +67,12 @@ namespace GameScripts.HeroTeam
             m_fsmActor.AddNode<ActorSkillState>();
             m_fsmActor.AddNode<ActorHitState>();
             m_fsmActor.AddNode<ActorDeathState>();
-
+            m_fsmActor.AddNode<ActorWinState>();
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "Actor:Start");
         }
+
+        public Transform GetTr() => m_Tr;
+
 
         public cfg_ActorAnimConfig GetAnimConfig() => GameGlobal.GameScheme.ActorAnimConfig_0((int)m_MonsterConfig.nID);
 
@@ -100,6 +110,8 @@ namespace GameScripts.HeroTeam
             return skills;
         }
 
+        public void Switch2State<T>() where T : IStateNode => m_fsmActor.ChangeState<T>();
+
         protected virtual void Update() => m_fsmActor.Update();
 
         protected virtual void OnDestroy()
@@ -120,7 +132,6 @@ namespace GameScripts.HeroTeam
                 m_fsmActor.Run<ActorIdleState>();
             }
         }
-
     }
 
 }

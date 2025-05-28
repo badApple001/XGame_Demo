@@ -1,7 +1,7 @@
 /**************************************************************************    
 文　　件：UIStateAssociateWindows.cs
 作　　者：
-创建时间：2025.05.21
+创建时间：2025.05.28
 描　　述：UI状态关联窗口
 ***************************************************************************/
 
@@ -17,6 +17,9 @@ namespace GameScripts.HeroTeam
 			GameStateAssociateWindows.AddShowOnEnterWindow<GameScripts.HeroTeam.UI.HeroTeamLogin.UIHeroTeamLogin>(1);
 			GameStateAssociateWindows.AddCloseOnLeaveWindow<GameScripts.HeroTeam.UI.HeroTeamLogin.UIHeroTeamLogin>(1);
 			GameStateAssociateWindows.AddShowOnEnterWindow<GameScripts.HeroTeam.UI.HeroTeamGame.UIHeroTeamGame>(2);
+			GameStateAssociateWindows.AddCloseOnLeaveWindow<GameScripts.HeroTeam.UI.HeroTeamGame.UIHeroTeamGame>(2);
+			GameStateAssociateWindows.AddShowOnEnterWindow<GameScripts.HeroTeam.UI.Win.UIWin>(3);
+			GameStateAssociateWindows.AddCloseOnLeaveWindow<GameScripts.HeroTeam.UI.Win.UIWin>(3);
 
         }
     }

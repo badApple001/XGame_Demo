@@ -13,44 +13,48 @@ using XGame.UI.Framework.EffList;
 using XGame.EventEngine;
 using XClient.Common;
 using DG.Tweening;
+using GameScripts.HeroTeam.UI.Win;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
     public partial class UIHeroTeamGame : UIWindowEx, IEventExecuteSink
     {
-        protected override void OnUpdateUI( )
+ 
+        protected override void OnUpdateUI()
         {
 
         }
 
         //@<<< ExecuteEventHandlerGenerator >>>
         //@<<< ButtonFuncGenerator >>>
-        private void OnBtn_BtnFightClicked( ) //@Window 
+        private void OnBtn_BtnFightClicked() //@Window 
         {
-            btn_BtnFight.gameObject.SetActive( false );
-            GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, null );
+            btn_BtnFight.gameObject.SetActive(false);
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, null);
 
-            var cg = tran_TopPanel.GetComponent<CanvasGroup>( );
-            cg.gameObject.SetActive( true );
+            var cg = tran_TopPanel.GetComponent<CanvasGroup>();
+            cg.gameObject.SetActive(true);
             cg.alpha = 0f;
-            cg.DOFade( 1, 1f );
-
-
+            cg.DOFade(1, 1f);
         }
 
-        protected override void OnSubscribeEvents( )
+        protected override void OnSubscribeEvents()
         {
-            base.OnSubscribeEvents( );
-            GameGlobal.EventEgnine.Subscibe( this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents" );
+            base.OnSubscribeEvents();
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
+
         }
 
-        protected override void OnUnsubscribeEvents( )
+        protected override void OnUnsubscribeEvents()
         {
-            base.OnUnsubscribeEvents( );
-            GameGlobal.EventEgnine.UnSubscibe( this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0 );
+            base.OnUnsubscribeEvents();
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+
         }
 
-        public void OnExecute( ushort wEventID, byte bSrcType, uint dwSrcID, object pContext )
+        public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
             if (wEventID == DHeroTeamEvent.EVENT_BOSS_HP_CHANGED)
             {
@@ -61,7 +65,14 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
                 t.SetEase(Ease.OutCirc);
                 text_UIHp_Boss_Text.text = string.Format("{0:P}", health);
             }
-
+            else if (wEventID == DHeroTeamEvent.EVENT_WIN)
+            {
+                //3秒后显示结束胜利页面
+                GameManager.instance.AddTimer(3f, () =>
+                {
+                    UIWindowManager.Instance.ShowWindow<UIWin>();
+                });
+            }
         }
     }
 

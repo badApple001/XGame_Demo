@@ -594,7 +594,7 @@ namespace XClient.Entity
             return side * sign;
         }
 
-        public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir, float dodgeDistance = 2f, float waitTime = 2.5f, float duration = 0.2f)
+        public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir, float dodgeDistance = 5f, float waitTime = 2.5f, float duration = 0.2f)
         {
             Vector2 toNpc = (Vector2)tr.position - bossPos;
             Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toNpc);
@@ -616,7 +616,7 @@ namespace XClient.Entity
         public void ReceiveBossSelect(Vector3 bossPos)
         {
             Vector3 startPos = transform.position;
-            float repulseDistance = 5f;
+            float repulseDistance = 10f;
             Vector3 repulseDir = (transform.position - bossPos).normalized;
             Vector3 repulseTarget = startPos + (Vector3)(repulseDir * repulseDistance);
 
@@ -626,7 +626,14 @@ namespace XClient.Entity
                {
                    DOVirtual.DelayedCall(0.5f, () =>
                    {
-                       transform.DOMove(startPos, 1f).SetEase(Ease.InQuad);
+                       transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
+                   });
+               });
+            transform.DOScale(1.4f, 0.3f).SetEase(Ease.OutQuad).OnComplete(() =>
+               {
+                   DOVirtual.DelayedCall(0.5f, () =>
+                   {
+                       transform.DOScale(1, 0.6f).SetEase(Ease.OutCirc);
                    });
                });
         }

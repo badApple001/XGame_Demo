@@ -1,11 +1,14 @@
 using Spine.Unity;
 using XClient.Entity;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace GameScripts.HeroTeam
 {
     public interface IActor
     {
+        Transform GetTr();
+
         SkeletonAnimation GetSkeleton();
 
         cfg_ActorAnimConfig GetAnimConfig();

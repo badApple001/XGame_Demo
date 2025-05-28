@@ -1,19 +1,20 @@
 /*******************************************************************
-** ÎÄ¼şÃû:	MonsterSystem.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ĞíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.6.25
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  ¹ÖÎïÏµÍ³(¸ºÔğ¹ÖÎïµÄ´´½¨£¬Ïú»ÙºÍÂß¼­ÍÆ¶¯)
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	MonsterSystem.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.6.25
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½ÏµÍ³(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùºï¿½ï¿½ß¼ï¿½ï¿½Æ¶ï¿½)
 
-**************************** ĞŞ¸Ä¼ÇÂ¼ ******************************
-** ĞŞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Ş¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Ş¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 using GameScripts;
+using GameScripts.HeroTeam;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -30,7 +31,7 @@ using XGame.Utils;
 
 namespace XClient.Entity
 {
-    //¹ÖÎï´´½¨ÏÖ³¡
+    //ï¿½ï¿½ï¿½ï´´ï¿½ï¿½ï¿½Ö³ï¿½
     public class CreateMonsterContext
     {
         public int creatureID;
@@ -43,31 +44,31 @@ namespace XClient.Entity
         public int baseHP = 1000;
         public int maxHP = 1000;
 
-        //ÏÔÊ¾·½Ê½ 
+        //ï¿½ï¿½Ê¾ï¿½ï¿½Ê½ 
         public CREATURE_VISIBLE_TYPE visibleType = CREATURE_VISIBLE_TYPE.VISIBLE_TYPE_LOCAL;
 
-        //ÓÑ·½ÕóÓª
+        //ï¿½Ñ·ï¿½ï¿½ï¿½Óª
         public List<ulong> listFriendCamps;
 
-        //µĞ·½ÕóÓª
+        //ï¿½Ğ·ï¿½ï¿½ï¿½Óª
         public List<ulong> listEnemyCamps;
 
-        //Íâ¹ÛÊı¾İ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         public Dictionary<int, int> dicSkinData;
 
-        //×ÊÔ´Â·¾¶
+        //ï¿½ï¿½Ô´Â·ï¿½ï¿½
         public string resPath;
 
         public bool isPlayer;
 
-        public void Reset( )
+        public void Reset()
         {
             displayID = 0;
             pos = Vector3.zero;
             isLocalPos = false;
             faceLeft = false;
             forward = Vector3.zero;
-            camp = ( ulong ) 0;
+            camp = (ulong)0;
             baseHP = 1000;
             maxHP = 1000;
             visibleType = CREATURE_VISIBLE_TYPE.VISIBLE_TYPE_LOCAL;
@@ -81,89 +82,94 @@ namespace XClient.Entity
         }
     }
 
-    //¹ÖÎïµÄÀàĞÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public partial class EntityType
     {
-        public readonly static int monsterType = 300; //´úÀíÊµÌå
+        public readonly static int monsterType = 300; //ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½
     }
 
-    //²¿¼şÀàĞÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public partial class EntityPartType
     {
-        public readonly static int entityMovePartType = 300; //ÒÆ¶¯²¿¼ş
-        public readonly static int entityAIPartType = 301; //AI²¿¼ş
-        public readonly static int entityDamagePartType = 302; //ÉËº¦²¿¼ş
-        public readonly static int entitySkillPartType = 303; //¼¼ÄÜ²¿¼ş
-        public readonly static int entityMaterialSwitchType = 304; //²ÄÖÊÇĞ»»²¿¼ş
+        public readonly static int entityMovePartType = 300; //ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
+        public readonly static int entityAIPartType = 301; //AIï¿½ï¿½ï¿½ï¿½
+        public readonly static int entityDamagePartType = 302; //ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
+        public readonly static int entitySkillPartType = 303; //ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½
+        public readonly static int entityMaterialSwitchType = 304; //ï¿½ï¿½ï¿½ï¿½ï¿½Ğ»ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public class MonsterSystem : Singleton<MonsterSystem>, IEventExecuteSink
     {
-        //¹«¹²µÄ´´½¨¶ÔÏó
-        public static CreateMonsterContext s_CreateContext = new CreateMonsterContext( );
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        public static CreateMonsterContext s_CreateContext = new CreateMonsterContext();
 
-        //ËùÓĞĞèÒª¿ØÖÆÂß¼­µÄ¶ÔÏó
-        private Dictionary<ulong, IMonster> m_dicMonster = new Dictionary<ulong, IMonster>( );
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
+        private Dictionary<ulong, IMonster> m_dicMonster = new Dictionary<ulong, IMonster>();
 
-        //É¾³ıÁĞ±í
-        private HashSet<ulong> m_hashWaitDel = new HashSet<ulong>( );
+        //É¾ï¿½ï¿½ï¿½Ğ±ï¿½
+        private HashSet<ulong> m_hashWaitDel = new HashSet<ulong>();
 
-        //AI´´½¨Æ÷
+        //AIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private IAIActionCreator m_AICreator = null;
 
-        //ÊôĞÔĞŞ¸ÄÆ÷
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½ï¿½
         private IATTRModifier m_attrModifier = null;
 
-        //ÊµÌå¸ù½Úµã
+        //Êµï¿½ï¿½ï¿½ï¿½Úµï¿½
         private Transform entityRoot;
 
-        public void RegisterEntityRoot( Transform root )
+        public Vector3 BossDeathPosition { private set; get; } = Vector3.zero;
+
+        public void RegisterEntityRoot(Transform root)
         {
             entityRoot = root;
         }
 
-        public void DeregisterEntityRoot( )
+        public void DeregisterEntityRoot()
         {
             entityRoot = null;
         }
 
-        public Transform GetEntityRoot( )
+        public Transform GetEntityRoot()
         {
             return entityRoot;
         }
 
 
-        //´´½¨ÏµÍ³
-        public void Create( )
+        //ï¿½ï¿½ï¿½ï¿½ÏµÍ³
+        public void Create()
         {
-            GameGlobal.EntityWorld.RegisterEntityType<Monster>( EntityType.monsterType );
+            GameGlobal.EntityWorld.RegisterEntityType<Monster>(EntityType.monsterType);
 
-            GameGlobal.EntityWorld.RegisterEntityPartType<AIPart>( EntityType.monsterType, EntityPartType.entityAIPartType );
-            GameGlobal.EntityWorld.RegisterEntityPartType<LightnEffectPart>( EntityType.monsterType, EntityPartType.Lightn );
-            GameGlobal.EntityWorld.RegisterEntityPartType<LightnEffectPart>( EntityType.monsterType, EntityPartType.Lightn );
-            GameGlobal.EntityWorld.RegisterEntityPartType<SpriteRendererMaterialSwitchPart>( EntityType.monsterType, EntityPartType.entityMaterialSwitchType );
+            GameGlobal.EntityWorld.RegisterEntityPartType<AIPart>(EntityType.monsterType, EntityPartType.entityAIPartType);
+            GameGlobal.EntityWorld.RegisterEntityPartType<LightnEffectPart>(EntityType.monsterType, EntityPartType.Lightn);
+            GameGlobal.EntityWorld.RegisterEntityPartType<LightnEffectPart>(EntityType.monsterType, EntityPartType.Lightn);
+            GameGlobal.EntityWorld.RegisterEntityPartType<SpriteRendererMaterialSwitchPart>(EntityType.monsterType, EntityPartType.entityMaterialSwitchType);
 
-            GameGlobal.EntityWorld.RegisterEntityPartType<MonsterDataPart>( EntityType.monsterType, EntityPartInnerType.Data );
-            GameGlobal.EntityWorld.RegisterEntityPartType<EntityMovePart>( EntityType.monsterType, EntityPartType.entityMovePartType );
+            GameGlobal.EntityWorld.RegisterEntityPartType<MonsterDataPart>(EntityType.monsterType, EntityPartInnerType.Data);
+            GameGlobal.EntityWorld.RegisterEntityPartType<EntityMovePart>(EntityType.monsterType, EntityPartType.entityMovePartType);
             //GameGlobal.EntityWorld.RegisterEntityPartType<SkillPart>( EntityType.monsterType, EntityPartType.entitySkillPartType );
-            GameGlobal.EntityWorld.RegisterEntityPartType<PrefabPart>( EntityType.monsterType, EntityPartType.Prefab );
+            GameGlobal.EntityWorld.RegisterEntityPartType<PrefabPart>(EntityType.monsterType, EntityPartType.Prefab);
             //GameGlobal.EntityWorld.RegisterEntityPartType<SpineSkinPart>(EntityType.monsterType, EntityPartType.Skin);
-            //×¢²áAIĞĞÎª¶ÔÏó
+            //×¢ï¿½ï¿½AIï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½
 
 
-            IItemPoolManager itemPoolMgr = XGame.XGameComs.Get<IItemPoolManager>( );
+            IItemPoolManager itemPoolMgr = XGame.XGameComs.Get<IItemPoolManager>();
             //itemPoolMgr.Register<AIMoveAction>();
             //itemPoolMgr.Register<AISkillAction>();
             //itemPoolMgr.Register<AICollisionExplosionAction>();
 
 
-            //¶©ÔÄÏú»ÙÏûÏ¢
-            IEventEngine eventEngine = XGameComs.Get<IEventEngine>( );
-            eventEngine.Subscibe( this, DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0,
-                "MonsterSystem:Create" ); // FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+            IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
+            eventEngine.Subscibe(this, DGlobalEvent.EVENT_ENTITY_DESTROY, XClient.Common.DEventSourceType.SOURCE_TYPE_ENTITY, 0,
+                "MonsterSystem:Create"); // FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
+
+            eventEngine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0,
+                   "MonsterSystem:Create");
         }
 
-        public void Release( )
+        public void Release()
         {
             /*
             IItemPoolManager itemPoolMgr = XGame.XGameComs.Get<IItemPoolManager>();
@@ -172,42 +178,42 @@ namespace XClient.Entity
             itemPoolMgr.Unregister<AICollisionExplosionAction>();
             */
 
-            //¶©ÔÄÏú»ÙÏûÏ¢
-            IEventEngine eventEngine = XGameComs.Get<IEventEngine>( );
-            eventEngine.UnSubscibe( this, DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY,
-                0 ); // FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+            IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
+            eventEngine.UnSubscibe(this, DGlobalEvent.EVENT_ENTITY_DESTROY, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY,
+                0); // FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
         }
-        //¶ÏÏßÖØÁ¬µÄÊ±ºòÇåÀíÊı¾İµ÷ÓÃ,×¢ÒâÖ»ĞèÒªÇåÀíMoudleÄ£¿éÖĞCreateºóµ÷ÓÃµÄÊı¾İ,CreateÖĞ´´½¨µÄ²»ÒªÇåÀíÁË
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½İµï¿½ï¿½ï¿½,×¢ï¿½ï¿½Ö»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½MoudleÄ£ï¿½ï¿½ï¿½ï¿½Createï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½,Createï¿½Ğ´ï¿½ï¿½ï¿½ï¿½Ä²ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-        public void Clear( )
+        public void Clear()
         {
-            foreach ( var kv in m_dicMonster )
+            foreach (var kv in m_dicMonster)
             {
-                DestroyMonster( kv.Key );
+                DestroyMonster(kv.Key);
             }
-            m_dicMonster.Clear( );
+            m_dicMonster.Clear();
         }
 
-        //»ñµÃË¢¹ÖµÄ¸öÊı
-        public int GetMonsterCount( )
+        //ï¿½ï¿½ï¿½Ë¢ï¿½ÖµÄ¸ï¿½ï¿½ï¿½
+        public int GetMonsterCount()
         {
             return m_dicMonster.Count;
         }
 
         /// <summary>
-        /// »ñÈ¡Ò»¸öÕóÓªµÄËùÓĞMonster
+        /// ï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Monster
         /// </summary>
         /// <param name="camp"></param>
         /// <returns></returns>
-        public List<IMonster> GetMonstersByCamp( ulong camp )
+        public List<IMonster> GetMonstersByCamp(ulong camp)
         {
-            var enumerator = ( IEnumerator<IMonster> ) m_dicMonster.Values.GetEnumerator( );
-            List<IMonster> list = new List<IMonster>( );
-            while ( enumerator.MoveNext( ) )
+            var enumerator = (IEnumerator<IMonster>)m_dicMonster.Values.GetEnumerator();
+            List<IMonster> list = new List<IMonster>();
+            while (enumerator.MoveNext())
             {
-                if ( enumerator.Current.GetCamp( ) == camp )
+                if (enumerator.Current.GetCamp() == camp)
                 {
-                    list.Add( enumerator.Current );
+                    list.Add(enumerator.Current);
                 }
             }
             return list;
@@ -215,90 +221,94 @@ namespace XClient.Entity
 
 
         /// <summary>
-        /// »ñÈ¡µĞ·½ÕóÓªµÄËùÓĞMonster
+        /// ï¿½ï¿½È¡ï¿½Ğ·ï¿½ï¿½ï¿½Óªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Monster
         /// </summary>
         /// <param name="camp"></param>
         /// <returns></returns>
-        public List<IMonster> GetMonstersNotEqulCamp( ulong camp )
+        public List<IMonster> GetMonstersNotEqulCamp(ulong camp)
         {
-            var enumerator = ( IEnumerator<IMonster> ) m_dicMonster.Values.GetEnumerator( );
-            List<IMonster> list = new List<IMonster>( );
-            while ( enumerator.MoveNext( ) )
+            var enumerator = (IEnumerator<IMonster>)m_dicMonster.Values.GetEnumerator();
+            List<IMonster> list = new List<IMonster>();
+            while (enumerator.MoveNext())
             {
-                if ( enumerator.Current.GetCamp( ) != camp )
+                if (enumerator.Current.GetCamp() != camp)
                 {
-                    list.Add( enumerator.Current );
+                    list.Add(enumerator.Current);
                 }
             }
             return list;
         }
 
 
-        //·ÖÅä
-        public IMonster CreateMonster( CreateMonsterContext createContext )
+        //ï¿½ï¿½ï¿½ï¿½
+        public IMonster CreateMonster(CreateMonsterContext createContext)
         {
-            NetEntityShareInitContext.instance.Reset( );
+            NetEntityShareInitContext.instance.Reset();
             NetEntityShareInitContext.instance.localInitContext = createContext;
 
-            //·ÖÅäÒ»¸öÎ¨Ò»ID
-            ulong entId = GameGlobal.Role.entityIDGenerator.Next( );
+            //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Î¨Ò»ID
+            ulong entId = GameGlobal.Role.entityIDGenerator.Next();
             IMonster monster =
-                GameGlobal.EntityWorld.Local.CreateEntity( EntityType.monsterType, entId, createContext.displayID,
-                        NetEntityShareInitContext.instance ) as
+                GameGlobal.EntityWorld.Local.CreateEntity(EntityType.monsterType, entId, createContext.displayID,
+                        NetEntityShareInitContext.instance) as
                     IMonster;
 
-            m_dicMonster.Add( entId, monster );
+            m_dicMonster.Add(entId, monster);
             return monster;
         }
 
-        //Ïú»Ù
-        public void DestroyMonster( ulong entId )
+        //ï¿½ï¿½ï¿½ï¿½
+        public void DestroyMonster(ulong entId)
         {
             //Debug.LogError("DestroyMonster:" + entId);
-            GameGlobal.EntityWorld.Local.DestroyEntity( entId );
+            GameGlobal.EntityWorld.Local.DestroyEntity(entId);
         }
 
         // Start is called before the first frame update
-        void Start( )
+        void Start()
         {
         }
 
         // Update is called once per frame
-        public void Update( )
+        public void Update()
         {
-            //É¾³ı¹ÖÎï
+            //É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             int nCount = m_hashWaitDel.Count;
-            if ( nCount > 0 )
+            if (nCount > 0)
             {
-                foreach ( ulong id in m_hashWaitDel )
+                foreach (ulong id in m_hashWaitDel)
                 {
-                    m_dicMonster.Remove( id );
+                    m_dicMonster.Remove(id);
                 }
 
-                m_hashWaitDel.Clear( );
+                m_hashWaitDel.Clear();
             }
 
-            //ÍÆ¶¯Âß¼­½øĞĞ
+            //ï¿½Æ¶ï¿½ï¿½ß¼ï¿½ï¿½ï¿½ï¿½ï¿½
 
-            foreach ( IMonster monster in m_dicMonster.Values )
+            foreach (IMonster monster in m_dicMonster.Values)
             {
-                if ( null != monster )
+                if (null != monster)
                 {
-                    monster.OnUpdate( );
+                    monster.OnUpdate();
 
-                    if ( monster.IsDie( ) )
+                    if (monster.IsDie())
                     {
-                        DestroyMonster( monster.id );
-                        m_hashWaitDel.Add( monster.id );
+                        if (monster.IsBoos())
+                        {
+                            //è®°å½•ä¸€ä¸‹bossçš„æ­»äº¡ä½ç½®
+                            BossDeathPosition = monster.GetTr().position;
+                            GameGlobal.EventEgnine.FireExecute(GameScripts.HeroTeam.DHeroTeamEvent.EVENT_WIN, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+                        }
+                        DestroyMonster(monster.id);
+                        m_hashWaitDel.Add(monster.id);
                         //MonsterDieEffectMgr.Instance.AddMonster(monster.id);
                         continue;
                     }
                 }
             }
 
-
-
-            //Çå¹Ö²âÊÔ
+            //ï¿½ï¿½Ö²ï¿½ï¿½ï¿½
             //if (Input.GetKeyDown(KeyCode.Space))
             //{
             //    foreach (IMonster monster in m_dicMonster.Values)
@@ -307,51 +317,79 @@ namespace XClient.Entity
             //    }
             //
             //    m_dicMonster.Clear();
-            //    Debug.Log("¿Õ¸ñ¼ü±»°´ÏÂ");
+            //    Debug.Log("ï¿½Õ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             //}
         }
 
 
-        public void OnExecute( ushort wEventID, byte bSrcType, uint dwSrcID, object pContext )
+        public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
-            IMonster monster = pContext as IMonster;
-            if ( null != monster )
+
+            if (DHeroTeamEvent.EVENT_WIN == wEventID)
             {
-                ulong entID = monster.id;
-                if ( m_dicMonster.ContainsKey( entID ) )
+                foreach (IMonster monster in m_dicMonster.Values)
                 {
-                    //m_dicMonster[entID] = null;
-                    m_hashWaitDel.Add( entID );
+                    if (null != monster)
+                    {
+                        if (!monster.IsDie())
+                        {
+                            // if (((cfg_Monster)monster.config).HeroClass > HeroClassDef.WARRIOR)
+                            // {
+                            ////ç¦»bossæ¯”è¾ƒè¿œçš„ç©å®¶ è·‘åˆ°bosså®ä½“é™„è¿‘å»æ¡è£…å¤‡
+                            var prefab = monster.GetPart<PrefabPart>();
+                            if (prefab != null)
+                            {
+                                if (prefab.transform.TryGetComponent<Actor>(out var actor))
+                                {
+                                    actor.Switch2State<ActorWinState>();
+                                }
+                            }
+                            // }
+                        }
+                    }
+                }
+            }
+            else if (DGlobalEvent.EVENT_ENTITY_DESTROY == wEventID)
+            {
+                IMonster monster = pContext as IMonster;
+                if (null != monster)
+                {
+                    ulong entID = monster.id;
+                    if (m_dicMonster.ContainsKey(entID))
+                    {
+                        //m_dicMonster[entID] = null;
+                        m_hashWaitDel.Add(entID);
+                    }
                 }
             }
         }
 
-        //»ñÈ¡AI´´½¨Æ÷
-        public IAIActionCreator GetAICreator( )
+        //ï¿½ï¿½È¡AIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        public IAIActionCreator GetAICreator()
         {
             return m_AICreator;
         }
 
-        //ÉèÖÃAI´´½¨Æ÷
-        public void SetAICreator( IAIActionCreator creator )
+        //ï¿½ï¿½ï¿½ï¿½AIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        public void SetAICreator(IAIActionCreator creator)
         {
             m_AICreator = creator;
         }
 
-        //»ñÈ¡ÊôĞÔĞŞ¸ÄÆ÷
-        public IATTRModifier GetAttrModified( )
+        //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½ï¿½
+        public IATTRModifier GetAttrModified()
         {
             return m_attrModifier;
         }
 
-        //ÉèÖÃÊôĞÔĞŞ¸ÄÆ÷
-        public void SetAttrModifier( IATTRModifier modifier )
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş¸ï¿½ï¿½ï¿½
+        public void SetAttrModifier(IATTRModifier modifier)
         {
             m_attrModifier = modifier;
         }
 
-        //×ø±ê×ª»»
-        public Vector3 WorldPositionToBattlePosition( Vector3 worldPosition, bool isMyBattle )
+        //ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
+        public Vector3 WorldPositionToBattlePosition(Vector3 worldPosition, bool isMyBattle)
         {
 
             return worldPosition;

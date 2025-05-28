@@ -9,49 +9,53 @@ namespace GameScripts.HeroTeam
     public class DHeroTeamEvent
     {
 
-        /// <summary> HeroTeamÊÂ¼þ ´Ó10001¿ªÊ¼£¬ 10000ÒÔÄÚÊÇ¹«¹²ÊÂ¼þ </summary>
+        /// <summary> HeroTeamï¿½Â¼ï¿½ ï¿½ï¿½10001ï¿½ï¿½Ê¼ï¿½ï¿½ 10000ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ </summary>
         public readonly static ushort EVENT_HEROTEAM_BASE = 10001;
 
-        /// <summary> ±¾µØÊý¾Ý·¢ÉúÁË±ä»¯ </summary>
+        /// <summary> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½ï¿½Ë±ä»¯ </summary>
         public readonly static ushort EVENT_LOCALDATA_CHANGED_CREATE = EVENT_HEROTEAM_BASE++;
 
-        /// <summary> ¿ªÊ¼ÓÎÏ· </summary>
+        /// <summary> ï¿½ï¿½Ê¼ï¿½ï¿½Ï· </summary>
         public readonly static ushort EVENT_START_GAME = EVENT_HEROTEAM_BASE++;
 
-        /// <summary> Ïà»úÕð¶¯ </summary>
+        /// <summary> ï¿½ï¿½ï¿½ï¿½ï¿½ </summary>
         public readonly static ushort EVENT_CAMERA_SHAKE = EVENT_HEROTEAM_BASE++;
         
         /// <summary>
-        /// BossÑªÁ¿·¢ÉúÁË±ä»¯
+        /// BossÑªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë±ä»¯
         /// </summary>
         public readonly static ushort EVENT_BOSS_HP_CHANGED = EVENT_HEROTEAM_BASE++;
 
         /// <summary>
-        /// ¶Ô»°½áÊø½øÈëÕ½¶·×´Ì¬
+        /// ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½×´Ì¬
         /// </summary>
         public readonly static ushort EVENT_INTO_FIGHT_CHANGED = EVENT_HEROTEAM_BASE++;
 
+        /// <summary>
+        /// èƒœåˆ©
+        /// </summary>
+        public readonly static ushort EVENT_WIN = EVENT_HEROTEAM_BASE++;
 
-        //×î´óÖµ
+        //ï¿½ï¿½ï¿½Öµ
         public const ushort EVENT_ALL_MAXID = 30000;
 
     }
 
 
-    //////////////////////////·¢ËÍÔ´ÀàÐÍ ///////////////////////////
+    //////////////////////////ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ ///////////////////////////
     ///
-    /// ·¢ËÍÔ´ÀàÐÍ
+    /// ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½
     public class DEventSourceType
     {
-        public static readonly byte SOURCE_TYPE_UNKNOW = 0;    // ÀàÐÍID¸ù
-        public static readonly byte SOURCE_TYPE_LOCALDATA = 1;    //±¾µØÊý¾ÝÊÂ¼þÀàÐÍ
-        public static readonly byte SOURCE_TYPE_ENTITY = 2;//ÊµÌåÊÂ¼þÀàÐÍ
-        public static readonly byte SOURCE_TYPE_UI = 2;//UIÊÂ¼þÀàÐÍ
+        public static readonly byte SOURCE_TYPE_UNKNOW = 0;    // ï¿½ï¿½ï¿½ï¿½IDï¿½ï¿½
+        public static readonly byte SOURCE_TYPE_LOCALDATA = 1;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+        public static readonly byte SOURCE_TYPE_ENTITY = 2;//Êµï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
+        public static readonly byte SOURCE_TYPE_UI = 2;//UIï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½
     };
 
 
     /// <summary>
-    /// HeroTeamÊý¾Ý±ä»¯ÊÂ¼þ
+    /// HeroTeamï¿½ï¿½ï¿½Ý±ä»¯ï¿½Â¼ï¿½
     /// </summary>
     public class HeroTeamDataChangedEventContext
     {
@@ -59,7 +63,7 @@ namespace GameScripts.HeroTeam
 
         public static HeroTeamDataChangedEventContext Ins { private set; get; } = new HeroTeamDataChangedEventContext( );
 
-        ////////////////////////// ÊÂ¼þ´«µÝµÄÊý¾Ý ///////////////////////////
+        ////////////////////////// ï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ï¿½ï¿½ ///////////////////////////
         public int nShareData;
     }
 

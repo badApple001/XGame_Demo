@@ -17,6 +17,8 @@ MonoBehaviour:
     name: "\u767B\u5F55"
   - ID: 2
     name: "\u6E38\u620F"
+  - ID: 3
+    name: "\u80DC\u5229"
   CanvasScalerAdapterSettings:
     ScreenMatchMode: 0
     ScreenMatchValue: 0
@@ -61,6 +63,21 @@ MonoBehaviour:
     IsSupportPopupAnim: 0
     IsSupportLoadingMask: 0
     IsLoadingMaskBlockWindowShow: 0
+  - Name: UIWin
+    IsOverlayMode: 0
+    IsSupportStack: 1
+    IsShieldBackWnds: 1
+    IsCanBeShield: 1
+    OccupyStackTopSound: 0
+    DisplayMode: 0
+    BackgroundMode: 0
+    IsSupportClickBackgroundClose: 0
+    IsAlignToMousePosition: 0
+    WndType: GameScripts.HeroTeam.UI.Win.UIWin
+    IsCloseWhenExitGame: 1
+    IsSupportPopupAnim: 0
+    IsSupportLoadingMask: 0
+    IsLoadingMaskBlockWindowShow: 0
   StateWndSettings:
   - stateID: 1
     showWndsOnEnter:
@@ -70,6 +87,12 @@ MonoBehaviour:
   - stateID: 2
     showWndsOnEnter:
     - GameScripts.HeroTeam.UI.HeroTeamGame.UIHeroTeamGame
-    closeWndsOnLeave: []
+    closeWndsOnLeave:
+    - GameScripts.HeroTeam.UI.HeroTeamGame.UIHeroTeamGame
+  - stateID: 3
+    showWndsOnEnter:
+    - GameScripts.HeroTeam.UI.Win.UIWin
+    closeWndsOnLeave:
+    - GameScripts.HeroTeam.UI.Win.UIWin
   MainWindowTypePath: 
   PrefabsDir: 

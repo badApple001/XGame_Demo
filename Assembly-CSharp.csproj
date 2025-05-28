@@ -495,6 +495,11 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageTextEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\HeroClassDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Win\UIWin.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Win\UIWin_Generate.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorWinState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\GameEffect\GameEffectManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Pool\TransformPool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />

@@ -64,8 +64,18 @@ namespace GameScripts.HeroTeam
                 var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
                 if (monsters.Count > 0)
                 {
-                    target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
+
                     damage = m_Owner.GetCreatureEntity().GetIntAttr(CreatureAttributeDef.ATTACK);
+                    // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
+                    int maxHatred = -1;
+                    monsters.ForEach(current =>
+                    {
+                        if (maxHatred < current.GetHatred())
+                        {
+                            maxHatred = current.GetHatred();
+                            target = current;
+                        }
+                    });
                 }
             }
 
@@ -78,7 +88,7 @@ namespace GameScripts.HeroTeam
 
                 //仇恨值
                 IMonster m = m_Owner.GetCreatureEntity() as IMonster;
-                int newHatred = m.GetHatred() + Mathf.FloorToInt(m_Owner.GetMonsterCfg().iAttackHatred / 100f * damage);
+                int newHatred = m.GetHatred() + Mathf.FloorToInt(m_Owner.GetMonsterCfg().iAttackHatred / 100f * Mathf.Abs(damage));
                 m.SetHatred(newHatred);
 
                 if (m_AttackType == AttackTypeDef.Fencer)
@@ -86,6 +96,11 @@ namespace GameScripts.HeroTeam
                     //后续需要绑定动画帧事件
                     GameManager.instance.AddTimer(0.5f, () =>
                     {
+                        string szAttackEffectPath = m_Owner.GetMonsterCfg().szAttackEffectPath;
+                        if (!string.IsNullOrEmpty(szAttackEffectPath))
+                        {
+                            GameEffectManager.Instance.ShowEffect(szAttackEffectPath, target.GetLockTr().position, Quaternion.identity);
+                        }
                         target.SetHPDelta(-damage);
                     });
                 }

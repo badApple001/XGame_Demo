@@ -12,6 +12,7 @@ using XGame.UI.Framework.Flex;
 using XGame.UI.Framework.EffList;
 using System;
 using XGameEngine.Player;
+using XClient.Game;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamLogin
 {
@@ -20,15 +21,14 @@ namespace GameScripts.HeroTeam.UI.HeroTeamLogin
         protected override void OnUpdateUI()
         {
         }
-		
-		//@<<< ExecuteEventHandlerGenerator >>>
-		//@<<< ButtonFuncGenerator >>>
-		private void OnBtn_LoginClicked() //@Window 
-		{
-            GameGlobalEx.LoginModule.Login( );
 
-            Debug.Log( FromUnixTimestamp( HeroTeamDataManager.Ins.Data.LastLoginTimestamps ).ToString( ) );
-            HeroTeamDataManager.Ins.Data.LastLoginTimestamps = ToUnixTimestamp( DateTime.Now );
+        //@<<< ExecuteEventHandlerGenerator >>>
+        //@<<< ButtonFuncGenerator >>>
+        private void OnBtn_LoginClicked() //@Window 
+        {
+            GameGlobalEx.LoginModule.Login();
+            Debug.Log(FromUnixTimestamp(HeroTeamDataManager.Ins.Data.LastLoginTimestamps).ToString());
+            HeroTeamDataManager.Ins.Data.LastLoginTimestamps = ToUnixTimestamp(DateTime.Now);
         }
 
         public static long ToUnixTimestamp( DateTime dateTime )

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using XGame;
 using XGame.Asset;
+using XGame.FrameUpdate;
 using XGame.Utils;
 
 namespace GameScripts.HeroTeam
@@ -17,7 +18,7 @@ namespace GameScripts.HeroTeam
     /// Get<T> T可以是Bullet的任意派生类 你可以在派生类是实现各色各样的子弹技能
     /// 
     /// </summary>
-    public class BulletManager : Singleton<BulletManager>
+    public class BulletManager : Singleton<BulletManager>, IFrameUpdateSink
     {
 
         private List<IBullet> m_ActiveBullets = new List<IBullet>();
@@ -37,9 +38,13 @@ namespace GameScripts.HeroTeam
             // var resPath = "Game/HeroTeam/GameResources/Prefabs/Game/Bullet.prefab";
             // var resLoader = XGameComs.Get<IGAssetLoader>();
             // resLoader.LoadRes<GameObject>(resPath, 0, this);
+
+            var frameUpdMgr = XGameComs.Get<IFrameUpdateManager>();
+            frameUpdMgr.RegUpdate(this, EnUpdateType.Update, "BulletManager.Update");
         }
 
-        public void Update()
+
+        public void OnFrameUpdate()
         {
             IBullet bullet = null;
             for (int i = m_ActiveBullets.Count - 1; i >= 0; i--)
@@ -57,6 +62,7 @@ namespace GameScripts.HeroTeam
                 bullet.Fly();
             }
         }
+
 
         public void Recycle(IBullet bullet)
         {
@@ -147,5 +153,6 @@ namespace GameScripts.HeroTeam
         {
             Debug.Log($"加载资源失败: {nResKey}");
         }
+
     }
 }

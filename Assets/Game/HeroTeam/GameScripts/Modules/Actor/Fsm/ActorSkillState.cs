@@ -54,7 +54,59 @@ namespace GameScripts.HeroTeam
                         yield return Load_Skill_500001(skill);
                     }
                     break;
+                case 400001:
+                    {
+                        yield return Load_Skill_400001(skill);
+                    }
+                    break;
+                case 600001:
+                    {
+                        yield return Load_Skill_600001(skill);
+                    }
+                    break;
+                default:
+                    {
+                        yield return new WaitForSeconds(1f);
+                        m_StateMachine.ChangeState<ActorIdleState>();
+                        break;
+                    }
             }
+        }
+
+
+        private IEnumerator Load_Skill_400001(cfg_HeroTeamSkills skill)
+        {
+            m_Anim.state.SetAnimation(0, skill.szAnimName, false);
+
+            //固伤+百分比暴击
+            var damage = skill.iValue + skill.iPercentValue / 100f * m_Owner.GetMonsterCfg().iAttack;
+            //技能附带仇恨 + 攻击百分比仇恨值叠加
+            var hate = skill.iHate + m_Owner.GetMonsterCfg().iAttackHatred / 100f * damage;
+
+            var target = GameManager.instance.GetBossEntity();
+            // target.SetHPDelta(-Mathf.FloorToInt(damage));
+            target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
+
+            yield return new WaitForSeconds(1.4f);
+            m_StateMachine.ChangeState<ActorIdleState>();
+        }
+
+        private IEnumerator Load_Skill_600001(cfg_HeroTeamSkills skill)
+        {
+
+            m_Anim.state.SetAnimation(0, skill.szAnimName, false);
+
+            //固伤+百分比暴击
+            var damage = skill.iValue + skill.iPercentValue / 100f * m_Owner.GetMonsterCfg().iAttack;
+            //技能附带仇恨 + 攻击百分比仇恨值叠加
+            var hate = skill.iHate + m_Owner.GetMonsterCfg().iAttackHatred / 100f * damage;
+
+            var target = GameManager.instance.GetBossEntity();
+            target.SetHPDelta(-Mathf.FloorToInt(damage));
+            target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
+
+            yield return new WaitForSeconds(1.4f);
+            m_StateMachine.ChangeState<ActorIdleState>();
         }
 
         private IEnumerator Load_Skill_200001(cfg_HeroTeamSkills skill)
@@ -73,7 +125,7 @@ namespace GameScripts.HeroTeam
                         var rangeTipSr = ((Boss)m_StateMachine.Owner).GetRangeSkillTipSr();
                         rangeTipSr.gameObject.SetActive(true);
 
-                        rangeTipSr.transform.localEulerAngles = new Vector3(0, 0, randomAngle);
+                        rangeTipSr.transform.localEulerAngles = new Vector3(0, 0, randomAngle - 5.5f); //-5.5f是因为图片我是自己画的，不是很标准
                         rangeTipSr.DOColor(new Color(1, 1, 1, 0.5f), 0.5f).SetLoops(4, LoopType.Yoyo).OnComplete(() =>
                         {
                             rangeTipSr.gameObject.SetActive(false);
@@ -81,10 +133,10 @@ namespace GameScripts.HeroTeam
 
                         //通知扇形区域内的角色躲避
                         var dir = Quaternion.Euler(0, 0, -randomAngle) * Vector2.left;
-                        List<IMonster> monsters = GetPlayersInSector(m_Anim.transform.position, dir, 15, 45);
+                        List<IMonster> monsters = GetPlayersInSector(m_Anim.transform.position, dir, 30, 90);
                         GameManager.instance.AddTimer(0.5f, () =>
                         {
-                            monsters.ForEach(m => m.EludeBossSkill(m_Anim.transform.position, dir, 15, 45));
+                            monsters.ForEach(m => m.EludeBossSkill(m_Anim.transform.position, dir, 30, 90));
                         });
 
                         yield return new WaitForSeconds(2f);
@@ -92,33 +144,25 @@ namespace GameScripts.HeroTeam
                 }
             }
 
-            ((IActor)m_StateMachine.Owner).GetSkeleton().state.SetAnimation(0, skill.szAnimName, false);
+            m_Anim.state.SetAnimation(0, skill.szAnimName, false);
 
 
-            GameManager.instance.AddTimer(1.0f, () =>
-            {
+            yield return new WaitForSeconds(1f);
+            var pContext = CameraShakeEventContext.Ins;
+            pContext.intensity = 1f;
+            pContext.duration = 0.5f;
+            pContext.vibrato = 30;
+            pContext.randomness = 100f;
+            pContext.fadeOut = true;
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
 
-                var pContext = CameraShakeEventContext.Ins;
-                pContext.intensity = 1f;
-                pContext.duration = 0.5f;
-                pContext.vibrato = 30;
-                pContext.randomness = 100f;
-                pContext.fadeOut = true;
-                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
-            });
-
-            GameManager.instance.AddTimer(2.3f, () =>
-            {
-                m_StateMachine.ChangeState<ActorIdleState>();
-            });
+            yield return new WaitForSeconds(2.4f);
+            m_StateMachine.ChangeState<ActorIdleState>();
         }
 
         private IEnumerator Load_Skill_500001(cfg_HeroTeamSkills skill)
         {
-
-
-            ((Boss)m_StateMachine.Owner).GetSkeleton().state.SetAnimation(0, skill.szAnimName, false);
-
+            m_Anim.state.SetAnimation(0, skill.szAnimName, false);
             yield return null;
 
             var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
@@ -144,10 +188,8 @@ namespace GameScripts.HeroTeam
                 m.ReceiveBossSelect(m_Anim.transform.position);
             });
 
-            GameManager.instance.AddTimer(1.3f, () =>
-            {
-                m_StateMachine.ChangeState<ActorIdleState>();
-            });
+            yield return new WaitForSeconds(1.4f);
+            m_StateMachine.ChangeState<ActorIdleState>();
         }
 
 
