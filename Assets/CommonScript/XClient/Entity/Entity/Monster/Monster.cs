@@ -613,5 +613,22 @@ namespace XClient.Entity
                 });
         }
 
+        public void ReceiveBossSelect(Vector3 bossPos)
+        {
+            Vector3 startPos = transform.position;
+            float repulseDistance = 5f;
+            Vector3 repulseDir = (transform.position - bossPos).normalized;
+            Vector3 repulseTarget = startPos + (Vector3)(repulseDir * repulseDistance);
+
+            transform.DOMove(repulseTarget, 0.3f)
+               .SetEase(Ease.OutQuad)
+               .OnComplete(() =>
+               {
+                   DOVirtual.DelayedCall(0.5f, () =>
+                   {
+                       transform.DOMove(startPos, 1f).SetEase(Ease.InQuad);
+                   });
+               });
+        }
     }
 }

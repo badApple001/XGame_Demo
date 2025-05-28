@@ -87,6 +87,12 @@ namespace XClient.Entity
         /// <param name="radius"></param>
         /// <param name="angleDeg"></param>
         void EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg);
+
+        /// <summary>
+        /// Boss点名
+        /// </summary>
+        /// <param name="bossPos"></param>
+        void ReceiveBossSelect(Vector3 bossPos);
     }
 
 }

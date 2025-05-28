@@ -61,6 +61,8 @@ namespace GameScripts.HeroTeam
         {
 
             float randomAngle = Random.Range(0, 360f);
+
+            //技能指示器类型
             if (skill.hasSkillTip == 1)
             {
 
@@ -77,6 +79,7 @@ namespace GameScripts.HeroTeam
                             rangeTipSr.gameObject.SetActive(false);
                         });
 
+                        //通知扇形区域内的角色躲避
                         var dir = Quaternion.Euler(0, 0, -randomAngle) * Vector2.left;
                         List<IMonster> monsters = GetPlayersInSector(m_Anim.transform.position, dir, 15, 45);
                         GameManager.instance.AddTimer(0.5f, () =>
@@ -113,12 +116,35 @@ namespace GameScripts.HeroTeam
         private IEnumerator Load_Skill_500001(cfg_HeroTeamSkills skill)
         {
 
-            yield return null;
 
             ((Boss)m_StateMachine.Owner).GetSkeleton().state.SetAnimation(0, skill.szAnimName, false);
 
+            yield return null;
 
-            GameManager.instance.AddTimer(2.3f, () =>
+            var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
+            List<IMonster> selects = new List<IMonster>();
+            int tankCount = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                var p = monsters.PickRandom();
+                var cfg = (cfg_Monster)p.config;
+                if (cfg.HeroClass == HeroClassDef.TANK && tankCount == 2)
+                {
+                    i--;
+                    yield return null;
+                }
+                selects.Add(p);
+                if (cfg.HeroClass == HeroClassDef.TANK) tankCount++;
+            }
+
+            selects.ForEach(m =>
+            {
+                //除了 1类型是治疗， 其它类型如伤害，击飞，控制的，此值都表示额外伤害
+                m.SetHPDelta(skill.iType == 1 ? skill.iValue : -skill.iValue);
+                m.ReceiveBossSelect(m_Anim.transform.position);
+            });
+
+            GameManager.instance.AddTimer(1.3f, () =>
             {
                 m_StateMachine.ChangeState<ActorIdleState>();
             });

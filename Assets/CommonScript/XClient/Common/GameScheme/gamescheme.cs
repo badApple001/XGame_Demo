@@ -415,7 +415,7 @@ public class cfg_Monster : IDataObj
 	public uint nID;  // ID
 	public string szName;  // 怪物名称
 	public string szResPath;  // 模型路径
-	public int HeroClass;  // 角色职业（0:其它， 1：战士；2：圣骑士；3：盗贼；4：猎人；5：法师；6：术士；7：牧师；8：德鲁伊）
+	public int HeroClass;  // 角色职业（ 0: 其它； 1：近战坦克； 2：近战输出； 3：远程输出； 4：远程治疗；）
 	public int AttackType;  // 攻击方式（0:近战；1:远程；2:奶爸/奶妈；3:二五仔(混合型) ）
 	public int iBullet;  // 远程职业，子弹的皮肤
 	public string szShotBone;  // 远程职业，子弹发射的骨骼
