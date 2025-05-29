@@ -37,7 +37,7 @@ namespace GameScripts.HeroTeam
             var cfg_sageBullet = GameGlobal.GameScheme.HeroTeamBullet_0(102);
             var pos = MonsterSystem.Instance.BossDeathPosition + Vector3.up * 2.4f;
             var bullet = BulletManager.Instance.Get<Bullet>(cfg_sageBullet, pos);
-            bullet.SetHarm(int.MaxValue);//98# 加满！不差$
+            bullet.SetHarm(-999999);//98# 加满！不差$
             bullet.SetSender(m_Owner.GetCreatureEntity().id);
             bullet.SetTarget(m_Owner.GetCreatureEntity() as IMonster);
         }
@@ -45,7 +45,8 @@ namespace GameScripts.HeroTeam
         //领取奖品
         private void RecevieBonus()
         {
-            
+            Debug.Log("领取奖励");
+
         }
 
         //跑到Boss边上
@@ -56,8 +57,11 @@ namespace GameScripts.HeroTeam
             var bossPos = MonsterSystem.Instance.BossDeathPosition;
             var pos = m_Owner.GetTr().position;
 
-            var target = (bossPos - pos).normalized * 2f + pos;
-            m_Owner.GetTr().DOMove(target, 2f).OnComplete(() =>
+            var target = (bossPos - pos) * 0.618f + pos;
+            float moveTime = Mathf.Clamp01((bossPos - pos).magnitude / 14.965f) * 3f;
+
+            m_Owner.GetTr().DOKill();
+            m_Owner.GetTr().DOMove(target, moveTime).OnComplete(() =>
             {
                 m_Anim.AnimationState.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
                 RecevieBonus();

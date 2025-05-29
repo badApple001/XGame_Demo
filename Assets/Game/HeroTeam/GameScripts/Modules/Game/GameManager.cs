@@ -57,9 +57,9 @@ namespace GameScripts.HeroTeam
         /// </summary>
         /// <param name="delay"> 等待多少秒 </param>
         /// <param name="callback"> 回调 </param>
-        public void AddTimer(float delay, Action callback)
+        public Coroutine AddTimer(float delay, Action callback)
         {
-            StartCoroutine(OpenCoroutineTimer(delay, callback));
+            return StartCoroutine(OpenCoroutineTimer(delay, callback));
         }
 
         private IEnumerator OpenCoroutineTimer(float delay, Action callback)
@@ -71,12 +71,29 @@ namespace GameScripts.HeroTeam
             }
             catch (Exception e)
             {
-                Debug.LogError($"协程延迟回调移除崩溃: {e.Message}");
+
+                string callbackInfo = callback?.ToString();
+                string targetInfo = "nullptr";
+                if (callback?.Target != null)
+                {
+                    targetInfo = callback.Target.ToString();
+                }
+                Debug.LogError($"协程延迟回调移除崩溃:<*{targetInfo}->{callbackInfo}> {e.Message}");
             }
         }
 
         /// <summary>
-        /// 扩展一个协程接口
+        /// 清除定时器
+        /// </summary>
+        /// <param name="timerHandlers"></param>
+        public void ClearTimers(List<Coroutine> timerHandlers)
+        {
+            timerHandlers.ForEach(handler => StopCoroutine(handler));
+        }
+
+
+        /// <summary>
+        /// 扩展一个协程接口  方便后续统一管理
         /// </summary>
         /// <param name="routine"></param>
         /// <returns></returns>
@@ -299,10 +316,13 @@ namespace GameScripts.HeroTeam
         private void OnEnable()
         {
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "GameManager:OnEnable");
+
         }
         private void OnDisable()
         {
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
         }
 
 
@@ -317,10 +337,12 @@ namespace GameScripts.HeroTeam
 
                 //����boss
                 CreateBoss();
-
                 StartCoroutine(NpcBossChat());
             }
-
+            else if (wEventID == DHeroTeamEvent.EVENT_WIN)
+            {
+                StopAllCoroutines();
+            }
         }
 
         private IEnumerator NpcBossChat()

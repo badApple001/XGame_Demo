@@ -321,14 +321,22 @@ namespace XClient.Entity
             //    m_dataPart.m_hp.IsDebug = true;
             //    m_dataPart.m_hp.Name = "WallHp";
             //}
+            
 
             m_dataPart.m_hp.RemoteValueDelta += hp;
             m_dataPart.m_hp.Value += hp;
 
-            //if( hp < 0 )
-            //{
-            //    GetSkeletonAnimation( ).AnimationState.SetAnimation( 0, "hit2", false );
-            //}
+            if (hp < 0 && !IsBoos())
+            {
+                // GetSkeletonAnimation().AnimationState.SetAnimation(0, "hit2", false);
+                var actor = GetComponent<Actor>();
+                actor.GetSkeleton().state.SetAnimation(1, actor.GetAnimConfig().szHit, false);
+                GameManager.instance.AddTimer(0.6f, () =>
+                {
+                    actor.GetSkeleton().state.ClearTrack(1);
+                    actor.GetSkeleton().state.SetAnimation(0, actor.GetAnimConfig().szIdle, true);
+                });
+            }
 
             //广播boss的生命值
             if (IsBoos())
@@ -604,16 +612,18 @@ namespace XClient.Entity
 
             var anim = transform.GetComponent<Actor>().GetSkeleton();
             var animConfig = transform.GetComponent<Actor>().GetAnimConfig();
-            anim.state.SetAnimation(0, animConfig.szMove, true);
+            anim.state.SetAnimation(1, animConfig.szMove, true);
             tr.DOMove(dodgeTarget, duration)
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
+                    anim.state.SetAnimation(1, animConfig.szIdle, true);
                     DOVirtual.DelayedCall(waitTime, () =>
                     {
-                        anim.state.SetAnimation(0, animConfig.szMove, true);
+                        anim.state.SetAnimation(1, animConfig.szMove, true);
                         tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
                         {
+                            anim.state.ClearTrack(1);
                             anim.state.SetAnimation(0, animConfig.szIdle, true);
                         });
                     });

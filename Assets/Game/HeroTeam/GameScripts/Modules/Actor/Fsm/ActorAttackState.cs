@@ -67,15 +67,43 @@ namespace GameScripts.HeroTeam
 
                     damage = m_Owner.GetCreatureEntity().GetIntAttr(CreatureAttributeDef.ATTACK);
                     // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
-                    int maxHatred = -1;
-                    monsters.ForEach(current =>
+
+                    //排序仇恨值
+                    monsters.Sort((a, b) =>
                     {
-                        if (maxHatred < current.GetHatred())
-                        {
-                            maxHatred = current.GetHatred();
-                            target = current;
-                        }
+                        return a.GetHatred().CompareTo(b.GetHatred());
                     });
+                    var maxHate = monsters[monsters.Count - 1].GetHatred();
+                    int i = monsters.Count - 1;
+                    for (; i >= 0; i--)
+                    {
+                        if (monsters[i].GetHatred() != maxHate)
+                        {
+                            break;
+                        }
+                    }
+                    if (i != monsters.Count - 1)
+                    {
+                        //如果有多个仇恨值相同的怪物，随机选一个
+                        var randomIndex = UnityEngine.Random.Range(i + 1, monsters.Count);
+                        target = monsters[randomIndex];
+                    }
+                    else
+                    {
+                        //如果只有一个仇恨值最大的怪物
+                        target = monsters[monsters.Count - 1];
+                    }
+
+                    target = monsters[0];
+                    // int maxHatred = -1;
+                    // monsters.ForEach(current =>
+                    // {
+                    //     if (maxHatred < current.GetHatred())
+                    //     {
+                    //         maxHatred = current.GetHatred();
+                    //         target = current;
+                    //     }
+                    // });
                 }
             }
 
@@ -94,7 +122,7 @@ namespace GameScripts.HeroTeam
                 if (m_AttackType == AttackTypeDef.Fencer)
                 {
                     //后续需要绑定动画帧事件
-                    GameManager.instance.AddTimer(0.5f, () =>
+                    AddTimer(0.5f, () =>
                     {
                         string szAttackEffectPath = m_Owner.GetMonsterCfg().szAttackEffectPath;
                         if (!string.IsNullOrEmpty(szAttackEffectPath))
@@ -102,13 +130,13 @@ namespace GameScripts.HeroTeam
                             GameEffectManager.Instance.ShowEffect(szAttackEffectPath, target.GetLockTr().position, Quaternion.identity);
                         }
                         target.SetHPDelta(-damage);
-                        target.SetHatred(target.GetHatred() - damage);
+                        // target.SetHatred(target.GetHatred() - damage);
                     });
                 }
                 else
                 {
                     //后续需要绑定动画帧事件
-                    GameManager.instance.AddTimer(0.5f, () =>
+                    AddTimer(0.5f, () =>
                                             {
                                                 Shot(damage, target);
                                             });
@@ -116,10 +144,10 @@ namespace GameScripts.HeroTeam
             }
             else
             {
-                Debug.LogError("No valid target found for attack.");
+                // Debug.LogWarning("No valid target found for attack.");
             }
 
-            GameManager.instance.AddTimer(1f, () =>
+            AddTimer(1f, () =>
                   {
                       m_AttackCount++;
                       m_StateMachine.ChangeState<ActorIdleState>();

@@ -65,6 +65,13 @@ namespace GameScripts.HeroTeam
 
         public virtual void OnCollision()
         {
+
+            if (targetEntity.IsDie())
+            {
+                Debug.Log("目标已经死亡~");
+                return;
+            }
+
             BulletManager.Instance.ShowEffect(hitPrefab, target.position);
             targetEntity.SetHPDelta(-harm);
         }

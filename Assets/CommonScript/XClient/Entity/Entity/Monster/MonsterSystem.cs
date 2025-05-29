@@ -327,6 +327,8 @@ namespace XClient.Entity
 
             if (DHeroTeamEvent.EVENT_WIN == wEventID)
             {
+
+                Debug.Log(">>>>>>>>> Boss Win Event Triggered");
                 foreach (IMonster monster in m_dicMonster.Values)
                 {
                     if (null != monster)

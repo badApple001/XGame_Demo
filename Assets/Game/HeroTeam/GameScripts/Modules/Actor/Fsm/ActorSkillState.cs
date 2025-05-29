@@ -11,6 +11,7 @@ namespace GameScripts.HeroTeam
 {
     public class ActorSkillState : ActorStateBase
     {
+
         public override void OnCreate(StateMachine machine)
         {
             base.OnCreate(machine);
@@ -27,6 +28,7 @@ namespace GameScripts.HeroTeam
             else
             {
                 Debug.LogError("No valid skill found for BossSkillState.");
+                m_StateMachine.ChangeState<ActorIdleState>();
             }
         }
 
@@ -109,6 +111,11 @@ namespace GameScripts.HeroTeam
             m_StateMachine.ChangeState<ActorIdleState>();
         }
 
+        /// <summary>
+        /// 大招AOE
+        /// </summary>
+        /// <param name="skill"></param>
+        /// <returns></returns>
         private IEnumerator Load_Skill_200001(cfg_HeroTeamSkills skill)
         {
 
@@ -137,7 +144,7 @@ namespace GameScripts.HeroTeam
 
                         //通知扇形区域内的角色躲避
                         List<IMonster> monsters = GetPlayersInSector(skillRoot.position, dir, 100, 90);
-                        GameManager.instance.AddTimer(0.5f, () =>
+                        AddTimer(0.5f, () =>
                         {
                             monsters.ForEach(m => m.EludeBossSkill(skillRoot.position, dir, 100, 90));
                         });
@@ -166,6 +173,11 @@ namespace GameScripts.HeroTeam
             m_StateMachine.ChangeState<ActorIdleState>();
         }
 
+        /// <summary>
+        /// 随机点名
+        /// </summary>
+        /// <param name="skill"></param>
+        /// <returns></returns>
         private IEnumerator Load_Skill_500001(cfg_HeroTeamSkills skill)
         {
             m_Anim.state.SetAnimation(0, skill.szAnimName, false);
@@ -192,6 +204,7 @@ namespace GameScripts.HeroTeam
                 //除了 1类型是治疗， 其它类型如伤害，击飞，控制的，此值都表示额外伤害
                 m.SetHPDelta(skill.iType == 1 ? skill.iValue : -skill.iValue);
                 m.ReceiveBossSelect(m_Anim.transform.position);
+                m.SetHatred(0);//点名的角色 仇恨值清零
             });
 
             yield return new WaitForSeconds(1.4f);
@@ -220,7 +233,6 @@ namespace GameScripts.HeroTeam
         public override void OnExit()
         {
             base.OnExit();
-
         }
 
         public override void OnUpdate()

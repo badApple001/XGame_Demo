@@ -500,6 +500,8 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorWinState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\GameEffect\GameEffectManager.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Pool\TransformPool.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkSceneSelect.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkLoopScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
@@ -626,6 +628,7 @@
     <None Include="Assets\G_Resources\App\Shaders\UI-Blur.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\G_Artist\Shader\UI-HSB_Outline.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Readme.txt" />
     <None Include="Assets\Service\readme.txt" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_AB.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
