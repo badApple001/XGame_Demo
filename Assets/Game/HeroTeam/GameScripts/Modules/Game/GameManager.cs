@@ -44,6 +44,7 @@ namespace GameScripts.HeroTeam
         void Start()
         {
             BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
+            GameEffectManager.Instance.Setup(m_trEffectActiveRoot, m_trEffectHiddenRoot);
             FillSpawnPoints();
             CreateHeros();
             CreateNpc();

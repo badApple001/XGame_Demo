@@ -62,8 +62,8 @@
     <Analyzer Include="C:\Users\chenjiechao\.vscode\extensions\visualstudiotoolsforunity.vstuc-1.1.2\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
-    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXLoopScript.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Scripts\ETFXPitchRandomizer.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\HpBar.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSUnityPoolNode.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\Window\LOPUIWindowMetaEx.cs" />
@@ -79,7 +79,7 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DAudioGroupType.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorUtil.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterLauncher.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXFireProjectile.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSEventEngineNode.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\ChatToast\Toast.cs" />
     <Compile Include="Assets\CommonScript\XClient\Utils\CommonNetMessageRegister.cs" />
@@ -123,8 +123,8 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\ResourcesManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Serializer\INetableSerializer.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModuleMessageHandler.cs" />
-    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXLightFade.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Scripts\ETFXLightFade.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\CreatureInfoBarPart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\RectTransformSizeSyncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\IGameNetCom.cs" />
@@ -172,7 +172,7 @@
     <Compile Include="Assets\CommonScript\Spine\SpineResourcesLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModuleMessageHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\PreProcessers\GamePreProcesser.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\IRPCModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateBattle.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineTickTaskNode.cs" />
@@ -194,7 +194,7 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\TextMeshProPreferreWidthSyncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DGlobalEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Reddot\ReddotModuleMessageHandler.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXMouseOrbit.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\VirtualNetObjectManager.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableObjectItemPoolQueueCountNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UI2DTrigger.cs" />
@@ -217,11 +217,11 @@
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\commprotocol.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\LevelEditor\CalcHeroGridCoord.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\IBulletEnvProvider.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectCycler.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXEffectCycler.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UISound.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\IDRecoEntityMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\FrameMonitor.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\NetTransferModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\cgprotocol.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\ISchemeModule.cs" />
@@ -253,12 +253,12 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\UIWindowExSetting.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIBatchDepthAnalyzeResultReader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\ISelectOneDataSource.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectControllerPooled.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXEffectControllerPooled.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\LoginStateManager.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\NetworkReachabilityMonitor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIRotateAnim.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXTarget.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateGame.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\ICreatureEntity.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskLevel.cs" />
@@ -266,7 +266,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\SchemeModule\GameSchemeCom.cs" />
     <Compile Include="Assets\CommonScript\XClient\Room\RoomModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\PackDataMerge.cs" />
-    <Compile Include="Assets\Epic Toon FX\Scripts\ETFXRotation.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Scripts\ETFXRotation.cs" />
     <Compile Include="Assets\CommonScript\Ani\SpineAni.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\CanvasCull.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\DComID.cs" />
@@ -388,7 +388,7 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Src\RandCreater.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\IEntityModule.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorDeathState.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXEffectController.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\INetTransferModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Damage\IDamagePart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\TextStyleSwitcher.cs" />
@@ -419,7 +419,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\CircleMovement.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\NetMessageHandle.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\INetVarSerializer.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Entity\AgentDataPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\FlowText\CanvasGroupFlowTextView.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UISettings.cs" />
@@ -427,7 +427,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\BulletHitMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\UI\UIJoystickCommon.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Data\HeroTeamLocalData.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXSceneManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameProjectSettings.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEmojItem.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetRecoObject.cs" />
@@ -457,7 +457,7 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEventExtend.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineSkinGraphic.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Move\IEntityMovePart.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\ETFXSpriteBouncer.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXSpriteBouncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IEffectAction.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\UI\GameActorChatBox.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\RandomUtils.cs" />
@@ -470,7 +470,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\INetObjectBehaviour.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\SpinePrefabPart.cs" />
-    <Compile Include="Assets\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\VFX Library\PEButtonScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\INetCommDataHanlderInfo.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IRoomModule.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\MonoGameRuntimeTest.cs" />
@@ -504,7 +504,7 @@
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
     <None Include="Assets\ThirdParty\Spine\version.txt" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Dissolution_Blend_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskBorderBlur.shader" />
@@ -513,7 +513,7 @@
     <None Include="Assets\G_Artist\Shader\Blend_Comming_Prop.shader" />
     <None Include="Assets\BaseScripts\Dll\ICSharpCode.SharpZipLib.dll" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Niuqu.shader" />
-    <None Include="Assets\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_blend.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskLevel.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_LitA_ASE.shader" />
@@ -521,7 +521,7 @@
     <None Include="Assets\G_Artist\Shader\panda shader\PandaShaderSampleV1.0.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_distort_blend.shader" />
-    <None Include="Assets\Epic Toon FX\Changelog.txt" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Changelog.txt" />
     <None Include="Assets\dllBuildEnvCache.xml" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Additive_Mask_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\Skybox Cubemap Extended.shader" />
@@ -564,7 +564,7 @@
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_045\045.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\Toon Outline.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Additive_Mask.shader" />
-    <None Include="Assets\Epic Toon FX\Shaders\ETFX_PowerboxLit.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Shaders\ETFX_PowerboxLit.shader" />
     <None Include="Assets\CommonScript\XClient\KeywordFilter\Plugins\x86_64\libkwfilter.dll" />
     <None Include="Assets\G_Artist\Shader\Eff_Bullet.shader" />
     <None Include="Assets\BaseScripts\Utils\Monitor\Config\monitor_mono_only_add.txt" />
@@ -578,7 +578,7 @@
     <None Include="Assets\G_Artist\Shader\ActorDieShader.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\G_Artist\Shader\ASE_Flipbook.shader" />
-    <None Include="Assets\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
     <None Include="Assets\G_Artist\Shader\PFX_Trail.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -591,11 +591,11 @@
     <None Include="Assets\G_Artist\Shader\A_VFX_Trail.shader" />
     <None Include="Assets\G_Artist\Shader\Actor_LitEff_ASE.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Blend_Mask.shader" />
-    <None Include="Assets\Epic Toon FX\Shaders\ETFX_PowerboxUnlit.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Shaders\ETFX_PowerboxUnlit.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_014\014.atlas.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\G_Artist\Shader\Test_2.shader" />
-    <None Include="Assets\Epic Toon FX\Upgrade\URP Compatibility.txt" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Upgrade\URP Compatibility.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_038\038.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\ActorShader.shader" />

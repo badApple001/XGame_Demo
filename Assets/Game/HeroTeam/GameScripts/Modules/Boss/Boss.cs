@@ -8,6 +8,8 @@ namespace GameScripts.HeroTeam
     {
         [SerializeField] private SpriteRenderer m_srRangeSkillTip;
         public SpriteRenderer GetRangeSkillTipSr() => m_srRangeSkillTip;
+
+        public Transform SkillOrgin;
     }
 
 }

@@ -113,6 +113,12 @@ namespace GameScripts.HeroTeam
         {
 
             float randomAngle = Random.Range(0, 360f);
+            Debug.Log($"[Boss Skill 200001] Random Angle: {randomAngle}");
+
+            var rangeTipSr = ((Boss)m_StateMachine.Owner).GetRangeSkillTipSr();
+            var skillRoot = ((Boss)m_StateMachine.Owner).SkillOrgin;
+            var dir = Quaternion.Euler(0, 0, randomAngle) * Vector2.right;
+            dir.Normalize();
 
             //技能指示器类型
             if (skill.hasSkillTip == 1)
@@ -122,30 +128,30 @@ namespace GameScripts.HeroTeam
                 {
                     case 1:
 
-                        var rangeTipSr = ((Boss)m_StateMachine.Owner).GetRangeSkillTipSr();
-                        rangeTipSr.gameObject.SetActive(true);
-
-                        rangeTipSr.transform.localEulerAngles = new Vector3(0, 0, randomAngle - 5.5f); //-5.5f是因为图片我是自己画的，不是很标准
+                        skillRoot.gameObject.SetActive(true);
+                        skillRoot.localEulerAngles = new Vector3(0, 0, randomAngle);
                         rangeTipSr.DOColor(new Color(1, 1, 1, 0.5f), 0.5f).SetLoops(4, LoopType.Yoyo).OnComplete(() =>
                         {
-                            rangeTipSr.gameObject.SetActive(false);
+                            skillRoot.gameObject.SetActive(false);
                         });
 
                         //通知扇形区域内的角色躲避
-                        var dir = Quaternion.Euler(0, 0, -randomAngle) * Vector2.left;
-                        List<IMonster> monsters = GetPlayersInSector(m_Anim.transform.position, dir, 30, 90);
+                        List<IMonster> monsters = GetPlayersInSector(skillRoot.position, dir, 100, 90);
                         GameManager.instance.AddTimer(0.5f, () =>
                         {
-                            monsters.ForEach(m => m.EludeBossSkill(m_Anim.transform.position, dir, 30, 90));
+                            monsters.ForEach(m => m.EludeBossSkill(skillRoot.position, dir, 100, 90));
                         });
-
                         yield return new WaitForSeconds(2f);
                         break;
                 }
             }
 
             m_Anim.state.SetAnimation(0, skill.szAnimName, false);
-
+            var trFx = GameEffectManager.Instance.ShowEffect(skill.szVfxResPath, skillRoot.position, Quaternion.Euler(0, 0, randomAngle));
+            if (trFx != null)
+            {
+                trFx.DOMove(skillRoot.position + dir * 100f, 1f).SetEase(Ease.InOutQuad);
+            }
 
             yield return new WaitForSeconds(1f);
             var pContext = CameraShakeEventContext.Ins;
@@ -195,25 +201,18 @@ namespace GameScripts.HeroTeam
 
         private List<IMonster> GetPlayersInSector(Vector3 bossPos, Vector3 bossDir, float radius, float angle)
         {
-
             var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
-            float halfAngleRad = angle * 0.5f * Mathf.Deg2Rad;
+            float halfAngle = angle * 0.5f;
             List<IMonster> result = new List<IMonster>();
             foreach (var monster in monsters)
             {
                 var toPlayer = monster.GetPos() - bossPos;
                 if (toPlayer.magnitude > radius) continue;
-
-                Vector2 toPlayerNormalized = toPlayer.normalized;
-                float dot = Vector2.Dot(bossDir.normalized, toPlayerNormalized);
-                float angleToPlayer = Mathf.Acos(dot); // 角度弧度制
-
-                if (angleToPlayer <= halfAngleRad)
+                if (Vector3.Angle(toPlayer.normalized, bossDir) <= halfAngle)
                 {
                     result.Add(monster);
                 }
             }
-
             return result;
         }
 

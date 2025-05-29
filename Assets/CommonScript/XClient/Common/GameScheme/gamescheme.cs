@@ -3174,6 +3174,7 @@ public class cfg_HeroTeamSkills : IDataObj
 	public int hasSkillTip;  // 
 	public int iSkillTipTime;  // 
 	public int iSkillTipPrefabID;  // 
+	public string szVfxResPath;  // 
 
 	public IDataObj Clone(){return new cfg_HeroTeamSkills();}
 	public void Load(IDataChunk pDataChunk)
@@ -3192,6 +3193,7 @@ public class cfg_HeroTeamSkills : IDataObj
 		hasSkillTip = pDataChunk.ReadINT32();
 		iSkillTipTime = pDataChunk.ReadINT32();
 		iSkillTipPrefabID = pDataChunk.ReadINT32();
+		szVfxResPath = pDataChunk.ReadSTRING();
 	}
 
 };

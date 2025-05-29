@@ -594,7 +594,7 @@ namespace XClient.Entity
             return side * sign;
         }
 
-        public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir, float dodgeDistance = 5f, float waitTime = 2.5f, float duration = 0.2f)
+        public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir, float dodgeDistance = 7f, float waitTime = 1.5f, float duration = 1f)
         {
             Vector2 toNpc = (Vector2)tr.position - bossPos;
             Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toNpc);
@@ -602,13 +602,20 @@ namespace XClient.Entity
             Vector3 startPos = tr.position;
             Vector3 dodgeTarget = startPos + (Vector3)(dodgeDir * dodgeDistance);
 
+            var anim = transform.GetComponent<Actor>().GetSkeleton();
+            var animConfig = transform.GetComponent<Actor>().GetAnimConfig();
+            anim.state.SetAnimation(0, animConfig.szMove, true);
             tr.DOMove(dodgeTarget, duration)
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
                     DOVirtual.DelayedCall(waitTime, () =>
                     {
-                        tr.DOMove(startPos, duration).SetEase(Ease.InQuad);
+                        anim.state.SetAnimation(0, animConfig.szMove, true);
+                        tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
+                        {
+                            anim.state.SetAnimation(0, animConfig.szIdle, true);
+                        });
                     });
                 });
         }
