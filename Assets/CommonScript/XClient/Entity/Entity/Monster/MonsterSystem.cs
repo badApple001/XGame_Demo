@@ -299,6 +299,11 @@ namespace XClient.Entity
                             //记录一下boss的死亡位置
                             BossDeathPosition = monster.GetTr().position;
                             GameGlobal.EventEgnine.FireExecute(GameScripts.HeroTeam.DHeroTeamEvent.EVENT_WIN, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+
+                            //Boss掉宝
+                            //TODO: 后续由关卡表配置
+                            string propResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExclTiltedGlossy.prefab";
+                            GameEffectManager.instance.ShowEffect(propResPath, BossDeathPosition + Vector3.up * 3f, Quaternion.identity, 10f);
                         }
                         DestroyMonster(monster.id);
                         m_hashWaitDel.Add(monster.id);

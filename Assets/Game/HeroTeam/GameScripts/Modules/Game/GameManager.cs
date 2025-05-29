@@ -342,6 +342,7 @@ namespace GameScripts.HeroTeam
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
                 StopAllCoroutines();
+                
             }
         }
 

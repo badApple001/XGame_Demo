@@ -11,7 +11,6 @@ namespace GameScripts.HeroTeam
     public class ActorWinState : ActorStateBase
     {
 
-
         public override void OnEnter()
         {
             base.OnEnter();
@@ -47,6 +46,27 @@ namespace GameScripts.HeroTeam
         {
             Debug.Log("领取奖励");
 
+            //胜利动画
+            m_Anim.state.Complete += entry =>
+                            {
+                                m_Anim.AnimationState.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
+                            };
+            m_Anim.AnimationState.SetAnimation(0, m_ActorAnimConfig.szWin, false);
+
+
+            //胜利表情
+            string faceResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiStarstruck.prefab";
+            var face = GameEffectManager.Instance.ShowEffect(faceResPath, m_Owner.GetTr().position, Quaternion.identity, 2f);
+            face.SetParent(m_Owner.GetTr(), false);
+            face.localPosition = ((IMonster)(m_Owner.GetCreatureEntity())).GetFaceTr().localPosition;
+
+            //TODO: 后续配置表
+            string fxResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/PowerOrbYellow.prefab";
+
+            var fx = GameEffectManager.Instance.ShowEffect(fxResPath, m_Owner.GetTr().position, Quaternion.identity, 4);
+            fx.SetParent(m_Owner.GetTr());
+            fx.localPosition = Vector3.up * 5.35f;
+            fx.localScale = Vector3.one * 5;
         }
 
         //跑到Boss边上
@@ -63,7 +83,6 @@ namespace GameScripts.HeroTeam
             m_Owner.GetTr().DOKill();
             m_Owner.GetTr().DOMove(target, moveTime).OnComplete(() =>
             {
-                m_Anim.AnimationState.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
                 RecevieBonus();
             });
         }

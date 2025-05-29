@@ -78,6 +78,7 @@ namespace XClient.Entity
         Transform GetTr();
 
         Transform GetLockTr();
+        Transform GetFaceTr();
 
         /// <summary>
         /// 躲避Boss技能

@@ -79,7 +79,7 @@ namespace XClient.Entity
         private Transform m_trLockTarget;
 
         private GameObject m_refFace;
-
+        public Transform GetFaceTr() => m_refFace?.transform;
 
         public ulong GetCamp()
         {
