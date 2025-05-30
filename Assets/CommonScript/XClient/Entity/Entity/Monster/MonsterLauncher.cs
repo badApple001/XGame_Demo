@@ -1,16 +1,16 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	MonsterLaucher.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.6.25
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  Ë¢¹Ö·¢ÉäÆ÷
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	MonsterLaucher.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.6.25
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  Ë¢ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 using System.Collections;
@@ -22,7 +22,7 @@ using XGame;
 
 namespace XClient.Entity
 {
-    //ÇøÓòË¢ÐÂµÄ·½Ê½
+    //ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½ÂµÄ·ï¿½Ê½
     public enum REFRESH_RECT_TYPE
     {
         RECT_TYPE_CIRCLE,
@@ -30,7 +30,7 @@ namespace XClient.Entity
     }
 
 
-    //²ÎÊýÀàÐÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public enum PARAM_TYPE
     {
         PARAM_TYPE_COUNT,
@@ -40,75 +40,75 @@ namespace XClient.Entity
 
     public class MonsterLauncher : MonoBehaviour, IEventExecuteSink
     {
-        //¹ÖÎïÕóÓª
-        [Header("ÕóÓªÊôÐÔ")]
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óª
+        [Header("ï¿½ï¿½Óªï¿½ï¿½ï¿½ï¿½")]
         public ulong camp = 1;
 
-        //¹ÖÎïID
-        [Header("¹ÖÎïIDÁÐ±í")]
-        public List<int>  listMonsterIDs;
+        //ï¿½ï¿½ï¿½ï¿½ID
+        [Header("ï¿½ï¿½ï¿½ï¿½IDï¿½Ð±ï¿½")]
+        public List<int> listMonsterIDs;
 
-        [Header("Ë¢ÐÂ²ÎÊý,²Î¿¼PARAM_TYPE")]
+        [Header("Ë¢ï¿½Â²ï¿½ï¿½ï¿½,ï¿½Î¿ï¿½PARAM_TYPE")]
         public List<int> listRefreshParam;
 
-        [Header("Ë¢ÐÂ²ÎÊýÀàÐÍ")]
+        [Header("Ë¢ï¿½Â²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public PARAM_TYPE paramType = PARAM_TYPE.PARAM_TYPE_COUNT;
 
-        //Ë¢¹Ö¼ä¸ô
-        [Header("Ë¢¹Ö¼ä¸ô")]
+        //Ë¢ï¿½Ö¼ï¿½ï¿½
+        [Header("Ë¢ï¿½Ö¼ï¿½ï¿½")]
         public float refresh_Interval = 5.0f;
 
-        //Ë¢¹Ö´ÎÊý,-1´ú±íÎÞÏÞ´Î
-        [Header("Ë¢¹Ö´ÎÊý,-1´ú±íÎÞÏÞ´Î")]
+        //Ë¢ï¿½Ö´ï¿½ï¿½ï¿½,-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½
+        [Header("Ë¢ï¿½Ö´ï¿½ï¿½ï¿½,-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ´ï¿½")]
         public int refresh_ExcuteCount = -1;
 
-        //Ë¢¹ÖÉÏÏÞ
-        [Header("¹ÖÎïÉÏÏÞ,-1´ú±íÎÞÏÞÖÆ")]
+        //Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
         public int limit_MonsterCount = 100;
 
-        //Ã¿´ÎË¢¹Ö¸öÊý
-        [Header("Ã¿´ÎË¢¹Ö¸öÊý")]
+        //Ã¿ï¿½ï¿½Ë¢ï¿½Ö¸ï¿½ï¿½ï¿½
+        [Header("Ã¿ï¿½ï¿½Ë¢ï¿½Ö¸ï¿½ï¿½ï¿½")]
         public int refresh_MonsterCount = 10;
 
-        //Ã¿´ÎË¢¹Ö¸öÊý
-        [Header("Ë¢ÐÂ·¶Î§·½Ê½")]
+        //Ã¿ï¿½ï¿½Ë¢ï¿½Ö¸ï¿½ï¿½ï¿½
+        [Header("Ë¢ï¿½Â·ï¿½Î§ï¿½ï¿½Ê½")]
         public REFRESH_RECT_TYPE rectType = REFRESH_RECT_TYPE.RECT_TYPE_CIRCLE;
 
-        [Header("ÓÑ·½µÄÕóÓªÀà±ð")]
+        [Header("ï¿½Ñ·ï¿½ï¿½ï¿½ï¿½ï¿½Óªï¿½ï¿½ï¿½")]
         public List<ulong> listFriendCamps;
 
-        [Header("µÐ·½ÕóÓªÁÐ±í,²»ÌîÇé¿ö³ýÁË¼º·½ÕóÓª,¶¼ÊÇµÐÈË")]
+        [Header("ï¿½Ð·ï¿½ï¿½ï¿½Óªï¿½Ð±ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¼ï¿½ï¿½ï¿½ï¿½ï¿½Óª,ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½")]
         public List<ulong> listEnemyCamps;
 
-        //ÊÇ·ñËæ»úÎ»ÖÃ
+        //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
         public bool bRandomPos = true;
 
-        //¹Ì¶¨Ë¢ÐÂÎ»ÖÃ
+        //ï¿½Ì¶ï¿½Ë¢ï¿½ï¿½Î»ï¿½ï¿½
         public Vector3 refreshPos;
 
 
-        //ÒÑ¾­Ë¢ÐÂÁËµÄ´ÎÊý
+        //ï¿½Ñ¾ï¿½Ë¢ï¿½ï¿½ï¿½ËµÄ´ï¿½ï¿½ï¿½
         private int m_refreshCount;
 
-        //ÉÏ´ÎË¢ÐÂÊ±¼ä
+        //ï¿½Ï´ï¿½Ë¢ï¿½ï¿½Ê±ï¿½ï¿½
         private float m_lastRefreshTime = 0;
 
-        //Î»ÖÃÐÅÏ¢
+        //Î»ï¿½ï¿½ï¿½ï¿½Ï¢
         private List<Vector3> m_listPos = new List<Vector3>();
 
-        //´´½¨µÄÉúÎï
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private HashSet<ulong> m_hashEntIDs = new HashSet<ulong>();
 
-        //Ë¢ÐÂ¸öÊý
+        //Ë¢ï¿½Â¸ï¿½ï¿½ï¿½
         private List<int> m_refreshMonsters = new List<int>();
 
-        //µ¥´ÎË¢¹ÖµÄÁÙÊ±ÁÐ±í
+        //ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½Öµï¿½ï¿½ï¿½Ê±ï¿½Ð±ï¿½
         private List<IMonster> m_listMonster = new List<IMonster>();
 
         // Start is called before the first frame update
         void Start()
         {
-            //¶©ÔÄÏú»ÙÏûÏ¢
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
             IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
             eventEngine?.Subscibe(this, DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "MonsterLauncher:Start");// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
         }
@@ -116,7 +116,7 @@ namespace XClient.Entity
         // Update is called once per frame
         void Update()
         {
-            //µ½´ïÁËË¢ÐÂÉÏÏÞ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if (MonsterSystem.Instance == null || GameGlobal.Role == null || refresh_ExcuteCount >= 0 && refresh_ExcuteCount <= m_refreshCount ||
                 limit_MonsterCount >= 0 && limit_MonsterCount <= m_hashEntIDs.Count)
             {
@@ -124,14 +124,14 @@ namespace XClient.Entity
             }
 
             float curTime = Time.realtimeSinceStartup;
-            if(curTime- m_lastRefreshTime> refresh_Interval)
+            if (curTime - m_lastRefreshTime > refresh_Interval)
             {
                 ++m_refreshCount;
                 m_lastRefreshTime = curTime;
                 RefreshMonster();
             }
 
-           
+
         }
 
         public List<IMonster> RefreshMonster()
@@ -141,14 +141,13 @@ namespace XClient.Entity
 
             IMonster monster = null;
             m_listMonster.Clear();
-            //¼ÆËãË¢¹Ö
             __CalcRefreshMonsters();
 
             int nCount = m_refreshMonsters.Count;
             __RectOrder(nCount);
-            for(int i=0;i< nCount; ++i)
+            for (int i = 0; i < nCount; ++i)
             {
-                if(m_hashEntIDs.Count>= limit_MonsterCount)
+                if (m_hashEntIDs.Count >= limit_MonsterCount)
                 {
                     break;
                 }
@@ -176,38 +175,38 @@ namespace XClient.Entity
         }
 
 
-       // System.Random seedRd = new System.Random();
+        // System.Random seedRd = new System.Random();
         private void __RectOrder(int nCount)
         {
             m_listPos.Clear();
 
-            //¹Ì¶¨Î»ÖÃË¢ÐÂ
-            if (bRandomPos==false)
+            //ï¿½Ì¶ï¿½Î»ï¿½ï¿½Ë¢ï¿½ï¿½
+            if (bRandomPos == false)
             {
                 for (int i = 0; i < nCount; ++i)
                 {
                     m_listPos.Add(refreshPos);
                 }
-                return  ;
+                return;
             }
-            
-            Vector3 vPos = this.transform.position;
- 
 
-           // int nCount = refresh_MonsterCount;
-     
+            Vector3 vPos = this.transform.position;
+
+
+            // int nCount = refresh_MonsterCount;
+
 
             Vector3 vScale = this.transform.localScale;
             Vector3 targetPos = vPos;
 
             //int nConcentratedCount = (int)(concentratedPer * nCount);
             float scale = 1.0f;//Mathf.Lerp(0.2f, 0.7f, ((float)nConcentratedCount) / 50.0f);
-            float nSizeX = (vScale.x)/2;
+            float nSizeX = (vScale.x) / 2;
             float nScaleSizeX = (nSizeX * scale);
-            float nSizeZ = vScale.z/2;
+            float nSizeZ = vScale.z / 2;
 
-            //Ô²ÐÎµÄÒÔXÎª×¼
-            if(rectType==REFRESH_RECT_TYPE.RECT_TYPE_CIRCLE)
+            //Ô²ï¿½Îµï¿½ï¿½ï¿½XÎª×¼
+            if (rectType == REFRESH_RECT_TYPE.RECT_TYPE_CIRCLE)
             {
                 nSizeZ = nScaleSizeX;
             }
@@ -216,8 +215,8 @@ namespace XClient.Entity
             for (int i = 0; i < nCount; ++i)
             {
 
-                targetPos.x = vPos.x+Random.Range(-nScaleSizeX, nScaleSizeX);
-                targetPos.z = vPos.z+Random.Range(-nSizeZ, nSizeZ);
+                targetPos.x = vPos.x + Random.Range(-nScaleSizeX, nScaleSizeX);
+                targetPos.z = vPos.z + Random.Range(-nSizeZ, nSizeZ);
 
                 m_listPos.Add(targetPos);
             }
@@ -228,28 +227,28 @@ namespace XClient.Entity
         private void __CalcRefreshMonsters()
         {
             m_refreshMonsters.Clear();
-            switch(paramType)
+            switch (paramType)
             {
                 case PARAM_TYPE.PARAM_TYPE_COUNT:
                     {
                         int nMonsterID = 0;
                         int nMonsterCount = 0;
                         int nCount = listMonsterIDs.Count;
-                        for(int i=0;i< nCount;++i)
+                        for (int i = 0; i < nCount; ++i)
                         {
                             nMonsterID = listMonsterIDs[i];
                             nMonsterCount = 1;
-                            if(listRefreshParam.Count>i)
+                            if (listRefreshParam.Count > i)
                             {
                                 nMonsterCount = listRefreshParam[i];
                             }
-                            //Ìí¼Ó¹ÖÎï¸öÊý
-                            for(int j=0;j< nMonsterCount;++j)
+                            //ï¿½ï¿½ï¿½Ó¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                            for (int j = 0; j < nMonsterCount; ++j)
                             {
                                 m_refreshMonsters.Add(nMonsterID);
                             }
                         }
-                        
+
                     }
                     break;
                 case PARAM_TYPE.PARAM_TYPE_PROP:
@@ -260,11 +259,11 @@ namespace XClient.Entity
                         for (int i = 0; i < refresh_MonsterCount; ++i)
                         {
                             nMonsterID = RandmonOneMonster(sumProp);
-                            if(nMonsterID>0)
+                            if (nMonsterID > 0)
                             {
                                 m_refreshMonsters.Add(nMonsterID);
                             }
-                            
+
                         }
                     }
                     break;
@@ -275,7 +274,7 @@ namespace XClient.Entity
             }
         }
 
-        //Ëæ»úË¢È¡¸ö¹ÖÎï
+        //ï¿½ï¿½ï¿½Ë¢È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private int RandmonOneMonster(int sumProp)
         {
             int curSum = 0;
@@ -284,13 +283,13 @@ namespace XClient.Entity
             for (int i = 0; i < nCount; ++i)
             {
                 curSum += listRefreshParam[i];
-                if(curSum> prop)
+                if (curSum > prop)
                 {
-                    if(listMonsterIDs.Count>i)
+                    if (listMonsterIDs.Count > i)
                     {
                         return listMonsterIDs[i];
                     }
-                    Debug.LogError("¹ÖÎïIDÁÐ±íºÍ¸ÅÂÊ¸öÊý²»¶ÔÓ¦£¬Çë¼ì²é");
+                    Debug.LogError("ï¿½ï¿½ï¿½ï¿½IDï¿½Ð±ï¿½ï¿½Í¸ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
                     break;
                 }
             }
@@ -299,12 +298,12 @@ namespace XClient.Entity
         }
 
 
-        //»ñÈ¡×Ü¸ÅÂÊ
+        //ï¿½ï¿½È¡ï¿½Ü¸ï¿½ï¿½ï¿½
         private int GetPropSum()
         {
-            int sum = 0;    
+            int sum = 0;
             int nCount = listRefreshParam.Count;
-            for (int i=0;i<nCount;++i)
+            for (int i = 0; i < nCount; ++i)
             {
                 sum += listRefreshParam[i];
             }
@@ -314,13 +313,13 @@ namespace XClient.Entity
 
         private void OnDestroy()
         {
-            //¶©ÔÄÏú»ÙÏûÏ¢
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
             IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
             if (eventEngine != null)
             {
                 eventEngine.UnSubscibe(this, DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0);// FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
             }
-           
+
         }
 
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)

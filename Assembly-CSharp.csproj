@@ -125,6 +125,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\HeroTeam\HeroTeamModuleMessageHandler.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Scripts\ETFXLightFade.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\GameEffect\GameEffectManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\CreatureInfoBarPart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\RectTransformSizeSyncer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\IGameNetCom.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterDataPart.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSAssetNode.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Win\UIWin_Generate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\IDReco.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\ICollisionSink.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\IBullet.cs" />
@@ -224,6 +226,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\VFX Library\UICanvasManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\NetTransferModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Protocol\cgprotocol.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Win\UIWin.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\ISchemeModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\Bullet.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\XGameAppBuilder.cs" />
@@ -311,6 +314,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Actor.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\IMonitorMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\NetObjectBehaviourTest.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\HeroClassDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetGameObjectEntity.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorIdleState.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineMixSkinAnimation.cs" />
@@ -379,6 +383,7 @@
     <Compile Include="Assets\CommonScript\XClient\Utils\ModuleMessageHandler.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorStateBase.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolNodeBase.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkSceneSelect.cs" />
     <Compile Include="Assets\CommonScript\Ani\ImageAni.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\MonitorNodeBase.cs" />
     <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\ZipLibrary\ZipHelper.cs" />
@@ -399,6 +404,7 @@
     <Compile Include="Assets\CommonScript\XClient\Login\State\LoginStateMachine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\NetVarImpl.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\DefualtSpriteLoader.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Pool\TransformPool.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\NetObject.cs" />
     <Compile Include="Assets\CommonScript\XClient\Room\RoomPropertySet.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\NetVar.cs" />
@@ -476,6 +482,7 @@
     <Compile Include="Assets\BaseScripts\Utils\Monitor\MonoGameRuntimeTest.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolIncreaseCountNode.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\UIWindowContainerEx.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkLoopScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\NetCommData.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\EntityType.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skill\SkillPart.cs" />
@@ -489,19 +496,13 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterDieEffectMgr.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorHitState.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorResultReader.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorWinState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\AttackDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\NetObjectManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\Test\TestSelectOneDataSources.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageTextEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\HeroClassDef.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Win\UIWin.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Win\UIWin_Generate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorWinState.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\GameEffect\GameEffectManager.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Pool\TransformPool.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkSceneSelect.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkLoopScript.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorJumpState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
@@ -536,10 +537,10 @@
     <None Include="Assets\G_Artist\Shader\UI-MaskEffectImge.shader" />
     <None Include="Assets\G_Artist\Shader\Blend_Comming_1.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Dissolution_blend3.shader" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Hand Painted Seamless ClayGround Texture\Documentation\Documentation.txt" />
     <None Include="Assets\G_Artist\Shader\UIGray.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_blend_fgui_list.shader" />
     <None Include="Assets\G_Artist\Shader\URP\CaptureBlur.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Shaders\Dissolve.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\Service\service.xml" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_AB.shader" />
@@ -603,6 +604,7 @@
     <None Include="Assets\G_Artist\Shader\ActorShader.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_009\009.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\Blend_CenterGlow_CA.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Shaders\Spine_CutoffBottom2Top.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_032\032.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\Blend_Comming.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_Lit_ASE_DisB.shader" />
@@ -642,6 +644,7 @@
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\版本文件.txt" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_distort_AD.shader" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Shaders\BurningPaper.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Shaders\HealthBarShader.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\G_Artist\Shader\HYL_Sprite-Lit-Default.shader" />

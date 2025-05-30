@@ -36,6 +36,10 @@ namespace GameScripts.HeroTeam
             return skill;
         }
 
+        private static int SelectMaxHateSortComparer(IMonster a, IMonster b)
+        {
+            return a.GetHatred().CompareTo(b.GetHatred());
+        }
         private void NormalAttack()
         {
 
@@ -69,12 +73,10 @@ namespace GameScripts.HeroTeam
                     // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
 
                     //排序仇恨值
-                    monsters.Sort((a, b) =>
-                    {
-                        return a.GetHatred().CompareTo(b.GetHatred());
-                    });
+                    monsters.Sort(SelectMaxHateSortComparer);
                     var maxHate = monsters[monsters.Count - 1].GetHatred();
-                    int i = monsters.Count - 1;
+
+                    int i = monsters.Count - 2;
                     for (; i >= 0; i--)
                     {
                         if (monsters[i].GetHatred() != maxHate)
@@ -82,11 +84,12 @@ namespace GameScripts.HeroTeam
                             break;
                         }
                     }
-                    if (i != monsters.Count - 1)
+                    if (i >= 0 && i != monsters.Count - 1)
                     {
                         //如果有多个仇恨值相同的怪物，随机选一个
                         var randomIndex = UnityEngine.Random.Range(i + 1, monsters.Count);
                         target = monsters[randomIndex];
+                        Debug.Log($"<color=0x00ff00>{monsters.Count - 1 - i}个Hero仇恨值相同, 执行随机选择</color>");
                     }
                     else
                     {
@@ -94,7 +97,8 @@ namespace GameScripts.HeroTeam
                         target = monsters[monsters.Count - 1];
                     }
 
-                    target = monsters[0];
+                    //找到仇恨值最大的
+                    // target = monsters[0];
                     // int maxHatred = -1;
                     // monsters.ForEach(current =>
                     // {
@@ -118,6 +122,7 @@ namespace GameScripts.HeroTeam
                 IMonster m = m_Owner.GetCreatureEntity() as IMonster;
                 int newHatred = m.GetHatred() + Mathf.FloorToInt(m_Owner.GetMonsterCfg().iAttackHatred / 100f * Mathf.Abs(damage));
                 m.SetHatred(newHatred);
+                m.RecordHarm(Mathf.Abs(damage));
 
                 if (m_AttackType == AttackTypeDef.Fencer)
                 {

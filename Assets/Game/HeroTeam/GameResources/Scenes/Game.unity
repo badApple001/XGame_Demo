@@ -9922,6 +9922,8 @@ MonoBehaviour:
   m_trBulletHiddenRoot: {fileID: 182208313}
   m_trEffectActiveRoot: {fileID: 2065992699}
   m_trEffectHiddenRoot: {fileID: 1529305831}
+  m_FlameBurningEffectMat: {fileID: 2100000, guid: 1a55d8238aacee348a7667accebf4917,
+    type: 2}
 --- !u!1001 &1424898345
 PrefabInstance:
   m_ObjectHideFlags: 0

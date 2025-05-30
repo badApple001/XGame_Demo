@@ -17,6 +17,7 @@ using GameScripts;
 using GameScripts.HeroTeam;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using XClient.Common;
@@ -98,6 +99,74 @@ namespace XClient.Entity
         public readonly static int entityMaterialSwitchType = 304; //�����л�����
     }
 
+
+    // /// <summary>
+    // /// 角色排名信息
+    // /// </summary>
+    // public class MonsterRankInfo
+    // {
+    //     public int rank;
+    //     public int value;
+    //     public string name;
+    // }
+
+    /// <summary>
+    /// 刷新排行榜事件
+    /// </summary>
+    public class RefreshRankContext
+    {
+        private RefreshRankContext() { }
+        public static RefreshRankContext Ins { private set; get; } = new RefreshRankContext();
+
+        // public List<MonsterRankInfo> arrHarmRank = new List<MonsterRankInfo>();
+        // public List<MonsterRankInfo> arrHateRank = new List<MonsterRankInfo>();
+        // public List<MonsterRankInfo> arrCuringRank = new List<MonsterRankInfo>();
+
+        public List<IMonster> arrHarmRank = new List<IMonster>();
+        public List<IMonster> arrHateRank = new List<IMonster>();
+        public List<IMonster> arrCuringRank = new List<IMonster>();
+
+    }
+
+    /// <summary>
+    /// 伤害排序，伤害降序
+    /// </summary>
+    partial class MonsterHarmComparer : IComparer<IMonster>
+    {
+        public int Compare(IMonster x, IMonster y)
+        {
+            int xHarm = ((x.GetHeroCls() == HeroClassDef.SAGE) ? 0 : 1) * x.GetTotalHarm();
+            int yHarm = ((y.GetHeroCls() == HeroClassDef.SAGE) ? 0 : 1) * y.GetTotalHarm();
+            return yHarm.CompareTo(xHarm);
+        }
+    }
+
+    /// <summary>
+    /// 仇恨排序
+    /// </summary>
+    partial class MonsterHateComparer : IComparer<IMonster>
+    {
+        public int Compare(IMonster x, IMonster y)
+        {
+            return y.GetHatred().CompareTo(x.GetHatred());
+        }
+    }
+
+    /// <summary>
+    /// 治疗排序
+    /// </summary>
+    partial class MonsterCuringComparer : IComparer<IMonster>
+    {
+        public int Compare(IMonster x, IMonster y)
+        {
+            int xHarm = (x.GetHeroCls() == HeroClassDef.SAGE ? 1 : 0) * x.GetTotalHarm();
+            int yHarm = (y.GetHeroCls() == HeroClassDef.SAGE ? 1 : 0) * y.GetTotalHarm();
+
+            return yHarm.CompareTo(xHarm);
+        }
+    }
+
+
     public class MonsterSystem : Singleton<MonsterSystem>, IEventExecuteSink
     {
         //�����Ĵ�������
@@ -118,7 +187,25 @@ namespace XClient.Entity
         //ʵ����ڵ�
         private Transform entityRoot;
 
+        /// <summary>
+        /// 缓存一份Boss的死亡的位置
+        /// </summary>
         public Vector3 BossDeathPosition { private set; get; } = Vector3.zero;
+
+        /// <summary>
+        /// 角色的排行信息映射
+        /// </summary>
+        // private Dictionary<string, MonsterRankInfo> m_dictHeroRankInfos = new Dictionary<string, MonsterRankInfo>();
+        private Dictionary<string, int> m_dictHeroRankInfos = new Dictionary<string, int>();
+
+        /// <summary>
+        /// 角色列表缓存 用于高效遍历
+        /// </summary>
+        private List<IMonster> m_arrMonsterCache = new List<IMonster>();
+
+        private MonsterHarmComparer m_monsterHarmComparer = new MonsterHarmComparer();
+        private MonsterCuringComparer m_monsterCuringComparer = new MonsterCuringComparer();
+        private MonsterHateComparer m_monsterHateComparer = new MonsterHateComparer();
 
         public void RegisterEntityRoot(Transform root)
         {
@@ -192,6 +279,7 @@ namespace XClient.Entity
                 DestroyMonster(kv.Key);
             }
             m_dicMonster.Clear();
+            m_arrMonsterCache.Clear();
         }
 
         //���ˢ�ֵĸ���
@@ -254,6 +342,7 @@ namespace XClient.Entity
                     IMonster;
 
             m_dicMonster.Add(entId, monster);
+            m_arrMonsterCache = m_dicMonster.Values.ToList();
             return monster;
         }
 
@@ -282,15 +371,37 @@ namespace XClient.Entity
                 }
 
                 m_hashWaitDel.Clear();
+                m_arrMonsterCache = m_dicMonster.Values.ToList();
             }
 
-            //�ƶ��߼�����
+            //如果是120fps的手机，每秒刷一次, 60fps的手机就2秒刷一次
+            // bool needRankSorted = Time.frameCount % 120 == 0;
 
+            //对比数据，发生了变化才重排
+            bool needRankSorted = false;
+            //太快了，还是加一个时间限制
+            bool canRankSorted = Time.frameCount % 120 == 0;
+
+            //�ƶ��߼�����
             foreach (IMonster monster in m_dicMonster.Values)
             {
                 if (null != monster)
                 {
                     monster.OnUpdate();
+
+                    if (!string.IsNullOrEmpty(monster.name))
+                    {
+                        if (!m_dictHeroRankInfos.TryGetValue(monster.name, out var harm))
+                        {
+                            m_dictHeroRankInfos.Add(monster.name, monster.GetTotalHarm());
+                        }
+
+                        if (harm != monster.GetTotalHarm())
+                        {
+                            harm = monster.GetTotalHarm();
+                            needRankSorted = true;
+                        }
+                    }
 
                     if (monster.IsDie())
                     {
@@ -304,6 +415,10 @@ namespace XClient.Entity
                             //TODO: 后续由关卡表配置
                             string propResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExclTiltedGlossy.prefab";
                             GameEffectManager.instance.ShowEffect(propResPath, BossDeathPosition + Vector3.up * 3f, Quaternion.identity, 10f);
+
+                            //Boss死亡特效
+                            string explosResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab";
+                            GameEffectManager.Instance.ShowEffect(explosResPath, BossDeathPosition + Vector3.up * 7.57f);
                         }
                         DestroyMonster(monster.id);
                         m_hashWaitDel.Add(monster.id);
@@ -313,6 +428,31 @@ namespace XClient.Entity
                 }
             }
 
+
+
+
+            if (needRankSorted && canRankSorted)
+            {
+                m_arrMonsterCache.RemoveAll(t => t.IsBoos());
+
+                var pContext = RefreshRankContext.Ins;
+                var arrHarmRank = pContext.arrHarmRank;
+                var arrCuringRank = pContext.arrCuringRank;
+                var arrHateRank = pContext.arrHateRank;
+
+                arrCuringRank.Clear();
+                arrCuringRank.AddRange(m_arrMonsterCache);
+                arrCuringRank.Sort(m_monsterCuringComparer);
+
+                arrHarmRank.Clear();
+                arrHarmRank.AddRange(m_arrMonsterCache);
+                arrHarmRank.Sort(m_monsterHarmComparer);
+
+                arrHateRank.Clear();
+                arrHateRank.AddRange(m_arrMonsterCache);
+                arrHateRank.Sort(m_monsterHateComparer);
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_REFRESH_RANKDATA, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0, pContext);
+            }
             //��ֲ���
             //if (Input.GetKeyDown(KeyCode.Space))
             //{
@@ -325,6 +465,8 @@ namespace XClient.Entity
             //    Debug.Log("�ո��������");
             //}
         }
+
+
 
 
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)

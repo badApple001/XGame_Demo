@@ -81,6 +81,24 @@ namespace XClient.Entity
         private GameObject m_refFace;
         public Transform GetFaceTr() => m_refFace?.transform;
 
+        /// <summary>
+        /// Monster共享一个 生成下标
+        /// 此下标用来独立每个角色的名称: {heroClass}{m_byteShareSpawnIndex++}
+        /// 后续策划如果有想法就增加配表
+        /// </summary>
+        private static byte m_byteShareSpawnIndex = 0;
+
+
+        /// <summary>
+        /// 总共造成的伤害，如果是奶职业，就是治疗总量
+        /// </summary>
+        private int m_totalHarm = 0;
+
+        /// <summary>
+        /// 角色职业
+        /// </summary>
+        private int m_HeroCls = 0;
+
         public ulong GetCamp()
         {
             return (ulong)m_dataPart.m_camp.Value;
@@ -198,6 +216,8 @@ namespace XClient.Entity
 
         protected override void OnInit(object context)
         {
+            base.OnInit(context);
+
             cfg_Monster cfg = GameGlobal.GameScheme.Monster_0((uint)configId);
 
             if (cfg == null)
@@ -234,7 +254,13 @@ namespace XClient.Entity
 
             //SetSpeed((int)cfg.fbaseSpeed);
 
-            base.OnInit(context);
+            //职业
+            m_HeroCls = cfg.HeroClass;
+
+            //名称生成
+            var cfg_monster = (cfg_Monster)config;
+            name = cfg_monster.szName + (char)('A' + m_byteShareSpawnIndex++);
+            Debug.Log(name);
         }
 
         protected override void OnAfterInit(object context)
@@ -281,6 +307,7 @@ namespace XClient.Entity
             m_parent = null;
             m_bFaceLeft = false;
             m_bIsBoss = false;
+            m_totalHarm = 0;
         }
 
         public override void OnUpdate()
@@ -321,7 +348,7 @@ namespace XClient.Entity
             //    m_dataPart.m_hp.IsDebug = true;
             //    m_dataPart.m_hp.Name = "WallHp";
             //}
-            
+
 
             m_dataPart.m_hp.RemoteValueDelta += hp;
             m_dataPart.m_hp.Value += hp;
@@ -330,12 +357,23 @@ namespace XClient.Entity
             {
                 // GetSkeletonAnimation().AnimationState.SetAnimation(0, "hit2", false);
                 var actor = GetComponent<Actor>();
-                actor.GetSkeleton().state.SetAnimation(1, actor.GetAnimConfig().szHit, false);
-                GameManager.instance.AddTimer(0.6f, () =>
+                var skel = actor.GetSkeleton();
+                if (null != actor && skel != null)
                 {
-                    actor.GetSkeleton().state.ClearTrack(1);
-                    actor.GetSkeleton().state.SetAnimation(0, actor.GetAnimConfig().szIdle, true);
-                });
+
+                    var cfg = actor.GetAnimConfig();
+                    if (cfg == null)
+                    {
+                        Debug.Log($"找不到动画: {((cfg_Monster)config).nID}");
+                        return;
+                    }
+                    skel.state.SetAnimation(1, cfg.szHit, false);
+                    GameManager.instance.AddTimer(0.6f, () =>
+                    {
+                        skel.state.ClearTrack(1);
+                        skel.state.SetAnimation(0, actor.GetAnimConfig().szIdle, true);
+                    });
+                }
             }
 
             //广播boss的生命值
@@ -610,15 +648,25 @@ namespace XClient.Entity
             Vector3 startPos = tr.position;
             Vector3 dodgeTarget = startPos + (Vector3)(dodgeDir * dodgeDistance);
 
-            var anim = transform.GetComponent<Actor>().GetSkeleton();
-            var animConfig = transform.GetComponent<Actor>().GetAnimConfig();
-            anim.state.SetAnimation(1, animConfig.szMove, true);
+            var anim = tr.GetComponent<Actor>().GetSkeleton();
+            var animConfig = tr.GetComponent<Actor>().GetAnimConfig();
+            anim.state.SetAnimation(1, animConfig.szHit, true);
+            tr.DOKill();
             tr.DOMove(dodgeTarget, duration)
                 .SetEase(Ease.OutQuad)
                 .OnComplete(() =>
                 {
-                    anim.state.SetAnimation(1, animConfig.szIdle, true);
-                    DOVirtual.DelayedCall(waitTime, () =>
+                    // anim.state.SetAnimation(1, animConfig.szIdle, true);
+                    // DOVirtual.DelayedCall(waitTime, () =>
+                    // {
+                    //     anim.state.SetAnimation(1, animConfig.szMove, true);
+                    //     tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
+                    //     {
+                    //         anim.state.ClearTrack(1);
+                    //         anim.state.SetAnimation(0, animConfig.szIdle, true);
+                    //     });
+                    // });
+                    GameManager.instance.AddTimer(waitTime, () =>
                     {
                         anim.state.SetAnimation(1, animConfig.szMove, true);
                         tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
@@ -636,23 +684,39 @@ namespace XClient.Entity
             float repulseDistance = 10f;
             Vector3 repulseDir = (transform.position - bossPos).normalized;
             Vector3 repulseTarget = startPos + (Vector3)(repulseDir * repulseDistance);
-
+            transform.DOKill();
             transform.DOMove(repulseTarget, 0.3f)
                .SetEase(Ease.OutQuad)
                .OnComplete(() =>
                {
-                   DOVirtual.DelayedCall(0.5f, () =>
-                   {
-                       transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
-                   });
+                   //    DOVirtual.DelayedCall(0.5f, () =>
+                   //    {
+                   //        transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
+                   //    });
+                   GameManager.instance.AddTimer(0.5f, () =>
+                                     {
+                                         transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
+                                     });
                });
             transform.DOScale(1.4f, 0.3f).SetEase(Ease.OutQuad).OnComplete(() =>
                {
-                   DOVirtual.DelayedCall(0.5f, () =>
-                   {
-                       transform.DOScale(1, 0.6f).SetEase(Ease.OutCirc);
-                   });
+                   GameManager.instance.AddTimer(0.5f, () =>
+                  {
+                      transform.DOScale(1, 0.6f).SetEase(Ease.OutCirc);
+                  });
                });
+
         }
+
+
+        public void RecordHarm(int addHarm)
+        {
+            m_totalHarm += addHarm;
+        }
+
+        public int GetTotalHarm() => m_totalHarm;
+
+
+        public int GetHeroCls() => m_HeroCls;
     }
 }

@@ -38,6 +38,9 @@ namespace GameScripts.HeroTeam
         [SerializeField] Transform m_trEffectActiveRoot;
         [SerializeField] Transform m_trEffectHiddenRoot;
 
+        [Header("特效")]
+        [SerializeField] Material m_FlameBurningEffectMat;
+
         GameObject m_refNpc;
 
         // Start is called before the first frame update
@@ -342,7 +345,7 @@ namespace GameScripts.HeroTeam
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
                 StopAllCoroutines();
-                
+
             }
         }
 
@@ -385,20 +388,33 @@ namespace GameScripts.HeroTeam
                 {
                     toast.transform.position = Vector3.up * 23f;
                 }
-
-                if (i == chats.Count - 1)
-                {
-                    //npc��������
-                    var sa = m_refNpc.GetComponentInChildren<SkeletonAnimation>();
-                    sa.AnimationState.SetAnimation(0, "dead", false);
-                }
-
-
                 yield return new WaitForSeconds(1f);
             }
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
 
+
+            var sa = m_refNpc.GetComponentInChildren<SkeletonAnimation>();
+            sa.AnimationState.SetAnimation(0, "dead", false);
+
+            //燃烧效果
+            var mr = sa.GetComponent<MeshRenderer>();
+            if (null != mr)
+            {
+                MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+                DOTween.To(() => 0f, f =>
+                {
+                    mr.GetPropertyBlock(mpb);
+                    mpb.SetFloat("_DissolveAmount", f);
+                    mr.SetPropertyBlock(mpb);
+                }, 1f, 1f);
+            }
+
+            //火焰特效
+            string npcFireFxResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/SpikyFireBigAdditiveRed.prefab";
+            GameEffectManager.Instance.ShowEffect(npcFireFxResPath, m_refNpc.transform.position + Vector3.up * 2.31f);
+
+            yield return new WaitForSeconds(1f);
             Destroy(m_refNpc);
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
         }
 
         private void Update()

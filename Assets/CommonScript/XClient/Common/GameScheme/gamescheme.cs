@@ -3261,7 +3261,8 @@ public class cfg_ActorAnimConfig : IDataObj
 	public string szIdle;  // 
 	public string szAttack;  // 
 	public string szHit;  // 
-	public string szJump;  // 
+	public string szJump1;  // 
+	public string szJump2;  // 
 	public string szWin;  // 
 	public string szKnockuped;  // 
 	public string szStand;  // 
@@ -3277,7 +3278,8 @@ public class cfg_ActorAnimConfig : IDataObj
 		szIdle = pDataChunk.ReadSTRING();
 		szAttack = pDataChunk.ReadSTRING();
 		szHit = pDataChunk.ReadSTRING();
-		szJump = pDataChunk.ReadSTRING();
+		szJump1 = pDataChunk.ReadSTRING();
+		szJump2 = pDataChunk.ReadSTRING();
 		szWin = pDataChunk.ReadSTRING();
 		szKnockuped = pDataChunk.ReadSTRING();
 		szStand = pDataChunk.ReadSTRING();

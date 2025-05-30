@@ -25,6 +25,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		private Text text_UIHp_Boss_Text = null;
 		private Button btn_BtnFight = null;
 		private RectTransform tran_BottomPanel = null;
+		private Image img_PropertyPanel = null;
+		private Button btn_Collapse = null;
 		//@End_Widget_Variables
 		
 		protected override void OnSetupOrClearWndInstance(bool isCreate)
@@ -48,6 +50,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			text_UIHp_Boss_Text = Meta.Widgets.GetWidgetComponent<Text>(3);
 			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(4);
 			tran_BottomPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(5);
+			img_PropertyPanel = Meta.Widgets.GetWidgetComponent<Image>(6);
+			btn_Collapse = Meta.Widgets.GetWidgetComponent<Button>(7);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
@@ -60,6 +64,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			text_UIHp_Boss_Text = null;
 			btn_BtnFight = null;
 			tran_BottomPanel = null;
+			img_PropertyPanel = null;
+			btn_Collapse = null;
 
 		} //@End_ClearWidgets
 
@@ -67,12 +73,14 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		{
 			UnsubscribeEvents();
 			btn_BtnFight?.onClick.AddListener(OnBtn_BtnFightClicked);
+			btn_Collapse?.onClick.AddListener(OnBtn_CollapseClicked);
 			OnSubscribeEvents();
 		} //@End_SubscribeEvents
 		
 		protected override void UnsubscribeEvents() //@Window
 		{
 			btn_BtnFight?.onClick.RemoveAllListeners();
+			btn_Collapse?.onClick.RemoveAllListeners();
 			OnUnsubscribeEvents();
 		} //@End_UnsubscribeEvents
     }

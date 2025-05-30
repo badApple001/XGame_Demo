@@ -68,7 +68,8 @@ namespace GameScripts.HeroTeam
             m_fsmActor.AddNode<ActorHitState>();
             m_fsmActor.AddNode<ActorDeathState>();
             m_fsmActor.AddNode<ActorWinState>();
-            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "Actor:Start");
+            m_fsmActor.AddNode<ActorJumpState>();
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "Actor:Start");
         }
 
         public Transform GetTr() => m_Tr;
@@ -116,7 +117,7 @@ namespace GameScripts.HeroTeam
 
         protected virtual void OnDestroy()
         {
-            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             m_fsmActor = null;
             m_SkeletonAnimation = null;
             m_CreatureEntity = null;
@@ -126,7 +127,7 @@ namespace GameScripts.HeroTeam
 
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
-            if (wEventID == DHeroTeamEvent.EVENT_INTO_FIGHT_CHANGED)
+            if (wEventID == DHeroTeamEvent.EVENT_INTO_FIGHT_STATE)
             {
                 Debug.Log("战斗, 爽!");
                 m_fsmActor.Run<ActorIdleState>();

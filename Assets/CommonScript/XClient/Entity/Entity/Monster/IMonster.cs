@@ -21,48 +21,54 @@ using XGame.Entity;
 namespace XClient.Entity
 {
 
-    public enum EMonsterAni
-    {
-        Idle,
-        BattleIdle,
-        Move,
-        Dead,
-        Type2SkillAct,
-        Attack,
-        StartBattle,
-        ExitBattle,
-        Dodge,
-    }
 
-    public class MonsterAniHelper
-    {
-        public static string GetAniName( EMonsterAni aniType )
-        {
-            switch ( aniType )
-            {
-                case EMonsterAni.Idle:
-                    return "idle";
-                case EMonsterAni.BattleIdle:
-                    return "idle_atk";
-                case EMonsterAni.StartBattle:
-                    return "begin";
-                case EMonsterAni.Move:
-                    return "move";
-                case EMonsterAni.Dead:
-                    return "die";
-                case EMonsterAni.ExitBattle:
-                    return "fall";
-                case EMonsterAni.Attack:
-                    return "atk";
-                case EMonsterAni.Type2SkillAct:
-                    return "shifa";
-                case EMonsterAni.Dodge:
-                    return "shanbi";
-                default:
-                    return "idle";
-            }
-        }
-    }
+    /////////////////////////////////移到表里配置了//////////////////////////////////
+    // public enum EMonsterAni
+    // {
+    //     Idle,
+    //     BattleIdle,
+    //     Move,
+    //     Dead,
+    //     Type2SkillAct,
+    //     Attack,
+    //     StartBattle,
+    //     ExitBattle,
+    //     Dodge,
+    // }
+
+    // public class MonsterAniHelper
+    // {
+    //     public static string GetAniName(EMonsterAni aniType)
+    //     {
+    //         switch (aniType)
+    //         {
+    //             case EMonsterAni.Idle:
+    //                 return "idle";
+    //             case EMonsterAni.BattleIdle:
+    //                 return "idle_atk";
+    //             case EMonsterAni.StartBattle:
+    //                 return "begin";
+    //             case EMonsterAni.Move:
+    //                 return "move";
+    //             case EMonsterAni.Dead:
+    //                 return "die";
+    //             case EMonsterAni.ExitBattle:
+    //                 return "fall";
+    //             case EMonsterAni.Attack:
+    //                 return "atk";
+    //             case EMonsterAni.Type2SkillAct:
+    //                 return "shifa";
+    //             case EMonsterAni.Dodge:
+    //                 return "shanbi";
+    //             default:
+    //                 return "idle";
+    //         }
+    //     }
+    // }
+    /////////////////////////////////移到表里配置了//////////////////////////////////
+
+
+
 
     public interface IMonster : ICreatureEntity
     {
@@ -78,6 +84,7 @@ namespace XClient.Entity
         Transform GetTr();
 
         Transform GetLockTr();
+
         Transform GetFaceTr();
 
         /// <summary>
@@ -94,6 +101,24 @@ namespace XClient.Entity
         /// </summary>
         /// <param name="bossPos"></param>
         void ReceiveBossSelect(Vector3 bossPos);
+
+        /// <summary>
+        /// 角色的职业
+        /// </summary>
+        /// <returns></returns>
+        public int GetHeroCls();
+
+        /// <summary>
+        /// 记录伤害/治疗
+        /// </summary>
+        /// <param name="addHarm"></param>
+        public void RecordHarm(int addHarm);
+
+        /// <summary>
+        /// 获取累加的伤害/治疗
+        /// </summary>
+        /// <returns></returns>
+        public int GetTotalHarm();
     }
 
 }

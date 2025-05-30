@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UniFramework.Machine;
 using UnityEngine;
+using XClient.Entity;
 
 namespace GameScripts.HeroTeam
 {
@@ -38,7 +39,16 @@ namespace GameScripts.HeroTeam
 
                 if (m_StateMachine != null)
                 {
-                    m_StateMachine.ChangeState<ActorAttackState>();
+                    
+                    //玩家有一定概率不攻击 而是跳跃
+                    // if (!((IMonster)m_Owner.GetCreatureEntity()).IsBoos() && Random.value < 0.1f)
+                    // {
+                    //     m_StateMachine.ChangeState<ActorJumpState>();
+                    // }
+                    // else
+                    {
+                        m_StateMachine.ChangeState<ActorAttackState>();
+                    }
                 }
             }
         }

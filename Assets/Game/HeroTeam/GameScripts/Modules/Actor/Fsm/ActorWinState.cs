@@ -63,7 +63,7 @@ namespace GameScripts.HeroTeam
             //TODO: 后续配置表
             string fxResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/PowerOrbYellow.prefab";
 
-            var fx = GameEffectManager.Instance.ShowEffect(fxResPath, m_Owner.GetTr().position, Quaternion.identity, 4);
+            var fx = GameEffectManager.Instance.ShowEffect(fxResPath, m_Owner.GetTr().position, Quaternion.Euler(243f, 0, 0), 4);
             fx.SetParent(m_Owner.GetTr());
             fx.localPosition = Vector3.up * 5.35f;
             fx.localScale = Vector3.one * 5;
