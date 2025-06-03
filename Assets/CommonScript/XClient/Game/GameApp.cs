@@ -331,8 +331,6 @@ namespace XClient.Game
             coreFiles.Add("service.xml");
             coreFiles.Add("serverlist.xml");
             XGameApp.Initialize(this, coreFiles.ToArray());
-
-        
         }
 
         private void CreateMonitors()

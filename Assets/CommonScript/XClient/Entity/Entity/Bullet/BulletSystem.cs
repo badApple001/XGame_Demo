@@ -1,16 +1,16 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	BulletSystem.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.6.25
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  ×Óµ¯ÏµÍ³(¸ºÔð×Óµ¯µÄ´´½¨£¬Ïú»ÙºÍÂß¼­ÍÆ¶¯)
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	BulletSystem.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.6.25
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  ï¿½Óµï¿½ÏµÍ³(ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ùºï¿½ï¿½ß¼ï¿½ï¿½Æ¶ï¿½)
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 using System.Collections;
@@ -64,13 +64,13 @@ namespace XClient.Entity
             return true;
         }
 
-        //ÊÇ·ñÐèÒªÄ¿±ê
+        //ï¿½Ç·ï¿½ï¿½ï¿½ÒªÄ¿ï¿½ï¿½
         public bool IsNeedTarget(ulong srcID, int bulletID, int userData)
         {
             return true;
         }
 
-        //ÊÇ·ñÐèÒª³¯ÏòÄ¿±ê
+        //ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
         public bool IsNeedForwardTarget(ulong srcID, int bulletID, int userData)
         {
             return true;
@@ -92,12 +92,12 @@ namespace XClient.Entity
                     ICreatureEntity creatureEntity = entity as ICreatureEntity;
                     if (creatureEntity != null)
                     {
-                        //Ä¿Ç°²âÊÔ¾ÍÉË10µãÑª
+                        //Ä¿Ç°ï¿½ï¿½ï¿½Ô¾ï¿½ï¿½ï¿½10ï¿½ï¿½Ñª
                         int hp = creatureEntity.GetHP();
                         int damage = Random.Range(0, 200);
                         creatureEntity.SetHPDelta(-damage);
 
-                        //Æ®×Ó
+                        //Æ®ï¿½ï¿½
                         FlowDamageText(creatureEntity.GetPos(), -damage);
 
                         //TankHealth th = creatureEntity.GetComponent<TankHealth>();
@@ -175,7 +175,7 @@ namespace XClient.Entity
             Vector3 pos = IDReco.transform.position;
             Vector3 forward = IDReco.transform.forward;
 
-            //ÅäÖÃÌØ¶¨µÄµÐ·½ÕóÓªÁÐ±í
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ø¶ï¿½ï¿½ÄµÐ·ï¿½ï¿½ï¿½Óªï¿½Ð±ï¿½
             List<ulong> listEnemyCamps =
                 IDRecoEntityMgr.Instance.GetEnemyCamp(IDReco.camp, IDReco.listFriendCamps, IDReco.listEnemyCamps);
             listReco = IDRecoEntityMgr.Instance.GetIDRecoByCamp(listEnemyCamps, EntityType.monsterType, ref pos,
@@ -186,18 +186,18 @@ namespace XClient.Entity
             {
                 listReco = IDRecoEntityMgr.Instance.GetIDRecoByCamp(IDReco.listEnemyCamps, EntityType.monsterType,ref pos, false,cfg.iDamageDistance,0);
                 
-            }else //Ã»ÓÐµÐ·½ÁÐ±íµÄ
+            }else //Ã»ï¿½ÐµÐ·ï¿½ï¿½Ð±ï¿½ï¿½ï¿½
             {
                 int camp = IDReco.camp;
                 listCamp.Clear();
                 listCamp.Add(camp);
-                //ÓÐÓÑ·½ÁÐ±í
+                //ï¿½ï¿½ï¿½Ñ·ï¿½ï¿½Ð±ï¿½
                 if (IDReco.listFriendCamps!=null&& IDReco.listFriendCamps.Count>0)
                 {
                     listCamp.AddRange(IDReco.listFriendCamps);
                 }
 
-                //»ñÈ¡µÐ·½ÕóÓª
+                //ï¿½ï¿½È¡ï¿½Ð·ï¿½ï¿½ï¿½Óª
                 List<int> listEnemyCamps = IDRecoEntityMgr.Instance.GetCamps(listCamp);
                 listReco = IDRecoEntityMgr.Instance.GetIDRecoByCamp(listEnemyCamps, EntityType.monsterType, ref pos, false, cfg.iDamageDistance, 0);
 
@@ -241,7 +241,7 @@ namespace XClient.Entity
     }
 
 
-    //×Óµ¯´´½¨ÏÖ³¡
+    //ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö³ï¿½
     /*
     public class CreateBulletContext
     {
@@ -249,43 +249,43 @@ namespace XClient.Entity
         public Vector3 foprward;
     }*/
 
-    //×Óµ¯µÄÀàÐÍ
+    //ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public partial class EntityType
     {
-        public readonly static int NormalBulletType = 200; //×Óµ¯ÀàÐÍ
-        public readonly static int TrackBulletType = 201; //×·×Ù×Óµ¯ÀàÐÍ
-        public readonly static int RangeBulletType = 202; //·¶Î§ÐÍ×Óµ¯ÀàÐÍ
-        public readonly static int SurroundBulletType = 203; //»·ÈÆÀàÐÍ×Óµ¯
+        public readonly static int NormalBulletType = 200; //ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
+        public readonly static int TrackBulletType = 201; //×·ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
+        public readonly static int RangeBulletType = 202; //ï¿½ï¿½Î§ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½
+        public readonly static int SurroundBulletType = 203; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½
     }
 
-    //²¿¼þÀàÐÍ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public partial class EntityPartType
     {
-        public readonly static int bulletMovePartType = 200; //ÒÆ¶¯²¿¼þ
-        public readonly static int bulletDamagePartType = 201; //ÉËº¦²¿¼þ
+        public readonly static int bulletMovePartType = 200; //ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½
+        public readonly static int bulletDamagePartType = 201; //ï¿½Ëºï¿½ï¿½ï¿½ï¿½ï¿½
     }
 
     public class BulletSystem : Singleton<BulletSystem>, IEventExecuteSink
     {
-        //¹«¹²µÄ´´½¨¶ÔÏó
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         // private CreateBulletContext m_CreateContext = new CreateBulletContext();
 
-        //ËùÓÐÐèÒª¿ØÖÆÂß¼­µÄ¶ÔÏó
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½
         private Dictionary<ulong, IBullet> m_dicBullet = new Dictionary<ulong, IBullet>();
 
-        //É¾³ýÁÐ±í
+        //É¾ï¿½ï¿½ï¿½Ð±ï¿½
         private HashSet<ulong> m_hashWaitDel = new HashSet<ulong>();
 
 
-        //´´½¨ÏµÍ³
+        //ï¿½ï¿½ï¿½ï¿½ÏµÍ³
         public void Create()
         {
-            //ÆÕÍ¨ÀàÐÍ×Óµ¯
+            //ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½
             GameGlobal.EntityWorld.RegisterEntityType<Bullet>(EntityType.NormalBulletType);
             GameGlobal.EntityWorld.RegisterEntityPartType<BulletDataPart>(EntityType.NormalBulletType, EntityPartInnerType.Data);
             GameGlobal.EntityWorld.RegisterEntityPartType<PrefabPart>(EntityType.NormalBulletType, EntityPartType.Prefab);
 
-            //¶©ÔÄÏú»ÙÏûÏ¢
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
             IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
             eventEngine.Subscibe(this, DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0,
                 "BulletSystem:Create"); // FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
@@ -293,12 +293,12 @@ namespace XClient.Entity
 
         public void Release()
         {
-            //¶©ÔÄÏú»ÙÏûÏ¢
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
             IEventEngine eventEngine = XGameComs.Get<IEventEngine>();
             eventEngine.UnSubscibe(this, DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY,
                 0); // FireExecute(DGlobalEvent.EVENT_ENTITY_DESTROY, DEventSourceType.SOURCE_TYPE_ENTITY, 0, entity);
         }
-        //¶ÏÏßÖØÁ¬µÄÊ±ºòÇåÀíÊý¾Ýµ÷ÓÃ,×¢ÒâÖ»ÐèÒªÇåÀíMoudleÄ£¿éÖÐCreateºóµ÷ÓÃµÄÊý¾Ý,CreateÖÐ´´½¨µÄ²»ÒªÇåÀíÁË
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½,×¢ï¿½ï¿½Ö»ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½MoudleÄ£ï¿½ï¿½ï¿½ï¿½Createï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½,Createï¿½Ð´ï¿½ï¿½ï¿½ï¿½Ä²ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
         public void Clear()
         {
@@ -312,13 +312,13 @@ namespace XClient.Entity
 
         static int index = 0;
 
-        //·ÖÅä
+        //ï¿½ï¿½ï¿½ï¿½
         public IBullet CreateBullet(int bulletID, BulletFireContext fireContext)
         {
             NetEntityShareInitContext.instance.Reset();
             NetEntityShareInitContext.instance.localInitContext = fireContext;
 
-            //·ÖÅäÒ»¸öÎ¨Ò»ID
+            //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Î¨Ò»ID
             ulong entId = GameGlobal.Role.entityIDGenerator.Next();
             IEntityManager manager = GameGlobal.EntityWorld.Local;
             IBullet bullet =
@@ -327,12 +327,12 @@ namespace XClient.Entity
 
             m_dicBullet.Add(entId, bullet);
 
-            //Debug.LogError("·¢Éú×Óµ¯" + bulletID+",index="+(index++));
+            //Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½" + bulletID+",index="+(index++));
 
             return bullet;
         }
 
-        //Ïú»Ù
+        //ï¿½ï¿½ï¿½ï¿½
         public void DestroyBullet(ulong entId)
         {
             GameGlobal.EntityWorld.Local.DestroyEntity(entId);
@@ -346,7 +346,7 @@ namespace XClient.Entity
         // Update is called once per frame
         public void Update()
         {
-            //É¾³ý×Óµ¯
+            //É¾ï¿½ï¿½ï¿½Óµï¿½
             int nCount = m_hashWaitDel.Count;
             if (nCount > 0)
             {
@@ -358,12 +358,12 @@ namespace XClient.Entity
                 m_hashWaitDel.Clear();
             }
 
-            //ÍÆ¶¯×Óµ¯Âß¼­
+            //ï¿½Æ¶ï¿½ï¿½Óµï¿½ï¿½ß¼ï¿½
             foreach (IBullet bullet in m_dicBullet.Values)
             {
                 if (null != bullet)
                 {
-                    //Ã»ÓÐ±»É¾³ý
+                    //Ã»ï¿½Ð±ï¿½É¾ï¿½ï¿½
                     if (m_hashWaitDel.Contains(bullet.id) == false)
                     {
                         bullet.OnUpdate();

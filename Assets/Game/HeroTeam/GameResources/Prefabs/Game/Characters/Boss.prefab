@@ -313,6 +313,7 @@ GameObject:
   - component: {fileID: 6296316447161168589}
   - component: {fileID: 56276544}
   - component: {fileID: 7034197096248564839}
+  - component: {fileID: 4223198212624539570}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -409,6 +410,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_srRangeSkillTip: {fileID: 1373287439}
   SkillOrgin: {fileID: 8422773936118933986}
+--- !u!114 &4223198212624539570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6955002283101631184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1863b3d018b9ca24ca860b552084a314, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reco: {fileID: 0}
 --- !u!1 &6955002283671709069
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,11 +1,8 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using UniFramework.Machine;
 using UnityEngine;
 using XClient.Common;
 using XClient.Entity;
+using XClient.Rand;
 
 namespace GameScripts.HeroTeam
 {
@@ -114,6 +111,11 @@ namespace GameScripts.HeroTeam
 
             if (null != target)
             {
+                // damage *= XClient.Rand.RandomUtility.Range(-0.9f,)
+                // damage = Mathf.FloorToInt(damage * Random.Range(0.95f, 1.05f));
+                damage = CombatUtils.ApplyRandomVariance(damage);
+
+
                 float dirX = target.GetLockTr().position.x - m_Anim.transform.position.x;
                 m_Anim.skeleton.ScaleX = dirX > 0 ? 1f : -1f;
                 m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szAttack, false);

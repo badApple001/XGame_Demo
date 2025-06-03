@@ -353,7 +353,7 @@ namespace XClient.Entity
             m_dataPart.m_hp.RemoteValueDelta += hp;
             m_dataPart.m_hp.Value += hp;
 
-            if (hp < 0 && !IsBoos())
+            if (hp < 0 && !IsBoos() && !IsDie())
             {
                 // GetSkeletonAnimation().AnimationState.SetAnimation(0, "hit2", false);
                 var actor = GetComponent<Actor>();

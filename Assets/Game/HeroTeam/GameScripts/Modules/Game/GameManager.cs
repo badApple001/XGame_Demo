@@ -280,7 +280,7 @@ namespace GameScripts.HeroTeam
         {
             uint handle = 0;
             var loader = XGameComs.Get<IGAssetLoader>();
-            var objPrefab = (GameObject)loader.LoadResSync<GameObject>("Game/HeroTeam/GameResources/Prefabs/Game/Npc.prefab", out handle);
+            var objPrefab = (GameObject)loader.LoadResSync<GameObject>("Game/HeroTeam/GameResources/Prefabs/Game/Characters/Npc.prefab", out handle);
             loader.UnloadRes(handle);
             m_refNpc = GameObject.Instantiate(objPrefab, new Vector3(-4.4f, 10.1f, 0), Quaternion.identity, null);
         }

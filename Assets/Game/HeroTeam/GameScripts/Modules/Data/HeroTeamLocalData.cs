@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using XGameEngine.Player;
 
 namespace GameScripts.HeroTeam
@@ -8,11 +9,10 @@ namespace GameScripts.HeroTeam
     public class HeroTeamLocalData : PlayerSerializableData
     {
         /// <summary>
-        /// ×îºóÒ»´ÎµÇÂ¼ÓÎÏ·µÄÊ±¼ä´Á
+        /// ï¿½ï¿½ï¿½Ò»ï¿½Îµï¿½Â¼ï¿½ï¿½Ï·ï¿½ï¿½Ê±ï¿½ï¿½ï¿½
         /// </summary>
         public long LastLoginTimestamps;
 
-
-
+        public string testString = "";
     }
 }

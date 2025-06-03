@@ -76,6 +76,11 @@ namespace GameScripts.HeroTeam
         }
 
 
+        /// <summary>
+        /// 嘲讽
+        /// </summary>
+        /// <param name="skill"></param>
+        /// <returns></returns>
         private IEnumerator Load_Skill_400001(cfg_HeroTeamSkills skill)
         {
             m_Anim.state.SetAnimation(0, skill.szAnimName, false);
@@ -93,6 +98,11 @@ namespace GameScripts.HeroTeam
             m_StateMachine.ChangeState<ActorIdleState>();
         }
 
+        /// <summary>
+        /// 技能暴击
+        /// </summary>
+        /// <param name="skill"></param>
+        /// <returns></returns>
         private IEnumerator Load_Skill_600001(cfg_HeroTeamSkills skill)
         {
 
@@ -102,9 +112,11 @@ namespace GameScripts.HeroTeam
             var damage = skill.iValue + skill.iPercentValue / 100f * m_Owner.GetMonsterCfg().iAttack;
             //技能附带仇恨 + 攻击百分比仇恨值叠加
             var hate = skill.iHate + m_Owner.GetMonsterCfg().iAttackHatred / 100f * damage;
+            //获取伤害浮动后的值
+            int iDamage = CombatUtils.ApplyRandomVariance(-Mathf.FloorToInt(damage));
 
             var target = GameManager.instance.GetBossEntity();
-            target.SetHPDelta(-Mathf.FloorToInt(damage));
+            target.SetHPDelta(iDamage);
             target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
 
             yield return new WaitForSeconds(1.4f);
@@ -199,10 +211,13 @@ namespace GameScripts.HeroTeam
                 if (cfg.HeroClass == HeroClassDef.TANK) tankCount++;
             }
 
+            //除了 1类型是治疗， 其它类型如伤害，击飞，控制的，此值都表示额外伤害
+            int damage = skill.iType == 1 ? skill.iValue : -skill.iValue;
+            damage = CombatUtils.ApplyRandomVariance(damage);
+
             selects.ForEach(m =>
             {
-                //除了 1类型是治疗， 其它类型如伤害，击飞，控制的，此值都表示额外伤害
-                m.SetHPDelta(skill.iType == 1 ? skill.iValue : -skill.iValue);
+                m.SetHPDelta(damage);
                 m.ReceiveBossSelect(m_Anim.transform.position);
                 m.SetHatred(0);//点名的角色 仇恨值清零
             });

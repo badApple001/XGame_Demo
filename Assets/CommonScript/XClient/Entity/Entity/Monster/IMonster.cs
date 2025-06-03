@@ -119,6 +119,9 @@ namespace XClient.Entity
         /// </summary>
         /// <returns></returns>
         public int GetTotalHarm();
+
+
+        
     }
 
 }
