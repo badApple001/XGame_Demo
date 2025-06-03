@@ -116,6 +116,15 @@ namespace GameScripts.HeroTeam
             return effectTransform;
         }
 
+        public void ReleaseEffect(Transform trEffect)
+        {
+            var task = m_recycleTasks.Find(task => task.EffectTransform == trEffect);
+            if (task != null)
+            {
+                task.EndTime = 0;
+            }
+        }
+
         // 在Update中统一处理回收
         public void OnFrameUpdate()
         {
@@ -125,7 +134,7 @@ namespace GameScripts.HeroTeam
                 var task = m_recycleTasks[i];
                 if (now >= task.EndTime)
                 {
-                    if ( task.EffectTransform != null)
+                    if (task.EffectTransform != null)
                     {
                         task.Pool.Release(task.EffectTransform);
                     }

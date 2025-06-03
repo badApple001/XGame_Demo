@@ -136,6 +136,13 @@ namespace GameScripts.HeroTeam
                         {
                             GameEffectManager.Instance.ShowEffect(szAttackEffectPath, target.GetLockTr().position, Quaternion.identity);
                         }
+
+                        if (m_Owner.GetMonsterCfg().iAttkBuffID != 0)
+                        {
+                            BuffManager.Instance.CreateBuff(target, m_Owner.GetMonsterCfg().iAttkBuffID);
+                            Debug.Log($"攻击buff: {m_Owner.GetMonsterCfg().iAttkBuffID}");
+                        }
+                        
                         target.SetHPDelta(-damage);
                     });
                 }

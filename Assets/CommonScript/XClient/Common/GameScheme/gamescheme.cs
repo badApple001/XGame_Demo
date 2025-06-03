@@ -3076,13 +3076,14 @@ public class cfg_HeroTeamBuff : IDataObj
 {
 	public int iID;  // 
 	public int buffSign;  // 
-	public string buffName;  // 
-	public string buffText;  // 
-	public int interval;  // 
-	public int count;  // 
-	public int additional_hp;  // 
-	public int isStackable;  // 
+	public string szBuffName;  // 
+	public string szBuffCls;  // 
 	public string buffEffect;  // 
+	public float[] float3RelativePos;  // float[-1]  
+	public int iInterval;  // 
+	public int count;  // 
+	public int AddHp;  // 
+	public int isStackable;  // 
 	public int allowDurationReset;  // 
 
 	public IDataObj Clone(){return new cfg_HeroTeamBuff();}
@@ -3090,13 +3091,14 @@ public class cfg_HeroTeamBuff : IDataObj
 	{
 		iID = pDataChunk.ReadINT32();
 		buffSign = pDataChunk.ReadINT32();
-		buffName = pDataChunk.ReadSTRING();
-		buffText = pDataChunk.ReadSTRING();
-		interval = pDataChunk.ReadINT32();
-		count = pDataChunk.ReadINT32();
-		additional_hp = pDataChunk.ReadINT32();
-		isStackable = pDataChunk.ReadINT32();
+		szBuffName = pDataChunk.ReadSTRING();
+		szBuffCls = pDataChunk.ReadSTRING();
 		buffEffect = pDataChunk.ReadSTRING();
+		float3RelativePos = pDataChunk.ReadFLOAT_Array(-1);
+		iInterval = pDataChunk.ReadINT32();
+		count = pDataChunk.ReadINT32();
+		AddHp = pDataChunk.ReadINT32();
+		isStackable = pDataChunk.ReadINT32();
 		allowDurationReset = pDataChunk.ReadINT32();
 	}
 

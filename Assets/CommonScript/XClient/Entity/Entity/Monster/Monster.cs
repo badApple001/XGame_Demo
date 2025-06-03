@@ -14,6 +14,7 @@
 ********************************************************************/
 
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
 using DG.Tweening;
 using GameScripts.HeroTeam;
 using Spine.Unity;
@@ -483,7 +484,7 @@ namespace XClient.Entity
                 }
 
                 InnerStateTrans();
-            
+
                 //放弃传统那套Buff处理
                 // BuffBaseComponent buffComponent = m_prefabPart.gameObject.GetComponent<BuffBaseComponent>();
                 // if (null != buffComponent)
@@ -719,5 +720,44 @@ namespace XClient.Entity
 
 
         public int GetHeroCls() => m_HeroCls;
+
+        // public List<GameScripts.HeroTeam.IBuff> GetBuffs()
+        // {
+        //     return m_Buffs;
+        // }
+
+        // public void AddBuff(int buffId)
+        // {
+        //     var cfg = GameGlobal.GameScheme.HeroTeamBuff_0(buffId);
+        //     if (cfg != null)
+        //     {
+
+        //         var buff = m_Buffs.Find(buf => buf.GetCfg() == cfg);
+        //         if (buff != null)
+        //         {
+        //             //不可以叠加
+        //             if (cfg.isStackable == 0)
+        //             {
+        //                 //可以重置时间
+        //                 if (cfg.allowDurationReset == 1)
+        //                 {
+        //                     buff.RePlay();
+        //                 }
+        //                 return;
+        //             }
+        //         }
+
+        //         var newBuff = BuffManager.Ins.CreateBuff(this, buffId);
+        //         if (null != newBuff)
+        //         {
+        //             m_Buffs.Add(newBuff);
+        //         }
+        //     }
+        // }
+
+        // public void RemoveBuff(GameScripts.HeroTeam.IBuff buff)
+        // {
+        //     m_Buffs.Remove(buff);
+        // }
     }
 }

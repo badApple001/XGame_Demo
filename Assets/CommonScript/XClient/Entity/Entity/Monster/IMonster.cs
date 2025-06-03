@@ -120,8 +120,11 @@ namespace XClient.Entity
         /// <returns></returns>
         public int GetTotalHarm();
 
+        // public List<GameScripts.HeroTeam.IBuff> GetBuffs();
 
+        // public void AddBuff(int buffId);
         
+        // public void RemoveBuff(GameScripts.HeroTeam.IBuff buff);
     }
 
 }
