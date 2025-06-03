@@ -423,6 +423,7 @@ public class cfg_Monster : IDataObj
 	public float fAttackInterval;  // 攻击间隔，每多少秒攻击1次
 	public int iAttack;  // 攻击力
 	public string szAttackEffectPath;  // 攻击特效路径
+	public int iAttkBuffID;  // 普通攻击Buff
 	public int[] Skills;  // int[-1]  技能列表
 	public int iAttackHatred;  // 攻击/治疗 仇恨值 百分比
 	public int[] AIID;  // int[-1]  AIID数组
@@ -441,6 +442,7 @@ public class cfg_Monster : IDataObj
 		fAttackInterval = pDataChunk.ReadFLOAT();
 		iAttack = pDataChunk.ReadINT32();
 		szAttackEffectPath = pDataChunk.ReadSTRING();
+		iAttkBuffID = pDataChunk.ReadINT32();
 		Skills = pDataChunk.ReadINT32_Array(-1);
 		iAttackHatred = pDataChunk.ReadINT32();
 		AIID = pDataChunk.ReadINT32_Array(-1);

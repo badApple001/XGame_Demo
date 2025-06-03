@@ -483,15 +483,14 @@ namespace XClient.Entity
                 }
 
                 InnerStateTrans();
-                /*
                 BuffBaseComponent buffComponent = m_prefabPart.gameObject.GetComponent<BuffBaseComponent>();
                 if (null != buffComponent)
                 {
-                     buffComponent.Awake();
-                    // buffComponent.effectActionCreate = KingBuffEffectCreator.Instance;
-                    buffComponent.AddBuff(10004);
+                    buffComponent.Awake();
+                    buffComponent.effectActionCreate = KingBuffEffectCreator.Instance;
+                    // buffComponent.AddBuff(10004);
                 }
-                */
+                
 
                 Actor actor = m_prefabPart.gameObject.GetComponent<Actor>();
                 if (null != actor)

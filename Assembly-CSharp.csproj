@@ -504,11 +504,13 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorJumpState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\CombatUtils.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\KingBuffEffectCreator.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\CombustibilityBuff.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\AddHPPerAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro.cginc" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Prefabs\Environment\Environment FX.txt" />
     <None Include="Assets\ThirdParty\Spine\version.txt" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Dissolution_Blend_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskBorderBlur.shader" />
@@ -517,7 +519,6 @@
     <None Include="Assets\G_Artist\Shader\Blend_Comming_Prop.shader" />
     <None Include="Assets\BaseScripts\Dll\ICSharpCode.SharpZipLib.dll" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Niuqu.shader" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Prefabs\Combat\Combat FX.txt" />
     <None Include="Assets\G_Artist\Shader\A_VFX_distort_blend.shader" />
     <None Include="Assets\G_Artist\Shader\UI-MaskLevel.shader" />
     <None Include="Assets\G_Artist\Shader\Eff_LitA_ASE.shader" />
@@ -525,7 +526,6 @@
     <None Include="Assets\G_Artist\Shader\panda shader\PandaShaderSampleV1.0.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_distort_blend.shader" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Changelog.txt" />
     <None Include="Assets\dllBuildEnvCache.xml" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Additive_Mask_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\Skybox Cubemap Extended.shader" />
@@ -568,7 +568,6 @@
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_045\045.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\Toon Outline.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_Additive_Mask.shader" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Shaders\ETFX_PowerboxLit.shader" />
     <None Include="Assets\CommonScript\XClient\KeywordFilter\Plugins\x86_64\libkwfilter.dll" />
     <None Include="Assets\G_Artist\Shader\Eff_Bullet.shader" />
     <None Include="Assets\BaseScripts\Utils\Monitor\Config\monitor_mono_only_add.txt" />
@@ -582,7 +581,6 @@
     <None Include="Assets\G_Artist\Shader\ActorDieShader.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\G_Artist\Shader\ASE_Flipbook.shader" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Prefabs\Interactive\Interactive FX.txt" />
     <None Include="Assets\G_Artist\Shader\PFX_Trail.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -595,11 +593,9 @@
     <None Include="Assets\G_Artist\Shader\A_VFX_Trail.shader" />
     <None Include="Assets\G_Artist\Shader\Actor_LitEff_ASE.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Blend_Mask.shader" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Shaders\ETFX_PowerboxUnlit.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_014\014.atlas.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\G_Artist\Shader\Test_2.shader" />
-    <None Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Upgrade\URP Compatibility.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_038\038.atlas.txt" />
     <None Include="Assets\G_Artist\Shader\ActorShader.shader" />

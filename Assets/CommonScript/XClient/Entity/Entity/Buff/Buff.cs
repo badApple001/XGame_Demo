@@ -1,16 +1,16 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	Buff.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.6.25
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  buffµÄÊµÏÖ
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	Buff.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.6.25
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  buffï¿½ï¿½Êµï¿½ï¿½
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 using System;
@@ -31,28 +31,28 @@ namespace XGame.Entity
 
     public class Buff : IBuff
     {
-        //ÓµÓÐÕßID
+        //Óµï¿½ï¿½ï¿½ï¿½ID
         private ulong m_master;
 
-        //buffÌØÐ§ID
+        //buffï¿½ï¿½Ð§ID
         private uint m_effectHandle = 0;
 
-        //Í·¶¥Í¼±ê¾ä±ú
+        //Í·ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½
         private uint m_headIconHandle = 0;
 
-        //Ð§¹û´´½¨Æ÷
+        //Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private IEffectActionCreate m_effectActionCreate;
 
-        //buffµÄID
+        //buffï¿½ï¿½ID
         private int m_buffID;
 
-        //µ±Ç°µÄ²ã
+        //ï¿½ï¿½Ç°ï¿½Ä²ï¿½
         private int m_layer;
 
-        //buffÆð×÷ÓÃµÄÊ±¼ä
+        //buffï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½Ê±ï¿½ï¿½
         private float m_finishTime;
 
-        // buff×Ô´øµÄeffect
+        // buffï¿½Ô´ï¿½ï¿½ï¿½effect
         private List<IEffectAction> m_listEffectAction;
 
         //buff ID
@@ -61,7 +61,7 @@ namespace XGame.Entity
         //sid
         private int m_sid = 0;
 
-        //Ìí¼ÓµÄ¿Í»§¶Ë
+        //ï¿½ï¿½ï¿½ÓµÄ¿Í»ï¿½ï¿½ï¿½
         private long m_clientID;
 
 
@@ -101,48 +101,48 @@ namespace XGame.Entity
             m_clientID = buffCreateContext.clientID;
             m_master = buffCreateContext.srcID;
 
-            //Æô¶¯Ê±¼ä
+            //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
             m_finishTime = 0; // Time.realtimeSinceStartup;
 
             m_cfg = GameGlobal.GameScheme.Buff_0(m_buffID);
             if (null == m_cfg)
             {
-                Debug.LogError("²»´æÔÚµÄbuffID m_buffID=" + m_buffID);
+                Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½buffID m_buffID=" + m_buffID);
                 return;
             }
 
-            //´´½¨Effect
-            //if (!string.IsNullOrEmpty(m_cfg.commandBuffList))
-            //{
-            //    List<EffectCmdContext> listCmdContext =
-            //        m_effectActionCreate.GetEffectCmdContexts(m_buffID, m_cfg.commandBuffList);
-            //    int nCount = listCmdContext.Count;
-            //    EffectCmdContext effectContext = null;
-            //    for (int i = 0; i < nCount; ++i)
-            //    {
-            //        effectContext = listCmdContext[i];
-//
-            //        CreateEffectContext.Instance.srcID = buffCreateContext.srcID;
-            //        CreateEffectContext.Instance.effectCmdContext = effectContext;
-//
-            //        IEffectAction action =
-            //            m_effectActionCreate.CreateEffectAction(effectContext.cmd, CreateEffectContext.Instance);
-            //        if (null != action)
-            //        {
-            //            m_listEffectAction.Add(action);
-            //        }
-            //    }
-            //}
+            //ï¿½ï¿½ï¿½ï¿½Effect
+            if (!string.IsNullOrEmpty(m_cfg.commandBuffList))
+            {
+               List<EffectCmdContext> listCmdContext =
+                   m_effectActionCreate.GetEffectCmdContexts(m_buffID, m_cfg.commandBuffList);
+               int nCount = listCmdContext.Count;
+               EffectCmdContext effectContext = null;
+               for (int i = 0; i < nCount; ++i)
+               {
+                   effectContext = listCmdContext[i];
+
+                   CreateEffectContext.Instance.srcID = buffCreateContext.srcID;
+                   CreateEffectContext.Instance.effectCmdContext = effectContext;
+
+                   IEffectAction action =
+                       m_effectActionCreate.CreateEffectAction(effectContext.cmd, CreateEffectContext.Instance);
+                   if (null != action)
+                   {
+                       m_listEffectAction.Add(action);
+                   }
+               }
+            }
 
 
-            //Ìí¼ÓbuffÌØÐ§
+            //ï¿½ï¿½ï¿½ï¿½buffï¿½ï¿½Ð§
             string szBuffEffect = m_cfg.buffEffect;
             if (string.IsNullOrEmpty(szBuffEffect) == false)
             {
 
                 IBulletEnvProvider bulletEnvProvider = EnvProviderMgr.Instance.GetBulletEnvProvider();  
 
-                //Ã¿´Î¶¼²ð·Ö×Ö·û´®£¬ Ð§ÂÊµÍÏÂ£¬½«²ð·Ö½á¹û»º´æÆðÀ´
+                //Ã¿ï¿½Î¶ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ Ð§ï¿½Êµï¿½ï¿½Â£ï¿½ï¿½ï¿½ï¿½ï¿½Ö½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 EffectContext effectContext = bulletEnvProvider.GetBuffEffectContext(szBuffEffect);
                 if (effectContext.valid)
                 {
@@ -154,15 +154,13 @@ namespace XGame.Entity
                     if (null != bc)
                     {
                         // m_effectHandle = bc.PlayEffect(m_cfg.szBuffEffect, m_cfg.duration + 99999);
-                        //¿Í»§¶ËÏÈ999999999
+                        //ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½999999999
                         m_effectHandle = bc.PlayEffect(effectContext.effectPath, 9999999, effPosObj);
                     }
                 }
-
-                
             }
 
-            //Ìí¼ÓÍ·¶¥Í¼±ê
+            //ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½Í¼ï¿½ï¿½
             if (m_cfg.buffIcon > 0)
             {
                 //TitleBuffComponent tbc = manager.GetComponent<TitleBuffComponent>(m_master);
@@ -190,7 +188,7 @@ namespace XGame.Entity
         }
         public bool IsFinish()
         {
-            return false;
+            // return false;
             return Time.realtimeSinceStartup > m_finishTime;
         }
 

@@ -137,7 +137,6 @@ namespace GameScripts.HeroTeam
                             GameEffectManager.Instance.ShowEffect(szAttackEffectPath, target.GetLockTr().position, Quaternion.identity);
                         }
                         target.SetHPDelta(-damage);
-                        // target.SetHatred(target.GetHatred() - damage);
                     });
                 }
                 else
