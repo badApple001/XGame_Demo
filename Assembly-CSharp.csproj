@@ -504,9 +504,6 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Fsm\ActorJumpState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\CombatUtils.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\KingBuffEffectCreator.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\CombustibilityBuff.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\AddHPPerAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
