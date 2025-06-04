@@ -16,17 +16,12 @@ namespace GameScripts.HeroTeam
     public class ArsonistBuff : BuffBase
     {
 
-        public override bool IsDone()
-        {
-            return m_nTimes >= m_Cfg.count;
-        }
-
         public override void OnStep(float now)
         {
             base.OnStep(now);
             if (null != m_Owner)
             {
-                m_Owner.SetHPDelta(m_Cfg.AddHp);
+                m_Owner.SetHPDelta(m_Cfg.iAddHp);
             }
         }
 

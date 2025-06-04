@@ -33,7 +33,7 @@ namespace GameScripts.HeroTeam
             return skill;
         }
 
-        private static int SelectMaxHateSortComparer(IMonster a, IMonster b)
+        private static int SelectMaxHateSortComparer(IActor a, IActor b)
         {
             return a.GetHatred().CompareTo(b.GetHatred());
         }
@@ -41,12 +41,12 @@ namespace GameScripts.HeroTeam
         {
 
 
-            IMonster target = null;
+            IActor target = null;
             int damage = 0;
             //奶妈职业
             if (m_AttackType == AttackTypeDef.Sage)
             {
-                var friends = MonsterSystem.Instance.GetMonstersByCamp(m_Owner.GetCreatureEntity().GetCamp());
+                var friends = ActorManager.Instance.GetActorsByCamp(m_Owner.GetCamp());
                 float minHpRate = 1.01f;
                 foreach (var friend in friends)
                 {
@@ -58,40 +58,41 @@ namespace GameScripts.HeroTeam
                     }
                 }
                 //治疗是加血 等于 减减血~~~
-                damage = -m_Owner.GetCreatureEntity().GetIntAttr(CreatureAttributeDef.ATTACK);
+                damage = -m_Owner.GetPower();
             }
             else
             {
-                var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
-                if (monsters.Count > 0)
+                var foesCamp = m_Owner.GetCamp() == CampDef.BATTLE_CAMP_HERO ? CampDef.BATTLE_CAMP_MONSTER : CampDef.BATTLE_CAMP_HERO;
+                var foes = ActorManager.Instance.GetActorsByCamp(foesCamp);
+                if (foes.Count > 0)
                 {
 
-                    damage = m_Owner.GetCreatureEntity().GetIntAttr(CreatureAttributeDef.ATTACK);
+                    damage = m_Owner.GetPower();
                     // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
 
                     //排序仇恨值
-                    monsters.Sort(SelectMaxHateSortComparer);
-                    var maxHate = monsters[monsters.Count - 1].GetHatred();
+                    foes.Sort(SelectMaxHateSortComparer);
+                    var maxHate = foes[foes.Count - 1].GetHatred();
 
-                    int i = monsters.Count - 2;
+                    int i = foes.Count - 2;
                     for (; i >= 0; i--)
                     {
-                        if (monsters[i].GetHatred() != maxHate)
+                        if (foes[i].GetHatred() != maxHate)
                         {
                             break;
                         }
                     }
-                    if (i >= 0 && i != monsters.Count - 1)
+                    if (i >= 0 && i != foes.Count - 1)
                     {
                         //如果有多个仇恨值相同的怪物，随机选一个
-                        var randomIndex = UnityEngine.Random.Range(i + 1, monsters.Count);
-                        target = monsters[randomIndex];
-                        Debug.Log($"<color=0x00ff00>{monsters.Count - 1 - i}个Hero仇恨值相同, 执行随机选择</color>");
+                        var randomIndex = UnityEngine.Random.Range(i + 1, foes.Count);
+                        target = foes[randomIndex];
+                        Debug.Log($"<color=0x00ff00>{foes.Count - 1 - i}个Hero仇恨值相同, 执行随机选择</color>");
                     }
                     else
                     {
                         //如果只有一个仇恨值最大的怪物
-                        target = monsters[monsters.Count - 1];
+                        target = foes[foes.Count - 1];
                     }
 
                     //找到仇恨值最大的
@@ -121,7 +122,7 @@ namespace GameScripts.HeroTeam
                 m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szAttack, false);
 
                 //仇恨值
-                IMonster m = m_Owner.GetCreatureEntity() as IMonster;
+                IActor m = m_Owner;
                 int newHatred = m.GetHatred() + Mathf.FloorToInt(m_Owner.GetMonsterCfg().iAttackHatred / 100f * Mathf.Abs(damage));
                 m.SetHatred(newHatred);
                 m.RecordHarm(Mathf.Abs(damage));
@@ -142,7 +143,7 @@ namespace GameScripts.HeroTeam
                             BuffManager.Instance.CreateBuff(target, m_Owner.GetMonsterCfg().iAttkBuffID);
                             Debug.Log($"攻击buff: {m_Owner.GetMonsterCfg().iAttkBuffID}");
                         }
-                        
+
                         target.SetHPDelta(-damage);
                     });
                 }
@@ -167,7 +168,7 @@ namespace GameScripts.HeroTeam
                   });
         }
 
-        private void Shot(int damage, IMonster target)
+        private void Shot(int damage, IActor target)
         {
 
             //发射的骨骼点
@@ -189,11 +190,9 @@ namespace GameScripts.HeroTeam
             //创建一枚子弹/发球
             var bullet = BulletManager.Instance.Get<Bullet>(m_cfgBullet, shotPos);
             bullet.SetHarm(damage);
-            bullet.SetSender(m_Owner.GetCreatureEntity().id);
+            bullet.SetSender(m_Owner.id);
             bullet.SetTarget(target);
         }
-
-
 
         public override void OnEnter()
         {
@@ -207,7 +206,7 @@ namespace GameScripts.HeroTeam
             if (skill != null)
             {
                 m_AttackCount = 0;
-                m_StateMachine.SetBlackboardValue(Actor.Machine_blackBoard_CooldownSkill, skill);
+                m_StateMachine.SetBlackboardValue(BlackboardDef.ACTOR_SKILL_CD_COMPLETED, skill);
                 m_StateMachine.ChangeState<ActorSkillState>();
             }
             else

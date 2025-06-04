@@ -9,7 +9,7 @@ namespace GameScripts.HeroTeam
 
         protected cfg_HeroTeamBuff m_Cfg;
 
-        protected IMonster m_Owner;
+        protected IActor m_Owner;
 
         protected float m_fNextTime = 0f;
 
@@ -18,9 +18,9 @@ namespace GameScripts.HeroTeam
         public cfg_HeroTeamBuff GetCfg() => m_Cfg;
 
 
-        public IMonster GetOwner() => m_Owner;
+        public IActor GetOwner() => m_Owner;
 
-        public virtual bool IsDone() => false;
+        public virtual bool IsDone() => m_nTimes >= m_Cfg.iCount;
 
         public virtual float NextTime() => m_fNextTime;
 
@@ -42,24 +42,24 @@ namespace GameScripts.HeroTeam
         }
 
 
-        public virtual void OnInit(IMonster owner, cfg_HeroTeamBuff cfg)
+        public virtual void OnInit(IActor owner, cfg_HeroTeamBuff cfg)
         {
             m_Owner = owner;
             m_Cfg = cfg;
+            RePlay();
 
             CreateEffect();
-            RePlay();
         }
 
         protected void CreateEffect()
         {
-            if (!string.IsNullOrEmpty(m_Cfg.buffEffect))
+            if (!string.IsNullOrEmpty(m_Cfg.szBuffEffect))
             {
-                m_trEffect = GameEffectManager.Instance.ShowEffect(m_Cfg.buffEffect, Vector3.zero, Quaternion.identity, 999f);
+                m_trEffect = GameEffectManager.Instance.ShowEffect(m_Cfg.szBuffEffect, Vector3.zero, Quaternion.identity, 999f);
                 m_trEffect.SetParent(m_Owner.GetTr(), false);
                 if (m_Cfg.float3RelativePos.Length > 0)
                 {
-                    m_trEffect.localPosition = new Vector3(m_Cfg.float3RelativePos[0], m_Cfg.float3RelativePos[1], m_Cfg.float3RelativePos[2]);
+                    m_trEffect.localPosition = new Vector3().FromArray(m_Cfg.float3RelativePos);
                 }
             }
         }

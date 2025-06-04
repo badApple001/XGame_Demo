@@ -6,6 +6,7 @@ using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using XClient.Common;
 using XClient.Entity;
@@ -43,15 +44,34 @@ namespace GameScripts.HeroTeam
 
         GameObject m_refNpc;
 
+        [HideInInspector]
+        public int LevelID = 1;
+
+        //缓存一份Boss的死亡位置        
+        public Vector3 BossDeathPosition { private set; get; }
+
+
         // Start is called before the first frame update
         void Start()
         {
             BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
             GameEffectManager.Instance.Setup(m_trEffectActiveRoot, m_trEffectHiddenRoot);
+            ActorManager.Instance.Setup(null);
+            ActorManager.Instance.ActorDieHandler += OnActorDieHandle;
+            ActorManager.Instance.RegisterActorCampUpdateProcessPipe(CampDef.BATTLE_CAMP_HERO, RankPipe.Instance);
+
             FillSpawnPoints();
             CreateHeros();
             CreateNpc();
             //CreateBoss( );
+        }
+
+    
+        private void OnDestroy()
+        {
+            BulletManager.Instance.Release();
+            GameEffectManager.Instance.Release();
+            ActorManager.Instance.Release();
         }
 
 
@@ -64,6 +84,7 @@ namespace GameScripts.HeroTeam
         {
             return StartCoroutine(OpenCoroutineTimer(delay, callback));
         }
+
 
         private IEnumerator OpenCoroutineTimer(float delay, Action callback)
         {
@@ -105,6 +126,14 @@ namespace GameScripts.HeroTeam
             return StartCoroutine(routine);
         }
 
+        /// <summary>
+        /// 获取当前关卡配置
+        /// </summary>
+        /// <returns></returns>
+        public cfg_HeroTeamLevels GetCurrentLevelConfig()
+        {
+            return GameGlobal.GameScheme.HeroTeamLevels_0(LevelID);
+        }
 
 
         private void FillSpawnPoints()
@@ -198,7 +227,7 @@ namespace GameScripts.HeroTeam
 
             void SpawnByRoadRoot(Transform rootNode, List<int> heroIds, bool autoNear = false, bool ergodic = true)
             {
-                Debug.Assert(heroIds.Count == rootNode.childCount, "Ѱ·�ڵ㲻��");
+                Debug.Assert(heroIds.Count == rootNode.childCount, "节点数量和生成的数量不一致");
                 for (int i = 0; i < heroIds.Count; i++)
                 {
                     Vector3 pos = m_vec3HeroSpawnPoints[m_vec3HeroSpawnPoints.Count - 1];
@@ -246,22 +275,22 @@ namespace GameScripts.HeroTeam
                             }
                         }
                     }
-                    RefreshMonsterMgr.Instance.RefreshHero(heroIds[i], pos, BATTLE_CAMP_DEF.BATTLE_CAMP_HERO, road);
+                    RefreshMonsterMgr.Instance.RefreshHero(heroIds[i], pos, CampDef.BATTLE_CAMP_HERO, road);
                 }
             }
+
+            Debug.Log(String.Join('#', arrTmpAcher));
+            Debug.Log(String.Join('#', arrTmpWarrior));
+            Debug.Log(String.Join('#', arrTmpTank));
 
             //arrTmpAcher
             SpawnByRoadRoot(m_trAcherRoadRoot, arrTmpAcher, true);
 
-
             //arrTmpWarrior
             SpawnByRoadRoot(m_tWarriorRoadRoot, arrTmpWarrior);
 
-
             //arrTmpTank
             SpawnByRoadRoot(m_trTankRoadRoot, arrTmpTank, false, false);
-
-
 
             //foreach ( var cfg in dictTmpHeros )
             //{
@@ -269,7 +298,7 @@ namespace GameScripts.HeroTeam
             //    {
             //        Vector3 pos = m_vec3HeroSpawnPoints[ m_vec3HeroSpawnPoints.Count - 1 ];
             //        m_vec3HeroSpawnPoints.RemoveAt( m_vec3HeroSpawnPoints.Count - 1 );
-            //        RefreshMonsterMgr.Instance.RefreshHero( cfg.Key, pos, BATTLE_CAMP_DEF.BATTLE_CAMP_HERO );
+            //        RefreshMonsterMgr.Instance.RefreshHero( cfg.Key, pos, CampDef.BATTLE_CAMP_HERO );
             //    }
             //}
 
@@ -297,7 +326,7 @@ namespace GameScripts.HeroTeam
 
             //    monster.
             //}
-            Invoke("DelayCreateBoss", 3f);
+            Invoke("DelayCreateBoss", GetCurrentLevelConfig().iBossBornDelaySeconds);
         }
         private void DelayCreateBoss()
         {
@@ -321,11 +350,21 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "GameManager:OnEnable");
 
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_STARTED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_CHANGED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+
+
         }
         private void OnDisable()
         {
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+
+
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_STARTED, DEventSourceType.SOURCE_TYPE_UI, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_CHANGED, DEventSourceType.SOURCE_TYPE_UI, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0);
         }
 
 
@@ -345,9 +384,22 @@ namespace GameScripts.HeroTeam
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
                 StopAllCoroutines();
-
+                OnGameOverAndPlayerWin();
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_JOYSTICK_STARTED)
+            {
+                OnJoystickStarted();
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_JOYSTICK_CHANGED)
+            {
+                OnJoystickChanged();
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_JOYSTICK_ENDED)
+            {
+                OnJoystickEnded();
             }
         }
+
 
         private IEnumerator NpcBossChat()
         {
@@ -417,8 +469,112 @@ namespace GameScripts.HeroTeam
             Destroy(m_refNpc);
         }
 
+
+
+        private bool m_OnJoystickTouched = false;
+        private void OnJoystickStarted()
+        {
+            m_OnJoystickTouched = true;
+
+            //刷新动画
+
+        }
+        private void OnJoystickChanged()
+        {
+
+        }
+
+        private void OnJoystickEnded()
+        {
+            m_OnJoystickTouched = false;
+
+        }
+
+        private void ApplyUserInput()
+        {
+            var delta = JoystickEventContext.Ins.delta;
+
+        }
+
+        private void OnActorDieHandle(IActor actor)
+        {
+
+
+
+            if (actor.IsBoos())
+            {
+                //记录一下boss的死亡位置
+                BossDeathPosition = actor.GetTr().position;
+                GameGlobal.EventEgnine.FireExecute(GameScripts.HeroTeam.DHeroTeamEvent.EVENT_WIN, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+
+                //Boss掉宝
+                //TODO: 后续由关卡表配置
+                string propResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExclTiltedGlossy.prefab";
+                GameEffectManager.Instance.ShowEffect(propResPath, BossDeathPosition + Vector3.up * 3f, Quaternion.identity, 10f);
+
+                //Boss死亡特效
+                string explosResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab";
+                GameEffectManager.Instance.ShowEffect(explosResPath, BossDeathPosition + Vector3.up * 7.57f);
+            }
+        }
+
+
+        private void OnGameOverAndPlayerWin()
+        {
+            // if (DHeroTeamEvent.EVENT_WIN == wEventID)
+            // {
+
+            //     Debug.Log(">>>>>>>>> Boss Win Event Triggered");
+            //     foreach (IMonster monster in m_dicMonster.Values)
+            //     {
+            //         if (null != monster)
+            //         {
+            //             if (!monster.IsDie())
+            //             {
+            //                 // if (((cfg_Monster)monster.config).HeroClass > HeroClassDef.WARRIOR)
+            //                 // {
+            //                 ////离boss比较远的玩家 跑到boss实体附近去捡装备
+            //                 var prefab = monster.GetPart<PrefabPart>();
+            //                 if (prefab != null)
+            //                 {
+            //                     if (prefab.transform.TryGetComponent<Actor>(out var actor))
+            //                     {
+            //                         actor.Switch2State<ActorWinState>();
+            //                     }
+            //                 }
+            //                 // }
+            //             }
+            //         }
+            //     }
+            // }
+            // else if (DGlobalEvent.EVENT_ENTITY_DESTROY == wEventID)
+            // {
+            //     IMonster monster = pContext as IMonster;
+            //     if (null != monster)
+            //     {
+            //         ulong entID = monster.id;
+            //         if (m_dicMonster.ContainsKey(entID))
+            //         {
+            //             //m_dicMonster[entID] = null;
+            //             m_hashWaitDel.Add(entID);
+            //         }
+            //     }
+            // }
+        }
+
         private void Update()
         {
+
+            if (m_OnJoystickTouched)
+            {
+
+                //向服务器同步玩家操作
+
+
+                //本地预测
+                ApplyUserInput();
+            }
+
             // if ( Input.GetKeyDown( KeyCode.Space ) )
             // {
             //     var pContext = CameraShakeEventContext.Ins;
@@ -438,6 +594,8 @@ namespace GameScripts.HeroTeam
             // }
 
         }
+
+
     }
 
 }

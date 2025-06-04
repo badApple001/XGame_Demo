@@ -8,14 +8,13 @@ Description：游戏内的UI
 using UnityEngine;
 using UnityEngine.UI;
 using XGame.UI.Framework;
-using XGame.UI.Framework.Flex;
-using XGame.UI.Framework.EffList;
 using XGame.EventEngine;
 using XClient.Common;
 using DG.Tweening;
 using GameScripts.HeroTeam.UI.Win;
 using XClient.Entity;
 using System.Text;
+using EasyMobileInput;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
@@ -31,6 +30,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         private Transform m_trHarmListRoot;
         // 治疗列表根节点
         private Transform m_trCuringListRoot;
+        //摇杆
+        private Joystick m_Joystick;
 
         /// <summary>
         /// 刷新UI时调用
@@ -48,7 +49,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             base.OnInitialize();
 
             // 获取属性面板下的各个排行榜根节点
-            var propertyPanel = img_PropertyPanel.rectTransform.GetChild(1);
+            var propertyPanel = tran_PropertyContent;
             m_trHateListRoot = propertyPanel.GetChild(0);
             m_trHarmListRoot = propertyPanel.GetChild(1);
             m_trCuringListRoot = propertyPanel.GetChild(2);
@@ -72,7 +73,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         /// <param name="monster">怪物数据</param>
         /// <param name="sb">字符串构建器</param>
         /// <param name="func">伤害转换函数（可选）</param>
-        private void RefreshRankItem(int index, Transform trItem, IMonster monster, ref StringBuilder sb, HarmConverterFunc func = null)
+        private void RefreshRankItem(int index, Transform trItem, IActor monster, ref StringBuilder sb, HarmConverterFunc func = null)
         {
 
             //转换伤害/治疗
@@ -108,24 +109,24 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         /// <summary>
         /// 伤害转换函数委托
         /// </summary>
-        private delegate int HarmConverterFunc(IMonster monster);
+        private delegate int HarmConverterFunc(IActor monster);
 
         /// <summary>
         /// 伤害转换实现：如果是贤者职业则返回0，否则返回总伤害
         /// </summary>
-        private int HarmConverter(IMonster monster) => monster.GetHeroCls() == HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
+        private int HarmConverter(IActor monster) => monster.GetHeroCls() == HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
 
         /// <summary>
         /// 治疗转换实现 ：如果非贤者职业返回0
         /// </summary>
         /// <param name="monster"></param>
         /// <returns></returns>
-        private int CuringConverter(IMonster monster) => monster.GetHeroCls() != HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
+        private int CuringConverter(IActor monster) => monster.GetHeroCls() != HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
 
         /// <summary>
         /// 仇恨转换实现：返回怪物的仇恨值
         /// </summary>
-        private int HateConverter(IMonster monster) => monster.GetHatred();
+        private int HateConverter(IActor monster) => monster.GetHatred();
 
         /// <summary>
         /// 刷新排行榜数据
@@ -171,7 +172,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         }
 
         // 是否展开属性面板
-        private bool m_OpenCollapsed = true;
+        private bool m_OpenCollapsed = false;
 
         //@<<< ExecuteEventHandlerGenerator >>>
         //@<<< ButtonFuncGenerator >>>
@@ -182,7 +183,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         {
             m_OpenCollapsed = !m_OpenCollapsed;
 
-            float height = m_OpenCollapsed ? 2000f : 571.9461f;
+            float height = m_OpenCollapsed ? 2000f : 65f;
             img_PropertyPanel.rectTransform.DOKill();
             var size = img_PropertyPanel.rectTransform.sizeDelta;
             size.y = height;
@@ -209,10 +210,22 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         protected override void OnSubscribeEvents()
         {
             base.OnSubscribeEvents();
+
+            //注册事件
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0, "UIHeroTeamGame:OnSubscribeEvents");
+
+            //游戏摇杆事件注册
+            var joystick = tran_JoystickParent.GetComponentInChildren<Joystick>();
+            if (null != joystick)
+            {
+                m_Joystick = joystick;
+                joystick.OnInputChanged += OnJoystickInputChanged;
+                joystick.OnInputStarted += OnJoystickInputStarted;
+                joystick.OnInputEnded += OnJoystickInputEnded;
+            }
         }
 
         /// <summary>
@@ -221,10 +234,23 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         protected override void OnUnsubscribeEvents()
         {
             base.OnUnsubscribeEvents();
+
+
+            //移除事件
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0);
+
+
+            //游戏摇杆事件移除
+            if (null != m_Joystick)
+            {
+                var joystick = m_Joystick;
+                joystick.OnInputChanged -= OnJoystickInputChanged;
+                joystick.OnInputStarted -= OnJoystickInputStarted;
+                joystick.OnInputEnded -= OnJoystickInputEnded;
+            }
         }
 
         /// <summary>
@@ -257,7 +283,9 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             else if (DHeroTeamEvent.EVENT_START_GAME == wEventID)
             {
                 // 开始游戏时折叠属性面板
-                OnBtn_CollapseClicked();
+                // OnBtn_CollapseClicked();
+                tran_ParametersPanel.gameObject.SetActive(true);
+                tran_JoystickParent.gameObject.SetActive(true);
             }
             else if (DHeroTeamEvent.EVENT_REFRESH_RANKDATA == wEventID && pContext is RefreshRankContext ctx)
             {
@@ -265,8 +293,38 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
                 RefreshRank(ctx);
             }
         }
-    }
 
+
+        private void OnJoystickInputChanged(Vector3 old, Vector3 current)
+        {
+            Debug.Log("joystick drag: " + current.ToString());
+
+            var pContext = JoystickEventContext.Ins;
+            pContext.delta = current;
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, pContext);
+        }
+
+        private void OnJoystickInputStarted()
+        {
+            Debug.Log("joystick started");
+            
+            var pContext = JoystickEventContext.Ins;
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, pContext);
+
+        }
+
+        private void OnJoystickInputEnded()
+        {
+            Debug.Log("joystick ended");
+
+            var pContext = JoystickEventContext.Ins;
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, pContext);
+
+        }
+
+
+    }
     //@<<< EffectiveListGenerator >>>
     //@<<< FlexItemGenerator >>>
+
 }

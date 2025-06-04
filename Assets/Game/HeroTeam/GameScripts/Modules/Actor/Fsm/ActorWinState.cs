@@ -37,8 +37,8 @@ namespace GameScripts.HeroTeam
             var pos = MonsterSystem.Instance.BossDeathPosition + Vector3.up * 2.4f;
             var bullet = BulletManager.Instance.Get<Bullet>(cfg_sageBullet, pos);
             bullet.SetHarm(-999999);//98# 加满！不差$
-            bullet.SetSender(m_Owner.GetCreatureEntity().id);
-            bullet.SetTarget(m_Owner.GetCreatureEntity() as IMonster);
+            bullet.SetSender(m_Owner.id);
+            bullet.SetTarget(m_Owner);
         }
 
         //领取奖品
@@ -58,7 +58,7 @@ namespace GameScripts.HeroTeam
             string faceResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiStarstruck.prefab";
             var face = GameEffectManager.Instance.ShowEffect(faceResPath, m_Owner.GetTr().position, Quaternion.identity, 2f);
             face.SetParent(m_Owner.GetTr(), false);
-            face.localPosition = ((IMonster)(m_Owner.GetCreatureEntity())).GetFaceTr().localPosition;
+            face.localPosition =m_Owner.GetFaceTr().localPosition;
 
             //TODO: 后续配置表
             string fxResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/PowerOrbYellow.prefab";

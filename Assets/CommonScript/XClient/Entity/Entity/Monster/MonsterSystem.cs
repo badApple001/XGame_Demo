@@ -475,28 +475,28 @@ namespace XClient.Entity
             if (DHeroTeamEvent.EVENT_WIN == wEventID)
             {
 
-                Debug.Log(">>>>>>>>> Boss Win Event Triggered");
-                foreach (IMonster monster in m_dicMonster.Values)
-                {
-                    if (null != monster)
-                    {
-                        if (!monster.IsDie())
-                        {
-                            // if (((cfg_Monster)monster.config).HeroClass > HeroClassDef.WARRIOR)
-                            // {
-                            ////离boss比较远的玩家 跑到boss实体附近去捡装备
-                            var prefab = monster.GetPart<PrefabPart>();
-                            if (prefab != null)
-                            {
-                                if (prefab.transform.TryGetComponent<Actor>(out var actor))
-                                {
-                                    actor.Switch2State<ActorWinState>();
-                                }
-                            }
-                            // }
-                        }
-                    }
-                }
+                // Debug.Log(">>>>>>>>> Boss Win Event Triggered");
+                // foreach (IMonster monster in m_dicMonster.Values)
+                // {
+                //     if (null != monster)
+                //     {
+                //         if (!monster.IsDie())
+                //         {
+                //             // if (((cfg_Monster)monster.config).HeroClass > HeroClassDef.WARRIOR)
+                //             // {
+                //             ////离boss比较远的玩家 跑到boss实体附近去捡装备
+                //             var prefab = monster.GetPart<PrefabPart>();
+                //             if (prefab != null)
+                //             {
+                //                 if (prefab.transform.TryGetComponent<Actor>(out var actor))
+                //                 {
+                //                     actor.Switch2State<ActorWinState>();
+                //                 }
+                //             }
+                //             // }
+                //         }
+                //     }
+                // }
             }
             else if (DGlobalEvent.EVENT_ENTITY_DESTROY == wEventID)
             {

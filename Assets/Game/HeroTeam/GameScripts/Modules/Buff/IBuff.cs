@@ -8,7 +8,7 @@ namespace GameScripts.HeroTeam
         /// 初始化
         /// </summary>
         /// <param name="owner"> 拥有者 </param>
-        void OnInit(IMonster owner, cfg_HeroTeamBuff cfg);
+        void OnInit(IActor owner, cfg_HeroTeamBuff cfg);
 
         /// <summary>
         /// 下次可以更新的时间
@@ -48,7 +48,7 @@ namespace GameScripts.HeroTeam
         /// 获取拥有者
         /// </summary>
         /// <returns></returns>
-        IMonster GetOwner();
+        IActor GetOwner();
 
     }
 }

@@ -1,16 +1,16 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	RefreshMonsterMgr.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.7.05
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  ¹ÖÎïË¢ÐÂ¹ÜÀíÆ÷
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	RefreshMonsterMgr.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.7.05
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½Ë¢ï¿½Â¹ï¿½ï¿½ï¿½ï¿½ï¿½
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 using System.Collections.Generic;
@@ -41,35 +41,35 @@ namespace GameScripts.Monster
 
     public class RefreshMonsterMgr : MonoBehaviourEX<RefreshMonsterMgr>
     {
-        //ÎÒ·ÅÂ·ÓÉÂ·µã
+        //ï¿½Ò·ï¿½Â·ï¿½ï¿½Â·ï¿½ï¿½
         public List<GameObject> listSelfRoute = new List<GameObject>( );
 
-        //µÐ·½Â·µã
+        //ï¿½Ð·ï¿½Â·ï¿½ï¿½
         public List<GameObject> listEnemyRoute = new List<GameObject>( );
 
-        //Ë¢¹ÖÆ÷
+        //Ë¢ï¿½ï¿½ï¿½ï¿½
         public MonsterLauncher monsterLauncherMonster;
         public MonsterLauncher monsterLauncherHero;
 
-        //±ðÈËµÄ
+        //ï¿½ï¿½ï¿½Ëµï¿½
         //public MonsterLauncher OtherLauncher;
 
-        //Ëæ»úµÄ¼¼ÄÜÁÐ±í(ÁÙÊ±¶ÔÏó)
+        //ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ð±ï¿½(ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½)
         private List<int> skillIDs = new List<int>( );
 
-        //ÎÒÂ·ÓÉµã±í
+        //ï¿½ï¿½Â·ï¿½Éµï¿½ï¿½
         private List<Vector3> m_listSelfRoutePoints = new List<Vector3>( );
 
-        //µÐ·½Â·ÓÉµã±í
+        //ï¿½Ð·ï¿½Â·ï¿½Éµï¿½ï¿½
         private List<Vector3> m_listEnemyRoutePoints = new List<Vector3>( );
 
-        //Ë¢¹Ö¼ä¸ô
+        //Ë¢ï¿½Ö¼ï¿½ï¿½
         private float m_lastCreateTime = 0.0f;
 
-        //ÑÓ³ÙË¢ÐÂÅäÖÃ
+        //ï¿½Ó³ï¿½Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         cfg_RefreshLevelMonster m_DelayRefreshCfg;
 
-        //´ýË¢¹ÖÁÐ±í
+        //ï¿½ï¿½Ë¢ï¿½ï¿½ï¿½Ð±ï¿½
         private List<MonsterRefreshContext> m_listWaitCreateMonsters = new List<MonsterRefreshContext>( );
 
 
@@ -77,10 +77,10 @@ namespace GameScripts.Monster
         void Start( )
         {
 
-            //ÉèÖÃ
+            //ï¿½ï¿½ï¿½ï¿½
             //KingAICreator.Instance.Setup( );
 
-            //ÉèÖÃÊôÐÔÐÞ¸ÄÆ÷
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½
             //MonsterSystem.Instance.SetAttrModifier( KingAttrModifier.Instance );
 
             //m_playerIndex<<16| BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER
@@ -88,7 +88,7 @@ namespace GameScripts.Monster
             //BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER << 32 | GameGlobal.RoleAgent.id >> 32;
 
 
-            //ÆÁ±Î×Ô¶¯Ë¢¹ÖÎï
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½Ë¢ï¿½ï¿½ï¿½ï¿½
             if ( null != monsterLauncherMonster )
             {
                 monsterLauncherMonster.enabled = false;
@@ -96,7 +96,7 @@ namespace GameScripts.Monster
 
 
 
-                //ËùÓÐÈË¶¼²»ÄÜ´òÆå×Ó
+                //ï¿½ï¿½ï¿½ï¿½ï¿½Ë¶ï¿½ï¿½ï¿½ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½
                 monsterLauncherMonster.listFriendCamps.Clear( );
                 //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_PIECE );
 
@@ -105,11 +105,11 @@ namespace GameScripts.Monster
             }
 
 
-            //³õÊ¼»¯Â·ÓÉÎ»ÖÃ
+            //ï¿½ï¿½Ê¼ï¿½ï¿½Â·ï¿½ï¿½Î»ï¿½ï¿½
             __InitRoutePoints( m_listSelfRoutePoints, listSelfRoute );
             __InitRoutePoints( m_listEnemyRoutePoints, listEnemyRoute );
 
-            //Ë¢Ò»²¨²âÊÔµÄ
+            //Ë¢Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½
             // RefreshRoundMonster(1, 1, 1, 1);
         }
 
@@ -120,7 +120,7 @@ namespace GameScripts.Monster
         }
 
         /// <summary>
-        /// Ïú»Ù¹ÖÎï
+        /// ï¿½ï¿½ï¿½Ù¹ï¿½ï¿½ï¿½
         /// </summary>
         /// <param name="entMonster"></param>
         public void DestroyMonster( ulong entMonster )
@@ -128,7 +128,7 @@ namespace GameScripts.Monster
             //GameGlobalEx.EntityManager.DestroyEntity( entMonster );
         }
 
-        //µ¥Ë¢Ä³¸ö¹ÖÎï
+        //ï¿½ï¿½Ë¢Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         public ulong RefreshMonster( int monsterID, Vector3 pos, ulong camp )
         {
             if ( monsterLauncherMonster != null )
@@ -148,10 +148,10 @@ namespace GameScripts.Monster
                 {
                     IMonster monster = listMonster[ 0 ];
                     cfg_Monster cfg = monster.config as cfg_Monster;
-                    //ÊÍ·Å³öÉú¼¼ÄÜ
+                    //ï¿½Í·Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     //__CastBornSkill( monster, cfg.bornskillIDs );
 
-                    //ÐÞ¸ÄÊôÐÔ
+                    //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
                     __SyncAttribute( monster, 0, 0 );
 
                     return monster.id;
@@ -161,7 +161,7 @@ namespace GameScripts.Monster
             return 0;
         }
 
-        //µ¥Ë¢Ä³¸ö¹ÖÎï
+        //ï¿½ï¿½Ë¢Ä³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         public void RefreshMonster( int monsterID, ulong camp, OnMonsterCreateCallback fnCallback = null )
         {
             if ( monsterLauncherMonster != null )
@@ -187,10 +187,10 @@ namespace GameScripts.Monster
                     IMonster monster = listMonster[0];
                     cfg_Monster cfg = monster.config as cfg_Monster;
 
-                    //ÐÞ¸ÄÊôÐÔ
+                    //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
                     __SyncAttribute(monster, 0, 0);
 
-                    //ÊÍ·Å³öÉú¼¼ÄÜ
+                    //ï¿½Í·Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                     __CastBornSkill(monster, cfg.bornskillIDs);
                     return monster.id;
                 }
@@ -198,7 +198,7 @@ namespace GameScripts.Monster
             }
         }
 
-        //Ë¢¹ÖÎïÁÐ±í
+        //Ë¢ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½
         public void RefreshMonster( List<int> listMonster, ulong camp, OnMonsterCreateCallback fnCallback = null )
         {
             int nCount = listMonster.Count;
@@ -208,17 +208,17 @@ namespace GameScripts.Monster
             }
         }
 
-        //¹Ø¿¨»ØºÏ±ä¸üË¢¹Ö
+        //ï¿½Ø¿ï¿½ï¿½ØºÏ±ï¿½ï¿½Ë¢ï¿½ï¿½
         public void RefreshRoundMonster( int chapter, int level, int round, int order )
         {
             cfg_RefreshLevelMonster cfg = GameGlobal.GameScheme.RefreshLevelMonster_0( chapter, level, round, order );
             if ( null == cfg )
             {
-                Debug.LogError( "²»´æÔÚµÄ¹Ø¿¨ÅäÖÃ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
+                Debug.LogError( "ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¹Ø¿ï¿½ï¿½ï¿½ï¿½ï¿½ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
                 return;
             }
 
-            // ÏÈ±£´æÔÚ´ýË¢ÐÂÁÐ±í
+            // ï¿½È±ï¿½ï¿½ï¿½ï¿½Ú´ï¿½Ë¢ï¿½ï¿½ï¿½Ð±ï¿½
             int nLen = cfg.aryMonster.Length;
             for ( int i = 0; i < nLen; ++i )
             {
@@ -234,75 +234,75 @@ namespace GameScripts.Monster
 
         }
 
-        //Ë¢ÐÂboss
+        //Ë¢ï¿½ï¿½boss
         public ulong RefreshBoss( int chapter, int level, int round, int order )
         {
-            cfg_RefreshLevelMonster cfg = GameGlobal.GameScheme.RefreshLevelMonster_0( chapter, level, round, order );
-            if ( null == cfg )
-            {
-                Debug.LogError( "²»´æÔÚµÄ¹Ø¿¨ÅäÖÃ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
-                return 0;
-            }
+            // cfg_RefreshLevelMonster cfg = GameGlobal.GameScheme.RefreshLevelMonster_0( chapter, level, round, order );
+            // if ( null == cfg )
+            // {
+            //     Debug.LogError( "ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¹Ø¿ï¿½ï¿½ï¿½ï¿½ï¿½ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
+            //     return 0;
+            // }
 
-            if ( cfg.iBossID <= 0 )
-            {
-                Debug.LogError( "µ±Ç°²¨´ÎÃ»ÓÐÅäÖÃboss ¹Ø¿¨ÅäÖÃ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
-                return 0;
-            }
+            // if ( cfg.iBossID <= 0 )
+            // {
+            //     Debug.LogError( "ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½boss ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½ï¿½ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
+            //     return 0;
+            // }
 
-            if ( cfg.aryBossBornPos.Length < 3 )
-            {
-                Debug.LogError( "bossÎ»ÖÃÅäÖÃÓÐÎó ¹Ø¿¨ÅäÖÃ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
-                return 0;
-            }
+            // if ( cfg.aryBossBornPos.Length < 3 )
+            // {
+            //     Debug.LogError( "bossÎ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø¿ï¿½ï¿½ï¿½ï¿½ï¿½ chapter=" + chapter + ",level=" + level + ",round=" + round + ",order=" + order );
+            //     return 0;
+            // }
 
-            //boss³öÉúÒªÎüÑª,½«µÈ´ýµÄ¹ÖÎïÒ»ÌåË¢ÐÂ
-            __ProcessDelayMonsterAll( );
+            // //bossï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ñª,ï¿½ï¿½ï¿½È´ï¿½ï¿½Ä¹ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ë¢ï¿½ï¿½
+            // __ProcessDelayMonsterAll( );
 
 
 
-            //Ë¢¹Ö
-            monsterLauncherMonster.listMonsterIDs.Clear( );
-            monsterLauncherMonster.listMonsterIDs.Add( cfg.iBossID );
-            monsterLauncherMonster.listRefreshParam.Clear( );
-            monsterLauncherMonster.listRefreshParam.Add( 1 );
-            monsterLauncherMonster.paramType = PARAM_TYPE.PARAM_TYPE_COUNT;
-            monsterLauncherMonster.limit_MonsterCount = 1000;
-            monsterLauncherMonster.camp = CampDef.GetLocalCamp( BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER );  //BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER;
-            monsterLauncherMonster.bRandomPos = false;
-            //monsterLauncherMonster.refreshPos = new Vector3( cfg.aryBossBornPos[ 0 ], cfg.aryBossBornPos[ 1 ], cfg.aryBossBornPos[ 2 ] );
-            monsterLauncherMonster.refreshPos = new Vector3( 1.01f, 13.38f );
+            // //Ë¢ï¿½ï¿½
+            // monsterLauncherMonster.listMonsterIDs.Clear( );
+            // monsterLauncherMonster.listMonsterIDs.Add( cfg.iBossID );
+            // monsterLauncherMonster.listRefreshParam.Clear( );
+            // monsterLauncherMonster.listRefreshParam.Add( 1 );
+            // monsterLauncherMonster.paramType = PARAM_TYPE.PARAM_TYPE_COUNT;
+            // monsterLauncherMonster.limit_MonsterCount = 1000;
+            // monsterLauncherMonster.camp = CampDef.GetLocalCamp( BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER );  //BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER;
+            // monsterLauncherMonster.bRandomPos = false;
+            // //monsterLauncherMonster.refreshPos = new Vector3( cfg.aryBossBornPos[ 0 ], cfg.aryBossBornPos[ 1 ], cfg.aryBossBornPos[ 2 ] );
+            // monsterLauncherMonster.refreshPos = new Vector3( 1.01f, 13.38f );
 
-            //ÉèÖÃÓÑ·½
-            monsterLauncherMonster.listFriendCamps.Clear( );
-            //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_PIECE );
-            //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_WALL );
+            // //ï¿½ï¿½ï¿½ï¿½ï¿½Ñ·ï¿½
+            // monsterLauncherMonster.listFriendCamps.Clear( );
+            // //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_PIECE );
+            // //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_WALL );
 
-            //»ñÈ¡µ±Ç°ÕóÓª Ð¡±øµÄÑªÁ¿£¬È«²¿Õ¶É±
-            int addHP = __SuckMonsterByCamp( cfg, monsterLauncherMonster.camp );
+            // //ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½ï¿½Óª Ð¡ï¿½ï¿½ï¿½ï¿½Ñªï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½Õ¶É±
+            // int addHP = __SuckMonsterByCamp( cfg, monsterLauncherMonster.camp );
 
-            Debug.Log( $"BossÎüÈ¡Ð¡¹ÖÑªÁ¿£º{addHP}" );
+            // Debug.Log( $"Bossï¿½ï¿½È¡Ð¡ï¿½ï¿½Ñªï¿½ï¿½ï¿½ï¿½{addHP}" );
 
-            List<IMonster> listMonsters = monsterLauncherMonster.RefreshMonster( );
-            if ( listMonsters.Count > 0 )
-            {
-                IMonster monster = listMonsters[ 0 ];
+            // List<IMonster> listMonsters = monsterLauncherMonster.RefreshMonster( );
+            // if ( listMonsters.Count > 0 )
+            // {
+            //     IMonster monster = listMonsters[ 0 ];
 
-                //½Ç¶ÈÊÇ¸ù¾Ý MonsterLauncherµÄ¼ÓÔØÆ÷forwardÀ´ÉèÖÃ
-                //monster.SetRotation( Quaternion.Euler( 0, 180, 0 ) );
-                //monster.transform.rotation = Quaternion.Euler( 0, 180, 0 );
+            //     //ï¿½Ç¶ï¿½ï¿½Ç¸ï¿½ï¿½ï¿½ MonsterLauncherï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½forwardï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //     //monster.SetRotation( Quaternion.Euler( 0, 180, 0 ) );
+            //     //monster.transform.rotation = Quaternion.Euler( 0, 180, 0 );
 
-                //ÐÞ¸ÄÊôÐÔ
-                __SyncAttribute( monster, 0, addHP );
+            //     //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+            //     __SyncAttribute( monster, 0, addHP );
 
-                cfg_Monster cfg_monster = monster.config as cfg_Monster;
+            //     cfg_Monster cfg_monster = monster.config as cfg_Monster;
 
-                //ÊÍ·Å³öÉú¼¼ÄÜ
-                //__CastBornSkill( monster, cfg_monster.bornskillIDs );
+            //     //ï¿½Í·Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //     //__CastBornSkill( monster, cfg_monster.bornskillIDs );
 
-                return monster.id;
+            //     return monster.id;
 
-            }
+            // }
 
             return 0;
         }
@@ -310,52 +310,52 @@ namespace GameScripts.Monster
 
         public ulong RefreshHero( int monsterID, Vector3 pos, ulong camp, List<Vector3> road )
         {
-            if ( monsterLauncherHero != null )
-            {
-                monsterLauncherHero.listMonsterIDs.Clear( );
-                monsterLauncherHero.listMonsterIDs.Add( monsterID );
-                monsterLauncherHero.listRefreshParam.Clear( );
-                monsterLauncherHero.listRefreshParam.Add( 1 );
-                monsterLauncherHero.paramType = PARAM_TYPE.PARAM_TYPE_COUNT;
-                monsterLauncherHero.limit_MonsterCount = 1000;
-                monsterLauncherHero.bRandomPos = false;
-                monsterLauncherHero.refreshPos = pos;
-                monsterLauncherHero.camp = CampDef.GetLocalCamp( camp );
-                monsterLauncherHero.listFriendCamps.Clear( );
-                List<IMonster> listMonster = monsterLauncherHero.RefreshMonster( );
-                if ( listMonster.Count > 0 )
-                {
-                    IMonster monster = listMonster[ 0 ];
-                    cfg_Monster cfg = monster.config as cfg_Monster;
-                    //ÊÍ·Å³öÉú¼¼ÄÜ
-                    //__CastBornSkill( monster, cfg.bornskillIDs );
+            // if ( monsterLauncherHero != null )
+            // {
+            //     monsterLauncherHero.listMonsterIDs.Clear( );
+            //     monsterLauncherHero.listMonsterIDs.Add( monsterID );
+            //     monsterLauncherHero.listRefreshParam.Clear( );
+            //     monsterLauncherHero.listRefreshParam.Add( 1 );
+            //     monsterLauncherHero.paramType = PARAM_TYPE.PARAM_TYPE_COUNT;
+            //     monsterLauncherHero.limit_MonsterCount = 1000;
+            //     monsterLauncherHero.bRandomPos = false;
+            //     monsterLauncherHero.refreshPos = pos;
+            //     monsterLauncherHero.camp = CampDef.GetLocalCamp( camp );
+            //     monsterLauncherHero.listFriendCamps.Clear( );
+            //     List<IMonster> listMonster = monsterLauncherHero.RefreshMonster( );
+            //     if ( listMonster.Count > 0 )
+            //     {
+            //         IMonster monster = listMonster[ 0 ];
+            //         cfg_Monster cfg = monster.config as cfg_Monster;
+            //         //ï¿½Í·Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //         //__CastBornSkill( monster, cfg.bornskillIDs );
 
-                    monster.SetRoad( road );
+            //         monster.SetRoad( road );
 
-                    //ÐÞ¸ÄÊôÐÔ
-                    __SyncAttribute( monster, 0, 0 );
+            //         //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
+            //         __SyncAttribute( monster, 0, 0 );
 
-                    return monster.id;
-                }
-            }
+            //         return monster.id;
+            //     }
+            // }
             return 0;
         }
 
 
 
-        //»ñÈ¡ÎÒ·½Â·ÓÉµã
+        //ï¿½ï¿½È¡ï¿½Ò·ï¿½Â·ï¿½Éµï¿½
         public List<Vector3> GetSelfRoutePoints( )
         {
             return m_listSelfRoutePoints;
         }
 
-        //»ñÈ¡µÐ·½Â·ÓÉµã
+        //ï¿½ï¿½È¡ï¿½Ð·ï¿½Â·ï¿½Éµï¿½
         public List<Vector3> GetEnemyRoutePoints( )
         {
             return m_listEnemyRoutePoints;
         }
 
-        //Çå³ý
+        //ï¿½ï¿½ï¿½
         public void Clear( )
         {
             m_listWaitCreateMonsters.Clear( );
@@ -364,11 +364,11 @@ namespace GameScripts.Monster
         }
 
 
-        //ÉèÖÃÊôÐÔ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private void __SyncAttribute( IMonster monster, int attributeID, int addHP )
         {
 
-            //»ñÈ¡ÊôÐÔÖµ
+            //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµ
             cfg_Monster cfgMonster = monster.config as cfg_Monster;
             //int iAttack = cfgMonster.iAttack;
             //int iAttackSpeed = cfgMonster.iAttackSpeed;
@@ -379,7 +379,7 @@ namespace GameScripts.Monster
             //int iPowerAttackRate = cfgMonster.iPowerAttackRate;
             //int iPowerAttackCoff = cfgMonster.iPowerAttackCoff;
 
-            ////Ëõ·ÅÊôÐÔ
+            ////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             //if ( attributeID > 0 )
             //{
             //    cfg_Attribute cfgAttr = GameGlobal.GameScheme.Attribute_0( attributeID );
@@ -398,26 +398,26 @@ namespace GameScripts.Monster
             //    }
             //    else
             //    {
-            //        Debug.LogError( "²»´æÔÚµÄÊôÐÔID attributeID=" + attributeID );
+            //        Debug.LogError( "ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ID attributeID=" + attributeID );
             //    }
             //}
 
 
-            //ÉèÖÃÊôÐÔ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             monster.SetIntAttr( CreatureAttributeDef.ATTACK, cfgMonster.iAttack );
             monster.SetIntAttr( CreatureAttributeDef.HP, cfgMonster.baseHP );
 
-            //ÉèÖÃÒÆ¶¯ËÙ¶È
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½Ù¶ï¿½
             monster.SetSpeed( 20 );
 
-            //ÉèÖÃhp
+            //ï¿½ï¿½ï¿½ï¿½hp
             monster.SetHPDelta( cfgMonster.baseHP - monster.GetHP( ) );
             int maxHP = monster.GetHP( );
             monster.SetMaxHP( maxHP );
 
         }
 
-        //¼ÆËã¼¼ÄÜ×é
+        //ï¿½ï¿½ï¿½ã¼¼ï¿½ï¿½ï¿½ï¿½
         private void __CalclSkills( cfg_RefreshLevelMonster cfg )
         {
             skillIDs.Clear( );
@@ -440,7 +440,7 @@ namespace GameScripts.Monster
             }
         }
 
-        //Ëæ»úË¢È¡¸ö¼¼ÄÜ
+        //ï¿½ï¿½ï¿½Ë¢È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private int __RandmonOneSkill( int[] skills, int[] weights )
         {
             int nCount = skills.Length;
@@ -462,7 +462,7 @@ namespace GameScripts.Monster
                     {
                         return skills[ i ];
                     }
-                    Debug.LogError( "Ëæ»úµÄ¼¼ÄÜÁÐ±íºÍ¸ÅÂÊ¸öÊý²»¶ÔÓ¦£¬Çë¼ì²é" );
+                    Debug.LogError( "ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Í¸ï¿½ï¿½Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" );
                     break;
                 }
             }
@@ -482,7 +482,7 @@ namespace GameScripts.Monster
             return sum;
         }
 
-        //Õ¶É±Í¬ÕóÓªÐ¡±ø,»ñÈ¡ÑªÁ¿
+        //Õ¶É±Í¬ï¿½ï¿½ÓªÐ¡ï¿½ï¿½,ï¿½ï¿½È¡Ñªï¿½ï¿½
         private List<ulong> listCamp = new List<ulong>( );
         private List<IEntity> listEntity = new List<IEntity>( );
         private int __SuckMonsterByCamp( cfg_RefreshLevelMonster cfg, ulong camp )
@@ -514,12 +514,12 @@ namespace GameScripts.Monster
 
                         if ( string.IsNullOrEmpty( cfg.szSuckEffect ) == false )
                         {
-                            //²¥·ÅÒ»¸öÎüÑªÌØÐ§
+                            //ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ñªï¿½ï¿½Ð§
                             pos = monster.GetPos( );
                             EffectMgr.Instance( ).PlayEffect( cfg.szSuckEffect, ref pos, 1.5f );
                         }
 
-                        //Ïú»Ù¹ÖÎï
+                        //ï¿½ï¿½ï¿½Ù¹ï¿½ï¿½ï¿½
                         MonsterSystem.Instance.DestroyMonster( monster.id );
                     }
                 }
@@ -528,7 +528,7 @@ namespace GameScripts.Monster
         }
 
 
-        //ÊÍ·Å³öÉú¼¼ÄÜ
+        //ï¿½Í·Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private void __CastBornSkill( IMonster monster, int[] skillIDs )
         {
             this.skillIDs.Clear( );
@@ -536,7 +536,7 @@ namespace GameScripts.Monster
             __CastBornSkill( monster, this.skillIDs );
         }
 
-        //ÊÍ·Å³öÉú¼¼ÄÜ
+        //ï¿½Í·Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private void __CastBornSkill( IMonster monster, List<int> skillIDs )
         {
 
@@ -547,7 +547,7 @@ namespace GameScripts.Monster
                 skillPart.ClearPreConfig( true );
 
                 int nSkillCount = skillIDs.Count;
-                //Ê¹ÓÃ¼¼ÄÜ
+                //Ê¹ï¿½Ã¼ï¿½ï¿½ï¿½
                 for ( int j = 0; j < nSkillCount; ++j )
                 {
                     skillPart.DoAttack( skillIDs[ j ] );
@@ -610,7 +610,7 @@ namespace GameScripts.Monster
 
         private void __CreateMonster( MonsterRefreshContext ctx, cfg_RefreshLevelMonster cfg )
         {
-            //Ë¢¹Ö
+            //Ë¢ï¿½ï¿½
             monsterLauncherMonster.listMonsterIDs.Clear( );
             monsterLauncherMonster.listMonsterIDs.Add( ctx.monsterID );
             monsterLauncherMonster.listRefreshParam.Clear( );
@@ -620,17 +620,17 @@ namespace GameScripts.Monster
             //monsterLauncher.camp = CampDef.GetLocalCamp( BATTLE_CAMP_DEF.BATTLE_CAMP_MONSTER );
             monsterLauncherMonster.bRandomPos = true;
 
-            //ÉèÖÃÓÑ·½
+            //ï¿½ï¿½ï¿½ï¿½ï¿½Ñ·ï¿½
             monsterLauncherMonster.listFriendCamps.Clear( );
             //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_PIECE );
             //monsterLauncher.listFriendCamps.Add( BATTLE_CAMP_DEF.BATTLE_CAMP_WALL );
 
             List<IMonster> listMonsters = monsterLauncherMonster.RefreshMonster( );
 
-            //Ëæ»ú¼¼ÄÜ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             __CalclSkills( cfg );
 
-            //ÐÞ¸ÄÊôÐÔºÍÊ¹ÓÃ¼¼ÄÜ
+            //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½Ôºï¿½Ê¹ï¿½Ã¼ï¿½ï¿½ï¿½
             int nMonsterCount = listMonsters.Count;
             IMonster monster = null;
             // KingSkillComponent kingSkillComponent = null;
@@ -639,10 +639,10 @@ namespace GameScripts.Monster
             {
                 monster = listMonsters[ i ];
 
-                //ÐÞ¸ÄÊôÐÔ
+                //ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½
                 __SyncAttribute( monster, cfg.iAttrModifidID, 0 );
 
-                //ÊÍ·Å³öÉú¼¼ÄÜ
+                //ï¿½Í·Å³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 __CastBornSkill( monster, skillIDs );
 
                 ctx.fnCallback?.Invoke( monster.id );

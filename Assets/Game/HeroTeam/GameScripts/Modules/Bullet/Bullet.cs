@@ -20,7 +20,7 @@ namespace GameScripts.HeroTeam
         protected GameObject gameObject;
         protected GameObject hitPrefab;
         protected Transform target;
-        protected IMonster targetEntity;
+        protected IActor targetEntity;
         protected float speed;
         protected int harm;
         protected ulong sender;
@@ -68,7 +68,7 @@ namespace GameScripts.HeroTeam
 
             if (targetEntity.IsDie())
             {
-                Debug.Log("目标已经死亡~");
+                // Debug.Log("目标已经死亡~");
                 return;
             }
 
@@ -78,7 +78,7 @@ namespace GameScripts.HeroTeam
 
         public Transform GetTr() => transform;
 
-        public void SetTarget(IMonster target)
+        public void SetTarget(IActor target)
         {
             targetEntity = target;
             this.target = target.GetLockTr();

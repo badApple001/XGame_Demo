@@ -311,7 +311,6 @@
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateMachine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\WWW\WWWRequest.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IGame.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Actor.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\IMonitorMgr.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\NetObjectBehaviourTest.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\HeroClassDef.cs" />
@@ -358,8 +357,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Bullet\BulletManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IBuff.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Skill\CampDef.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\ActorDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\CampDef.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Boss\Boss.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\MessageSinkEvent.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineBaseExcutorNodeBase.cs" />
@@ -508,6 +506,34 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\IBuff.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\ArsonistBuff.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Buff\BuffBase.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\VectorEx\Vector3Extensions.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\InputElement.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Joystick.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\DeadZoneVectorInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\VectorEventInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\PassthroughInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\EventInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\GenericJoystick.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\ToTransformSpace.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\MoveTowardsVectorInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\DelayInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\InterpolateInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\DelayVectorProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Demo\Scripts\Demo.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\DelayBooleanInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\EventBooleanInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\RaycastZone.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\InputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\SnapInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\DeadZoneInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\LerpVectorInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\InvertBooleanInputProcessor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Button.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\ActorManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Actor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Part\ActorDataPart.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Pipes\RankPipe.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\BlackboardDef.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
@@ -595,6 +621,7 @@
     <None Include="Assets\G_Artist\Shader\Actor_LitEff_ASE.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Blend_Mask.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Spine\BC_014\014.atlas.txt" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\README.txt" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\G_Artist\Shader\Test_2.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMPro_Surface.cginc" />

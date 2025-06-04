@@ -13,7 +13,7 @@ namespace GameScripts.HeroTeam
         void ClearState();
         Transform GetTr();
         void Active(Vector3 newPos);
-        void SetTarget(IMonster target);
+        void SetTarget(IActor target);
         void SetConfig(cfg_HeroTeamBullet cfg);
         void SetHarm(int harm);
         void SetSender(ulong entityId);

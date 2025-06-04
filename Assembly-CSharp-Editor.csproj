@@ -325,6 +325,10 @@
     <Compile Include="Assets\Editor\XGame\GameApp\GameProjectSettingsEditor.cs" />
     <Compile Include="Assets\Editor\UI\HorizontalOrVerticalLayoutGroupExEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Util\PrefabUpdate.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\JoystickEditor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\RaycastZoneEditor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputElementEditor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputProcessorEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\XGame\Dll\XGameEditor.dll" />

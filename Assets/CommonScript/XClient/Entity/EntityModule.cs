@@ -161,9 +161,9 @@ namespace XClient.Entity
 
         public void Update()
         {
-            MonsterSystem.Instance.Update();
-            BulletSystem.Instance.Update();
-            EffectMgr.Instance().Update();
+            // MonsterSystem.Instance.Update();
+            // BulletSystem.Instance.Update();
+            // EffectMgr.Instance().Update();
         }
 
         protected virtual void OnRegisterEntityInfo()

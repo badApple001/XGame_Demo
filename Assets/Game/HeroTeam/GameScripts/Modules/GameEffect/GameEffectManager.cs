@@ -144,7 +144,7 @@ namespace GameScripts.HeroTeam
             }
         }
 
-        public void ReleaseAll()
+        public void Release()
         {
             if (m_trActiveRoot != null)
             {

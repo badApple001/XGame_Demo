@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using XClient.Common;
-using XClient.Entity;
 using XGame;
 using XGame.FrameUpdate;
 using XGame.Utils;
@@ -12,18 +11,20 @@ namespace GameScripts.HeroTeam
 
     public class BuffManager : Singleton<BuffManager>, IFrameUpdateSink
     {
-
         private Dictionary<Type, Stack<IBuff>> m_BuffPool = new Dictionary<Type, Stack<IBuff>>();
 
         private List<IBuff> m_ActiveBuffs = new List<IBuff>();
 
-        public BuffManager()
+        public BuffManager() => Setup();
+
+
+        private void Setup()
         {
             var frameUpdMgr = XGameComs.Get<IFrameUpdateManager>();
             frameUpdMgr.RegUpdate(this, EnUpdateType.Update, "BuffManager.Update");
         }
 
-        public IBuff CreateBuff(IMonster owner, int buffId)
+        public IBuff CreateBuff(IActor owner, int buffId)
         {
             var cfg = GameGlobal.GameScheme.HeroTeamBuff_0(buffId);
             if (cfg == null)
@@ -37,7 +38,7 @@ namespace GameScripts.HeroTeam
             }
         }
 
-        public IBuff CreateBuff(IMonster owner, cfg_HeroTeamBuff cfg)
+        public IBuff CreateBuff(IActor owner, cfg_HeroTeamBuff cfg)
         {
             string buffCls = cfg.szBuffCls;
             Type type = Type.GetType(buffCls);
@@ -84,7 +85,7 @@ namespace GameScripts.HeroTeam
             return buff;
         }
 
-        private bool IsCreationValid(IMonster owner, cfg_HeroTeamBuff cfg)
+        private bool IsCreationValid(IActor owner, cfg_HeroTeamBuff cfg)
         {
             if (cfg.isStackable == 0)
             {
@@ -103,6 +104,18 @@ namespace GameScripts.HeroTeam
         }
 
         public void ReleaseBuff(IBuff buff)
+        {
+            int index = m_ActiveBuffs.IndexOf(buff);
+            if (index != -1)
+            {
+                int lastIndex = m_ActiveBuffs.Count - 1;
+                m_ActiveBuffs[index] = m_ActiveBuffs[lastIndex];
+                m_ActiveBuffs.RemoveAt(lastIndex);
+                ReleaseBuffInternal(buff);
+            }
+        }
+
+        private void ReleaseBuffInternal(IBuff buff)
         {
             var type = buff.GetType();
             if (!m_BuffPool.TryGetValue(type, out var pool))
@@ -138,7 +151,7 @@ namespace GameScripts.HeroTeam
                         int lastIndex = m_ActiveBuffs.Count - 1;
                         m_ActiveBuffs[i--] = m_ActiveBuffs[lastIndex];
                         m_ActiveBuffs.RemoveAt(lastIndex);
-                        ReleaseBuff(buff);
+                        ReleaseBuffInternal(buff);
                     }
                 }
 

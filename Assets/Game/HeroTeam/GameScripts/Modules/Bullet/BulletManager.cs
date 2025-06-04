@@ -154,5 +154,51 @@ namespace GameScripts.HeroTeam
             Debug.Log($"加载资源失败: {nResKey}");
         }
 
+
+        public void Release()
+        {
+            foreach (var bullet in m_ActiveBullets)
+            {
+                bullet.ClearState();
+                var tr = bullet.GetTr();
+                if (tr != null)
+                    GameObject.Destroy(tr.gameObject);
+            }
+            m_ActiveBullets.Clear();
+
+            foreach (var pool in m_BulletPool.Values)
+            {
+                foreach (var bullet in pool)
+                {
+                    var tr = bullet.GetTr();
+                    if (tr != null)
+                        GameObject.Destroy(tr.gameObject);
+                }
+                pool.Clear();
+            }
+            m_BulletPool.Clear();
+
+            foreach (var prefab in m_PrefabDict.Values)
+            {
+                if (prefab != null)
+                    GameObject.Destroy(prefab);
+            }
+            m_PrefabDict.Clear();
+
+            foreach (var pool in m_PrefabPool.Values)
+            {
+                foreach (var obj in pool)
+                {
+                    if (obj != null)
+                        GameObject.Destroy(obj);
+                }
+                pool.Clear();
+            }
+            m_PrefabPool.Clear();
+
+            m_trActiveRoot = null;
+            m_trHidddenRoot = null;
+        }
+
     }
 }

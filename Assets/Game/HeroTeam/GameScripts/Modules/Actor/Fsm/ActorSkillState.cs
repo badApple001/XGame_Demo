@@ -21,7 +21,7 @@ namespace GameScripts.HeroTeam
         {
             base.OnEnter();
 
-            if (m_StateMachine.GetBlackboardValue(Actor.Machine_blackBoard_CooldownSkill) is cfg_HeroTeamSkills skill)
+            if (m_StateMachine.GetBlackboardValue(BlackboardDef.ACTOR_SKILL_CD_COMPLETED) is cfg_HeroTeamSkills skill)
             {
                 GameManager.instance.OpenCoroutine(ActiveSkill(skill));
             }

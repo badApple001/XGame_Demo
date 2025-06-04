@@ -24,9 +24,11 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		private Text text_BossName = null;
 		private Text text_UIHp_Boss_Text = null;
 		private Button btn_BtnFight = null;
-		private RectTransform tran_BottomPanel = null;
+		private RectTransform tran_ParametersPanel = null;
 		private Image img_PropertyPanel = null;
 		private Button btn_Collapse = null;
+		private RectTransform tran_PropertyContent = null;
+		private RectTransform tran_JoystickParent = null;
 		//@End_Widget_Variables
 		
 		protected override void OnSetupOrClearWndInstance(bool isCreate)
@@ -49,9 +51,11 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			text_BossName = Meta.Widgets.GetWidgetComponent<Text>(2);
 			text_UIHp_Boss_Text = Meta.Widgets.GetWidgetComponent<Text>(3);
 			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(4);
-			tran_BottomPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(5);
+			tran_ParametersPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(5);
 			img_PropertyPanel = Meta.Widgets.GetWidgetComponent<Image>(6);
 			btn_Collapse = Meta.Widgets.GetWidgetComponent<Button>(7);
+			tran_PropertyContent = Meta.Widgets.GetWidgetComponent<RectTransform>(8);
+			tran_JoystickParent = Meta.Widgets.GetWidgetComponent<RectTransform>(9);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
@@ -63,9 +67,11 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			text_BossName = null;
 			text_UIHp_Boss_Text = null;
 			btn_BtnFight = null;
-			tran_BottomPanel = null;
+			tran_ParametersPanel = null;
 			img_PropertyPanel = null;
 			btn_Collapse = null;
+			tran_PropertyContent = null;
+			tran_JoystickParent = null;
 
 		} //@End_ClearWidgets
 
