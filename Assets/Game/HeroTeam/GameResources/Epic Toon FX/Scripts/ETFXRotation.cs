@@ -22,9 +22,9 @@ namespace EpicToonFX
         void Update()
         {
             if (rotateSpace == spaceEnum.Local)
-                transform.Rotate(rotateVector * Time.deltaTime);
+                transform.Rotate(rotateVector * TimeUtils.DeltaTime);
             if (rotateSpace == spaceEnum.World)
-                transform.Rotate(rotateVector * Time.deltaTime, Space.World);
+                transform.Rotate(rotateVector * TimeUtils.DeltaTime, Space.World);
         }
     }
 }

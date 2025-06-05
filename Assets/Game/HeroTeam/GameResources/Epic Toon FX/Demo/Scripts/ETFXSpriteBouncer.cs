@@ -25,7 +25,7 @@ namespace EpicToonFX
 
         private void Update()
         {
-            scaleTimer += Time.deltaTime; // Update the timer
+            scaleTimer += TimeUtils.DeltaTime; // Update the timer
 
             float t = Mathf.Clamp01(scaleTimer / scaleDuration); // Calculate the interpolation factor with a clamp
 

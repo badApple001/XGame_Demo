@@ -157,11 +157,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4837620950451194333}
-  - component: {fileID: 4837620950451194339}
-  - component: {fileID: 1371780025}
-  - component: {fileID: 8591134273843893001}
-  - component: {fileID: 1632536140}
-  - component: {fileID: 3477580150141248071}
   m_Layer: 0
   m_Name: Magician
   m_TagString: Untagged
@@ -188,78 +183,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4837620950451194339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837620950451194336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e8358e93ce1254892829d83631b8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entID: 0
-  hitTrans: {fileID: 0}
-  entType: 0
-  camp: 0
-  beAttack: 1
-  canAttack: 1
-  listFriendCamps: 
-  listEnemyCamps: 
---- !u!114 &1371780025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837620950451194336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64008b67c2d856f41b9359c1118575df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonAnimation: {fileID: 4837620951640187448}
-  skeletonGraphic: {fileID: 0}
-  defaultAniName: idle
---- !u!114 &8591134273843893001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837620950451194336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 410705a801bf9fe47b715be5f1243b53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1632536140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837620950451194336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6204b68b1597894193e469631045c27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3477580150141248071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4837620950451194336}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1863b3d018b9ca24ca860b552084a314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reco: {fileID: 0}
 --- !u!1 &4837620951640187454
 GameObject:
   m_ObjectHideFlags: 0

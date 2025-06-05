@@ -40,7 +40,7 @@ namespace GameScripts.HeroTeam
 
             if (m_fTrailAlpha > 0f)
             {
-                m_fTrailAlpha -= Time.deltaTime * 1.5f;
+                m_fTrailAlpha -= TimeUtils.DeltaTime * 1.5f;
                 m_fTrailAlpha = Mathf.Max(m_fTrailAlpha, 0f);
                 UpdateMaterial();
             }

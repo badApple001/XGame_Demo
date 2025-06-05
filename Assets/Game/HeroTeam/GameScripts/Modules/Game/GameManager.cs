@@ -42,13 +42,14 @@ namespace GameScripts.HeroTeam
         [Header("特效")]
         [SerializeField] Material m_FlameBurningEffectMat;
 
-        GameObject m_refNpc;
 
         [HideInInspector]
         public int LevelID = 1;
 
         //缓存一份Boss的死亡位置        
         public Vector3 BossDeathPosition { private set; get; }
+
+        IActor m_Npc;
 
 
         // Start is called before the first frame update
@@ -66,7 +67,7 @@ namespace GameScripts.HeroTeam
             //CreateBoss( );
         }
 
-    
+
         private void OnDestroy()
         {
             BulletManager.Instance.Release();
@@ -275,7 +276,12 @@ namespace GameScripts.HeroTeam
                             }
                         }
                     }
-                    RefreshMonsterMgr.Instance.RefreshHero(heroIds[i], pos, CampDef.BATTLE_CAMP_HERO, road);
+                    var pContext = CreateActorContext.Instance;
+                    pContext.nActorCfgID = heroIds[i];
+                    pContext.worldPos = pos;
+                    pContext.nCamp = CampDef.BATTLE_CAMP_HERO;
+                    pContext.forward = Vector3.left;
+                    ActorManager.Instance.CreateActor(pContext);
                 }
             }
 
@@ -307,43 +313,32 @@ namespace GameScripts.HeroTeam
 
         private void CreateNpc()
         {
-            uint handle = 0;
-            var loader = XGameComs.Get<IGAssetLoader>();
-            var objPrefab = (GameObject)loader.LoadResSync<GameObject>("Game/HeroTeam/GameResources/Prefabs/Game/Characters/Npc.prefab", out handle);
-            loader.UnloadRes(handle);
-            m_refNpc = GameObject.Instantiate(objPrefab, new Vector3(-4.4f, 10.1f, 0), Quaternion.identity, null);
+            var pContext = CreateActorContext.Instance;
+            pContext.nActorCfgID = GetCurrentLevelConfig().iNpcID;
+            pContext.worldPos = new Vector3().FromArray(GetCurrentLevelConfig().aryNpcBornPos);
+            pContext.forward = Vector3.right;
+            m_Npc = ActorManager.Instance.CreateActor(pContext);
         }
-
 
         private void CreateBoss()
         {
-
-            //IEntity bossEntity = GameGlobal.EntityWorld.Local.GetEntity( bossEntityId );
-
-            //if ( bossEntity is IMonster monster )
-            //{
-            //    //���е�Զ�̽�ɫƽ���ֲ�����Ȧ
-
-            //    monster.
-            //}
-            Invoke("DelayCreateBoss", GetCurrentLevelConfig().iBossBornDelaySeconds);
+            AddTimer(GetCurrentLevelConfig().iBossBornDelaySeconds, DelayCreateBoss);
         }
+
         private void DelayCreateBoss()
         {
-            var bossEntityId = RefreshMonsterMgr.Instance.RefreshBoss(3, 1, 1, 1);
-            IEntity bossEntity = GameGlobal.EntityWorld.Local.GetEntity(bossEntityId);
-            if (bossEntity is IMonster monster)
-            {
-                m_BossEntity = monster;
-                m_BossEntity.SetBoos();
-            }
-            //ToastManager.Instance.Get( ).Show( "��������˹������ΪʲôҪ�����ң�������ͼ˹��ΪʲôҪ�����ң���", 1f );
+            var pContext = CreateActorContext.Instance;
+            pContext.nActorCfgID = GetCurrentLevelConfig().iBossID;
+            pContext.nCamp = CampDef.BATTLE_CAMP_MONSTER;
+            pContext.worldPos = new Vector3().FromArray(GetCurrentLevelConfig().aryBossBornPos);
+            pContext.forward = Vector3.left;
+            m_BossEntity = ActorManager.Instance.CreateActor(pContext);
+            m_BossEntity.SetBoos();
         }
 
         //当前场景就一个boss，访问量较高，为了避免每次都要遍历，直接缓存一个
-        private IMonster m_BossEntity = null;
-        public IMonster GetBossEntity() => m_BossEntity;
-
+        private IActor m_BossEntity = null;
+        public IActor GetBossEntity() => m_BossEntity;
 
         private void OnEnable()
         {
@@ -403,11 +398,8 @@ namespace GameScripts.HeroTeam
 
         private IEnumerator NpcBossChat()
         {
-
             yield return new WaitForSeconds(2f);
-
-            m_refNpc.transform.GetChild(0).localScale = Vector3.one * 4;
-            var chatPoint = m_refNpc.transform.Find("ChatPoint");
+            var chatPoint = m_Npc.transform.Find("ChatPoint");
             List<string> chats = new List<string>()
             {
                 "管理者埃克索图斯：“拉格纳罗斯，火焰之王，他比这个世界本身还要古老，在他面前屈服吧，在你们的末日面前屈服吧！”",
@@ -445,7 +437,7 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
 
 
-            var sa = m_refNpc.GetComponentInChildren<SkeletonAnimation>();
+            var sa = m_Npc.GetSkeleton();
             sa.AnimationState.SetAnimation(0, "dead", false);
 
             //燃烧效果
@@ -463,13 +455,11 @@ namespace GameScripts.HeroTeam
 
             //火焰特效
             string npcFireFxResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/SpikyFireBigAdditiveRed.prefab";
-            GameEffectManager.Instance.ShowEffect(npcFireFxResPath, m_refNpc.transform.position + Vector3.up * 2.31f);
+            GameEffectManager.Instance.ShowEffect(npcFireFxResPath, m_Npc.transform.position + Vector3.up * 2.31f);
 
             yield return new WaitForSeconds(1f);
-            Destroy(m_refNpc);
+            ActorManager.Instance.DestroyActor(m_Npc);
         }
-
-
 
         private bool m_OnJoystickTouched = false;
         private void OnJoystickStarted()
@@ -500,7 +490,6 @@ namespace GameScripts.HeroTeam
         {
 
 
-
             if (actor.IsBoos())
             {
                 //记录一下boss的死亡位置
@@ -525,13 +514,13 @@ namespace GameScripts.HeroTeam
             // {
 
             //     Debug.Log(">>>>>>>>> Boss Win Event Triggered");
-            //     foreach (IMonster monster in m_dicMonster.Values)
+            //     foreach (IActor monster in m_dicMonster.Values)
             //     {
             //         if (null != monster)
             //         {
             //             if (!monster.IsDie())
             //             {
-            //                 // if (((cfg_Monster)monster.config).HeroClass > HeroClassDef.WARRIOR)
+            //                 // if (((cfg_Actor)monster.config).HeroClass > HeroClassDef.WARRIOR)
             //                 // {
             //                 ////离boss比较远的玩家 跑到boss实体附近去捡装备
             //                 var prefab = monster.GetPart<PrefabPart>();
@@ -549,7 +538,7 @@ namespace GameScripts.HeroTeam
             // }
             // else if (DGlobalEvent.EVENT_ENTITY_DESTROY == wEventID)
             // {
-            //     IMonster monster = pContext as IMonster;
+            //     IActor monster = pContext as IActor;
             //     if (null != monster)
             //     {
             //         ulong entID = monster.id;
@@ -564,6 +553,7 @@ namespace GameScripts.HeroTeam
 
         private void Update()
         {
+            TimeUtils.Update();
 
             if (m_OnJoystickTouched)
             {

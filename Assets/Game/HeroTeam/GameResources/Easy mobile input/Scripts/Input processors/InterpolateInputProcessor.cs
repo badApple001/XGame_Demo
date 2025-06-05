@@ -23,7 +23,7 @@ namespace EasyMobileInput
 
         public virtual void Update()
         {
-            CurrentOutput = Interpolate(target, Time.deltaTime * speed);
+            CurrentOutput = Interpolate(target, TimeUtils.DeltaTime * speed);
         }
 
         protected abstract T Interpolate(T target, float factor);

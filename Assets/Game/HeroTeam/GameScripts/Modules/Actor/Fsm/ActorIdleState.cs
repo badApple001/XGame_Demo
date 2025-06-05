@@ -20,7 +20,7 @@ namespace GameScripts.HeroTeam
             base.OnEnter();
             m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
             m_AttackCoolding = 0f;
-            m_AttackInterval = ((IActor)m_StateMachine.Owner).GetMonsterCfg().fAttackInterval;
+            m_AttackInterval = ((IActor)m_StateMachine.Owner).GetConfig().fAttackInterval;
         }
 
         public override void OnExit()
@@ -31,7 +31,7 @@ namespace GameScripts.HeroTeam
         public override void OnUpdate()
         {
             base.OnUpdate();
-            m_AttackCoolding += Time.deltaTime;
+            m_AttackCoolding += TimeUtils.DeltaTime;
 
             if (m_AttackCoolding >= m_AttackInterval)
             {

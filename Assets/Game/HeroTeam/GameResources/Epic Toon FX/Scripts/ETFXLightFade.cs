@@ -28,7 +28,7 @@ namespace EpicToonFX
         {
             if (li != null)
             {
-                li.intensity -= initIntensity * (Time.deltaTime / life);
+                li.intensity -= initIntensity * (TimeUtils.DeltaTime / life);
                 if (li.intensity <= 0f)
                 {
                     switch (onLifeEnd)

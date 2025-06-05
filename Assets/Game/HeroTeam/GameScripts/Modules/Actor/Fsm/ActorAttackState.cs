@@ -23,7 +23,7 @@ namespace GameScripts.HeroTeam
         private cfg_HeroTeamSkills HasSkillCooldown()
         {
             var skills = m_Owner.GetSkills();
-            int elapseTime = Mathf.RoundToInt(m_AttackCount * m_Owner.GetMonsterCfg().fAttackInterval);
+            int elapseTime = Mathf.RoundToInt(m_AttackCount * m_Owner.GetConfig().fAttackInterval);
             var cooldSkills = skills.FindAll(s => s.iSkillCD <= elapseTime);
             if (cooldSkills.Count == 0)
             {
@@ -123,7 +123,7 @@ namespace GameScripts.HeroTeam
 
                 //仇恨值
                 IActor m = m_Owner;
-                int newHatred = m.GetHatred() + Mathf.FloorToInt(m_Owner.GetMonsterCfg().iAttackHatred / 100f * Mathf.Abs(damage));
+                int newHatred = m.GetHatred() + Mathf.FloorToInt(m_Owner.GetConfig().iAttackHatred / 100f * Mathf.Abs(damage));
                 m.SetHatred(newHatred);
                 m.RecordHarm(Mathf.Abs(damage));
 
@@ -132,16 +132,16 @@ namespace GameScripts.HeroTeam
                     //后续需要绑定动画帧事件
                     AddTimer(0.5f, () =>
                     {
-                        string szAttackEffectPath = m_Owner.GetMonsterCfg().szAttackEffectPath;
+                        string szAttackEffectPath = m_Owner.GetConfig().szAttackEffectPath;
                         if (!string.IsNullOrEmpty(szAttackEffectPath))
                         {
                             GameEffectManager.Instance.ShowEffect(szAttackEffectPath, target.GetLockTr().position, Quaternion.identity);
                         }
 
-                        if (m_Owner.GetMonsterCfg().iAttkBuffID != 0)
+                        if (m_Owner.GetConfig().iAttkBuffID != 0)
                         {
-                            BuffManager.Instance.CreateBuff(target, m_Owner.GetMonsterCfg().iAttkBuffID);
-                            Debug.Log($"攻击buff: {m_Owner.GetMonsterCfg().iAttkBuffID}");
+                            BuffManager.Instance.CreateBuff(target, m_Owner.GetConfig().iAttkBuffID);
+                            Debug.Log($"攻击buff: {m_Owner.GetConfig().iAttkBuffID}");
                         }
 
                         target.SetHPDelta(-damage);
@@ -172,9 +172,9 @@ namespace GameScripts.HeroTeam
         {
 
             //发射的骨骼点
-            if (m_ShotBone == null && !string.IsNullOrEmpty(m_Owner.GetMonsterCfg().szShotBone))
+            if (m_ShotBone == null && !string.IsNullOrEmpty(m_Owner.GetConfig().szShotBone))
             {
-                m_ShotBone = m_Anim.skeleton.FindBone(m_Owner.GetMonsterCfg().szShotBone);
+                m_ShotBone = m_Anim.skeleton.FindBone(m_Owner.GetConfig().szShotBone);
             }
 
             Vector3 shotPos;
@@ -198,9 +198,9 @@ namespace GameScripts.HeroTeam
         {
             base.OnEnter();
 
-            int nType = m_Owner.GetMonsterCfg().AttackType;
+            int nType = m_Owner.GetConfig().AttackType;
             m_AttackType = (AttackTypeDef)nType;
-            m_cfgBullet = GameGlobal.GameScheme.HeroTeamBullet_0(m_Owner.GetMonsterCfg().iBullet);
+            m_cfgBullet = GameGlobal.GameScheme.HeroTeamBullet_0(m_Owner.GetConfig().iBullet);
 
             var skill = HasSkillCooldown();
             if (skill != null)

@@ -192,25 +192,25 @@ public class SkillCompontBase : MonoBehaviour
     //发射子弹
     public virtual bool FireBullet(int skillID, int iBulletGroupID)
     {
-        if (null != bulletLauncher)
-        {
-            //设置发射现场
-            cfg_BulletGroup group = GameGlobal.GameScheme.BulletGroup_0(iBulletGroupID);
-            if (null == group)
-            {
-                Debug.LogError("不存在的子弹组 iBulletGroupID=" + iBulletGroupID + ", skillID = " + skillID);
-                return false;
-            }
+        // if (null != bulletLauncher)
+        // {
+        //     //设置发射现场
+        //     cfg_BulletGroup group = GameGlobal.GameScheme.BulletGroup_0(iBulletGroupID);
+        //     if (null == group)
+        //     {
+        //         Debug.LogError("不存在的子弹组 iBulletGroupID=" + iBulletGroupID + ", skillID = " + skillID);
+        //         return false;
+        //     }
 
-            bulletLauncher.count = group.iBulletNum > 1 ? group.iBulletNum : 1;
-            bulletLauncher.fireType = (BULLET_FIRE_TYPE)group.iEmitterType;
-            bulletLauncher.interval = group.fFireInterval;
-            bulletLauncher.AngeleRange = group.fAngelRange;
-            bulletLauncher.startDistance = group.fStartDistance;
-            bulletLauncher.randomAngle = group.iRandomAngle > 0;
+        //     bulletLauncher.count = group.iBulletNum > 1 ? group.iBulletNum : 1;
+        //     bulletLauncher.fireType = (BULLET_FIRE_TYPE)group.iEmitterType;
+        //     bulletLauncher.interval = group.fFireInterval;
+        //     bulletLauncher.AngeleRange = group.fAngelRange;
+        //     bulletLauncher.startDistance = group.fStartDistance;
+        //     bulletLauncher.randomAngle = group.iRandomAngle > 0;
 
-            return bulletLauncher.FireBullet(skillID, group.iBulletID);
-        }
+        //     return bulletLauncher.FireBullet(skillID, group.iBulletID);
+        // }
 
         return false;
     }

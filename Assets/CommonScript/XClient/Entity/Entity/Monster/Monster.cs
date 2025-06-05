@@ -219,49 +219,49 @@ namespace XClient.Entity
         {
             base.OnInit(context);
 
-            cfg_Monster cfg = GameGlobal.GameScheme.Monster_0((uint)configId);
+            // cfg_Monster cfg = GameGlobal.GameScheme.Monster_0((uint)configId);
 
-            if (cfg == null)
-            {
-                Debug.LogError("�����ڵ�CreatureView���� configId=" + configId);
-            }
-            else
-            {
-                config = cfg;
-                var ctx = context as NetEntityShareInitContext;
-                CreateMonsterContext createMonsterContext = (CreateMonsterContext)(ctx.localInitContext);
-                if (!string.IsNullOrEmpty(createMonsterContext.resPath))
-                {
-                    m_resPath = createMonsterContext.resPath;
-                }
-                else
-                {
-                    m_resPath = cfg.szResPath;
-                }
-                ceatureId = createMonsterContext.creatureID;
-
-
-                if (string.IsNullOrEmpty(m_resPath))
-                {
-                    Debug.LogError("�������Դ·��Ϊ�� configId=" + configId);
-                }
+            // if (cfg == null)
+            // {
+            //     Debug.LogError("�����ڵ�CreatureView���� configId=" + configId);
+            // }
+            // else
+            // {
+            //     config = cfg;
+            //     var ctx = context as NetEntityShareInitContext;
+            //     CreateMonsterContext createMonsterContext = (CreateMonsterContext)(ctx.localInitContext);
+            //     if (!string.IsNullOrEmpty(createMonsterContext.resPath))
+            //     {
+            //         m_resPath = createMonsterContext.resPath;
+            //     }
+            //     else
+            //     {
+            //         m_resPath = cfg.szResPath;
+            //     }
+            //     ceatureId = createMonsterContext.creatureID;
 
 
-                m_speed = 0;
-            }
+            //     if (string.IsNullOrEmpty(m_resPath))
+            //     {
+            //         Debug.LogError("�������Դ·��Ϊ�� configId=" + configId);
+            //     }
 
-            //��ȡ�޸���
-            m_attrModifier = MonsterSystem.Instance.GetAttrModified();
 
-            //SetSpeed((int)cfg.fbaseSpeed);
+            //     m_speed = 0;
+            // }
 
-            //职业
-            m_HeroCls = cfg.HeroClass;
+            // //��ȡ�޸���
+            // m_attrModifier = MonsterSystem.Instance.GetAttrModified();
 
-            //名称生成
-            var cfg_monster = (cfg_Monster)config;
-            name = cfg_monster.szName + (char)('A' + m_byteShareSpawnIndex++);
-            Debug.Log(name);
+            // //SetSpeed((int)cfg.fbaseSpeed);
+
+            // //职业
+            // m_HeroCls = cfg.HeroClass;
+
+            // //名称生成
+            // var cfg_monster = (cfg_Monster)config;
+            // name = cfg_monster.szName + (char)('A' + m_byteShareSpawnIndex++);
+            // Debug.Log(name);
         }
 
         protected override void OnAfterInit(object context)
@@ -365,7 +365,7 @@ namespace XClient.Entity
                     var cfg = actor.GetAnimConfig();
                     if (cfg == null)
                     {
-                        Debug.Log($"找不到动画: {((cfg_Monster)config).nID}");
+                        // Debug.Log($"找不到动画: {((cfg_Monster)config).nID}");
                         return;
                     }
                     skel.state.SetAnimation(1, cfg.szHit, false);
@@ -495,18 +495,18 @@ namespace XClient.Entity
                 // }
 
 
-                Actor actor = m_prefabPart.gameObject.GetComponent<Actor>();
-                if (null != actor)
-                {
-                    actor.SetMonsterCfg((cfg_Monster)config);
-                    actor.SetCreatureEntity(this);
-                }
+                // Actor actor = m_prefabPart.gameObject.GetComponent<Actor>();
+                // if (null != actor)
+                // {
+                //     actor.SetMonsterCfg((cfg_Monster)config);
+                //     actor.SetCreatureEntity(this);
+                // }
 
-                var bar = m_prefabPart.gameObject.GetComponentInChildren<HpBar>();
-                if (null != bar)
-                {
-                    bar.SetEntity(this);
-                }
+                // var bar = m_prefabPart.gameObject.GetComponentInChildren<HpBar>();
+                // if (null != bar)
+                // {
+                //     bar.SetEntity(this);
+                // }
 
                 transform = m_prefabPart.transform;
                 m_trLockTarget = transform.Find("LockTarget");

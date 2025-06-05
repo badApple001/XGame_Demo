@@ -41,13 +41,13 @@ namespace EasyMobileInput.Demo
 
         private void Update()
         {
-            transform.position += movementJoystick.CurrentProcessedValue * Time.deltaTime * 10.0f;
+            transform.position += movementJoystick.CurrentProcessedValue * TimeUtils.DeltaTime * 10.0f;
             transform.position = new Vector3(transform.position.x, heightJoystick.CurrentProcessedValue.y, transform.position.z);
             
             transform.localScale = new Vector3(1, 1, 1.1f + sizeJoystick.CurrentProcessedValue.x);
             
             transform.localRotation = Quaternion.AngleAxis(currentAngle, Vector3.right);
-            currentAngle = Mathf.Lerp(currentAngle, targetAngle, Time.deltaTime * 10.0f);
+            currentAngle = Mathf.Lerp(currentAngle, targetAngle, TimeUtils.DeltaTime * 10.0f);
         }
     }
 }

@@ -50,6 +50,10 @@ namespace GameScripts.HeroTeam
         /// </summary>
         private Transform m_trFace;
 
+        /// <summary>
+        /// 蒙皮父节点
+        /// </summary>
+        private Transform m_trVisual;
 
         /// <summary>
         /// 死亡
@@ -58,7 +62,7 @@ namespace GameScripts.HeroTeam
 
 
         /// <summary>
-        /// Monster共享一个 生成下标
+        /// Actor共享一个 生成下标
         /// 此下标用来独立每个角色的名称: {heroClass}{m_byteShareSpawnIndex++}
         /// 后续策划如果有想法就增加配表
         /// </summary>
@@ -96,45 +100,58 @@ namespace GameScripts.HeroTeam
         /// </summary>
         private List<Coroutine> m_arrCoroutineGroup = new List<Coroutine>();
 
-        protected override void OnAfterInit(object context)
-        {
-            base.OnAfterInit(context);
+        /// <summary>
+        /// 搭载的MonoType
+        /// </summary>
+        private List<Type> m_MonoType = new List<Type>();
 
-            var cfg = GameGlobal.GameScheme.Monster_0((uint)configId);
+        protected override void OnInit(object context)
+        {
+            base.OnInit(context);
+            var cfg = GameGlobal.GameScheme.Actor_0((uint)configId);
             if (cfg == null)
             {
                 Debug.LogError("读取失败的角色配置 configId=" + configId);
             }
             else
             {
+                //读取配置
                 config = cfg;
-                var ctx = context as NetEntityShareInitContext;
-                CreateActorContext createActorContext = (CreateActorContext)(ctx.localInitContext);
-                GetPart<ActorDataPart>().m_camp.Value = createActorContext.nCamp;
-                m_trParent = createActorContext.parent;
-
                 m_resPath = cfg.szResPath;
-                if (string.IsNullOrEmpty(m_resPath))
-                {
-                    Debug.LogError("资源路径没有配置 configId=" + configId);
-                }
+                //职业
+                m_HeroCls = cfg.HeroClass;
+                //名称生成
+                name = cfg.szName + string.Format("{0:D6}", m_byteShareSpawnIndex++);
             }
 
+            if (string.IsNullOrEmpty(m_resPath))
+            {
+                Debug.LogError("资源路径没有配置 configId=" + configId);
+            }
+        }
+
+        protected override void OnAfterInit(object context)
+        {
+            base.OnAfterInit(context);
+
+            var ctx = context as NetEntityShareInitContext;
+            CreateActorContext createActorContext = (CreateActorContext)(ctx.localInitContext);
+            if (createActorContext.MonoTypes.Count > 0)
+            {
+                m_MonoType.AddRange(createActorContext.MonoTypes);
+            }
+            GetPart<ActorDataPart>().m_camp.Value = createActorContext.nCamp;
+            m_trParent = createActorContext.parent;
+            SetPos(createActorContext.worldPos);
+            SetRotation(Quaternion.FromToRotation(Vector3.right, createActorContext.forward));
+            var cfg = (cfg_Actor)config;
             //速度
             SetSpeed(cfg.fMoveSpeed);
-
             //攻击 / 治疗
             SetPower(cfg.iAttack);
-
             //生命值
             SetHPDelta(cfg.baseHP - (int)GetHP());
             SetMaxHP(GetHP());
-
-            //职业
-            m_HeroCls = cfg.HeroClass;
-
-            //名称生成
-            name = cfg.szName + (char)('A' + m_byteShareSpawnIndex++);
         }
 
         public override string GetResPath()
@@ -148,6 +165,11 @@ namespace GameScripts.HeroTeam
             if (id == EntityMessageID.ResLoaded)
             {
 
+                if (m_MonoType.Count > 0)
+                {
+                    m_MonoType.ForEach(type => transform.gameObject.AddComponent(type));
+                }
+
                 //这块我个人感觉，更应该写在Part里 而不是单独占用一个mono
                 // var spineAni = transform.GetComponent<SpineAni>();
                 // Debug.Assert(spineAni != null, "spineAni Component not found.");
@@ -158,7 +180,8 @@ namespace GameScripts.HeroTeam
 
                 transform.position = GetPart<ActorDataPart>().m_pos.Value;
                 transform.rotation = Quaternion.FromToRotation(Vector3.right, GetPart<ActorDataPart>().m_forward.Value);
-
+                m_trVisual = transform.GetChild(0);
+                m_trVisual.localScale = GetConfig().fSizeScale * Vector3.one;
 
                 m_fsmActor = new StateMachine(this);
                 m_fsmActor.AddNode<ActorIdleState>();
@@ -169,7 +192,6 @@ namespace GameScripts.HeroTeam
                 m_fsmActor.AddNode<ActorWinState>();
                 m_fsmActor.AddNode<ActorJumpState>();
 
-
                 var bar = transform.GetComponentInChildren<HpBar>();
                 if (null != bar)
                 {
@@ -179,34 +201,37 @@ namespace GameScripts.HeroTeam
                 m_trLockTarget = transform.Find("LockTarget");
                 if (m_trLockTarget == null)
                     m_trLockTarget = transform;
-
                 m_trFace = transform.Find("Face");
 
 
+#if UNITY_EDITOR
+                if (transform.TryGetComponent<ActorPartInspector>(out var componet))
+                {
+                    componet.BindEntity(this);
+                }
+# endif
 
                 GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "Actor:Start");
             }
         }
 
 
-        public Transform GetTr()
-        {
-            return transform;
-        }
+        public Transform GetTr() => transform;
+
+        public Transform GetVisual() => m_trVisual;
 
 
-        public cfg_ActorAnimConfig GetAnimConfig() => GameGlobal.GameScheme.ActorAnimConfig_0((int)GetMonsterCfg().nID);
-
+        public cfg_ActorAnimConfig GetAnimConfig() => GameGlobal.GameScheme.ActorAnimConfig_0((int)GetConfig().nID);
 
         public long GetHP() => GetPart<ActorDataPart>().m_hp.Value;
 
         public long GetMaxHP() => GetPart<ActorDataPart>().m_maxHp.Value;
 
-        public cfg_Monster GetMonsterCfg() => (cfg_Monster)config;
+        public cfg_Actor GetConfig() => (cfg_Actor)config;
 
         public Vector3 GetPos() => GetPart<ActorDataPart>().m_pos.Value;
 
-        public void SetPos(ref Vector3 pos)
+        public void SetPos(Vector3 pos)
         {
             GetPart<ActorDataPart>().m_pos.Value = pos;
             transform?.SetPosition(pos);
@@ -215,7 +240,7 @@ namespace GameScripts.HeroTeam
         public void SetPos(float[] float3Pos)
         {
             Vector3 pos = new Vector3().FromArray(float3Pos);
-            SetPos(ref pos);
+            SetPos(pos);
         }
 
         public SkeletonAnimation GetSkeleton() => m_SkeletonAnimation;
@@ -228,7 +253,7 @@ namespace GameScripts.HeroTeam
             }
 
             List<cfg_HeroTeamSkills> skills = new List<cfg_HeroTeamSkills>();
-            var config = GetMonsterCfg();
+            var config = GetConfig();
             if (config != null)
             {
                 int[] skillIDs = config.Skills;
@@ -244,7 +269,6 @@ namespace GameScripts.HeroTeam
             m_Skills = skills;
             return skills;
         }
-
 
         public int GetHatred()
         {
@@ -419,7 +443,7 @@ namespace GameScripts.HeroTeam
                         var cfg = actor.GetAnimConfig();
                         if (cfg == null)
                         {
-                            Debug.Log($"找不到动画: {((cfg_Monster)config).nID}");
+                            Debug.Log($"找不到动画: {((cfg_Actor)config).nID}");
                             return;
                         }
                         skel.state.SetAnimation(1, cfg.szHit, false);
@@ -528,13 +552,14 @@ namespace GameScripts.HeroTeam
                 GameManager.instance.ClearTimers(m_arrCoroutineGroup);
                 m_arrCoroutineGroup.Clear();
             }
+            m_MonoType.Clear();
         }
 
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
             if (wEventID == DHeroTeamEvent.EVENT_INTO_FIGHT_STATE)
             {
-                Debug.Log("战斗, 爽!");
+                Debug.Log("战斗, 爽!" + this.name);
                 m_fsmActor.Run<ActorIdleState>();
             }
         }

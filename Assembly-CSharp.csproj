@@ -470,7 +470,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\Init\GameInitConfig.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\Mono\MonitorMono.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterSystem.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\IActor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Core\IActor.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameExtensions.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\INetObjectBehaviour.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\SpinePrefabPart.cs" />
@@ -529,11 +529,16 @@
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\LerpVectorInputProcessor.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\InvertBooleanInputProcessor.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Button.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\ActorManager.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Actor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Core\ActorManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Core\Actor.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Part\ActorDataPart.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Pipes\RankPipe.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\BlackboardDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Part\ActorSkelRTSortPart.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Part\ActorTargetMoverPart.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Common\TimeUtils.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Part\ActorSkelForwardPart.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Debug\Runtime\ActorPartInspector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />

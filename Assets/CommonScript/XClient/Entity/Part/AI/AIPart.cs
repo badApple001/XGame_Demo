@@ -1,16 +1,16 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	AIPart.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.6.25
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  ¹ÖÎïAI¾ö²ß²¿¼þ
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	AIPart.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.6.25
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½AIï¿½ï¿½ï¿½ß²ï¿½ï¿½ï¿½
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: 
-** ÈÕ  ÆÚ: 
-** Ãè  Êö: 
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
+** ï¿½ï¿½  ï¿½ï¿½: 
 ********************************************************************/
 
 
@@ -37,51 +37,51 @@ namespace XClient.Entity
 
     public class AIPart : BasePart, IAIPart
     {
-        //ÅÅÐò¶ÔÏó
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         static AIActionComparer actionComp = new AIActionComparer();
 
-        //µ±Ç°ÔÚÅÜµÄAIÁÐ±í
+        //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Üµï¿½AIï¿½Ð±ï¿½
         List<IAIAction> m_listAIAction = new List<IAIAction>();
 
 
         protected override void OnInit(object context)
         {
-            cfg_Monster cfg = master.config as cfg_Monster;
+            // cfg_Monster cfg = master.config as cfg_Monster;
 
-            int nLen = cfg.AIID.Length;
-            int AIID = 0;
+            // int nLen = cfg.AIID.Length;
+            // int AIID = 0;
             
-            cfg_AI cfg_AI = null;
-            IAIAction action = null;
-            ICreatureEntity creatureMaster = master as ICreatureEntity;
-            for (int i=0;i<nLen;++i)
-            {
-                //todo
-                AIID = cfg.AIID[i];
-                if (AIID <= 0)
-                    continue;
+            // cfg_AI cfg_AI = null;
+            // IAIAction action = null;
+            // ICreatureEntity creatureMaster = master as ICreatureEntity;
+            // for (int i=0;i<nLen;++i)
+            // {
+            //     //todo
+            //     AIID = cfg.AIID[i];
+            //     if (AIID <= 0)
+            //         continue;
 
-                cfg_AI = GameGlobal.GameScheme.AI_0((uint)AIID);
-                if(null== cfg_AI)
-                {
-                    Debug.LogError("²»´æÔÚµÄAIÅäÖÃ AIID=" + AIID);
-                    continue;
-                }
+            //     cfg_AI = GameGlobal.GameScheme.AI_0((uint)AIID);
+            //     if(null== cfg_AI)
+            //     {
+            //         Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½AIï¿½ï¿½ï¿½ï¿½ AIID=" + AIID);
+            //         continue;
+            //     }
 
-                action = __CreateAIAction(cfg_AI);
-                if(null==action)
-                {
-                    Debug.LogError("´´½¨AIÐÐÎªÊ§°Ü AIID=" + AIID);
-                    continue;
-                }
+            //     action = __CreateAIAction(cfg_AI);
+            //     if(null==action)
+            //     {
+            //         Debug.LogError("ï¿½ï¿½ï¿½ï¿½AIï¿½ï¿½ÎªÊ§ï¿½ï¿½ AIID=" + AIID);
+            //         continue;
+            //     }
 
-                action.SetMaster(creatureMaster);
-                //action.Start();
-                m_listAIAction.Add(action);
+            //     action.SetMaster(creatureMaster);
+            //     //action.Start();
+            //     m_listAIAction.Add(action);
 
-            }
+            // }
             
-            //°´ÓÅÏÈ¼¶ÅÅÐò
+            //ï¿½ï¿½ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½
             __SortAction(m_listAIAction);
         }
 

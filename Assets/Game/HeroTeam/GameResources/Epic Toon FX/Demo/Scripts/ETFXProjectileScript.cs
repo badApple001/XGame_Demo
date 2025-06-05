@@ -41,10 +41,10 @@ namespace EpicToonFX
 
             Vector3 direction = transform.GetComponent<Rigidbody>().velocity; // Gets the direction of the projectile, used for collision detection
             if (transform.GetComponent<Rigidbody>().useGravity)
-                direction += Physics.gravity * Time.deltaTime; // Accounts for gravity if enabled
+                direction += Physics.gravity * TimeUtils.DeltaTime; // Accounts for gravity if enabled
             direction = direction.normalized;
 
-            float detectionDistance = transform.GetComponent<Rigidbody>().velocity.magnitude * Time.deltaTime; // Distance of collision detection for this frame
+            float detectionDistance = transform.GetComponent<Rigidbody>().velocity.magnitude * TimeUtils.DeltaTime; // Distance of collision detection for this frame
 
             if (Physics.SphereCast(transform.position, radius, direction, out hit, detectionDistance)) // Checks if collision will happen
             {

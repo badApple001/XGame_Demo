@@ -21,8 +21,25 @@ namespace GameScripts.HeroTeam
         /// <summary>
         /// 单例实例
         /// </summary>
-        public static CreateActorContext Instance { private set; get; } = new CreateActorContext();
+        // public static CreateActorContext Instance { private set; get; } = new CreateActorContext();
         private CreateActorContext() { }
+        private static CreateActorContext _instance = null;
+        public static CreateActorContext Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    _instance = new CreateActorContext();
+                }
+                else
+                {
+                    _instance.Clear();
+                }
+                return _instance;
+            }
+        }
+
         /// <summary>
         /// Actor配置ID
         /// </summary>
@@ -31,11 +48,33 @@ namespace GameScripts.HeroTeam
         /// Actor所属阵营
         /// </summary>
         public int nCamp;
-
         /// <summary>
         /// 父节点
         /// </summary>
         public Transform parent;
+        /// <summary>
+        /// 出生位置
+        /// </summary>
+        public Vector3 worldPos;
+        /// <summary>
+        /// 出生的朝向
+        /// </summary>
+        public Vector3 forward;
+
+        /// <summary>
+        /// 需要挂的mono
+        /// </summary>
+        public List<Type> MonoTypes = new List<Type>();
+
+        private void Clear()
+        {
+            nActorCfgID = 0;
+            nCamp = 0;
+            parent = null;
+            worldPos = Vector3.zero;
+            forward = Vector3.forward;
+            MonoTypes.Clear();
+        }
     }
 
     /// <summary>
@@ -46,9 +85,25 @@ namespace GameScripts.HeroTeam
         private readonly static int EntityTypeBase = 400;
 
         /// <summary>
-        /// 角色类型
+        /// Actor模型
         /// </summary>
         public readonly static int Actor = EntityTypeBase++;
+    }
+
+    public partial class EntityPartType : EntityPartInnerType
+    {
+        private readonly static int EntityPartBase = 400;
+
+        /// <summary>
+        /// SkeletonRuntimeSortPart
+        /// </summary>
+        public readonly static int SkeletonRuntimeSortPart = EntityPartBase++;
+
+        /// <summary>
+        /// 移动目标部件
+        /// </summary>
+        public readonly static int TargetMoverPart = EntityPartBase++;
+        public readonly static int SkelForwardPart = EntityPartBase++;
     }
 
     /// <summary>
@@ -134,7 +189,7 @@ namespace GameScripts.HeroTeam
         private List<ulong> m_arrWaitDeleteActor = new List<ulong>();
 
         /// <summary>
-        /// 角色阵营更新管线
+        /// 角色阵营更新管线 ： 采用管线处理，让业务逻辑从这里剥离出去，降低耦合
         /// </summary>
         private List<ActorCampUpdateProcessPipe> m_arrActorCampUpdateProcessPipes = new List<ActorCampUpdateProcessPipe>();
 
@@ -163,8 +218,11 @@ namespace GameScripts.HeroTeam
 
             // 注册Actor相关的实体类型和部件
             GameGlobal.EntityWorld.RegisterEntityType<Actor>(EntityType.Actor);
-            GameGlobal.EntityWorld.RegisterEntityPartType<ActorDataPart>(EntityType.Actor, EntityPartInnerType.Data);
             GameGlobal.EntityWorld.RegisterEntityPartType<PrefabPart>(EntityType.Actor, EntityPartType.Prefab);
+            GameGlobal.EntityWorld.RegisterEntityPartType<ActorDataPart>(EntityType.Actor, EntityPartType.Data);
+            GameGlobal.EntityWorld.RegisterEntityPartType<ActorSkelRTSortPart>(EntityType.Actor, EntityPartType.SkeletonRuntimeSortPart);
+            GameGlobal.EntityWorld.RegisterEntityPartType<ActorTargetMoverPart>(EntityType.Actor, EntityPartType.TargetMoverPart);
+            GameGlobal.EntityWorld.RegisterEntityPartType<ActorSkelForwardPart>(EntityType.Actor, EntityPartType.SkelForwardPart);
 
             // 注册帧更新
             var frameUpdMgr = XGameComs.Get<IFrameUpdateManager>();
@@ -275,14 +333,39 @@ namespace GameScripts.HeroTeam
         {
             NetEntityShareInitContext.instance.Reset();
             NetEntityShareInitContext.instance.localInitContext = ctx;
-            if (null == ctx.parent) ctx.parent = m_trEntityRoot;
 
+#if UNITY_EDITOR
+            Type type = Type.GetType("GameScripts.HeroTeam.ActorPartInspector");
+            if (type != null) ctx.MonoTypes.Add(type);
+#endif
+            if (ctx.MonoTypes.Count > 0)
+            {
+                List<Type> removeTypes = new List<Type>();
+                ctx.MonoTypes.ForEach(t =>
+                {
+                    if (!t.IsSubclassOf(typeof(Component)))
+                    {
+                        Debug.LogError($"{type.FullName} 不是继承自 Component 的类型。");
+                        removeTypes.Add(t);
+                    }
+                });
+
+                //线上兜底
+                if (removeTypes.Count > 0)
+                {
+                    foreach (var t in removeTypes)
+                    {
+                        ctx.MonoTypes.Remove(t);
+                    }
+                }
+            }
+
+            if (null == ctx.parent) ctx.parent = m_trEntityRoot;
             ulong entId = GameGlobal.Role.entityIDGenerator.Next();
             IActor actor =
                 m_EntityManager.CreateEntity(EntityType.Actor, entId, ctx.nActorCfgID,
                         NetEntityShareInitContext.instance) as
                     IActor;
-
             if (!m_dicGroupActor.TryGetValue(ctx.nCamp, out var actors))
             {
                 actors = new List<IActor>();
@@ -297,13 +380,19 @@ namespace GameScripts.HeroTeam
         /// <summary>
         /// 标记怪物待销毁
         /// </summary>
-        public void DestroyMonster(ulong entId)
+        public void DestroyActor(ulong entId)
         {
             if (!m_arrWaitDeleteActor.Contains(entId))
             {
                 m_arrWaitDeleteActor.Add(entId);
             }
         }
+
+
+        /// <summary>
+        /// 标记怪物待销毁
+        /// </summary>
+        public void DestroyActor(IActor actor) => DestroyActor(actor.id);
 
         /// <summary>
         /// 内部销毁Actor
@@ -342,7 +431,6 @@ namespace GameScripts.HeroTeam
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
 
-
         }
 
         /// <summary>
@@ -375,7 +463,7 @@ namespace GameScripts.HeroTeam
 
                 if (actor.IsDie())
                 {
-                    DestroyMonster(actor.id);
+                    DestroyActor(actor.id);
                     // 角色死亡回调，必须注册
                     ActorDieHandler(actor);
                 }

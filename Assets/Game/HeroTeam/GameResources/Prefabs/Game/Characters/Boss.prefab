@@ -309,11 +309,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6955002283101631199}
-  - component: {fileID: 1116614498819455299}
-  - component: {fileID: 6296316447161168589}
-  - component: {fileID: 56276544}
-  - component: {fileID: 7034197096248564839}
-  - component: {fileID: 4223198212624539570}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -340,89 +335,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1116614498819455299
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955002283101631184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5a0b1ece166dc14fbfea0b7781a483f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletLauncher: {fileID: 0}
-  headSkillEffPos: {fileID: 0}
-  bodySkillEffPos: {fileID: 0}
-  footSkillEffPos: {fileID: 0}
-  chatEffPos: {fileID: 2108320590}
-  skillIDs: 
-  skillCooldingTime: []
-  reco: {fileID: 6296316447161168589}
-  buffComponent: {fileID: 0}
---- !u!114 &6296316447161168589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955002283101631184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78e8358e93ce1254892829d83631b8e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  entID: 0
-  hitTrans: {fileID: 0}
-  entType: 0
-  camp: 0
-  beAttack: 1
-  canAttack: 1
-  listFriendCamps: 
-  listEnemyCamps: 
---- !u!114 &56276544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955002283101631184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64008b67c2d856f41b9359c1118575df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonAnimation: {fileID: 4761282950330031714}
-  skeletonGraphic: {fileID: 0}
-  defaultAniName: idle
---- !u!114 &7034197096248564839
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955002283101631184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b21775aa03f564f946c3fba833a1fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_srRangeSkillTip: {fileID: 1373287439}
-  SkillOrgin: {fileID: 8422773936118933986}
---- !u!114 &4223198212624539570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6955002283101631184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1863b3d018b9ca24ca860b552084a314, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reco: {fileID: 0}
 --- !u!1 &6955002283671709069
 GameObject:
   m_ObjectHideFlags: 0

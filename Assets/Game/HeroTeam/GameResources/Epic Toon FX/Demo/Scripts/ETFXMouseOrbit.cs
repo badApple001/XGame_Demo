@@ -78,8 +78,8 @@ namespace EpicToonFX
 
                 transform.rotation = rotation;
                 transform.position = position;
-                velocityX = Mathf.Lerp(velocityX, 0, Time.deltaTime * smoothTime);
-                velocityY = Mathf.Lerp(velocityY, 0, Time.deltaTime * smoothTime);
+                velocityX = Mathf.Lerp(velocityX, 0, TimeUtils.DeltaTime * smoothTime);
+                velocityY = Mathf.Lerp(velocityY, 0, TimeUtils.DeltaTime * smoothTime);
             }
         }
 

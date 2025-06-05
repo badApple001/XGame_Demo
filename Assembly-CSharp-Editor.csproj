@@ -329,6 +329,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\RaycastZoneEditor.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputElementEditor.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputProcessorEditor.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Debug\Editor\ActorPartInspectorEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\XGame\Dll\XGameEditor.dll" />

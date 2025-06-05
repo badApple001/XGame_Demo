@@ -18,7 +18,7 @@ namespace GameScripts.HeroTeam
             RestoreAllBlood();
 
             //离的远的 跑到boss附近去
-            if (m_Owner.GetMonsterCfg().HeroClass > HeroClassDef.WARRIOR)
+            if (m_Owner.GetConfig().HeroClass > HeroClassDef.WARRIOR)
             {
                 Run2Boss();
             }

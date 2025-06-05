@@ -58,7 +58,7 @@ namespace GameScripts.HeroTeam
         {
             if (target != null)
             {
-                Vector3 dir = speed * Time.deltaTime * (target.position - transform.position).normalized;
+                Vector3 dir = speed * TimeUtils.DeltaTime * (target.position - transform.position).normalized;
                 transform.position += dir;
             }
         }

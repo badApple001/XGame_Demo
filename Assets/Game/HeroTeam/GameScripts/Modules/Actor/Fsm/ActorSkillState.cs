@@ -86,9 +86,9 @@ namespace GameScripts.HeroTeam
             m_Anim.state.SetAnimation(0, skill.szAnimName, false);
 
             //固伤+百分比暴击
-            var damage = skill.iValue + skill.iPercentValue / 100f * m_Owner.GetMonsterCfg().iAttack;
+            var damage = skill.iValue + skill.iPercentValue / 100f * m_Owner.GetConfig().iAttack;
             //技能附带仇恨 + 攻击百分比仇恨值叠加
-            var hate = skill.iHate + m_Owner.GetMonsterCfg().iAttackHatred / 100f * damage;
+            var hate = skill.iHate + m_Owner.GetConfig().iAttackHatred / 100f * damage;
 
             var target = GameManager.instance.GetBossEntity();
             // target.SetHPDelta(-Mathf.FloorToInt(damage));
@@ -109,9 +109,9 @@ namespace GameScripts.HeroTeam
             m_Anim.state.SetAnimation(0, skill.szAnimName, false);
 
             //固伤+百分比暴击
-            var damage = skill.iValue + skill.iPercentValue / 100f * m_Owner.GetMonsterCfg().iAttack;
+            var damage = skill.iValue + skill.iPercentValue / 100f * m_Owner.GetConfig().iAttack;
             //技能附带仇恨 + 攻击百分比仇恨值叠加
-            var hate = skill.iHate + m_Owner.GetMonsterCfg().iAttackHatred / 100f * damage;
+            var hate = skill.iHate + m_Owner.GetConfig().iAttackHatred / 100f * damage;
             //获取伤害浮动后的值
             int iDamage = CombatUtils.ApplyRandomVariance(-Mathf.FloorToInt(damage));
 
@@ -155,7 +155,7 @@ namespace GameScripts.HeroTeam
                         });
 
                         //通知扇形区域内的角色躲避
-                        List<IMonster> monsters = GetPlayersInSector(skillRoot.position, dir, 100, 90);
+                        List<IActor> monsters = GetPlayersInSector(skillRoot.position, dir, 100, 90);
                         AddTimer(0.5f, () =>
                         {
                             monsters.ForEach(m => m.EludeBossSkill(skillRoot.position, dir, 100, 90));
@@ -195,13 +195,14 @@ namespace GameScripts.HeroTeam
             m_Anim.state.SetAnimation(0, skill.szAnimName, false);
             yield return null;
 
-            var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
-            List<IMonster> selects = new List<IMonster>();
+            var foesCamp = m_Owner.GetCamp() == CampDef.BATTLE_CAMP_HERO ? CampDef.BATTLE_CAMP_MONSTER : CampDef.BATTLE_CAMP_HERO;
+            var foes = ActorManager.Instance.GetActorsByCamp(foesCamp);
+            List<IActor> selects = new List<IActor>();
             int tankCount = 0;
             for (int i = 0; i < 3; i++)
             {
-                var p = monsters.PickRandom();
-                var cfg = (cfg_Monster)p.config;
+                var p = foes.PickRandom();
+                var cfg = (cfg_Actor)p.config;
                 if (cfg.HeroClass == HeroClassDef.TANK && tankCount == 2)
                 {
                     i--;
@@ -227,12 +228,13 @@ namespace GameScripts.HeroTeam
         }
 
 
-        private List<IMonster> GetPlayersInSector(Vector3 bossPos, Vector3 bossDir, float radius, float angle)
+        private List<IActor> GetPlayersInSector(Vector3 bossPos, Vector3 bossDir, float radius, float angle)
         {
-            var monsters = MonsterSystem.Instance.GetMonstersNotEqulCamp(m_Owner.GetCreatureEntity().GetCamp());
+            var foesCamp = m_Owner.GetCamp() == CampDef.BATTLE_CAMP_HERO ? CampDef.BATTLE_CAMP_MONSTER : CampDef.BATTLE_CAMP_HERO;
+            var foes = ActorManager.Instance.GetActorsByCamp(foesCamp);
             float halfAngle = angle * 0.5f;
-            List<IMonster> result = new List<IMonster>();
-            foreach (var monster in monsters)
+            List<IActor> result = new List<IActor>();
+            foreach (var monster in foes)
             {
                 var toPlayer = monster.GetPos() - bossPos;
                 if (toPlayer.magnitude > radius) continue;
@@ -243,7 +245,6 @@ namespace GameScripts.HeroTeam
             }
             return result;
         }
-
 
         public override void OnExit()
         {

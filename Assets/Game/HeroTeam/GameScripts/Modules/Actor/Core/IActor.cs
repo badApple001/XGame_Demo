@@ -10,11 +10,13 @@ namespace GameScripts.HeroTeam
     {
         Transform GetTr();
 
+        Transform GetVisual();
+
         SkeletonAnimation GetSkeleton();
 
         cfg_ActorAnimConfig GetAnimConfig();
 
-        cfg_Monster GetMonsterCfg();
+        cfg_Actor GetConfig();
 
         List<cfg_HeroTeamSkills> GetSkills();
 
@@ -77,7 +79,7 @@ namespace GameScripts.HeroTeam
 
         Vector3 GetPos();
 
-        void SetPos(ref Vector3 pos);
+        void SetPos(Vector3 pos);
 
         void SetPos(float[] float3Pos);
 
