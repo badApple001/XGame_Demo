@@ -73,7 +73,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         /// <param name="monster">怪物数据</param>
         /// <param name="sb">字符串构建器</param>
         /// <param name="func">伤害转换函数（可选）</param>
-        private void RefreshRankItem(int index, Transform trItem, IActor monster, ref StringBuilder sb, HarmConverterFunc func = null)
+        private void RefreshRankItem(int index, Transform trItem, ISpineCreature monster, ref StringBuilder sb, HarmConverterFunc func = null)
         {
 
             //转换伤害/治疗
@@ -109,24 +109,24 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         /// <summary>
         /// 伤害转换函数委托
         /// </summary>
-        private delegate int HarmConverterFunc(IActor monster);
+        private delegate int HarmConverterFunc(ISpineCreature monster);
 
         /// <summary>
         /// 伤害转换实现：如果是贤者职业则返回0，否则返回总伤害
         /// </summary>
-        private int HarmConverter(IActor monster) => monster.GetHeroCls() == HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
+        private int HarmConverter(ISpineCreature monster) => monster.GetHeroCls() == HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
 
         /// <summary>
         /// 治疗转换实现 ：如果非贤者职业返回0
         /// </summary>
         /// <param name="monster"></param>
         /// <returns></returns>
-        private int CuringConverter(IActor monster) => monster.GetHeroCls() != HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
+        private int CuringConverter(ISpineCreature monster) => monster.GetHeroCls() != HeroClassDef.SAGE ? 0 : monster.GetTotalHarm();
 
         /// <summary>
         /// 仇恨转换实现：返回怪物的仇恨值
         /// </summary>
-        private int HateConverter(IActor monster) => monster.GetHatred();
+        private int HateConverter(ISpineCreature monster) => monster.GetHatred();
 
         /// <summary>
         /// 刷新排行榜数据

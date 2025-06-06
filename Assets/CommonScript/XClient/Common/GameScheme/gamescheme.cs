@@ -662,6 +662,52 @@ class cfg_Audio_idx0_cmper : IComparer<IIndexObj>
 }
 
 [System.Serializable]
+public class cfg_Actor : IDataObj
+{
+	public int nID;  // ID
+	public string szName;  // Actor名称
+	public string szResPath;  // 模型路径
+	public float fSizeScale;  // 模型缩放
+
+	public IDataObj Clone(){return new cfg_Actor();}
+	public void Load(IDataChunk pDataChunk)
+	{
+		nID = pDataChunk.ReadINT32();
+		szName = pDataChunk.ReadSTRING();
+		szResPath = pDataChunk.ReadSTRING();
+		fSizeScale = pDataChunk.ReadFLOAT();
+	}
+
+};
+
+public class cfg_Actor_idx0 : IIndexObj
+{
+	public int nID;  // ID
+	public uint __dataarea_offset__;  // 
+
+	public IDataObj Clone(){return new cfg_Actor_idx0();}
+	public uint GetDataPosition(){return __dataarea_offset__;}
+	public void Load(IDataChunk pDataChunk)
+	{
+		nID = pDataChunk.ReadINT32();
+		__dataarea_offset__ = pDataChunk.ReadUINT32();
+	}
+
+};
+
+class cfg_Actor_idx0_cmper : IComparer<IIndexObj>
+{
+	public int Compare(IIndexObj _x, IIndexObj _y)
+	{
+		cfg_Actor_idx0 x = (cfg_Actor_idx0)_x;
+		cfg_Actor_idx0 y = (cfg_Actor_idx0)_y;
+		int __iStrTmpCompResult;
+		if (x.nID != y.nID) {return (x.nID < y.nID) ? -1 :1;} 
+		return 0;
+	}
+}
+
+[System.Serializable]
 public class cfg_HeroTeamBuff : IDataObj
 {
 	public int iID;  // 
@@ -969,6 +1015,9 @@ public class cfg_HeroTeamLevels : IDataObj
 	public int iBossBornDelaySeconds;  // 
 	public int iNpcID;  // 
 	public float[] aryNpcBornPos;  // float[-1]  
+	public int[] aryHerosBornPos;  // int[-1]  
+	public int iLeaderIndex;  // 
+	public float fLeaderModeScale;  // 
 	public int[] aryOuterRingStance;  // int[-1]  
 	public int[] aryInnerCircleStanding;  // int[-1]  
 	public int[] aryTankStanding;  // int[-1]  
@@ -985,6 +1034,9 @@ public class cfg_HeroTeamLevels : IDataObj
 		iBossBornDelaySeconds = pDataChunk.ReadINT32();
 		iNpcID = pDataChunk.ReadINT32();
 		aryNpcBornPos = pDataChunk.ReadFLOAT_Array(-1);
+		aryHerosBornPos = pDataChunk.ReadINT32_Array(-1);
+		iLeaderIndex = pDataChunk.ReadINT32();
+		fLeaderModeScale = pDataChunk.ReadFLOAT();
 		aryOuterRingStance = pDataChunk.ReadINT32_Array(-1);
 		aryInnerCircleStanding = pDataChunk.ReadINT32_Array(-1);
 		aryTankStanding = pDataChunk.ReadINT32_Array(-1);
@@ -1022,12 +1074,9 @@ class cfg_HeroTeamLevels_idx0_cmper : IComparer<IIndexObj>
 }
 
 [System.Serializable]
-public class cfg_Actor : IDataObj
+public class cfg_HeroTeamCreature : IDataObj
 {
-	public uint nID;  // ID
-	public string szName;  // 怪物名称
-	public string szResPath;  // 模型路径
-	public float fSizeScale;  // 模型缩放
+	public int nID;  // ID
 	public int HeroClass;  // 角色职业（ 0: 其它； 1：近战坦克； 2：近战输出； 3：远程输出； 4：远程治疗；）
 	public int AttackType;  // 攻击方式（0:近战；1:远程；2:奶爸/奶妈；3:二五仔(混合型) ）
 	public int iBullet;  // 远程职业，子弹的皮肤
@@ -1040,15 +1089,11 @@ public class cfg_Actor : IDataObj
 	public float fMoveSpeed;  // 移动速度
 	public int[] Skills;  // int[-1]  技能列表
 	public int iAttackHatred;  // 攻击/治疗 仇恨值 百分比
-	public int[] AIID;  // int[-1]  AIID数组
 
-	public IDataObj Clone(){return new cfg_Actor();}
+	public IDataObj Clone(){return new cfg_HeroTeamCreature();}
 	public void Load(IDataChunk pDataChunk)
 	{
-		nID = pDataChunk.ReadUINT32();
-		szName = pDataChunk.ReadSTRING();
-		szResPath = pDataChunk.ReadSTRING();
-		fSizeScale = pDataChunk.ReadFLOAT();
+		nID = pDataChunk.ReadINT32();
 		HeroClass = pDataChunk.ReadINT32();
 		AttackType = pDataChunk.ReadINT32();
 		iBullet = pDataChunk.ReadINT32();
@@ -1061,32 +1106,31 @@ public class cfg_Actor : IDataObj
 		fMoveSpeed = pDataChunk.ReadFLOAT();
 		Skills = pDataChunk.ReadINT32_Array(-1);
 		iAttackHatred = pDataChunk.ReadINT32();
-		AIID = pDataChunk.ReadINT32_Array(-1);
 	}
 
 };
 
-public class cfg_Actor_idx0 : IIndexObj
+public class cfg_HeroTeamCreature_idx0 : IIndexObj
 {
-	public uint nID;  // ID
+	public int nID;  // ID
 	public uint __dataarea_offset__;  // 
 
-	public IDataObj Clone(){return new cfg_Actor_idx0();}
+	public IDataObj Clone(){return new cfg_HeroTeamCreature_idx0();}
 	public uint GetDataPosition(){return __dataarea_offset__;}
 	public void Load(IDataChunk pDataChunk)
 	{
-		nID = pDataChunk.ReadUINT32();
+		nID = pDataChunk.ReadINT32();
 		__dataarea_offset__ = pDataChunk.ReadUINT32();
 	}
 
 };
 
-class cfg_Actor_idx0_cmper : IComparer<IIndexObj>
+class cfg_HeroTeamCreature_idx0_cmper : IComparer<IIndexObj>
 {
 	public int Compare(IIndexObj _x, IIndexObj _y)
 	{
-		cfg_Actor_idx0 x = (cfg_Actor_idx0)_x;
-		cfg_Actor_idx0 y = (cfg_Actor_idx0)_y;
+		cfg_HeroTeamCreature_idx0 x = (cfg_HeroTeamCreature_idx0)_x;
+		cfg_HeroTeamCreature_idx0 y = (cfg_HeroTeamCreature_idx0)_y;
 		int __iStrTmpCompResult;
 		if (x.nID != y.nID) {return (x.nID < y.nID) ? -1 :1;} 
 		return 0;
@@ -1129,6 +1173,9 @@ public interface Igamescheme
 	cfg_Audio Audio(int iIndex);
 	int Audio_nums();
 	cfg_Audio Audio_0(int ID);
+	cfg_Actor Actor(int iIndex);
+	int Actor_nums();
+	cfg_Actor Actor_0(int nID);
 	cfg_HeroTeamBuff HeroTeamBuff(int iIndex);
 	int HeroTeamBuff_nums();
 	cfg_HeroTeamBuff HeroTeamBuff_0(int iID);
@@ -1146,9 +1193,9 @@ public interface Igamescheme
 	cfg_HeroTeamLevels HeroTeamLevels(int iIndex);
 	int HeroTeamLevels_nums();
 	cfg_HeroTeamLevels HeroTeamLevels_0(int iChapterID);
-	cfg_Actor Actor(int iIndex);
-	int Actor_nums();
-	cfg_Actor Actor_0(uint nID);
+	cfg_HeroTeamCreature HeroTeamCreature(int iIndex);
+	int HeroTeamCreature_nums();
+	cfg_HeroTeamCreature HeroTeamCreature_0(int nID);
 }   // interface
 
 
@@ -1171,12 +1218,13 @@ public class Cgamescheme : Igamescheme
 		LightingEffect = 6,
 		Goods = 7,
 		Audio = 8,
-		HeroTeamBuff = 9,
-		HeroTeamSkills = 10,
-		ActorAnimConfig = 11,
-		HeroTeamBullet = 12,
-		HeroTeamLevels = 13,
-		Actor = 14,
+		Actor = 9,
+		HeroTeamBuff = 10,
+		HeroTeamSkills = 11,
+		ActorAnimConfig = 12,
+		HeroTeamBullet = 13,
+		HeroTeamLevels = 14,
+		HeroTeamCreature = 15,
 	}
 
 	public static int byteStrcmp(byte[] x, byte[] y){	int x_len = x.Length;	int y_len = y.Length;	int iCount = Math.Min(x_len, y_len);	for (int i = 0; i < iCount; ++i){		if (x[i] != y[i]){return x[i] < y[i] ? -1 : 1;}	}	if (x_len == y_len) { return 0; }	return x_len < y_len ? -1 : 1;}
@@ -1231,34 +1279,39 @@ public class Cgamescheme : Igamescheme
 			if (!pDataCenter.LoadData(8, new cfg_Audio(), arrKeys, arrCmper)) return false;
 		}
 		{
+			IIndexObj[] arrKeys ={new cfg_Actor_idx0()};
+			IComparer<IIndexObj>[] arrCmper ={new cfg_Actor_idx0_cmper()};
+			if (!pDataCenter.LoadData(9, new cfg_Actor(), arrKeys, arrCmper)) return false;
+		}
+		{
 			IIndexObj[] arrKeys ={new cfg_HeroTeamBuff_idx0(),new cfg_HeroTeamBuff_idx1()};
 			IComparer<IIndexObj>[] arrCmper ={new cfg_HeroTeamBuff_idx0_cmper(),new cfg_HeroTeamBuff_idx1_cmper()};
-			if (!pDataCenter.LoadData(9, new cfg_HeroTeamBuff(), arrKeys, arrCmper)) return false;
+			if (!pDataCenter.LoadData(10, new cfg_HeroTeamBuff(), arrKeys, arrCmper)) return false;
 		}
 		{
 			IIndexObj[] arrKeys ={new cfg_HeroTeamSkills_idx0(),new cfg_HeroTeamSkills_idx1()};
 			IComparer<IIndexObj>[] arrCmper ={new cfg_HeroTeamSkills_idx0_cmper(),new cfg_HeroTeamSkills_idx1_cmper()};
-			if (!pDataCenter.LoadData(10, new cfg_HeroTeamSkills(), arrKeys, arrCmper)) return false;
+			if (!pDataCenter.LoadData(11, new cfg_HeroTeamSkills(), arrKeys, arrCmper)) return false;
 		}
 		{
 			IIndexObj[] arrKeys ={new cfg_ActorAnimConfig_idx0()};
 			IComparer<IIndexObj>[] arrCmper ={new cfg_ActorAnimConfig_idx0_cmper()};
-			if (!pDataCenter.LoadData(11, new cfg_ActorAnimConfig(), arrKeys, arrCmper)) return false;
+			if (!pDataCenter.LoadData(12, new cfg_ActorAnimConfig(), arrKeys, arrCmper)) return false;
 		}
 		{
 			IIndexObj[] arrKeys ={new cfg_HeroTeamBullet_idx0()};
 			IComparer<IIndexObj>[] arrCmper ={new cfg_HeroTeamBullet_idx0_cmper()};
-			if (!pDataCenter.LoadData(12, new cfg_HeroTeamBullet(), arrKeys, arrCmper)) return false;
+			if (!pDataCenter.LoadData(13, new cfg_HeroTeamBullet(), arrKeys, arrCmper)) return false;
 		}
 		{
 			IIndexObj[] arrKeys ={new cfg_HeroTeamLevels_idx0()};
 			IComparer<IIndexObj>[] arrCmper ={new cfg_HeroTeamLevels_idx0_cmper()};
-			if (!pDataCenter.LoadData(13, new cfg_HeroTeamLevels(), arrKeys, arrCmper)) return false;
+			if (!pDataCenter.LoadData(14, new cfg_HeroTeamLevels(), arrKeys, arrCmper)) return false;
 		}
 		{
-			IIndexObj[] arrKeys ={new cfg_Actor_idx0()};
-			IComparer<IIndexObj>[] arrCmper ={new cfg_Actor_idx0_cmper()};
-			if (!pDataCenter.LoadData(14, new cfg_Actor(), arrKeys, arrCmper)) return false;
+			IIndexObj[] arrKeys ={new cfg_HeroTeamCreature_idx0()};
+			IComparer<IIndexObj>[] arrCmper ={new cfg_HeroTeamCreature_idx0_cmper()};
+			if (!pDataCenter.LoadData(15, new cfg_HeroTeamCreature(), arrKeys, arrCmper)) return false;
 		}
 		return true;
 	}
@@ -1338,57 +1391,64 @@ public class Cgamescheme : Igamescheme
 		m_cfg_Audio_idx0.ID = _ID;
 		return (cfg_Audio)m_pDataCenter.GetRecord(8, 0, m_cfg_Audio_idx0);
 	}
-	public cfg_HeroTeamBuff HeroTeamBuff(int iIndex){return (cfg_HeroTeamBuff)m_pDataCenter.GetRecordByIndex(9, (uint)iIndex);}
-	public int HeroTeamBuff_nums(){return m_pDataCenter.GetFileRecordNums(9);}
+	public cfg_Actor Actor(int iIndex){return (cfg_Actor)m_pDataCenter.GetRecordByIndex(9, (uint)iIndex);}
+	public int Actor_nums(){return m_pDataCenter.GetFileRecordNums(9);}
+	private cfg_Actor_idx0 m_cfg_Actor_idx0 = new cfg_Actor_idx0();
+	public cfg_Actor Actor_0(int _nID){
+		m_cfg_Actor_idx0.nID = _nID;
+		return (cfg_Actor)m_pDataCenter.GetRecord(9, 0, m_cfg_Actor_idx0);
+	}
+	public cfg_HeroTeamBuff HeroTeamBuff(int iIndex){return (cfg_HeroTeamBuff)m_pDataCenter.GetRecordByIndex(10, (uint)iIndex);}
+	public int HeroTeamBuff_nums(){return m_pDataCenter.GetFileRecordNums(10);}
 	private cfg_HeroTeamBuff_idx0 m_cfg_HeroTeamBuff_idx0 = new cfg_HeroTeamBuff_idx0();
 	public cfg_HeroTeamBuff HeroTeamBuff_0(int _iID){
 		m_cfg_HeroTeamBuff_idx0.iID = _iID;
-		return (cfg_HeroTeamBuff)m_pDataCenter.GetRecord(9, 0, m_cfg_HeroTeamBuff_idx0);
+		return (cfg_HeroTeamBuff)m_pDataCenter.GetRecord(10, 0, m_cfg_HeroTeamBuff_idx0);
 	}
 	private cfg_HeroTeamBuff_idx1 m_cfg_HeroTeamBuff_idx1 = new cfg_HeroTeamBuff_idx1();
 	public cfg_HeroTeamBuff HeroTeamBuff_1(int _iID){
 		m_cfg_HeroTeamBuff_idx1.iID = _iID;
-		return (cfg_HeroTeamBuff)m_pDataCenter.GetRecord(9, 1, m_cfg_HeroTeamBuff_idx1);
+		return (cfg_HeroTeamBuff)m_pDataCenter.GetRecord(10, 1, m_cfg_HeroTeamBuff_idx1);
 	}
-	public cfg_HeroTeamSkills HeroTeamSkills(int iIndex){return (cfg_HeroTeamSkills)m_pDataCenter.GetRecordByIndex(10, (uint)iIndex);}
-	public int HeroTeamSkills_nums(){return m_pDataCenter.GetFileRecordNums(10);}
+	public cfg_HeroTeamSkills HeroTeamSkills(int iIndex){return (cfg_HeroTeamSkills)m_pDataCenter.GetRecordByIndex(11, (uint)iIndex);}
+	public int HeroTeamSkills_nums(){return m_pDataCenter.GetFileRecordNums(11);}
 	private cfg_HeroTeamSkills_idx0 m_cfg_HeroTeamSkills_idx0 = new cfg_HeroTeamSkills_idx0();
 	public cfg_HeroTeamSkills HeroTeamSkills_0(int _iID){
 		m_cfg_HeroTeamSkills_idx0.iID = _iID;
-		return (cfg_HeroTeamSkills)m_pDataCenter.GetRecord(10, 0, m_cfg_HeroTeamSkills_idx0);
+		return (cfg_HeroTeamSkills)m_pDataCenter.GetRecord(11, 0, m_cfg_HeroTeamSkills_idx0);
 	}
 	private cfg_HeroTeamSkills_idx1 m_cfg_HeroTeamSkills_idx1 = new cfg_HeroTeamSkills_idx1();
 	public cfg_HeroTeamSkills HeroTeamSkills_1(int _iID){
 		m_cfg_HeroTeamSkills_idx1.iID = _iID;
-		return (cfg_HeroTeamSkills)m_pDataCenter.GetRecord(10, 1, m_cfg_HeroTeamSkills_idx1);
+		return (cfg_HeroTeamSkills)m_pDataCenter.GetRecord(11, 1, m_cfg_HeroTeamSkills_idx1);
 	}
-	public cfg_ActorAnimConfig ActorAnimConfig(int iIndex){return (cfg_ActorAnimConfig)m_pDataCenter.GetRecordByIndex(11, (uint)iIndex);}
-	public int ActorAnimConfig_nums(){return m_pDataCenter.GetFileRecordNums(11);}
+	public cfg_ActorAnimConfig ActorAnimConfig(int iIndex){return (cfg_ActorAnimConfig)m_pDataCenter.GetRecordByIndex(12, (uint)iIndex);}
+	public int ActorAnimConfig_nums(){return m_pDataCenter.GetFileRecordNums(12);}
 	private cfg_ActorAnimConfig_idx0 m_cfg_ActorAnimConfig_idx0 = new cfg_ActorAnimConfig_idx0();
 	public cfg_ActorAnimConfig ActorAnimConfig_0(int _iID){
 		m_cfg_ActorAnimConfig_idx0.iID = _iID;
-		return (cfg_ActorAnimConfig)m_pDataCenter.GetRecord(11, 0, m_cfg_ActorAnimConfig_idx0);
+		return (cfg_ActorAnimConfig)m_pDataCenter.GetRecord(12, 0, m_cfg_ActorAnimConfig_idx0);
 	}
-	public cfg_HeroTeamBullet HeroTeamBullet(int iIndex){return (cfg_HeroTeamBullet)m_pDataCenter.GetRecordByIndex(12, (uint)iIndex);}
-	public int HeroTeamBullet_nums(){return m_pDataCenter.GetFileRecordNums(12);}
+	public cfg_HeroTeamBullet HeroTeamBullet(int iIndex){return (cfg_HeroTeamBullet)m_pDataCenter.GetRecordByIndex(13, (uint)iIndex);}
+	public int HeroTeamBullet_nums(){return m_pDataCenter.GetFileRecordNums(13);}
 	private cfg_HeroTeamBullet_idx0 m_cfg_HeroTeamBullet_idx0 = new cfg_HeroTeamBullet_idx0();
 	public cfg_HeroTeamBullet HeroTeamBullet_0(int _iID){
 		m_cfg_HeroTeamBullet_idx0.iID = _iID;
-		return (cfg_HeroTeamBullet)m_pDataCenter.GetRecord(12, 0, m_cfg_HeroTeamBullet_idx0);
+		return (cfg_HeroTeamBullet)m_pDataCenter.GetRecord(13, 0, m_cfg_HeroTeamBullet_idx0);
 	}
-	public cfg_HeroTeamLevels HeroTeamLevels(int iIndex){return (cfg_HeroTeamLevels)m_pDataCenter.GetRecordByIndex(13, (uint)iIndex);}
-	public int HeroTeamLevels_nums(){return m_pDataCenter.GetFileRecordNums(13);}
+	public cfg_HeroTeamLevels HeroTeamLevels(int iIndex){return (cfg_HeroTeamLevels)m_pDataCenter.GetRecordByIndex(14, (uint)iIndex);}
+	public int HeroTeamLevels_nums(){return m_pDataCenter.GetFileRecordNums(14);}
 	private cfg_HeroTeamLevels_idx0 m_cfg_HeroTeamLevels_idx0 = new cfg_HeroTeamLevels_idx0();
 	public cfg_HeroTeamLevels HeroTeamLevels_0(int _iChapterID){
 		m_cfg_HeroTeamLevels_idx0.iChapterID = _iChapterID;
-		return (cfg_HeroTeamLevels)m_pDataCenter.GetRecord(13, 0, m_cfg_HeroTeamLevels_idx0);
+		return (cfg_HeroTeamLevels)m_pDataCenter.GetRecord(14, 0, m_cfg_HeroTeamLevels_idx0);
 	}
-	public cfg_Actor Actor(int iIndex){return (cfg_Actor)m_pDataCenter.GetRecordByIndex(14, (uint)iIndex);}
-	public int Actor_nums(){return m_pDataCenter.GetFileRecordNums(14);}
-	private cfg_Actor_idx0 m_cfg_Actor_idx0 = new cfg_Actor_idx0();
-	public cfg_Actor Actor_0(uint _nID){
-		m_cfg_Actor_idx0.nID = _nID;
-		return (cfg_Actor)m_pDataCenter.GetRecord(14, 0, m_cfg_Actor_idx0);
+	public cfg_HeroTeamCreature HeroTeamCreature(int iIndex){return (cfg_HeroTeamCreature)m_pDataCenter.GetRecordByIndex(15, (uint)iIndex);}
+	public int HeroTeamCreature_nums(){return m_pDataCenter.GetFileRecordNums(15);}
+	private cfg_HeroTeamCreature_idx0 m_cfg_HeroTeamCreature_idx0 = new cfg_HeroTeamCreature_idx0();
+	public cfg_HeroTeamCreature HeroTeamCreature_0(int _nID){
+		m_cfg_HeroTeamCreature_idx0.nID = _nID;
+		return (cfg_HeroTeamCreature)m_pDataCenter.GetRecord(15, 0, m_cfg_HeroTeamCreature_idx0);
 	}
 }   //   class Cgamescheme
 

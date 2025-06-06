@@ -357,24 +357,24 @@ namespace XClient.Entity
             if (hp < 0 && !IsBoos() && !IsDie())
             {
                 // GetSkeletonAnimation().AnimationState.SetAnimation(0, "hit2", false);
-                var actor = GetComponent<Actor>();
-                var skel = actor.GetSkeleton();
-                if (null != actor && skel != null)
-                {
+                // var actor = GetComponent<Actor>();
+                // var skel = actor.GetSkeleton();
+                // if (null != actor && skel != null)
+                // {
 
-                    var cfg = actor.GetAnimConfig();
-                    if (cfg == null)
-                    {
-                        // Debug.Log($"找不到动画: {((cfg_Monster)config).nID}");
-                        return;
-                    }
-                    skel.state.SetAnimation(1, cfg.szHit, false);
-                    GameManager.instance.AddTimer(0.6f, () =>
-                    {
-                        skel.state.ClearTrack(1);
-                        skel.state.SetAnimation(0, actor.GetAnimConfig().szIdle, true);
-                    });
-                }
+                //     var cfg = actor.GetAnimConfig();
+                //     if (cfg == null)
+                //     {
+                //         // Debug.Log($"找不到动画: {((cfg_Monster)config).nID}");
+                //         return;
+                //     }
+                //     skel.state.SetAnimation(1, cfg.szHit, false);
+                //     GameManager.instance.AddTimer(0.6f, () =>
+                //     {
+                //         skel.state.ClearTrack(1);
+                //         skel.state.SetAnimation(0, actor.GetAnimConfig().szIdle, true);
+                //     });
+                // }
             }
 
             //广播boss的生命值
@@ -644,40 +644,40 @@ namespace XClient.Entity
 
         public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir, float dodgeDistance = 7f, float waitTime = 1.5f, float duration = 1f)
         {
-            Vector2 toNpc = (Vector2)tr.position - bossPos;
-            Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toNpc);
+            // Vector2 toNpc = (Vector2)tr.position - bossPos;
+            // Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toNpc);
 
-            Vector3 startPos = tr.position;
-            Vector3 dodgeTarget = startPos + (Vector3)(dodgeDir * dodgeDistance);
+            // Vector3 startPos = tr.position;
+            // Vector3 dodgeTarget = startPos + (Vector3)(dodgeDir * dodgeDistance);
 
-            var anim = tr.GetComponent<Actor>().GetSkeleton();
-            var animConfig = tr.GetComponent<Actor>().GetAnimConfig();
-            anim.state.SetAnimation(1, animConfig.szHit, true);
-            tr.DOKill();
-            tr.DOMove(dodgeTarget, duration)
-                .SetEase(Ease.OutQuad)
-                .OnComplete(() =>
-                {
-                    // anim.state.SetAnimation(1, animConfig.szIdle, true);
-                    // DOVirtual.DelayedCall(waitTime, () =>
-                    // {
-                    //     anim.state.SetAnimation(1, animConfig.szMove, true);
-                    //     tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
-                    //     {
-                    //         anim.state.ClearTrack(1);
-                    //         anim.state.SetAnimation(0, animConfig.szIdle, true);
-                    //     });
-                    // });
-                    GameManager.instance.AddTimer(waitTime, () =>
-                    {
-                        anim.state.SetAnimation(1, animConfig.szMove, true);
-                        tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
-                        {
-                            anim.state.ClearTrack(1);
-                            anim.state.SetAnimation(0, animConfig.szIdle, true);
-                        });
-                    });
-                });
+            // var anim = tr.GetComponent<Actor>().GetSkeleton();
+            // var animConfig = tr.GetComponent<Actor>().GetAnimConfig();
+            // anim.state.SetAnimation(1, animConfig.szHit, true);
+            // tr.DOKill();
+            // tr.DOMove(dodgeTarget, duration)
+            //     .SetEase(Ease.OutQuad)
+            //     .OnComplete(() =>
+            //     {
+            //         // anim.state.SetAnimation(1, animConfig.szIdle, true);
+            //         // DOVirtual.DelayedCall(waitTime, () =>
+            //         // {
+            //         //     anim.state.SetAnimation(1, animConfig.szMove, true);
+            //         //     tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
+            //         //     {
+            //         //         anim.state.ClearTrack(1);
+            //         //         anim.state.SetAnimation(0, animConfig.szIdle, true);
+            //         //     });
+            //         // });
+            //         GameManager.instance.AddTimer(waitTime, () =>
+            //         {
+            //             anim.state.SetAnimation(1, animConfig.szMove, true);
+            //             tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
+            //             {
+            //                 anim.state.ClearTrack(1);
+            //                 anim.state.SetAnimation(0, animConfig.szIdle, true);
+            //             });
+            //         });
+            //     });
         }
 
         public void ReceiveBossSelect(Vector3 bossPos)

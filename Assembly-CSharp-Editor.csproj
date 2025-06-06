@@ -103,9 +103,9 @@
     <Compile Include="Assets\Editor\AssetsTool\Importer\Helper\AssetBundleSetHelper.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\PrefabLayerInfo.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\PrefabLayer\ImageLayer.cs" />
-    <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXVariantGroup.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\SmoothTrailEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\SameFunctionUIPrefabConfig.cs" />
+    <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXVariantGroup.cs" />
     <Compile Include="Assets\Editor\AddressableAsset\SingletonScriptableObjectEditorWindow.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\MiniJSON\MiniJSON.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\ImageOptimizeTool.cs" />
@@ -141,8 +141,9 @@
     <Compile Include="Assets\Editor\AssetsTool\Importer\Helper\AssetImportHelper.cs" />
     <Compile Include="Assets\Editor\SpliteJsonAltas\SplitJsonAltas.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\EditorHelper.cs" />
-    <Compile Include="Assets\Editor\Attribute\ObjectAttributeDefineAttribute.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\JoystickEditor.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\AssetConfig\AssetConfigEditor.cs" />
+    <Compile Include="Assets\Editor\Attribute\ObjectAttributeDefineAttribute.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXParser.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\ShaderEditor\ShaderWarmupCollectionEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\SmokePlumeEditor.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\DecalSystem\DecalEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\UnReferenceImageDeleter.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\XCodePostProcess.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputProcessorEditor.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXGroup.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\ModelMatTool.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Editor_Tween.cs" />
@@ -192,6 +194,7 @@
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\TableView\TableViewAppr.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXBuildPhase.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\FontMakerWizard.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\RaycastZoneEditor.cs" />
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDSettingEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\MaterialEditor\FlowLight\FlowLight_StandardShaderGUI.cs" />
     <Compile Include="Assets\Editor\AssetsTool\SpineAssets.cs" />
@@ -279,6 +282,7 @@
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Editor_PreparationEffect.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\TrailEditor_Base.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\MD5.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Actor\Debug\Editor\ActorPartInspectorEditor.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\Analyze\UGUIBatchDepthAnalyze\UGUIBatchDepthAnalyze.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\Font\BMFontReader.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\AssetConfig\UIPayAssetEditor.cs" />
@@ -309,8 +313,9 @@
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDFileInfo.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\AssetVerifyTool\Control\VerifyManager.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\TrailPreviewUtillity.cs" />
-    <Compile Include="Assets\Editor\Builder\XUPorter\XClass.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputElementEditor.cs" />
     <Compile Include="Assets\Editor\ResTools\Base\CustomEditorUtility.cs" />
+    <Compile Include="Assets\Editor\Builder\XUPorter\XClass.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Editor_EffectDebuger.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ResTools\Texture\TextureImportHelper.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\FTP.cs" />
@@ -325,11 +330,6 @@
     <Compile Include="Assets\Editor\XGame\GameApp\GameProjectSettingsEditor.cs" />
     <Compile Include="Assets\Editor\UI\HorizontalOrVerticalLayoutGroupExEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Util\PrefabUpdate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\JoystickEditor.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\RaycastZoneEditor.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputElementEditor.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputProcessorEditor.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Actor\Debug\Editor\ActorPartInspectorEditor.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\XGame\Dll\XGameEditor.dll" />

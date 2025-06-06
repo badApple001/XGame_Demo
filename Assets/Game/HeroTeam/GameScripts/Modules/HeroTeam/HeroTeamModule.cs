@@ -59,7 +59,7 @@ namespace GameScripts.HeroTeam.HeroTeam
 
 
             //初始化AI 创建者
-            KingAICreator.Instance.Setup( );
+            // KingAICreator.Instance.Setup( );
 
 
             State = ModuleState.Success;

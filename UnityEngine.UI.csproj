@@ -133,15 +133,15 @@
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\EventData\AxisEventData.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\Raycasters\BaseRaycaster.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\SpecializedCollections\IndexedSet.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\EventTriggerType.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\MaskableGraphic.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\EventTriggerType.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\MultipleDisplayUtilities.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\VertexModifiers\BaseMeshEffect.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\LayoutRebuilder.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\AnimationTriggers.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\Properties\AssemblyInfo.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\IMask.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\HorizontalOrVerticalLayoutGroup.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\EventHandle.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\LayoutGroup.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\GridLayoutGroup.cs" />

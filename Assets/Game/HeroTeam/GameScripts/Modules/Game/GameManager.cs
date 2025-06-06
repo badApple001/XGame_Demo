@@ -1,26 +1,17 @@
 using DG.Tweening;
-using GameScripts.HeroTeam.UI.Win;
-using GameScripts.Monster;
 using RootMotion;
-using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using XClient.Common;
-using XClient.Entity;
-using XGame;
-using XGame.Asset;
-using XGame.Entity;
-using XGame.Entity.Part;
 using XGame.EventEngine;
-using XGame.UI.Framework;
 
 namespace GameScripts.HeroTeam
 {
     public class GameManager : Singleton<GameManager>, IEventExecuteSink
     {
+        [Header("出生节点")]
         [SerializeField] private Transform m_trHeroSpawnRoot;
         [SerializeField] private Transform m_trBossSpawnRoot;
 
@@ -28,8 +19,6 @@ namespace GameScripts.HeroTeam
         [SerializeField] private Transform m_trAcherRoadRoot;
         [SerializeField] private Transform m_trTankRoadRoot;
         [SerializeField] private Transform m_tWarriorRoadRoot;
-        private List<Vector3> m_vec3HeroSpawnPoints = new List<Vector3>();
-
 
         [Header("子弹池回收组")]
         [SerializeField] Transform m_trBulletActiveRoot;
@@ -43,13 +32,28 @@ namespace GameScripts.HeroTeam
         [SerializeField] Material m_FlameBurningEffectMat;
 
 
+        /// <summary>
+        /// 当前关卡
+        /// </summary>
         [HideInInspector]
         public int LevelID = 1;
+
+        /// <summary>
+        /// Npc
+        /// </summary>
+        private ISpineCreature m_Npc;
+
+        /// <summary>
+        /// 团长
+        /// </summary>
+        private IHero m_Leader;
+
+        //当前场景就一个boss，访问量较高，为了避免每次都要遍历，直接缓存一个
+        private IMonster m_Boss = null;
 
         //缓存一份Boss的死亡位置        
         public Vector3 BossDeathPosition { private set; get; }
 
-        IActor m_Npc;
 
 
         // Start is called before the first frame update
@@ -57,24 +61,19 @@ namespace GameScripts.HeroTeam
         {
             BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
             GameEffectManager.Instance.Setup(m_trEffectActiveRoot, m_trEffectHiddenRoot);
-            ActorManager.Instance.Setup(null);
-            ActorManager.Instance.ActorDieHandler += OnActorDieHandle;
-            ActorManager.Instance.RegisterActorCampUpdateProcessPipe(CampDef.BATTLE_CAMP_HERO, RankPipe.Instance);
+            LevelManager.Instance.Setup(null);
+            LevelManager.Instance.ActorDieHandler += OnActorDieHandle;
+            LevelManager.Instance.RegisterActorCampUpdateProcessPipe(CampDef.HERO, RankPipe.Instance);
 
-            FillSpawnPoints();
+            InitGame();
+        }
+
+
+        private void InitGame()
+        {
             CreateHeros();
             CreateNpc();
-            //CreateBoss( );
         }
-
-
-        private void OnDestroy()
-        {
-            BulletManager.Instance.Release();
-            GameEffectManager.Instance.Release();
-            ActorManager.Instance.Release();
-        }
-
 
         /// <summary>
         /// 一个协程延迟调用接口
@@ -84,6 +83,17 @@ namespace GameScripts.HeroTeam
         public Coroutine AddTimer(float delay, Action callback)
         {
             return StartCoroutine(OpenCoroutineTimer(delay, callback));
+        }
+
+
+        /// <summary>
+        /// 扩展一个协程接口  方便后续统一管理
+        /// </summary>
+        /// <param name="routine"></param>
+        /// <returns></returns>
+        public Coroutine OpenCoroutine(IEnumerator routine)
+        {
+            return StartCoroutine(routine);
         }
 
 
@@ -107,6 +117,7 @@ namespace GameScripts.HeroTeam
             }
         }
 
+
         /// <summary>
         /// 清除定时器
         /// </summary>
@@ -117,15 +128,6 @@ namespace GameScripts.HeroTeam
         }
 
 
-        /// <summary>
-        /// 扩展一个协程接口  方便后续统一管理
-        /// </summary>
-        /// <param name="routine"></param>
-        /// <returns></returns>
-        public Coroutine OpenCoroutine(IEnumerator routine)
-        {
-            return StartCoroutine(routine);
-        }
 
         /// <summary>
         /// 获取当前关卡配置
@@ -136,116 +138,87 @@ namespace GameScripts.HeroTeam
             return GameGlobal.GameScheme.HeroTeamLevels_0(LevelID);
         }
 
-
-        private void FillSpawnPoints()
+        private void CreateHeros()
         {
-            Debug.Assert(m_trHeroSpawnRoot != null && m_trHeroSpawnRoot.childCount > 0, "��ɫ�����㲻��Ϊ��");
-            for (int i = 0; i < m_trHeroSpawnRoot.childCount; i++)
+            var levelCfg = GetCurrentLevelConfig();
+            int leaderIndex = levelCfg.iLeaderIndex;
+            for (int i = 0; i < levelCfg.aryHerosBornPos.Length; i++)
             {
-                Transform spawnPoint = m_trHeroSpawnRoot.GetChild(i);
-                m_vec3HeroSpawnPoints.Add(spawnPoint.position);
+                Vector3 pos = m_trHeroSpawnRoot.GetChild(i).position;
+                var pContext = CreateActorContext.Instance;
+                pContext.nActorCfgID = levelCfg.aryHerosBornPos[i];
+                pContext.worldPos = pos;
+                pContext.nCamp = CampDef.HERO;
+                // pContext.eulerAngles = Vector3.left;
+                pContext.modeScaleMul = i == leaderIndex ? levelCfg.fLeaderModeScale : 1f;
+                ISpineCreature actor = LevelManager.Instance.CreateHero(pContext);
+                if (i == leaderIndex)
+                {
+                    m_Leader = (IHero)actor;
+                    actor.SetResLoadedCallback(OnLeaderInited);
+                }
             }
         }
 
-
-        private void CreateHeros()
+        /// <summary>
+        /// 对团长的特殊处理 不要糅合进Actor里， 直接拆出来做
+        /// 
+        /// TODO: 血条后面改成Part
+        /// 
+        /// </summary>
+        private void OnLeaderInited()
         {
-
-            //��ʱ�� �����Ƶ��ؿ���
-            //��Ҫ�����Ľ�ɫ����
-            // Dictionary<int, int> dictTmpHeros = new Dictionary<int, int>()
-            // {
-            //     { 1004,3 },
-            //     { 1005,2 },
-            //     { 1006,2 },
-            //     { 1007,3 },
-            //     { 1008,4 },
-            //     { 1009,3 },
-            //     { 1010,5 },
-            //     { 1011,3 },
-            // };
-
-            //��ս��ɫ
-            List<int> arrTmpWarrior = new List<int>()
+            var bar = m_Leader.GetTr().GetComponentInChildren<HpBar>();
+            if (null != bar)
             {
-                1005,1005,
-                1006,1006
-            };
-
-            //Զ�̽�ɫ
-            List<int> arrTmpAcher = new List<int>()
-            {
-                1007,1007,1007,
-                1008,1008,1008,1008,
-                1009,1009,1009
-            };
-
-            //̹�˽�ɫ
-            List<int> arrTmpTank = new List<int>()
-            {
-                1004,1004,1004,
-            };
-
-            //���ƽ�ɫ
-            List<int> arrTmpHealer = new List<int>()
-            {
-                1010,1010,1010,1010,1010,
-                1011,1011,1011
-            };
-
-            List<T> InsertListEvenly<T>(List<T> a, List<T> b)
-            {
-                var result = new List<T>();
-                int a_len = a.Count;
-                int b_len = b.Count;
-
-                if (a_len == 0) return new List<T>(b);
-                if (b_len == 0) return new List<T>(a);
-
-                // 每多少个 b 插入一个 a
-                double interval = (double)b_len / a_len;
-                int a_index = 0;
-                for (int i = 0; i < b_len; i++)
-                {
-                    result.Add(b[i]);
-                    double target = (a_index + 1) * interval - 0.5; // 插入点尽量均匀
-                    if (i + 1 >= target && a_index < a_len)
-                    {
-                        result.Add(a[a_index]);
-                        a_index++;
-                    }
-                }
-
-                // 如果还有剩余 a，全部塞进尾部
-                for (; a_index < a_len; a_index++)
-                {
-                    result.Add(a[a_index]);
-                }
-
-                return result;
+                Vector3 lp = bar.transform.localPosition;
+                lp.y *= GetCurrentLevelConfig().fLeaderModeScale;
+                bar.transform.localPosition = lp;
             }
-            arrTmpAcher = InsertListEvenly(arrTmpAcher, arrTmpHealer);
+        }
 
-            void SpawnByRoadRoot(Transform rootNode, List<int> heroIds, bool autoNear = false, bool ergodic = true)
+        private void CreateNpc()
+        {
+            var pContext = CreateActorContext.Instance;
+            pContext.nActorCfgID = GetCurrentLevelConfig().iNpcID;
+            pContext.worldPos = new Vector3().FromArray(GetCurrentLevelConfig().aryNpcBornPos);
+            m_Npc = LevelManager.Instance.CreateHero(pContext);
+        }
+
+        private void OnClickStartGame()
+        {
+            AddTimer(GetCurrentLevelConfig().iBossBornDelaySeconds, DelayCreateBoss);
+            StartCoroutine(NpcBossChat());
+            HerosMove2BattleScene();
+        }
+
+        private void HerosMove2BattleScene()
+        {
+            var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+            //远程英雄
+            var remoteHeros = heros.FindAll(hero => hero.GetHeroCls() > HeroClassDef.WARRIOR);
+            //肉坦
+            var tankHeros = heros.FindAll(hero => hero.GetHeroCls() == HeroClassDef.TANK);
+
+            //战士和刺客
+            var warriorHeros = heros.FindAll(hero => hero.GetHeroCls() == HeroClassDef.WARRIOR);
+
+
+            void Move2Path(Transform rootNode, List<ISpineCreature> heros, bool autoNear = false, bool ergodic = true)
             {
-                Debug.Assert(heroIds.Count == rootNode.childCount, "节点数量和生成的数量不一致");
-                for (int i = 0; i < heroIds.Count; i++)
+                for (int i = 0; i < heros.Count; i++)
                 {
-                    Vector3 pos = m_vec3HeroSpawnPoints[m_vec3HeroSpawnPoints.Count - 1];
-                    m_vec3HeroSpawnPoints.RemoveAt(m_vec3HeroSpawnPoints.Count - 1);
-
-                    List<Vector3> road = new List<Vector3>();
-
+                    List<Vector3> path = new List<Vector3>();
                     if (autoNear)
                     {
-                        if (i >= heroIds.Count / 2)
+                        if (i >= heros.Count / 2)
                         {
 
                             for (int j = rootNode.childCount - 1; j >= i; j--)
                             {
                                 var p = rootNode.GetChild(j).position;
                                 p.z = 0f;
-                                road.Add(p);
+                                path.Add(p);
                             }
                         }
                         else
@@ -254,7 +227,7 @@ namespace GameScripts.HeroTeam
                             {
                                 var p = rootNode.GetChild(j).position;
                                 p.z = 0f;
-                                road.Add(p);
+                                path.Add(p);
                             }
                         }
                     }
@@ -264,7 +237,7 @@ namespace GameScripts.HeroTeam
                         {
                             var p = rootNode.GetChild(i).position;
                             p.z = 0f;
-                            road.Add(p);
+                            path.Add(p);
                         }
                         else
                         {
@@ -272,73 +245,40 @@ namespace GameScripts.HeroTeam
                             {
                                 var p = rootNode.GetChild(j).position;
                                 p.z = 0f;
-                                road.Add(p);
+                                path.Add(p);
                             }
                         }
                     }
-                    var pContext = CreateActorContext.Instance;
-                    pContext.nActorCfgID = heroIds[i];
-                    pContext.worldPos = pos;
-                    pContext.nCamp = CampDef.BATTLE_CAMP_HERO;
-                    pContext.forward = Vector3.left;
-                    ActorManager.Instance.CreateActor(pContext);
+                    var moverPart = heros[i].GetPart<SpineCreatureTargetMoverPart>();
+                    if (null != moverPart)
+                    {
+                        moverPart.SetPath(path).Start();
+                    }
                 }
             }
 
-            Debug.Log(String.Join('#', arrTmpAcher));
-            Debug.Log(String.Join('#', arrTmpWarrior));
-            Debug.Log(String.Join('#', arrTmpTank));
+            //Acher
+            Move2Path(m_trAcherRoadRoot, remoteHeros, true);
 
-            //arrTmpAcher
-            SpawnByRoadRoot(m_trAcherRoadRoot, arrTmpAcher, true);
+            //Tank
+            Move2Path(m_trTankRoadRoot, tankHeros, false, false);
 
-            //arrTmpWarrior
-            SpawnByRoadRoot(m_tWarriorRoadRoot, arrTmpWarrior);
-
-            //arrTmpTank
-            SpawnByRoadRoot(m_trTankRoadRoot, arrTmpTank, false, false);
-
-            //foreach ( var cfg in dictTmpHeros )
-            //{
-            //    for ( int i = 0; i < cfg.Value; i++ )
-            //    {
-            //        Vector3 pos = m_vec3HeroSpawnPoints[ m_vec3HeroSpawnPoints.Count - 1 ];
-            //        m_vec3HeroSpawnPoints.RemoveAt( m_vec3HeroSpawnPoints.Count - 1 );
-            //        RefreshMonsterMgr.Instance.RefreshHero( cfg.Key, pos, CampDef.BATTLE_CAMP_HERO );
-            //    }
-            //}
-
-        }
-
-
-        private void CreateNpc()
-        {
-            var pContext = CreateActorContext.Instance;
-            pContext.nActorCfgID = GetCurrentLevelConfig().iNpcID;
-            pContext.worldPos = new Vector3().FromArray(GetCurrentLevelConfig().aryNpcBornPos);
-            pContext.forward = Vector3.right;
-            m_Npc = ActorManager.Instance.CreateActor(pContext);
-        }
-
-        private void CreateBoss()
-        {
-            AddTimer(GetCurrentLevelConfig().iBossBornDelaySeconds, DelayCreateBoss);
+            //Warrior
+            Move2Path(m_tWarriorRoadRoot, warriorHeros);
         }
 
         private void DelayCreateBoss()
         {
             var pContext = CreateActorContext.Instance;
             pContext.nActorCfgID = GetCurrentLevelConfig().iBossID;
-            pContext.nCamp = CampDef.BATTLE_CAMP_MONSTER;
+            pContext.nCamp = CampDef.MONSTER;
             pContext.worldPos = new Vector3().FromArray(GetCurrentLevelConfig().aryBossBornPos);
-            pContext.forward = Vector3.left;
-            m_BossEntity = ActorManager.Instance.CreateActor(pContext);
-            m_BossEntity.SetBoos();
+            m_Boss = (IMonster)LevelManager.Instance.CreateMonster(pContext);
+            m_Boss.SetBoos();
+            m_Boss.SetForward(Vector3.right);
         }
 
-        //当前场景就一个boss，访问量较高，为了避免每次都要遍历，直接缓存一个
-        private IActor m_BossEntity = null;
-        public IActor GetBossEntity() => m_BossEntity;
+        public ISpineCreature GetBossEntity() => m_Boss;
 
         private void OnEnable()
         {
@@ -348,9 +288,8 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_STARTED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_CHANGED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
-
-
         }
+
         private void OnDisable()
         {
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
@@ -365,16 +304,9 @@ namespace GameScripts.HeroTeam
 
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
-            //Debug.Log( "��ʼս��" );
-
             if (wEventID == DHeroTeamEvent.EVENT_START_GAME)
             {
-                //GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, CameraShakeEventContext.Ins );
-                //GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0, BossHpEventContext.Ins );
-
-                //����boss
-                CreateBoss();
-                StartCoroutine(NpcBossChat());
+                OnClickStartGame();
             }
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
@@ -409,14 +341,6 @@ namespace GameScripts.HeroTeam
                 "管理者埃克索图斯：“我的火焰，请不要夺走我的火焰。”（管理者埃克索图斯死亡）",
                 "拉格纳罗斯：“现在轮到你们了，你们愚蠢的追寻拉格纳罗斯的力量，现在你们即将亲眼见到它。”"
             };
-
-            // //跳过对话
-            // if (true)
-            // {
-            //     chats.Clear();
-            //     yield return new WaitForSeconds(1.5f);
-            // }
-
 
             for (int i = 0; i < chats.Count; i++)
             {
@@ -458,7 +382,7 @@ namespace GameScripts.HeroTeam
             GameEffectManager.Instance.ShowEffect(npcFireFxResPath, m_Npc.transform.position + Vector3.up * 2.31f);
 
             yield return new WaitForSeconds(1f);
-            ActorManager.Instance.DestroyActor(m_Npc);
+            LevelManager.Instance.DestroyActor(m_Npc);
         }
 
         private bool m_OnJoystickTouched = false;
@@ -486,25 +410,35 @@ namespace GameScripts.HeroTeam
 
         }
 
-        private void OnActorDieHandle(IActor actor)
+        private void OnActorDieHandle(ISpineCreature actor)
         {
 
-
-            if (actor.IsBoos())
+            if (actor is IMonster monster)
             {
-                //记录一下boss的死亡位置
-                BossDeathPosition = actor.GetTr().position;
-                GameGlobal.EventEgnine.FireExecute(GameScripts.HeroTeam.DHeroTeamEvent.EVENT_WIN, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
 
-                //Boss掉宝
-                //TODO: 后续由关卡表配置
-                string propResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExclTiltedGlossy.prefab";
-                GameEffectManager.Instance.ShowEffect(propResPath, BossDeathPosition + Vector3.up * 3f, Quaternion.identity, 10f);
+                if (monster.IsBoos())
+                {
+                    //记录一下boss的死亡位置
+                    BossDeathPosition = actor.GetTr().position;
+                    GameGlobal.EventEgnine.FireExecute(GameScripts.HeroTeam.DHeroTeamEvent.EVENT_WIN, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
 
-                //Boss死亡特效
-                string explosResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab";
-                GameEffectManager.Instance.ShowEffect(explosResPath, BossDeathPosition + Vector3.up * 7.57f);
+                    //Boss掉宝
+                    //TODO: 后续由关卡表配置
+                    string propResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExclTiltedGlossy.prefab";
+                    GameEffectManager.Instance.ShowEffect(propResPath, BossDeathPosition + Vector3.up * 3f, Quaternion.identity, 10f);
+
+                    //Boss死亡特效
+                    string explosResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab";
+                    GameEffectManager.Instance.ShowEffect(explosResPath, BossDeathPosition + Vector3.up * 7.57f);
+                }
             }
+            else
+            {
+                //玩家死亡.
+                Debug.Log($"<color=#ff0000>######## 玩家{actor.name}已死亡 </color>");
+            }
+
+
         }
 
 
@@ -514,7 +448,7 @@ namespace GameScripts.HeroTeam
             // {
 
             //     Debug.Log(">>>>>>>>> Boss Win Event Triggered");
-            //     foreach (IActor monster in m_dicMonster.Values)
+            //     foreach (ISpineCreature monster in m_dicMonster.Values)
             //     {
             //         if (null != monster)
             //         {
@@ -538,7 +472,7 @@ namespace GameScripts.HeroTeam
             // }
             // else if (DGlobalEvent.EVENT_ENTITY_DESTROY == wEventID)
             // {
-            //     IActor monster = pContext as IActor;
+            //     ISpineCreature monster = pContext as ISpineCreature;
             //     if (null != monster)
             //     {
             //         ulong entID = monster.id;
