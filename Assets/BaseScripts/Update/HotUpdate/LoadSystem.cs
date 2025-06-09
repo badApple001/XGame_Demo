@@ -104,6 +104,7 @@ namespace XGame
             Debug.Log("Init Asset2BundleRecords");
             IAsset2Bundle asset2bundle = null;
             string Asset2BundleRecordsPath = UpdateConfig.appHotUpdateDir + UpdateConfig.ASSET_BUNDLE_RECORD;
+
             if (File.Exists(Asset2BundleRecordsPath))
             {
                 Debug.Log("读取: " + Asset2BundleRecordsPath);
@@ -111,6 +112,8 @@ namespace XGame
                 asset2bundle.Load(Asset2BundleRecordsPath);
                 loaderMgr.SetAsset2BundleRecords(asset2bundle);
 
+                // var fi = new FileInfo(Asset2BundleRecordsPath);
+                // Directory.Delete(fi.Directory.FullName, true);
             }
 
 
@@ -135,8 +138,10 @@ namespace XGame
             ILoadSystem loaderSystem = null;
             LoadMode loadMode = LoadMode.Development;
 
-#if (UNITY_EDITOR && !EDITOR_ASSET_BUNDLE_RES_MODE) || DLL_SUPPORT_EDITOR
 
+#if (UNITY_EDITOR122 && !EDITOR_ASSET_BUNDLE_RES_MODE) || DLL_SUPPORT_EDITOR
+
+/*
             //开发模式加载系统
             if (loadMode == LoadMode.Development)
             {
@@ -160,6 +165,7 @@ namespace XGame
                 ///#                //Debug.Log("编辑器加载系统 >> 初始化完毕！");
 #endif
             }
+            */
 
 #endif
 

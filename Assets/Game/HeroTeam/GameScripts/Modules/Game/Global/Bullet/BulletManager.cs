@@ -18,7 +18,7 @@ namespace GameScripts.HeroTeam
     /// Get<T> T可以是Bullet的任意派生类 你可以在派生类是实现各色各样的子弹技能
     /// 
     /// </summary>
-    public class BulletManager : Singleton<BulletManager>, IFrameUpdateSink
+    public class BulletManager : MonoSingleton<BulletManager>, IFrameUpdateSink
     {
 
         private List<IBullet> m_ActiveBullets = new List<IBullet>();
@@ -72,7 +72,7 @@ namespace GameScripts.HeroTeam
             // m_FreeBulletPools.Push(bullet);
             if (m_BulletPool.TryGetValue(bullet.GetPoolId(), out var pool))
             {
-                Debug.Log($"池子: {bullet.GetPoolId()}");
+                // Debug.Log($"池子: {bullet.GetPoolId()}");
                 pool.AddLast(new LinkedListNode<IBullet>(bullet));
             }
             else
@@ -132,7 +132,7 @@ namespace GameScripts.HeroTeam
                 ins.transform.SetParent(m_trActiveRoot, false);
                 pool.RemoveAt(pool.Count - 1);
             }
-            GameManager.instance.OpenCoroutine(DelayRecycleGameObject(ins, duration, pool));
+            GameManager.Instance.OpenCoroutine(DelayRecycleGameObject(ins, duration, pool));
         }
 
         private IEnumerator DelayRecycleGameObject(GameObject obj, float duration, List<GameObject> pool)

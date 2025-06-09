@@ -1,13 +1,7 @@
-using script;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.WSA;
-using XClient.Common;
 using XGame;
 using XGame.Asset;
-using XGame.Poolable;
-using XGame.UnityObjPool;
 using XGame.Utils;
 
 public class ToastManager : Singleton<ToastManager>

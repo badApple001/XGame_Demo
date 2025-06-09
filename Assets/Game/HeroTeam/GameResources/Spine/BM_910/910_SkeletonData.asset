@@ -16,7 +16,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 94e47a1067933a94da9d2ad3732d6efe, type: 2}
   scale: 0.01
   skeletonJSON: {fileID: 4900000, guid: 20687c6749d66574aa427de83dd84e86, type: 3}
-  skeletonJsonPath: 
+  skeletonJsonPath: Game/HeroTeam/GameResources/Spine/BM_910/910.skel.bytes
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
     requiresBlendModeMaterials: 0

@@ -12,7 +12,7 @@ public class HeroJumpState : SpineCreatureStateBase
         base.OnEnter();
 
         m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szJump1, false);
-        // GameManager.instance.AddTimer(0.667f, () =>
+        // GameManager.Instance.AddTimer(0.667f, () =>
         // {
         //     m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szJump2, false);
         // });

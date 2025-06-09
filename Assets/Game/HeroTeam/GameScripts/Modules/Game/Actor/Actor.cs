@@ -120,33 +120,32 @@ namespace GameScripts.HeroTeam
 
             if (id == EntityMessageID.ResLoaded)
             {
-
                 if (m_MonoType.Count > 0)
                 {
                     m_MonoType.ForEach(type => transform.gameObject.AddComponent(type));
                 }
-
-                if (null != m_trParent)
-                    transform.BetterSetParent(m_trParent);
-
-                //由子类类处理, 等会我会在这个类声明成抽象类,必须要继承实现这个类才行
-                // transform.position = m_wolrdPos;
-                // transform.rotation = m_Rotation;
-
-                m_trLockTarget = transform.Find("LockTarget");
-                if (m_trLockTarget == null)
-                    m_trLockTarget = transform;
 
 #if UNITY_EDITOR
                 if (transform.TryGetComponent<ActorPartInspector>(out var componet))
                 {
                     componet.BindEntity(this);
                 }
-# endif
-                m_modelLoadedCallback?.Invoke();
-                m_modelLoadedCallback = null;
+#endif
+                OnInstantiated();
             }
         }
+
+        protected virtual void OnInstantiated()
+        {
+            //由子类类处理, 等会我会在这个类声明成抽象类,必须要继承实现这个类才行
+            // transform.position = m_wolrdPos;
+            // transform.rotation = m_Rotation;
+
+            m_trLockTarget = transform.Find("LockTarget");
+            if (m_trLockTarget == null)
+                m_trLockTarget = transform;
+        }
+
 
         public override void OnUpdate()
         {
@@ -229,9 +228,14 @@ namespace GameScripts.HeroTeam
             m_dicProp.Clear();
             m_MonoType.Clear();
             m_state = ActorState.Release;
+            ClearTimes();
+        }
+
+        public void ClearTimes()
+        {
             if (m_arrCoroutineGroup.Count > 0)
             {
-                GameManager.instance.ClearTimers(m_arrCoroutineGroup);
+                GameManager.Instance.ClearTimers(m_arrCoroutineGroup);
                 m_arrCoroutineGroup.Clear();
             }
         }
@@ -239,7 +243,7 @@ namespace GameScripts.HeroTeam
         protected void AddTimer(float delay, Action callback)
         {
             if (callback == null) throw new Exception("ActorModel->AddTimer Callback is null");
-            m_arrCoroutineGroup.Add(GameManager.instance.AddTimer(delay, callback));
+            m_arrCoroutineGroup.Add(GameManager.Instance.AddTimer(delay, callback));
         }
     }
 

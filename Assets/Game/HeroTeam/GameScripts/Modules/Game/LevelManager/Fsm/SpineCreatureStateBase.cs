@@ -29,7 +29,7 @@ namespace GameScripts.HeroTeam
 
         protected void AddTimer(float delay, Action callback)
         {
-            var handler = GameManager.instance.AddTimer(delay, callback);
+            var handler = GameManager.Instance.AddTimer(delay, callback);
             m_arrTimerGroup.Add(handler);
         }
 
@@ -37,7 +37,7 @@ namespace GameScripts.HeroTeam
         {
             if (m_arrTimerGroup.Count > 0)
             {
-                GameManager.instance.ClearTimers(m_arrTimerGroup);
+                GameManager.Instance.ClearTimers(m_arrTimerGroup);
                 m_arrTimerGroup.Clear();
             }
 

@@ -29,6 +29,10 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		private Button btn_Collapse = null;
 		private RectTransform tran_PropertyContent = null;
 		private RectTransform tran_JoystickParent = null;
+		private RectTransform tran_LeaderSkillPanel = null;
+		private Button btn_BtnAvoidance = null;
+		private Button btn_BtnAttack = null;
+		private Button btn_BtnTreat = null;
 		//@End_Widget_Variables
 		
 		protected override void OnSetupOrClearWndInstance(bool isCreate)
@@ -56,6 +60,10 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			btn_Collapse = Meta.Widgets.GetWidgetComponent<Button>(7);
 			tran_PropertyContent = Meta.Widgets.GetWidgetComponent<RectTransform>(8);
 			tran_JoystickParent = Meta.Widgets.GetWidgetComponent<RectTransform>(9);
+			tran_LeaderSkillPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(10);
+			btn_BtnAvoidance = Meta.Widgets.GetWidgetComponent<Button>(11);
+			btn_BtnAttack = Meta.Widgets.GetWidgetComponent<Button>(12);
+			btn_BtnTreat = Meta.Widgets.GetWidgetComponent<Button>(13);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
@@ -72,6 +80,10 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			btn_Collapse = null;
 			tran_PropertyContent = null;
 			tran_JoystickParent = null;
+			tran_LeaderSkillPanel = null;
+			btn_BtnAvoidance = null;
+			btn_BtnAttack = null;
+			btn_BtnTreat = null;
 
 		} //@End_ClearWidgets
 
@@ -80,6 +92,9 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			UnsubscribeEvents();
 			btn_BtnFight?.onClick.AddListener(OnBtn_BtnFightClicked);
 			btn_Collapse?.onClick.AddListener(OnBtn_CollapseClicked);
+			btn_BtnAvoidance?.onClick.AddListener(OnBtn_BtnAvoidanceClicked);
+			btn_BtnAttack?.onClick.AddListener(OnBtn_BtnAttackClicked);
+			btn_BtnTreat?.onClick.AddListener(OnBtn_BtnTreatClicked);
 			OnSubscribeEvents();
 		} //@End_SubscribeEvents
 		
@@ -87,6 +102,9 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		{
 			btn_BtnFight?.onClick.RemoveAllListeners();
 			btn_Collapse?.onClick.RemoveAllListeners();
+			btn_BtnAvoidance?.onClick.RemoveAllListeners();
+			btn_BtnAttack?.onClick.RemoveAllListeners();
+			btn_BtnTreat?.onClick.RemoveAllListeners();
 			OnUnsubscribeEvents();
 		} //@End_UnsubscribeEvents
     }

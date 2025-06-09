@@ -161,7 +161,7 @@ namespace GameScripts.HeroTeam
 
 
 
-    public class LevelManager : Singleton<LevelManager>, IFrameUpdateSink
+    public class LevelManager : MonoSingleton<LevelManager>, IFrameUpdateSink
     {
         /// <summary>
         /// Actor实体的根节点
@@ -354,7 +354,7 @@ namespace GameScripts.HeroTeam
                 {
                     if (!t.IsSubclassOf(typeof(Component)))
                     {
-                        Debug.LogError($"{type.FullName} 不是继承自 Component 的类型。");
+                        Debug.LogError($"{t.FullName} 不是继承自 Component 的类型。");
                         removeTypes.Add(t);
                     }
                 });

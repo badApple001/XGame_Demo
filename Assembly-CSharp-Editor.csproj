@@ -69,8 +69,8 @@
     <Compile Include="Assets\Editor\Util\SingletonScriptableObjectAsset.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Effect_AddMaterialEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\Importer\Define\RpcMethodClass.cs" />
-    <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\Config\ReferenceFinderConfig.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\SerializeTool.cs" />
+    <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\Config\ReferenceFinderConfig.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Editor_TweenSequence.cs" />
     <Compile Include="Assets\Editor\ShaderControl\Demo\Effect.cs" />
     <Compile Include="Assets\Editor\UI\TreeMenu.cs" />
@@ -153,8 +153,8 @@
     <Compile Include="Assets\ThirdParty\uHyperText\Editor\SymbolLabelEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\NewGAsset2BundleRecords.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\UV\UVParticleInspector.cs" />
-    <Compile Include="Assets\Editor\Util\FileBrowser.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\NewGAssetDataCache.cs" />
+    <Compile Include="Assets\Editor\Util\FileBrowser.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\ProfilerUtil\ProfilerUtil.cs" />
     <Compile Include="Assets\ThirdParty\uHyperText\Editor\MenuOptions.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXDictionary.cs" />
@@ -165,10 +165,10 @@
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDExporter.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\ScriptableObjectUtility.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\Font\BMFont.cs" />
-    <Compile Include="Assets\Editor\UGUIFont\Editor\Font\ByteReader.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\AssetConfig\UIRectPlugInEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\FindUIReferanceRes.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\SpriteAtlasSearchTool.cs" />
+    <Compile Include="Assets\Editor\UGUIFont\Editor\Font\ByteReader.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\ImageOptimizeUtility.cs" />
     <Compile Include="Assets\Editor\ResTools\ShaderEditor\VariantCollectionsEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\LitSimLightMapReflectGUI.cs" />

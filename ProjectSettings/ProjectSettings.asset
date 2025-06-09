@@ -162,7 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: com.KO.King
+    Android: com.demo.heroTeam
     Standalone: ImmortalFamily.q1.com
     WebGL: ImmortalFamily.q1.com
   buildNumber:
@@ -258,15 +258,15 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: '{inproject}: AndroidKeystore/imm.keystore'
-  AndroidKeyaliasName: com.KO.King
+  AndroidKeystoreName: '{inproject}: AndroidKeystore/heroTeam.keystore'
+  AndroidKeyaliasName: heroteam
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0
   AndroidIsGame: 1
   AndroidEnableTango: 0
   androidEnableBanner: 1
   androidUseLowAccuracyLocation: 0
-  androidUseCustomKeystore: 0
+  androidUseCustomKeystore: 1
   m_AndroidBanners:
   - width: 320
     height: 180
@@ -324,7 +324,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 0}
+      m_Icon: {fileID: 2800000, guid: 0b9f2af36e558a347b6dcdbd1a96759f, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0

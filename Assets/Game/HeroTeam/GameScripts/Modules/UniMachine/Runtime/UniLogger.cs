@@ -4,7 +4,7 @@ namespace UniFramework.Machine
 {
     internal static class UniLogger
     {
-        [Conditional("DEBUG")]
+        [Conditional("ENABLE_DEBUG")]
         public static void Log(string info)
         {
             UnityEngine.Debug.Log(info);

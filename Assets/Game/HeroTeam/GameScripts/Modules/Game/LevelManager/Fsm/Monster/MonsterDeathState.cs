@@ -23,7 +23,6 @@ namespace GameScripts.HeroTeam
             //后续换到帧事件中
             AddTimer(1f, () =>
             {
-
                 m_Owner.SetState(ActorState.Release);
             });
         }

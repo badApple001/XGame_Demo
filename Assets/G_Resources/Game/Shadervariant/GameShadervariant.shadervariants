@@ -74,3 +74,30 @@ ShaderVariantCollection:
       variants:
       - keywords: 
         passType: 13
+  - first: {fileID: 4800000, guid: 1e8a610c9e01c3648bac42585e5fc676, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 8
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: bf1221ca91e8cb645a77a1e7349925f1, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: 4a2fd52cae669bd4c8b2f4890c22fffc, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: c32369fb92e04644088ddda69d1d7c96, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13
+  - first: {fileID: 4800000, guid: 7f5591625ec5e94438e02ff8f1d82a19, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 13

@@ -25,12 +25,14 @@ namespace GameScripts.HeroTeam
 
         ActorState GetState();
 
-        void SetState( ActorState actorState );
+        void SetState(ActorState actorState);
 
         void SetIntAttr(int key, int value);
 
         int GetIntAttr(int key);
 
         void SetResLoadedCallback(Action callback);
+
+        void ClearTimes();
     }
 }

@@ -126,7 +126,7 @@ public class AndroidBuilder : MonoBehaviour
         PlayerSettings.productName = "ImmortalFamily";
         */
 
-        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android )
+        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android)
         {
             EditorUserBuildSettings.androidBuildSystem = AndroidBuildSystem.Gradle;
             PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
@@ -148,10 +148,16 @@ public class AndroidBuilder : MonoBehaviour
             PlayerSettings.bundleVersion = appVer;
         }
 
-        PlayerSettings.Android.keystoreName = keystoreDir + "/imm.keystore";
-        PlayerSettings.Android.keystorePass = "22222";
-        PlayerSettings.Android.keyaliasName = PlayerSettings.applicationIdentifier;
-        PlayerSettings.Android.keyaliasPass = "34444";
+        // PlayerSettings.Android.keystoreName = keystoreDir + "/imm.keystore";
+        // PlayerSettings.Android.keystorePass = "22222";
+        // PlayerSettings.Android.keyaliasName = PlayerSettings.applicationIdentifier;
+        // PlayerSettings.Android.keyaliasPass = "34444";
+
+        //打包签名设置
+        PlayerSettings.Android.keystoreName = keystoreDir + "/heroTeam.keystore";
+        PlayerSettings.Android.keystorePass = "123456";
+        PlayerSettings.Android.keyaliasName = "heroteam";
+        PlayerSettings.Android.keyaliasPass = "123456";
 
         //PlayerSettings.Android.bundleVersionCode = (PlayerSettings.Android.bundleVersionCode + 1) % 100000;
         //PlayerSettings.iOS.buildNumber = PlayerSettings.Android.bundleVersionCode.ToString();
@@ -235,7 +241,7 @@ public class AndroidBuilder : MonoBehaviour
                     }
 
                     Directory.CreateDirectory(exeDir);
-                    apkPath = exeDir ;
+                    apkPath = exeDir;
                 }
 
                 error_msg = BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, apkPath, EditorUserBuildSettings.activeBuildTarget, options).summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded ? string.Empty : "Failed to export project!";
@@ -246,11 +252,11 @@ public class AndroidBuilder : MonoBehaviour
 
                 //删除临时文件夹
                 string burstDebugInformationDir = targetDir + "/" + PlayerSettings.productName + "_BurstDebugInformation_DoNotShip";
-                if(Directory.Exists(burstDebugInformationDir))
+                if (Directory.Exists(burstDebugInformationDir))
                 {
-                    Directory.Delete(burstDebugInformationDir,true);
+                    Directory.Delete(burstDebugInformationDir, true);
                 }
-                
+
             }
 
         }
@@ -478,6 +484,7 @@ import io.github.noodle1983.Boostrap;");
         string keystoreDir = PROJECT_DIR + "/AndroidKeystore";
         if (!Directory.Exists(keystoreDir)) { Directory.CreateDirectory(keystoreDir); }
         string keystoreFile = keystoreDir + "/imm.keystore";
+
         if (!File.Exists(keystoreFile))
         {
             string keytoolPath = jdkPath + "/bin/keytool.exe";

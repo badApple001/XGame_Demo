@@ -369,7 +369,7 @@ namespace XClient.Entity
                 //         return;
                 //     }
                 //     skel.state.SetAnimation(1, cfg.szHit, false);
-                //     GameManager.instance.AddTimer(0.6f, () =>
+                //     GameManager.Instance.AddTimer(0.6f, () =>
                 //     {
                 //         skel.state.ClearTrack(1);
                 //         skel.state.SetAnimation(0, actor.GetAnimConfig().szIdle, true);
@@ -625,7 +625,7 @@ namespace XClient.Entity
             if (null != m_refFace)
             {
                 m_refFace.SetActive(true);
-                GameManager.instance.AddTimer(2.5f, () => m_refFace.SetActive(false));
+                GameManager.Instance.AddTimer(2.5f, () => m_refFace.SetActive(false));
             }
 
 
@@ -668,7 +668,7 @@ namespace XClient.Entity
             //         //         anim.state.SetAnimation(0, animConfig.szIdle, true);
             //         //     });
             //         // });
-            //         GameManager.instance.AddTimer(waitTime, () =>
+            //         GameManager.Instance.AddTimer(waitTime, () =>
             //         {
             //             anim.state.SetAnimation(1, animConfig.szMove, true);
             //             tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
@@ -695,14 +695,14 @@ namespace XClient.Entity
                    //    {
                    //        transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
                    //    });
-                   GameManager.instance.AddTimer(0.5f, () =>
+                   GameManager.Instance.AddTimer(0.5f, () =>
                                      {
                                          transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
                                      });
                });
             transform.DOScale(1.4f, 0.3f).SetEase(Ease.OutQuad).OnComplete(() =>
                {
-                   GameManager.instance.AddTimer(0.5f, () =>
+                   GameManager.Instance.AddTimer(0.5f, () =>
                   {
                       transform.DOScale(1, 0.6f).SetEase(Ease.OutCirc);
                   });

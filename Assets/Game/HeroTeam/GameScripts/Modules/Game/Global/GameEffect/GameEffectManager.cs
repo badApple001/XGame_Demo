@@ -8,7 +8,7 @@ using XGame.Utils;
 namespace GameScripts.HeroTeam
 {
 
-    public class GameEffectManager : Singleton<GameEffectManager>, IFrameUpdateSink
+    public class GameEffectManager : MonoSingleton<GameEffectManager>, IFrameUpdateSink
     {
 
         private readonly Dictionary<string, TransformPool> m_transformPool = new Dictionary<string, TransformPool>();

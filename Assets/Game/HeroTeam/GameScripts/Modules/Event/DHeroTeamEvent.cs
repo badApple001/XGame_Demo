@@ -58,6 +58,27 @@ namespace GameScripts.HeroTeam
         /// </summary>
         public readonly static ushort EVENT_JOYSTICK_ENDED = EVENT_HEROTEAM_BASE++;
 
+
+        /// <summary>
+        /// 激活摇杆
+        /// </summary>
+        public readonly static ushort EVENT_JOYSTICK_ACTIVE = EVENT_HEROTEAM_BASE++;
+
+        /// <summary>
+        /// 团长技能 - 攻击
+        /// </summary>
+        public readonly static ushort EVENT_LEADER_SKILL_ATTACK = EVENT_HEROTEAM_BASE++;
+
+        /// <summary>
+        /// 团长技能 - 散开
+        /// </summary>
+        public readonly static ushort EVENT_LEADER_SKILL_AVOIDANCE = EVENT_HEROTEAM_BASE++;
+
+        /// <summary>
+        /// 团长技能 - 治疗
+        /// </summary>
+        public readonly static ushort EVENT_LEADER_SKILL_TREAT = EVENT_HEROTEAM_BASE++;
+
         /// <summary>
         /// 所有事件的最大ID值
         /// </summary>
@@ -75,9 +96,9 @@ namespace GameScripts.HeroTeam
     {
         private readonly static byte SOURCE_TYPE_BASE = 0;
         /// <summary> 未知ID </summary>
-        public readonly static byte SOURCE_TYPE_UNKNOW = SOURCE_TYPE_BASE++;    
+        public readonly static byte SOURCE_TYPE_UNKNOW = SOURCE_TYPE_BASE++;
         /// <summary> 本地数据事件源 </summary>
-        public readonly static byte SOURCE_TYPE_LOCALDATA = SOURCE_TYPE_BASE++;    
+        public readonly static byte SOURCE_TYPE_LOCALDATA = SOURCE_TYPE_BASE++;
         /// <summary> 实体事件源 </summary>
         public readonly static byte SOURCE_TYPE_ENTITY = SOURCE_TYPE_BASE++;
         /// <summary> UI事件源 </summary>
@@ -163,7 +184,7 @@ namespace GameScripts.HeroTeam
         /// </summary>
         public float Health = 1f;
     }
-    
+
     /// <summary>
     /// 摇杆事件上下文，记录摇杆操作的偏移量
     /// </summary>

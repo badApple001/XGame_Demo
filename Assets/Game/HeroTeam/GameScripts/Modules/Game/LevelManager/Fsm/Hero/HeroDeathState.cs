@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UniFramework.Machine;
 using UnityEngine;
 
@@ -17,6 +18,8 @@ namespace GameScripts.HeroTeam
         {
             base.OnEnter();
 
+            m_Owner.GetTr().DOKill();
+            m_Owner.ClearTimes();
             m_Owner.SetState(ActorState.Dying);
             m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szDeath, false);
             //后续换到帧事件中

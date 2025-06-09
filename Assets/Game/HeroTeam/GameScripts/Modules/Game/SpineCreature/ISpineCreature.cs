@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Spine.Unity;
+using UniFramework.Machine;
 using UnityEngine;
 
 namespace GameScripts.HeroTeam
@@ -19,6 +20,8 @@ namespace GameScripts.HeroTeam
         /// </summary>
         /// <returns></returns>
         SkeletonAnimation GetSkeleton();
+
+        StateMachine GetStateMachine();
 
 
         /// <summary>

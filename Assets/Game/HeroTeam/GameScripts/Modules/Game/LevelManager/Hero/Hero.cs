@@ -35,7 +35,9 @@ namespace GameScripts.HeroTeam
 
         protected override void OnHpChanged(int delta)
         {
+            if (GetState() > ActorState.Normal) return;
 
+            FlowTextManager.Instance.ShowFlowText(delta < 0 ? FlowTextType.Normal : FlowTextType.Treat, delta.ToString(), GetTr().position);
             if (delta < 0)
             {
                 //进入死亡动画
@@ -52,13 +54,8 @@ namespace GameScripts.HeroTeam
 
         public void EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg)
         {
-            if (null != GetFaceTr())
-            {
-                GetFaceTr().gameObject.SetActive(true);
-                AddTimer(2.5f, () => GetFaceTr().gameObject.SetActive(false));
-            }
 
-            // DodgeAndReturn(transform, bossPos, bossDir);
+            DodgeAndReturn(transform, bossPos, bossDir);
         }
 
 
@@ -72,43 +69,72 @@ namespace GameScripts.HeroTeam
             return side * sign;
         }
 
-        // public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir, float dodgeDistance = 7f, float waitTime = 1.5f, float duration = 1f)
-        // {
-        //     Vector2 toNpc = (Vector2)tr.position - bossPos;
-        //     Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toNpc);
 
-        //     Vector3 startPos = tr.position;
-        //     Vector3 dodgeTarget = startPos + (Vector3)(dodgeDir * dodgeDistance);
+        private Vector3 startPos;
+        private Vector3 dodgeTarget;
+        private bool dodge = true;
+        private float dodgeDistance = 7f;
+        private float waitTime = 1.5f;
+        private float duration = 1f;
 
-        //     var anim = tr.GetComponent<Actor>().GetSkeleton();
-        //     var animConfig = tr.GetComponent<Actor>().GetAnimConfig();
-        //     anim.state.SetAnimation(1, animConfig.szHit, true);
-        //     tr.DOKill();
-        //     tr.DOMove(dodgeTarget, duration)
-        //         .SetEase(Ease.OutQuad)
-        //         .OnComplete(() =>
-        //         {
-        //             // anim.state.SetAnimation(1, animConfig.szIdle, true);
-        //             // DOVirtual.DelayedCall(waitTime, () =>
-        //             // {
-        //             //     anim.state.SetAnimation(1, animConfig.szMove, true);
-        //             //     tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
-        //             //     {
-        //             //         anim.state.ClearTrack(1);
-        //             //         anim.state.SetAnimation(0, animConfig.szIdle, true);
-        //             //     });
-        //             // });
-        //             AddTimer(waitTime, () =>
-        //             {
-        //                 anim.state.SetAnimation(1, animConfig.szMove, true);
-        //                 tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
-        //                 {
-        //                     anim.state.ClearTrack(1);
-        //                     anim.state.SetAnimation(0, animConfig.szIdle, true);
-        //                 });
-        //             });
-        //         });
-        // }
+        public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir)
+        {
+            Vector2 toPlayer = (Vector2)tr.position - bossPos;
+            Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toPlayer);
+
+            startPos = tr.position;
+            dodgeTarget = startPos + (Vector3)(dodgeDir * dodgeDistance);
+
+            dodge = false;
+            if (Random.value > 0.4f)
+                DodgeAndReturn();
+        }
+
+        public bool IsDodge()
+        {
+            return dodge;
+        }
+
+        public void ShowEmoji(string emojiId, float showSeconds = 2)
+        {
+            if (null != GetFaceTr())
+            {
+                var emoji = GameEffectManager.Instance.ShowEffect(emojiId, GetFaceTr().position, Quaternion.Euler(-90f, 0, 0), showSeconds);
+                emoji.SetParent(GetFaceTr());
+            }
+        }
+
+        public void DodgeAndReturn()
+        {
+            if (dodge) return;
+            dodge = true;
+
+            var anim = m_SkeletonAnimation;
+            var animConfig = GetAnimConfig();
+            var tr = transform;
+            // anim.state.SetAnimation(1, animConfig.szHit, true);
+
+            //惊吓的表情
+            ShowEmoji("Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiScared.prefab", 2f);
+
+            tr.DOKill();
+            tr.DOMove(dodgeTarget, duration)
+                .SetEase(Ease.OutQuad)
+                .OnComplete(() =>
+                {
+                    SetPos(dodgeTarget);
+                    AddTimer(waitTime, () =>
+                    {
+                        anim.state.SetAnimation(1, animConfig.szMove, true);
+                        tr.DOMove(startPos, duration).SetEase(Ease.InQuad).OnComplete(() =>
+                        {
+                            SetPos(startPos);
+                            anim.state.ClearTrack(1);
+                            anim.state.SetAnimation(0, animConfig.szIdle, true);
+                        });
+                    });
+                });
+        }
 
         public void ReceiveBossSelect(Vector3 bossPos)
         {
@@ -121,13 +147,13 @@ namespace GameScripts.HeroTeam
                .SetEase(Ease.OutQuad)
                .OnComplete(() =>
                {
-                   //    DOVirtual.DelayedCall(0.5f, () =>
-                   //    {
-                   //        transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
-                   //    });
+                   SetPos(repulseTarget);
                    AddTimer(0.5f, () =>
                                      {
-                                         transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc);
+                                         transform.DOMove(startPos, 0.6f).SetEase(Ease.OutCirc).OnComplete(() =>
+                                         {
+                                             SetPos(startPos);
+                                         });
                                      });
                });
             transform.DOScale(1.4f, 0.3f).SetEase(Ease.OutQuad).OnComplete(() =>
@@ -140,13 +166,11 @@ namespace GameScripts.HeroTeam
 
         }
 
-
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
             if (wEventID == DHeroTeamEvent.EVENT_INTO_FIGHT_STATE)
             {
-                Debug.Log("战斗, 爽!" + this.name);
-                m_fsmActor.Run<HeroIdleState>();
+                AddTimer(Random.Range(0, 2f), () => m_fsmActor.Run<HeroIdleState>());
             }
         }
     }

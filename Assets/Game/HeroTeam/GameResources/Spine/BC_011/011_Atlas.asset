@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: 011_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: ca412b6b001d59d4c88f0eed5e61a799, type: 3}
-  atlasPath: 
+  atlasPath: Game/HeroTeam/GameResources/Spine/BC_011/011.atlas.txt
   materials:
   - {fileID: 2100000, guid: 09396d13ed296354a845edf505c30f9f, type: 2}

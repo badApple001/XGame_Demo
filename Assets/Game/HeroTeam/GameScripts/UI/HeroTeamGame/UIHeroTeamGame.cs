@@ -12,9 +12,9 @@ using XGame.EventEngine;
 using XClient.Common;
 using DG.Tweening;
 using GameScripts.HeroTeam.UI.Win;
-using XClient.Entity;
 using System.Text;
 using EasyMobileInput;
+using System.Collections.Generic;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
@@ -32,6 +32,11 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         private Transform m_trCuringListRoot;
         //摇杆
         private Joystick m_Joystick;
+        // 是否展开属性面板
+        private bool m_OpenCollapsed = false;
+        //下次可以使用技能的时间
+        private Dictionary<string, float> m_dicNextCanUseSkillTime = new Dictionary<string, float>();
+
 
         /// <summary>
         /// 刷新UI时调用
@@ -64,6 +69,21 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             CreateTemplate(m_trHarmListRoot);
             CreateTemplate(m_trCuringListRoot);
         }
+
+        private void SetButtonCD(UnityEngine.UI.Button btn, float cd)
+        {
+            btn.interactable = false;
+            var maskImg = btn.transform.GetChild(0).GetComponent<Image>();
+            maskImg.gameObject.SetActive(true);
+            maskImg.DOKill();
+            maskImg.fillAmount = 1f;
+            maskImg.DOFillAmount(0f, cd).OnComplete(() =>
+            {
+                btn.interactable = true;
+                maskImg.gameObject.SetActive(false);
+            });
+        }
+
 
         /// <summary>
         /// 刷新单个排行榜条目
@@ -171,11 +191,50 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             }
         }
 
-        // 是否展开属性面板
-        private bool m_OpenCollapsed = false;
 
         //@<<< ExecuteEventHandlerGenerator >>>
         //@<<< ButtonFuncGenerator >>>
+        //散开
+        private void OnBtn_BtnAvoidanceClicked() //@Window 
+        {
+            if (m_dicNextCanUseSkillTime["Avoidance"] > Time.time)
+            {
+                return;
+            }
+            m_dicNextCanUseSkillTime["Avoidance"] = Time.time + 5;
+            SetButtonCD(btn_BtnAvoidance, 5);
+
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE, DEventSourceType.SOURCE_TYPE_UI, 0, null);
+        }
+
+        //攻击
+        private void OnBtn_BtnAttackClicked() //@Window 
+        {
+            if (m_dicNextCanUseSkillTime["Attack"] > Time.time)
+            {
+                return;
+            }
+            m_dicNextCanUseSkillTime["Attack"] = Time.time + 5;
+            SetButtonCD(btn_BtnAttack, 5);
+
+
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK, DEventSourceType.SOURCE_TYPE_UI, 0, null);
+        }
+
+        //治疗
+        private void OnBtn_BtnTreatClicked() //@Window 
+        {
+            if (m_dicNextCanUseSkillTime["Treat"] > Time.time)
+            {
+                return;
+            }
+            m_dicNextCanUseSkillTime["Treat"] = Time.time + 5;
+            SetButtonCD(btn_BtnTreat, 5);
+
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT, DEventSourceType.SOURCE_TYPE_UI, 0, null);
+
+        }
+
         /// <summary>
         /// 折叠/展开属性面板按钮点击事件
         /// </summary>
@@ -216,6 +275,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0, "UIHeroTeamGame:OnSubscribeEvents");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
 
             //游戏摇杆事件注册
             var joystick = tran_JoystickParent.GetComponentInChildren<Joystick>();
@@ -241,7 +301,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0);
-
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
 
             //游戏摇杆事件移除
             if (null != m_Joystick)
@@ -275,7 +335,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
                 // 3秒后显示胜利页面
-                GameManager.instance.AddTimer(3f, () =>
+                GameManager.Instance.AddTimer(3f, () =>
                 {
                     UIWindowManager.Instance.ShowWindow<UIWin>();
                 });
@@ -285,7 +345,22 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
                 // 开始游戏时折叠属性面板
                 // OnBtn_CollapseClicked();
                 tran_ParametersPanel.gameObject.SetActive(true);
+            }
+            else if (DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE == wEventID)
+            {
                 tran_JoystickParent.gameObject.SetActive(true);
+                tran_LeaderSkillPanel.gameObject.SetActive(true);
+
+
+
+                //技能CD 
+                // TODO: 后续由技能管理器来处理
+                m_dicNextCanUseSkillTime["Attack"] = Time.time + 5;
+                m_dicNextCanUseSkillTime["Avoidance"] = Time.time + 5;
+                m_dicNextCanUseSkillTime["Treat"] = Time.time + 5;
+                SetButtonCD(btn_BtnAttack, 5);
+                SetButtonCD(btn_BtnAvoidance, 5);
+                SetButtonCD(btn_BtnTreat, 5);
             }
             else if (DHeroTeamEvent.EVENT_REFRESH_RANKDATA == wEventID && pContext is RefreshRankContext ctx)
             {
@@ -297,19 +372,19 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
         private void OnJoystickInputChanged(Vector3 old, Vector3 current)
         {
-            Debug.Log("joystick drag: " + current.ToString());
+            // Debug.Log("joystick drag: " + current.ToString());
 
             var pContext = JoystickEventContext.Ins;
             pContext.delta = current;
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, pContext);
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_CHANGED, DEventSourceType.SOURCE_TYPE_UI, 0, pContext);
         }
 
         private void OnJoystickInputStarted()
         {
             Debug.Log("joystick started");
-            
+
             var pContext = JoystickEventContext.Ins;
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, pContext);
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_STARTED, DEventSourceType.SOURCE_TYPE_UI, 0, pContext);
 
         }
 

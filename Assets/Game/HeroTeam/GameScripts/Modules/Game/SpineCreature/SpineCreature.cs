@@ -71,7 +71,7 @@ namespace GameScripts.HeroTeam
             base.OnInit(context);
 
             //名字后面要策划的表来配 这里只是临时用来区分每个玩家
-            name += string.Format("{0:D6}", m_byteShareSpawnIndex++);
+            name += string.Format("{0:D2}", m_byteShareSpawnIndex++);
         }
 
         protected override void OnAfterInit(object context)
@@ -97,40 +97,40 @@ namespace GameScripts.HeroTeam
             m_HeroCls = cfg.HeroClass;
         }
 
-
-        public override void OnReceiveEntityMessage(uint id, object data = null)
+        protected override void OnInstantiated()
         {
-            base.OnReceiveEntityMessage(id, data);
+            base.OnInstantiated();
 
-            if (id == EntityMessageID.ResLoaded)
+            if (null != m_trParent)
+                transform.BetterSetParent(m_trParent);
+
+            //注意: 这只是Spine的生命体是这么设置的
+            SetPos(GetPart<CreatureDataPart>().m_pos.Value);
+            //如果是3D的，可以根据实际情况去算Rotation
+            SetRotation(Quaternion.FromToRotation(Vector3.right, GetPart<CreatureDataPart>().m_forward.Value));
+
+            m_SkeletonAnimation = transform.GetComponentInChildren<SkeletonAnimation>();
+            m_trVisual = transform.GetChild(0);
+
+            var cfg = (cfg_Actor)base.GetActorCig();
+            m_trVisual.localScale = m_fModeScaleMul * cfg.fSizeScale * Vector3.one;
+
+            var bar = transform.GetComponentInChildren<HpBar>();
+            if (null != bar)
             {
-
-                //注意: 这只是Spine的生命体是这么设置的
-                SetPos(GetPart<CreatureDataPart>().m_pos.Value);
-                //如果是3D的，可以根据实际情况去算Rotation
-                SetRotation(Quaternion.FromToRotation(Vector3.right, GetPart<CreatureDataPart>().m_forward.Value));
-
-                m_SkeletonAnimation = transform.GetComponentInChildren<SkeletonAnimation>();
-                m_trVisual = transform.GetChild(0);
-
-                if (m_fModeScaleMul != 1f)
-                {
-                    var cfg = (cfg_Actor)base.GetActorCig();
-                    m_trVisual.localScale = m_fModeScaleMul * cfg.fSizeScale * Vector3.one;
-                }
-
-                var bar = transform.GetComponentInChildren<HpBar>();
-                if (null != bar)
-                {
-                    bar.SetEntity(this);
-                }
-
-                m_trFace = transform.Find("Face");
-
-                //初始化状态机
-                InitFsm();
+                bar.SetEntity(this);
             }
+
+            m_trFace = transform.Find("Face");
+
+            //初始化状态机
+            InitFsm();
+
+            //模型加载完成回调
+            m_modelLoadedCallback?.Invoke();
+            m_modelLoadedCallback = null;
         }
+
 
         protected virtual void InitFsm()
         {
@@ -143,7 +143,7 @@ namespace GameScripts.HeroTeam
             m_fsmActor?.Update();
         }
 
-
+        public StateMachine GetStateMachine() => m_fsmActor;
         public SkeletonAnimation GetSkeleton() => m_SkeletonAnimation;
 
         public cfg_HeroTeamCreature GetCreatureCig() => GameGlobal.GameScheme.HeroTeamCreature_0(configId);

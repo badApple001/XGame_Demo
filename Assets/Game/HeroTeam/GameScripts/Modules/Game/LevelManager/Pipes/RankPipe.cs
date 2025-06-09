@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using XClient.Common;
 using XGame.Utils;
 
 
@@ -66,7 +67,11 @@ namespace GameScripts.HeroTeam
         /// </summary>
         private Dictionary<ulong, int> m_dictActorRankInfos = new Dictionary<ulong, int>();
 
-        
+        private MonsterHarmComparer m_monsterHarmComparer = new MonsterHarmComparer();
+        private MonsterCuringComparer m_monsterCuringComparer = new MonsterCuringComparer();
+        private MonsterHateComparer m_monsterHateComparer = new MonsterHateComparer();
+
+
         public void Update(int camp, List<ISpineCreature> actors)
         {
 
@@ -74,41 +79,40 @@ namespace GameScripts.HeroTeam
             bool canRankSorted = Time.frameCount % 120 == 0;
 
 
-            // if (!m_dictHeroRankInfos.TryGetValue(actor.name, out var harm))
-            // {
-            //     m_dictHeroRankInfos.Add(actor.name, actor.GetTotalHarm());
-            // }
+            foreach (var actor in actors)
+            {
+                if (!m_dictActorRankInfos.TryGetValue(actor.id, out var harm))
+                {
+                    m_dictActorRankInfos.Add(actor.id, actor.GetTotalHarm());
+                }
 
-            // if (harm != actor.GetTotalHarm())
-            // {
-            //     harm = actor.GetTotalHarm();
-            //     needRankSorted = true;
-            // }
+                if (harm != actor.GetTotalHarm())
+                {
+                    harm = actor.GetTotalHarm();
+                    needRankSorted = true;
+                }
+            }
 
+            if (needRankSorted && canRankSorted)
+            {
+                var pContext = RefreshRankContext.Ins;
+                var arrHarmRank = pContext.arrHarmRank;
+                var arrCuringRank = pContext.arrCuringRank;
+                var arrHateRank = pContext.arrHateRank;
 
+                arrCuringRank.Clear();
+                arrCuringRank.AddRange(actors);
+                arrCuringRank.Sort(m_monsterCuringComparer);
 
-            // if (needRankSorted && canRankSorted)
-            // {
-            //     m_arrMonsterCache.RemoveAll(t => t.IsBoos());
+                arrHarmRank.Clear();
+                arrHarmRank.AddRange(actors);
+                arrHarmRank.Sort(m_monsterHarmComparer);
 
-            //     var pContext = RefreshRankContext.Ins;
-            //     var arrHarmRank = pContext.arrHarmRank;
-            //     var arrCuringRank = pContext.arrCuringRank;
-            //     var arrHateRank = pContext.arrHateRank;
-
-            //     arrCuringRank.Clear();
-            //     arrCuringRank.AddRange(m_arrMonsterCache);
-            //     arrCuringRank.Sort(m_monsterCuringComparer);
-
-            //     arrHarmRank.Clear();
-            //     arrHarmRank.AddRange(m_arrMonsterCache);
-            //     arrHarmRank.Sort(m_monsterHarmComparer);
-
-            //     arrHateRank.Clear();
-            //     arrHateRank.AddRange(m_arrMonsterCache);
-            //     arrHateRank.Sort(m_monsterHateComparer);
-            //     GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_REFRESH_RANKDATA, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0, pContext);
-            // }
+                arrHateRank.Clear();
+                arrHateRank.AddRange(actors);
+                arrHateRank.Sort(m_monsterHateComparer);
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_REFRESH_RANKDATA, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0, pContext);
+            }
 
         }
 

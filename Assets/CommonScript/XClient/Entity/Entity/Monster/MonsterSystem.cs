@@ -414,7 +414,7 @@ namespace XClient.Entity
                             //Boss掉宝
                             //TODO: 后续由关卡表配置
                             string propResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExclTiltedGlossy.prefab";
-                            GameEffectManager.instance.ShowEffect(propResPath, BossDeathPosition + Vector3.up * 3f, Quaternion.identity, 10f);
+                            GameEffectManager.Instance.ShowEffect(propResPath, BossDeathPosition + Vector3.up * 3f, Quaternion.identity, 10f);
 
                             //Boss死亡特效
                             string explosResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab";

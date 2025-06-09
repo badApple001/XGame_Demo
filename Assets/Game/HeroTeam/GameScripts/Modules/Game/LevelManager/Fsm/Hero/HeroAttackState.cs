@@ -62,51 +62,53 @@ namespace GameScripts.HeroTeam
             }
             else
             {
-                var foesCamp = m_Owner.GetCamp() == CampDef.HERO ? CampDef.MONSTER : CampDef.HERO;
-                var foes = LevelManager.Instance.GetActorsByCamp(foesCamp);
-                if (foes.Count > 0)
-                {
+                // var foesCamp = m_Owner.GetCamp() == CampDef.HERO ? CampDef.MONSTER : CampDef.HERO;
+                // var foes = LevelManager.Instance.GetActorsByCamp(foesCamp);
+                // if (foes.Count > 0)
+                // {
 
-                    damage = m_Owner.GetPower();
-                    // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
+                //     damage = m_Owner.GetPower();
+                //     // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
 
-                    //排序仇恨值
-                    foes.Sort(SelectMaxHateSortComparer);
-                    var maxHate = foes[foes.Count - 1].GetHatred();
+                //     //排序仇恨值
+                //     foes.Sort(SelectMaxHateSortComparer);
+                //     var maxHate = foes[foes.Count - 1].GetHatred();
 
-                    int i = foes.Count - 2;
-                    for (; i >= 0; i--)
-                    {
-                        if (foes[i].GetHatred() != maxHate)
-                        {
-                            break;
-                        }
-                    }
-                    if (i >= 0 && i != foes.Count - 1)
-                    {
-                        //如果有多个仇恨值相同的怪物，随机选一个
-                        var randomIndex = UnityEngine.Random.Range(i + 1, foes.Count);
-                        target = foes[randomIndex];
-                        Debug.Log($"<color=0x00ff00>{foes.Count - 1 - i}个Hero仇恨值相同, 执行随机选择</color>");
-                    }
-                    else
-                    {
-                        //如果只有一个仇恨值最大的怪物
-                        target = foes[foes.Count - 1];
-                    }
+                //     int i = foes.Count - 2;
+                //     for (; i >= 0; i--)
+                //     {
+                //         if (foes[i].GetHatred() != maxHate)
+                //         {
+                //             break;
+                //         }
+                //     }
+                //     if (i >= 0 && i != foes.Count - 1)
+                //     {
+                //         //如果有多个仇恨值相同的怪物，随机选一个
+                //         var randomIndex = UnityEngine.Random.Range(i + 1, foes.Count);
+                //         target = foes[randomIndex];
+                //         Debug.Log($"<color=0x00ff00>{foes.Count - 1 - i}个Hero仇恨值相同, 执行随机选择</color>");
+                //     }
+                //     else
+                //     {
+                //         //如果只有一个仇恨值最大的怪物
+                //         target = foes[foes.Count - 1];
+                //     }
 
-                    //找到仇恨值最大的
-                    // target = monsters[0];
-                    // int maxHatred = -1;
-                    // monsters.ForEach(current =>
-                    // {
-                    //     if (maxHatred < current.GetHatred())
-                    //     {
-                    //         maxHatred = current.GetHatred();
-                    //         target = current;
-                    //     }
-                    // });
-                }
+                //     //找到仇恨值最大的
+                //     // target = monsters[0];
+                //     // int maxHatred = -1;
+                //     // monsters.ForEach(current =>
+                //     // {
+                //     //     if (maxHatred < current.GetHatred())
+                //     //     {
+                //     //         maxHatred = current.GetHatred();
+                //     //         target = current;
+                //     //     }
+                //     // });
+                // }
+                damage = m_Owner.GetPower();
+                target = GameManager.Instance.GetBossEntity();
             }
 
 

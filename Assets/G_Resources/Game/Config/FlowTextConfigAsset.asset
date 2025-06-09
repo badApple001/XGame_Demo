@@ -21,18 +21,18 @@ MonoBehaviour:
     maxShowCount: 1
     appData: 0
   - name: "\u4F24\u5BB3\u98D8\u5B57\u961F\u5217"
-    showInterval: 0.25
+    showInterval: 0.1
     position: {x: 0, y: 0}
     positionOffset: {x: 0, y: 20}
     positionFadeTime: 1
-    maxShowCount: 3
+    maxShowCount: 999
     appData: 1
   - name: "\u7279\u6B8A\u6548\u679C\u98D8\u5B57\u961F\u5217"
-    showInterval: 0.5
+    showInterval: 0.01
     position: {x: 0, y: 0}
     positionOffset: {x: 0, y: 0}
     positionFadeTime: 0.35
-    maxShowCount: 1
+    maxShowCount: 999
     appData: 1
   - name: "buff\u74E2\u5B57\u961F\u5217"
     showInterval: 0.5
@@ -595,7 +595,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     dequeueAnimation:
-      duration: 0
+      duration: 1
       x:
         value: 0
         curve:
@@ -605,10 +605,28 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
       y:
-        value: 0
+        value: 50
         curve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
@@ -817,7 +835,25 @@ MonoBehaviour:
         value: 0
         curve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
@@ -825,18 +861,54 @@ MonoBehaviour:
         value: 0
         curve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 34
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
       alphaCurve:
         serializedVersion: 2
-        m_Curve: []
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 34
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
     dequeueAnimation:
-      duration: 0
+      duration: 1
       x:
         value: 0
         curve:
@@ -846,24 +918,96 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
       y:
-        value: 0
+        value: 100
         curve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
       scale:
-        value: 0
+        value: 1.2
         curve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 0.531178
+            value: 0.56452894
+            inSlope: -Infinity
+            outSlope: -Infinity
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0.33333334
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4
       alphaCurve:
         serializedVersion: 2
-        m_Curve: []
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 0
+          inSlope: 2
+          outSlope: 2
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.52741426
+          value: 0.8317937
+          inSlope: -Infinity
+          outSlope: -Infinity
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.27735925
+        - serializedVersion: 3
+          time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -2293,7 +2437,7 @@ MonoBehaviour:
     layer: 1
   - ID: 120
     name: "[\u6218\u6597]\u6CBB\u7597-120"
-    initOffset: {x: 20, y: 300}
+    initOffset: {x: 0, y: 100}
     animation:
       duration: 1
       x:
@@ -2487,7 +2631,7 @@ MonoBehaviour:
         m_PostInfinity: 2
         m_RotationOrder: 4
     dequeueAnimation:
-      duration: 0
+      duration: 1
       x:
         value: 0
         curve:
@@ -2497,10 +2641,28 @@ MonoBehaviour:
           m_PostInfinity: 2
           m_RotationOrder: 4
       y:
-        value: 0
+        value: 50
         curve:
           serializedVersion: 2
-          m_Curve: []
+          m_Curve:
+          - serializedVersion: 3
+            time: 0
+            value: 0
+            inSlope: 2
+            outSlope: 2
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
+          - serializedVersion: 3
+            time: 1
+            value: 1
+            inSlope: 0
+            outSlope: 0
+            tangentMode: 0
+            weightedMode: 0
+            inWeight: 0
+            outWeight: 0
           m_PreInfinity: 2
           m_PostInfinity: 2
           m_RotationOrder: 4

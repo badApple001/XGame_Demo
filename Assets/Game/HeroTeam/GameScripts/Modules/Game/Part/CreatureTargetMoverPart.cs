@@ -55,6 +55,7 @@ namespace GameScripts.HeroTeam
                     if (++m_stepIndex == m_path.Count)
                     {
                         OnArrive();
+                        return;
                     }
                 }
                 // }
@@ -90,8 +91,22 @@ namespace GameScripts.HeroTeam
             Debug.Assert(m_path.Count > 0, "不允许路径节点为空，你必须在调用Start之前先调用SetDestination或者SetPath");
             m_stepIndex = 0;
             m_stop = false;
-            m_actor?.GetSkeleton().state.SetAnimation(0, m_actor?.GetAnimConfig().szMove, true);
+
+            if (m_actor != null)
+            {
+                var animState = m_actor.GetSkeleton().state;
+                var currentAnimation = animState.GetCurrent(0);
+                if (currentAnimation != null)
+                {
+                    if (currentAnimation.Animation.Name == m_actor.GetAnimConfig().szMove)
+                    {
+                        return;
+                    }
+                }
+                animState.SetAnimation(0, m_actor.GetAnimConfig().szMove, true);
+            }
         }
+        
         public void Stop()
         {
             m_stop = true;

@@ -9,7 +9,7 @@ using XGame.Utils;
 namespace GameScripts.HeroTeam
 {
 
-    public class BuffManager : Singleton<BuffManager>, IFrameUpdateSink
+    public class BuffManager : MonoSingleton<BuffManager>, IFrameUpdateSink
     {
         private Dictionary<Type, Stack<IBuff>> m_BuffPool = new Dictionary<Type, Stack<IBuff>>();
 

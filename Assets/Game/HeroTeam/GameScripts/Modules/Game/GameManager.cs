@@ -1,5 +1,4 @@
 using DG.Tweening;
-using RootMotion;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +8,7 @@ using XGame.EventEngine;
 
 namespace GameScripts.HeroTeam
 {
-    public class GameManager : Singleton<GameManager>, IEventExecuteSink
+    public class GameManager : MonoSingleton<GameManager>, IEventExecuteSink
     {
         [Header("出生节点")]
         [SerializeField] private Transform m_trHeroSpawnRoot;
@@ -149,8 +148,6 @@ namespace GameScripts.HeroTeam
                 pContext.nActorCfgID = levelCfg.aryHerosBornPos[i];
                 pContext.worldPos = pos;
                 pContext.nCamp = CampDef.HERO;
-                // pContext.eulerAngles = Vector3.left;
-                pContext.modeScaleMul = i == leaderIndex ? levelCfg.fLeaderModeScale : 1f;
                 ISpineCreature actor = LevelManager.Instance.CreateHero(pContext);
                 if (i == leaderIndex)
                 {
@@ -171,9 +168,14 @@ namespace GameScripts.HeroTeam
             var bar = m_Leader.GetTr().GetComponentInChildren<HpBar>();
             if (null != bar)
             {
+                //团长特殊处理
+                m_Leader.GetVisual().localScale = m_Leader.GetActorCig().fSizeScale * GetCurrentLevelConfig().fLeaderModeScale * Vector3.one;
                 Vector3 lp = bar.transform.localPosition;
                 lp.y *= GetCurrentLevelConfig().fLeaderModeScale;
                 bar.transform.localPosition = lp;
+
+                //以buff的形式给主角一个特效标识
+                BuffManager.Instance.CreateBuff(m_Leader, 102);
             }
         }
 
@@ -285,9 +287,11 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "GameManager:OnEnable");
 
-            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_STARTED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
-            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_CHANGED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
-            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            // ListenJoystickEvent();
         }
 
         private void OnDisable()
@@ -299,6 +303,17 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_STARTED, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_CHANGED, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0);
+
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK, DEventSourceType.SOURCE_TYPE_UI, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE, DEventSourceType.SOURCE_TYPE_UI, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT, DEventSourceType.SOURCE_TYPE_UI, 0);
+        }
+
+        private void ListenJoystickEvent()
+        {
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_STARTED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_CHANGED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ENDED, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
         }
 
 
@@ -325,8 +340,68 @@ namespace GameScripts.HeroTeam
             {
                 OnJoystickEnded();
             }
+            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK)
+            {
+                OnLeaderSkillAttack();
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE)
+            {
+                OnLeaderSkillAvoidance();
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT)
+            {
+                OnLeaderSkillTreat();
+            }
         }
 
+        private void OnLeaderSkillAttack()
+        {
+            // 团长攻击技能逻辑
+            if (m_Leader != null)
+            {
+                m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
+                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
+
+            }
+        }
+
+        private void OnLeaderSkillAvoidance()
+        {
+            // 团长闪避技能逻辑
+            if (m_Leader != null)
+            {
+                m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
+                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
+
+                var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+                heros.ForEach(h =>
+                {
+                    if (h is IHero hero)
+                    {
+                        if (!hero.IsDodge())
+                        {
+                            hero.DodgeAndReturn();
+                        }
+                    }
+                });
+            }
+        }
+
+        private void OnLeaderSkillTreat()
+        {
+            // 团长治疗技能逻辑
+            if (m_Leader != null)
+            {
+                m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
+                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
+
+                //治疗玩家
+                var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+                //治疗
+                var sageHeros = heros.FindAll(hero => hero.GetHeroCls() > HeroClassDef.SAGE);
+                sageHeros.ForEach(sage => sage.GetStateMachine().ChangeState<HeroAttackState>());
+            }
+        }
 
         private IEnumerator NpcBossChat()
         {
@@ -383,6 +458,9 @@ namespace GameScripts.HeroTeam
 
             yield return new WaitForSeconds(1f);
             LevelManager.Instance.DestroyActor(m_Npc);
+
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+            ListenJoystickEvent();
         }
 
         private bool m_OnJoystickTouched = false;
@@ -407,7 +485,15 @@ namespace GameScripts.HeroTeam
         private void ApplyUserInput()
         {
             var delta = JoystickEventContext.Ins.delta;
-
+            Debug.Log(delta);
+            var viewBounds = CameraController.Instance.GetCamViewBounds();
+            var nextPos = m_Leader.GetPos() + delta;
+            if (!viewBounds.Contains(nextPos))
+            {
+                nextPos.x = Mathf.Clamp(nextPos.x, viewBounds.xMin, viewBounds.xMax);
+                nextPos.y = Mathf.Clamp(nextPos.y, viewBounds.yMin, viewBounds.yMax);
+            }
+            m_Leader.GetPart<SpineCreatureTargetMoverPart>().SetDestination(nextPos).Start();
         }
 
         private void OnActorDieHandle(ISpineCreature actor)

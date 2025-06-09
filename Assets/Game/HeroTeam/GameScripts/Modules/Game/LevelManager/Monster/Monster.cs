@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using XClient.Common;
+using XGame.Entity;
 using XGame.EventEngine;
 
 
@@ -8,11 +10,20 @@ namespace GameScripts.HeroTeam
 {
     public class Monster : SpineCreature, IMonster, IEventExecuteSink
     {
-        [SerializeField] private SpriteRenderer m_srRangeSkillTip;
-        public SpriteRenderer GetRangeSkillTipSr() => m_srRangeSkillTip;
-        public Transform SkillOrgin;
+        [SerializeField] private SpriteRenderer m_SkillTipRenderer;
+        public SpriteRenderer GetSkillTipRenderer() => m_SkillTipRenderer;
 
-        private bool m_IsBoss = false;
+        protected bool m_IsBoss = false;  //是否是boss
+        protected Transform m_SkillRoot; //技能施法的根节点
+        public Transform GetSkillRoot() => m_SkillRoot;
+
+
+        protected override void OnInstantiated()
+        {
+            base.OnInstantiated();
+            m_SkillRoot = transform.Find("Root_Skill");
+            m_SkillTipRenderer = m_SkillRoot.GetChild(0).GetComponent<SpriteRenderer>();
+        }
 
         protected override void InitFsm()
         {
@@ -42,12 +53,16 @@ namespace GameScripts.HeroTeam
             if (wEventID == DHeroTeamEvent.EVENT_INTO_FIGHT_STATE)
             {
                 Debug.Log("战斗, 爽!" + this.name);
-                m_fsmActor.Run<HeroIdleState>();
+                m_fsmActor.Run<MonsterIdleState>();
             }
         }
 
         protected override void OnHpChanged(int delta)
         {
+
+            if (GetState() > ActorState.Normal) return;
+
+            FlowTextManager.Instance.ShowFlowText(delta < 0 ? FlowTextType.Normal : FlowTextType.Treat, delta.ToString(), GetTr().position);
 
             if (delta < 0)
             {
