@@ -28,29 +28,21 @@ MonoBehaviour:
     mainResDir: Assets/G_Artist/Spine
     aloneDirAB: 1
     beDependent: 0
+  - suffixName: .atlas.txt
+    mainResDir: Assets/Game/HeroTeam/GameResources/Spine
+    aloneDirAB: 1
+    beDependent: 0
+  - suffixName: .skel.bytes
+    mainResDir: Assets/Game/HeroTeam/GameResources/Spine
+    aloneDirAB: 1
+    beDependent: 0
   packTypeConfigList:
   - path: Packages
     packMode: 2
   - path: Assets/Spine/Runtime/spine-unity
     packMode: 2
-  - path: Assets/Game/ImmortalFamily/GameResources/Prefabs/UI
-    packMode: 1
-  - path: Assets/Game/ImmortalFamily/GameResources/Artist/UI/Misc_Common
-    packMode: 2
-  - path: Assets/Game/ImmortalFamily/GameResources/Artist/UI/Common
-    packMode: 2
-  - path: Assets/Game/ImmortalFamily/GameResources/Artist/UI
-    packMode: 0
-  - path: Assets/Game/ImmortalFamily/GameResources/Artist/Effect/Prefabs
-    packMode: 1
-  - path: Assets/Game/ImmortalFamily/GameResources/Artist/Creature
-    packMode: 1
-  - path: Assets/Game/ImmortalFamily/GameResources/Artist/Battle
-    packMode: 1
-  - path: Assets/Game/ImmortalFamily/GameResources
-    packMode: 0
   - path: Assets/Game
-    packMode: 0
+    packMode: 2
   - path: Assets/G_Resources/Game/Prefab/Other
     packMode: 1
   - path: Assets/G_Resources/Game/Prefab/LuaUI/
@@ -77,8 +69,6 @@ MonoBehaviour:
     packMode: 0
   - path: Assets/G_Artist/Fonts/SDF4
     packMode: 0
-  - path: Assets/Game/ImmortalFamily/GameResources/Artist/Icon/Zhujue
-    packMode: 2
   mainResFilterDirList:
   - Assets/G_Resources/Game/Lua/Sources
   resInOnePackList:
