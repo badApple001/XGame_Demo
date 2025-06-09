@@ -210,7 +210,6 @@ namespace Spine.Unity {
 				this.animator = animator;
 
 				previousAnimations.Clear();
-
 				animationTable.Clear();
 				var data = skeletonDataAsset.GetSkeletonData(true);
 				foreach (var a in data.Animations)

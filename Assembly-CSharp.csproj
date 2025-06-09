@@ -728,6 +728,7 @@
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\G_Artist\Shader\HYL_Sprite-Lit-Default.shader" />
     <None Include="Assets\G_Artist\Shader\Effect_distortion_add.shader" />
+    <None Include="Assets\Resources\Res_BC_025\025.atlas.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

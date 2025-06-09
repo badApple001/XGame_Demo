@@ -481,11 +481,11 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList:
     - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
-    hash: 5f6ed598122377b7933071ec2f6c9603
+    hash: b62dc7cee3081aef77f1ed5ca4f2cdca
   - assetPath: Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
     isMainAsset: 0
     dependAssetList: []
-    hash: 9349b22389487dc2ff913f24688da7f1
+    hash: b6ce1747c102c007f613237e9927dbda
   - assetPath: Assets/G_Resources/Artist/Prefabs/Effect/UI/TestEffect.prefab
     isMainAsset: 1
     dependAssetList: []
@@ -1965,7 +1965,7 @@ MonoBehaviour:
   - assetPath: Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     isMainAsset: 0
     dependAssetList: []
-    hash: 613437c7323a897bc0855dce218e42b2
+    hash: ec047befa31a2f8cf2e6484cf647931f
   - assetPath: Assets/G_Artist/Shader/UIGlow.shader
     isMainAsset: 0
     dependAssetList: []
@@ -4364,10 +4364,12 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Atlas.asset
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.skel.bytes
     hash: 16b1e506f807fa7e55e837b97f282694
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     hash: 1b9422a72e087e9dcbd0c4176ad6f424
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.atlas.txt
@@ -4404,6 +4406,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.skel.bytes
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_Atlas.asset
     hash: 7009c424adff3939dec0cb9ce26d2aa5
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.skel.bytes
@@ -4414,6 +4417,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_Material.mat
+    - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.atlas.txt
     hash: 07fd6d046e40f51beac8c1607c351c8e
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_Material.mat
     isMainAsset: 1
@@ -4439,7 +4443,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 324f64d263c85387bca2e5b23a5ae508
+    hash: b503100b558ce1f27a1a0b62b3cc941f
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     isMainAsset: 1
     dependAssetList:
@@ -4453,6 +4457,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.skel.bytes
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Atlas.asset
     hash: e67d909eaf96e34b71ab8304ba37cb96
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.skel.bytes
@@ -4462,6 +4467,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     hash: 753568a1d22427957a0ea14b35754aa4
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.atlas.txt
@@ -4478,6 +4484,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.skel.bytes
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_Atlas.asset
     hash: 126b28e3fe2d2e7c680d7475b302bc19
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.skel.bytes
@@ -4487,6 +4494,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_Material.mat
     hash: 32e89e75ad39215ec27c2fd4b3bb6e5d
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.atlas.txt
@@ -4523,6 +4531,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.skel.bytes
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Atlas.asset
     hash: 0e5d5d59d7445e5b873197e33936fbb1
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.skel.bytes
@@ -4532,6 +4541,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Material.mat
     hash: faa2db2b95e32c9220570aca94b3006d
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.atlas.txt
@@ -4555,10 +4565,12 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Atlas.asset
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002.skel.bytes
     hash: 5eb46d54d1632dc49260a00ffd00d885
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Material.mat
     hash: 925cd16bea16ad3b403a09b8e25b0bb0
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002.atlas.txt
@@ -4579,6 +4591,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.skel.bytes
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Atlas.asset
     hash: d182218ba20bf18c41855c69a96afddf
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.skel.bytes
@@ -4588,6 +4601,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Material.mat
     hash: de08edfb97bfce5cc155d914c50b72fd
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.atlas.txt
@@ -4614,6 +4628,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.skel.bytes
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_Atlas.asset
     hash: 1904f182a4b970c93de8e3045d68ac68
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.skel.bytes
@@ -4623,6 +4638,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_Material.mat
     hash: d467233a8773d2d66ca64ca2d69fad35
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.atlas.txt
@@ -4650,10 +4666,12 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_Atlas.asset
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.skel.bytes
     hash: bd9bfc3851d51656e3c75ed0449402aa
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_Material.mat
     hash: 691fd3fcb615cefd725df59e54ef25e8
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.atlas.txt
@@ -4685,10 +4703,12 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_Atlas.asset
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.skel.bytes
     hash: 2e90b53786601270cc369c8814e44761
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_Atlas.asset
     isMainAsset: 1
     dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.atlas.txt
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_Material.mat
     hash: 36b796d4b16ab1596d5539da002c5514
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.atlas.txt
@@ -4912,8 +4932,23 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     - Assets/Game/HeroTeam/GameResources/Textures/White_1x1.png
+    - Assets/Resources/Res_BC_025/025_Controller.controller
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     - Assets/Game/HeroTeam/GameResources/Materials/Dissolve.mat
-    hash: 782b95aa6220c1a55deafed7c3402989
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
+    - Assets/Resources/Res_BC_025/025_SkeletonData.asset
+    hash: a6cfe51556cf67483b33bb1a9792274b
+  - assetPath: Assets/Resources/Res_BC_025/025_Controller.controller
+    isMainAsset: 0
+    dependAssetList: []
+    hash: 57c6f17c517651025234034639690a74
+  - assetPath: Assets/Resources/Res_BC_025/025_SkeletonData.asset
+    isMainAsset: 0
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.skel.bytes
+    - Assets/Resources/Res_BC_025/025_Controller.controller
+    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Atlas.asset
+    hash: 0c1ce12eccc5895eea3cee1d387e0db3
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.atlas.txt
     isMainAsset: 1
     dependAssetList: []
@@ -4930,6 +4965,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_910/910_Material.mat
+    - Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.atlas.txt
     hash: 2ffb74b73d8850e6d2ea344a2375052e
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910_Material.mat
     isMainAsset: 1
@@ -4941,6 +4977,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_910/910_Atlas.asset
+    - Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.skel.bytes
     hash: 65f135ebb6c6ef369f7f9dcc615a7d26
   - assetPath: Assets/Game/HeroTeam/GameResources/Textures/512x512_Dissolve_Noise_Texture.png
     isMainAsset: 1
@@ -5737,39 +5774,39 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconCollapse.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 2e78703e2cf4710394722acb956dd188
+    hash: b6eba2b9ae0959c6b016b9357b3aa19d
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconError.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 5c3ced27c3fb2b0b082f81e735a510fc
+    hash: baab97b512dc105234005a860950d2b3
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconHide.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: dfcd86fe1bbcc8f7b99e2d4009696725
+    hash: c678ccd1aaf7e37822967431e66daa0d
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconInfo.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 88ff035d1fe8175ab14e4aae74333cce
+    hash: e7d4beb1b732ddc3aa7e85e4b56b20e7
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconResizeAllDirections.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 3a9cc18521942c88d3caa128cbc69372
+    hash: 4aa610a3703b09e92463eb189ad913f1
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconResizeVertialOnly.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 6837873cc205ae5a8388cbd62da4f103
+    hash: fa5aa923e3acce754c0989681a8eb0de
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconSnapToBottom.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 68c5782b0143b876b56e68468d831a52
+    hash: b2eaf45a5eaaccaa60c302bcf34a7e61
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconSnapToBottomBg.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 1f1d3c52af33eea1e45788289f044e2c
+    hash: 0d000a126c89b6c4e85910ecc8d36181
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconWarning.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: f9438215a9b13b95ed742f6ab3248071
+    hash: 98af4f164de72ec0f551e6a8aa614c62
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/SearchIcon.psd
     isMainAsset: 1
     dependAssetList: []
@@ -5781,23 +5818,23 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/SlicedBackground2.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: b952550769a831cf65de3273a7dccaee
+    hash: 4d221c74a1e78be62d73f4b5054da326
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/SlicedBackground3.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: a7efb60794bc20110569ca39f133911c
+    hash: 69f8bdaa769a4af6fd359f4b4d8ce889
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/Unused/IconErrorHighRes.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: df4aaeef5f2af2a5c359b0e29369c4cb
+    hash: d35ab4c1ee643a1747a620911bea332d
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/Unused/IconInfoHighRes.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 3f1b0db41d545918c0618434471ad8e8
+    hash: 8413dc09344e1eff97785ce8b58b17c0
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/Unused/IconWarningHighRes.psd
     isMainAsset: 1
     dependAssetList: []
-    hash: 7f87c05bfaabe313f125ca023e963b4a
+    hash: 17b37a7a288ee322b7cf3f21898d7092
   - assetPath: Assets/Game/HeroTeam/GameScripts/Modules/UniMachine/README.md
     isMainAsset: 1
     dependAssetList: []

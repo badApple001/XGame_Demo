@@ -28,20 +28,12 @@ MonoBehaviour:
     mainResDir: Assets/G_Artist/Spine
     aloneDirAB: 1
     beDependent: 0
-  - suffixName: .atlas.txt
-    mainResDir: Assets/Game/HeroTeam/GameResources/Spine
-    aloneDirAB: 1
-    beDependent: 0
-  - suffixName: .skel.bytes
-    mainResDir: Assets/Game/HeroTeam/GameResources/Spine
-    aloneDirAB: 1
-    beDependent: 0
   packTypeConfigList:
   - path: Packages
     packMode: 2
   - path: Assets/Spine/Runtime/spine-unity
     packMode: 2
-  - path: Assets/Game
+  - path: Assets/Game/HeroTeam
     packMode: 2
   - path: Assets/G_Resources/Game/Prefab/Other
     packMode: 1
