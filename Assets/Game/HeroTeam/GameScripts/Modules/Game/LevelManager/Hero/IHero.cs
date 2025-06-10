@@ -13,7 +13,7 @@ namespace GameScripts.HeroTeam
         /// <param name="bossDir"></param>
         /// <param name="radius"></param>
         /// <param name="angleDeg"></param>
-        void EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg);
+        bool EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg);
 
         void DodgeAndReturn();
 

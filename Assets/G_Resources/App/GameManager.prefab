@@ -643,7 +643,7 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!222 &222805739921910422
 CanvasRenderer:
@@ -687,7 +687,7 @@ GameObject:
   - component: {fileID: 4830239100637492971}
   - component: {fileID: 1816143764575081480}
   - component: {fileID: 3217799683560146130}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BattleFlowText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,9 +732,9 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: -319314709
-  m_SortingOrder: 1
+  m_AdditionalShaderChannelsFlag: 25
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &3217799683560146130
 MonoBehaviour:
@@ -1084,7 +1084,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 8411137971240744323}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1873,6 +1873,8 @@ MonoBehaviour:
   layers:
   - {fileID: 4157852704185943344}
   - {fileID: 3905719824723460203}
+  - {fileID: 619429709337822225}
+  - {fileID: 4830239100637492971}
 --- !u!114 &3835494777916940457
 MonoBehaviour:
   m_ObjectHideFlags: 0

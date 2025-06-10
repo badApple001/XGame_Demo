@@ -93,7 +93,19 @@ namespace GameScripts.HeroTeam
                         List<IHero> heros = GetPlayersInSector(skillRoot.position, dir, 100, skill_range_angle + 5);
                         AddTimer(0.5f, () =>
                         {
-                            heros.ForEach(h => h.EludeBossSkill(skillRoot.position, dir, 100, skill_range_angle + 5));
+
+
+                            bool allActorEludeSkill = true;
+                            heros.ForEach(h =>
+                            {
+                                allActorEludeSkill &= h.EludeBossSkill(skillRoot.position, dir, 100, skill_range_angle + 5);
+                            });
+
+                            //存在队员没有躲避技能的情况下 提示团长
+                            if (!allActorEludeSkill)
+                            {
+                                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+                            }
                         });
 
                         //技能指示器

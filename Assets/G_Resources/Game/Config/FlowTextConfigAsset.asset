@@ -647,8 +647,8 @@ MonoBehaviour:
     prefabRef:
       path: G_Resources/Game/Prefab/FlowText/BattleNormalTxt.prefab
       guid: de5ca61ff5e9ba2459d22e1eeb50e576
-    contentPrefix: 
-    layer: 1
+    contentPrefix: <sprite name="FlowText_6">
+    layer: 3
   - ID: 102
     name: "[\u6218\u6597]\u666E\u901A\u4F24\u5BB3\u66B4\u51FB-102"
     initOffset: {x: 20, y: 300}
@@ -1014,8 +1014,8 @@ MonoBehaviour:
     prefabRef:
       path: G_Resources/Game/Prefab/FlowText/BattleNormalTxt_Fatal.prefab
       guid: c6fddabd7b876ad4cbb5cf68d363b33e
-    contentPrefix: 
-    layer: 1
+    contentPrefix: "<sprite name=\"FlowText_5\">\u66B4\u51FB"
+    layer: 3
   - ID: 103
     name: "[\u6218\u6597]\u771F\u5B9E\u4F24\u5BB3-103"
     initOffset: {x: 20, y: 300}
@@ -2684,7 +2684,7 @@ MonoBehaviour:
       path: G_Resources/Game/Prefab/FlowText/BattleHeathText.prefab
       guid: 1f0fca58d03375a42a7a319f27fbcec2
     contentPrefix: 
-    layer: 1
+    layer: 3
   - ID: 121
     name: "[\u6218\u6597]\u6C72\u53D6-121"
     initOffset: {x: 20, y: 300}

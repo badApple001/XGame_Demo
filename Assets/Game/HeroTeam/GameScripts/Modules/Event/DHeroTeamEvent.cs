@@ -80,6 +80,11 @@ namespace GameScripts.HeroTeam
         public readonly static ushort EVENT_LEADER_SKILL_TREAT = EVENT_HEROTEAM_BASE++;
 
         /// <summary>
+        /// 伤害红屏效果
+        /// </summary>
+        public readonly static ushort EVENT_HARM_RED_SCREEN = EVENT_HEROTEAM_BASE++;
+
+        /// <summary>
         /// 所有事件的最大ID值
         /// </summary>
         public readonly static ushort EVENT_ALL_MAXID = 30000;

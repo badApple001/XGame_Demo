@@ -52,10 +52,10 @@ namespace GameScripts.HeroTeam
             }
         }
 
-        public void EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg)
+        public bool EludeBossSkill(Vector3 bossPos, Vector3 bossDir, float radius, float angleDeg)
         {
 
-            DodgeAndReturn(transform, bossPos, bossDir);
+            return DodgeAndReturn(transform, bossPos, bossDir);
         }
 
 
@@ -77,7 +77,7 @@ namespace GameScripts.HeroTeam
         private float waitTime = 1.5f;
         private float duration = 1f;
 
-        public void DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir)
+        public bool DodgeAndReturn(Transform tr, Vector2 bossPos, Vector2 bossDir)
         {
             Vector2 toPlayer = (Vector2)tr.position - bossPos;
             Vector2 dodgeDir = GetSideDodgeDirection(bossDir, toPlayer);
@@ -87,7 +87,15 @@ namespace GameScripts.HeroTeam
 
             dodge = false;
             if (Random.value > 0.4f)
+            {
+
                 DodgeAndReturn();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool IsDodge()
@@ -170,7 +178,7 @@ namespace GameScripts.HeroTeam
         {
             if (wEventID == DHeroTeamEvent.EVENT_INTO_FIGHT_STATE)
             {
-                AddTimer(Random.Range(0, 2f), () => m_fsmActor.Run<HeroIdleState>());
+                AddTimer(Random.Range(0, 4f), () => m_fsmActor.Run<HeroIdleState>());
             }
         }
     }

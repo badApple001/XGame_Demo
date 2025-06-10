@@ -276,6 +276,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
 
             //游戏摇杆事件注册
             var joystick = tran_JoystickParent.GetComponentInChildren<Joystick>();
@@ -302,6 +303,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
 
             //游戏摇杆事件移除
             if (null != m_Joystick)
@@ -367,8 +369,20 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
                 // 刷新排行榜
                 RefreshRank(ctx);
             }
+            else if (DHeroTeamEvent.EVENT_HARM_RED_SCREEN == wEventID)
+            {
+                OnReciveHarm();
+            }
         }
 
+        private void OnReciveHarm()
+        {
+            if (img_RedScreen.SafeGetActiveSelf()) return;
+            img_RedScreen.gameObject.BetterSetActive(true);
+            img_RedScreen.color = new Color(1, 0, 0, 109f / 255);
+            img_RedScreen.DOKill();
+            img_RedScreen.DOFade(0f, 0.3f).SetLoops(2, LoopType.Yoyo).SetAutoKill(true).OnComplete(() => img_RedScreen.gameObject.BetterSetActive(false));
+        }
 
         private void OnJoystickInputChanged(Vector3 old, Vector3 current)
         {

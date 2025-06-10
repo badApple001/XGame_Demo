@@ -174,6 +174,12 @@ namespace GameScripts.HeroTeam
 
                 //以buff的形式给主角一个特效标识
                 BuffManager.Instance.CreateBuff(m_Leader, 102);
+
+                //受到伤害红屏
+                bar.SetApplyDamageCallback(() =>
+                {
+                    GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+                });
             }
         }
 
@@ -352,6 +358,8 @@ namespace GameScripts.HeroTeam
             }
         }
 
+        //团长指令: 攻击
+        //新更改: 集火
         private void OnLeaderSkillAttack()
         {
             // 团长攻击技能逻辑
@@ -363,9 +371,10 @@ namespace GameScripts.HeroTeam
             }
         }
 
+        //团长指令: 散开
         private void OnLeaderSkillAvoidance()
         {
-            // 团长闪避技能逻辑
+            // 团长散开技能逻辑
             if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
             {
                 m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
@@ -385,6 +394,8 @@ namespace GameScripts.HeroTeam
             }
         }
 
+        //团长指令: 治疗
+        //新更改: 驱散buff
         private void OnLeaderSkillTreat()
         {
             // 团长治疗技能逻辑

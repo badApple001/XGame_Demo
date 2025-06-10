@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace GameScripts.HeroTeam
         private float m_fLastHealth = 1f;
         private float m_fTrailAlpha = 0f;
         private ISpineCreature m_iEntity;
+        private Action m_applyDamage;
 
         private void Awake()
         {
@@ -34,7 +36,11 @@ namespace GameScripts.HeroTeam
                 float newHealth = m_iEntity.GetHP() * 1.0f / m_iEntity.GetMaxHP();
                 if (newHealth != m_fCurrentHealth)
                 {
-                    TakeDamage(newHealth);
+                    if (null != m_applyDamage && newHealth < m_fCurrentHealth)
+                    {
+                        m_applyDamage();
+                    }
+                    RefreshMaterialProperty(newHealth);
                 }
             }
 
@@ -62,7 +68,7 @@ namespace GameScripts.HeroTeam
         }
 
         // ���˵��ã����õ�ǰѪ����������βЧ��
-        private void TakeDamage(float newHealth)
+        private void RefreshMaterialProperty(float newHealth)
         {
             newHealth = Mathf.Clamp01(newHealth);
 
@@ -83,6 +89,13 @@ namespace GameScripts.HeroTeam
                 UpdateMaterial();
             }
         }
+
+        public void SetApplyDamageCallback(Action callback)
+        {
+            m_applyDamage = callback;
+        }
+
     }
+
 
 }
