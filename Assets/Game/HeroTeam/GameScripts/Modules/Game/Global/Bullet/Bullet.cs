@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using XClient.Entity;
 using XGame;
 using XGame.Asset;
 
@@ -26,7 +23,9 @@ namespace GameScripts.HeroTeam
         protected ulong sender;
         protected float radius;
         protected int poolId;
-
+        protected float maxLifeTime;//最大飞行时间
+        protected Vector3 pos;
+        protected bool isExpired;
 
         public virtual void Init(GameObject objRef)
         {
@@ -36,35 +35,60 @@ namespace GameScripts.HeroTeam
 
         public virtual void Active(Vector3 newPos)
         {
+            pos = newPos;
             if (transform != null)
             {
                 // var ps = transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
                 // ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
-                transform.position = newPos;
+                transform.position = pos;
                 // ps.Clear(true);
                 // ps.Play(true);
             }
+            //重置飞行时间
+            //子类继承可以自行修改
+            maxLifeTime = 3f;
+            isExpired = false;
         }
 
         //默认: 圆形碰撞检测
         //可继承后扩展
-        public virtual bool CheckCollision() => Vector3.Distance(target.position, transform.position) <= 1e-1;
+        protected virtual bool CheckCollision() => Vector3.Distance(target.position, transform.position) <= 1e-1;
+
+        public virtual bool IsExpired() => isExpired;
 
         public virtual void ClearState()
         {
             target = null;
         }
+
+
+        /// <summary>
+        /// 可以通过继承后扩展其它功能，默认就是追踪子弹
+        /// </summary>
         public virtual void Fly()
         {
-            if (target != null)
+            if (!isExpired && target != null && transform != null)
             {
+                maxLifeTime -= TimeUtils.DeltaTime;
+                if (maxLifeTime <= 0f)
+                {
+                    isExpired = true;
+                    return;
+                }
                 Vector3 dir = speed * TimeUtils.DeltaTime * (target.position - transform.position).normalized;
-                transform.position += dir;
+                pos += dir;
+                transform.position = pos;
+
+                if (CheckCollision())
+                {
+                    OnCollision();
+                }
             }
         }
 
-        public virtual void OnCollision()
+        protected virtual void OnCollision()
         {
+            isExpired = true;
 
             if (targetEntity.IsDie())
             {

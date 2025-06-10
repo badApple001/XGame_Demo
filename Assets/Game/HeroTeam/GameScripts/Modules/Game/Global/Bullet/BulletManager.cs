@@ -50,12 +50,11 @@ namespace GameScripts.HeroTeam
             for (int i = m_ActiveBullets.Count - 1; i >= 0; i--)
             {
                 bullet = m_ActiveBullets[i];
-                if (bullet.CheckCollision())
+                if (bullet.IsExpired())
                 {
                     m_ActiveBullets[i] = m_ActiveBullets[m_ActiveBullets.Count - 1];
                     m_ActiveBullets[m_ActiveBullets.Count - 1] = null;
                     m_ActiveBullets.RemoveAt(m_ActiveBullets.Count - 1);
-                    bullet.OnCollision();
                     Recycle(bullet);
                     continue;
                 }

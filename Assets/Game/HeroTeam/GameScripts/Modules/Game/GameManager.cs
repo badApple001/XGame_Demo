@@ -1,12 +1,9 @@
 using DG.Tweening;
-using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XClient.Common;
-using XGame;
-using XGame.Asset;
 using XGame.EventEngine;
 
 namespace GameScripts.HeroTeam
@@ -58,7 +55,6 @@ namespace GameScripts.HeroTeam
 
 
 
-        // Start is called before the first frame update
         void Start()
         {
             BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
@@ -359,7 +355,7 @@ namespace GameScripts.HeroTeam
         private void OnLeaderSkillAttack()
         {
             // 团长攻击技能逻辑
-            if (m_Leader != null)
+            if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
             {
                 m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
                 m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
@@ -370,7 +366,7 @@ namespace GameScripts.HeroTeam
         private void OnLeaderSkillAvoidance()
         {
             // 团长闪避技能逻辑
-            if (m_Leader != null)
+            if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
             {
                 m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
                 m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
@@ -392,7 +388,7 @@ namespace GameScripts.HeroTeam
         private void OnLeaderSkillTreat()
         {
             // 团长治疗技能逻辑
-            if (m_Leader != null)
+            if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
             {
                 m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
                 m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");

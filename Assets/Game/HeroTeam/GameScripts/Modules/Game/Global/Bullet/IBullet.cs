@@ -7,8 +7,7 @@ namespace GameScripts.HeroTeam
     public interface IBullet
     {
         void Init(GameObject ojbRef);
-        bool CheckCollision();
-        void OnCollision();
+        bool IsExpired();
         void Fly();
         void ClearState();
         Transform GetTr();
