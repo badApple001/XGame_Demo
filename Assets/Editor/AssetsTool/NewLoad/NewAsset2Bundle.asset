@@ -607,7 +607,7 @@ MonoBehaviour:
       bundleName: g_resources/artist/prefabs/effect/ui.bin
       assetName: huodejiangli
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
+      - Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
       isStaticAndInOnceBundle: 0
     - index: 90
       assetPath: G_Resources/Artist/Prefabs/Effect/UI/TestEffect.prefab
@@ -2643,7 +2643,7 @@ MonoBehaviour:
       - Game/HeroTeam/GameResources/Shaders/BurningPaper.shader
       - G_Artist/Shader/UI-MaskEffectImge.shader
       - G_Artist/Shader/UI-MaskLevel.shader
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - G_Artist/Shader/UIGlow.shader
       - G_Artist/Shader/Sprites_ClipWithAngle.shader
       - G_Artist/Shader/UI-MaskBorderBlur.shader
@@ -2700,7 +2700,7 @@ MonoBehaviour:
       - G_Artist/Shader/A_VFX_AB.shader
       - G_Artist/Shader/AB_VFX_AD.shader
       - G_Artist/Shader/UI-MaskEffectImge.shader
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - G_Artist/Shader/UI-MaskLevel.shader
       - G_Artist/Shader/A_VFX_lizi_katong.shader
       - G_Artist/Shader/PFX_Trail.shader
@@ -2710,7 +2710,7 @@ MonoBehaviour:
       - G_Artist/Shader/A_VFX_Dissolution_Additvie_JZB.shader
       - G_Artist/Shader/A_VFX_Additive.shader
       - G_Artist/Shader/UI-MaskBorderBlur.shader
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+      - Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
       - G_Artist/Shader/A_VFX_distort_blend.shader
       - G_Resources/Game/Shadervariant/GameShadervariant.shadervariants
       - G_Artist/Shader/A_VFX_Dissolution_blend.shader
@@ -5785,7 +5785,7 @@ MonoBehaviour:
       assetName: 045_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_045/045.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 814
       assetPath: Game/HeroTeam/GameResources/Spine/BC_045/045.png
@@ -5844,7 +5844,7 @@ MonoBehaviour:
       assetName: 007_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BM_007/007.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 822
       assetPath: Game/HeroTeam/GameResources/Spine/BM_007/007.png
@@ -5878,7 +5878,7 @@ MonoBehaviour:
       bundleName: game/heroteam.bin
       assetName: 025_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_025/025.png
       isStaticAndInOnceBundle: 0
     - index: 827
@@ -5958,7 +5958,7 @@ MonoBehaviour:
       assetName: 010_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_010/010.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 838
       assetPath: Game/HeroTeam/GameResources/Spine/BC_010/010.png
@@ -5980,7 +5980,7 @@ MonoBehaviour:
       bundleName: game/heroteam.bin
       assetName: 032_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_032/032.png
       isStaticAndInOnceBundle: 0
     - index: 841
@@ -6031,7 +6031,7 @@ MonoBehaviour:
       bundleName: game/heroteam.bin
       assetName: 002_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_002/002.png
       isStaticAndInOnceBundle: 0
     - index: 848
@@ -6104,7 +6104,7 @@ MonoBehaviour:
       bundleName: game/heroteam.bin
       assetName: 011_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_011/011.png
       isStaticAndInOnceBundle: 0
     - index: 858
@@ -6156,7 +6156,7 @@ MonoBehaviour:
       assetName: 014_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_014/014.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 865
       assetPath: Game/HeroTeam/GameResources/Spine/BC_014/014.png
@@ -6201,7 +6201,7 @@ MonoBehaviour:
       assetName: 038_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_038/038.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 871
       assetPath: Game/HeroTeam/GameResources/Spine/BC_038/038.png
@@ -6252,7 +6252,7 @@ MonoBehaviour:
       assetName: 009_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_009/009.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 878
       assetPath: Game/HeroTeam/GameResources/Spine/BC_009/009.png
@@ -6539,11 +6539,7 @@ MonoBehaviour:
       - Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
       - Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
       - Game/HeroTeam/GameResources/Textures/White_1x1.png
-      - Resources/Res_BC_025/025_Controller.controller
-      - Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
       - Game/HeroTeam/GameResources/Materials/Dissolve.mat
-      - Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
-      - Resources/Res_BC_025/025_SkeletonData.asset
       isStaticAndInOnceBundle: 0
     - index: 915
       assetPath: Game/HeroTeam/GameResources/Spine/BM_910/910.atlas.txt
@@ -6577,7 +6573,7 @@ MonoBehaviour:
       assetName: 910_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BM_910/910.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 920
       assetPath: Game/HeroTeam/GameResources/Spine/BM_910/910_SkeletonData.asset
@@ -7865,15 +7861,15 @@ MonoBehaviour:
       dependArr: []
       isStaticAndInOnceBundle: 0
     - index: 1109
-      assetPath: ThirdParty/Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
-      bundleName: g_resources/artist/prefabs/effect/ui.bin
+      assetPath: Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
+      bundleName: spine/runtime/spine-unity.bin
       assetName: skeletongraphicdefault
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
-      isStaticAndInOnceBundle: 1
+      - Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+      isStaticAndInOnceBundle: 0
     - index: 1110
-      assetPath: ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
-      bundleName: thirdparty/spine/runtime/spine-unity/shaders/skeletongraphic/spine-skeletongraphic.shader.bin
+      assetPath: Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+      bundleName: spine/runtime/spine-unity.bin
       assetName: spine-skeletongraphic
       dependArr: []
       isStaticAndInOnceBundle: 0
@@ -7928,8 +7924,8 @@ MonoBehaviour:
       dependArr: []
       isStaticAndInOnceBundle: 0
     - index: 1119
-      assetPath: ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-      bundleName: thirdparty/spine/runtime/spine-unity/shaders/spine-skeleton.shader.bin
+      assetPath: Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      bundleName: spine/runtime/spine-unity.bin
       assetName: spine-skeleton
       dependArr: []
       isStaticAndInOnceBundle: 0
@@ -8078,21 +8074,6 @@ MonoBehaviour:
       dependArr: []
       isStaticAndInOnceBundle: 0
     - index: 1144
-      assetPath: Resources/Res_BC_025/025_Controller.controller
-      bundleName: resources/res_bc_025/025_controller.controller.bin
-      assetName: 025_controller
-      dependArr: []
-      isStaticAndInOnceBundle: 0
-    - index: 1145
-      assetPath: Resources/Res_BC_025/025_SkeletonData.asset
-      bundleName: resources/res_bc_025/025_skeletondata.asset.bin
-      assetName: 025_skeletondata
-      dependArr:
-      - Game/HeroTeam/GameResources/Spine/BC_025/025.skel.bytes
-      - Resources/Res_BC_025/025_Controller.controller
-      - Game/HeroTeam/GameResources/Spine/BC_025/025_Atlas.asset
-      isStaticAndInOnceBundle: 0
-    - index: 1146
       assetPath: ThirdParty/TextMesh Pro/Resources/Fonts & Materials/LiberationSans
         SDF - Fallback.asset
       bundleName: thirdparty/textmesh pro/resources/fonts & materials/liberationsans
@@ -8102,26 +8083,26 @@ MonoBehaviour:
       - ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
       - ThirdParty/TextMesh Pro/Fonts/LiberationSans.ttf
       isStaticAndInOnceBundle: 1
-    - index: 1147
+    - index: 1145
       assetPath: ThirdParty/TextMesh Pro/Fonts/LiberationSans.ttf
       bundleName: thirdparty/textmesh pro/resources/fonts & materials/liberationsans
         sdf.asset.bin
       assetName: liberationsans
       dependArr: []
       isStaticAndInOnceBundle: 1
-    - index: 1148
+    - index: 1146
       assetPath: ThirdParty/TextMesh Pro/Sprites/EmojiOne.png
       bundleName: g_resources/game/prefab/other/herosaying.prefab.bin
       assetName: ThirdParty_TextMesh Pro_Sprites_EmojiOne.png
       dependArr: []
       isStaticAndInOnceBundle: 1
-    - index: 1149
+    - index: 1147
       assetPath: ThirdParty/TextMesh Pro/Shaders/TMP_Sprite.shader
       bundleName: g_resources/game/prefab/other/herosaying.prefab.bin
       assetName: tmp_sprite
       dependArr: []
       isStaticAndInOnceBundle: 1
-    - index: 1150
+    - index: 1148
       assetPath: ThirdParty/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader
       bundleName: thirdparty/textmesh pro/resources/fonts & materials/liberationsans
         sdf.asset.bin

@@ -607,7 +607,7 @@ MonoBehaviour:
       bundleName: 1bhj905.bin
       assetName: huodejiangli
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+      - Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
       isStaticAndInOnceBundle: 0
     - index: 90
       assetPath: G_Resources/Artist/Prefabs/Effect/UI/TestEffect.prefab
@@ -2641,7 +2641,7 @@ MonoBehaviour:
       - Game/HeroTeam/GameResources/Shaders/BurningPaper.shader
       - G_Artist/Shader/UI-MaskEffectImge.shader
       - G_Artist/Shader/UI-MaskLevel.shader
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - G_Artist/Shader/UIGlow.shader
       - G_Artist/Shader/Sprites_ClipWithAngle.shader
       - G_Artist/Shader/UI-MaskBorderBlur.shader
@@ -2698,7 +2698,7 @@ MonoBehaviour:
       - G_Artist/Shader/A_VFX_AB.shader
       - G_Artist/Shader/AB_VFX_AD.shader
       - G_Artist/Shader/UI-MaskEffectImge.shader
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - G_Artist/Shader/UI-MaskLevel.shader
       - G_Artist/Shader/A_VFX_lizi_katong.shader
       - G_Artist/Shader/PFX_Trail.shader
@@ -2708,7 +2708,7 @@ MonoBehaviour:
       - G_Artist/Shader/A_VFX_Dissolution_Additvie_JZB.shader
       - G_Artist/Shader/A_VFX_Additive.shader
       - G_Artist/Shader/UI-MaskBorderBlur.shader
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+      - Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
       - G_Artist/Shader/A_VFX_distort_blend.shader
       - G_Resources/Game/Shadervariant/GameShadervariant.shadervariants
       - G_Artist/Shader/A_VFX_Dissolution_blend.shader
@@ -5783,7 +5783,7 @@ MonoBehaviour:
       assetName: 045_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_045/045.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 814
       assetPath: Game/HeroTeam/GameResources/Spine/BC_045/045.png
@@ -5842,7 +5842,7 @@ MonoBehaviour:
       assetName: 007_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BM_007/007.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 822
       assetPath: Game/HeroTeam/GameResources/Spine/BM_007/007.png
@@ -5876,7 +5876,7 @@ MonoBehaviour:
       bundleName: 2hdhhnd.bin
       assetName: 025_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_025/025.png
       isStaticAndInOnceBundle: 0
     - index: 827
@@ -5956,7 +5956,7 @@ MonoBehaviour:
       assetName: 010_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_010/010.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 838
       assetPath: Game/HeroTeam/GameResources/Spine/BC_010/010.png
@@ -5978,7 +5978,7 @@ MonoBehaviour:
       bundleName: 2hdhhnd.bin
       assetName: 032_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_032/032.png
       isStaticAndInOnceBundle: 0
     - index: 841
@@ -6029,7 +6029,7 @@ MonoBehaviour:
       bundleName: 2hdhhnd.bin
       assetName: 002_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_002/002.png
       isStaticAndInOnceBundle: 0
     - index: 848
@@ -6102,7 +6102,7 @@ MonoBehaviour:
       bundleName: 2hdhhnd.bin
       assetName: 011_material
       dependArr:
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       - Game/HeroTeam/GameResources/Spine/BC_011/011.png
       isStaticAndInOnceBundle: 0
     - index: 858
@@ -6154,7 +6154,7 @@ MonoBehaviour:
       assetName: 014_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_014/014.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 865
       assetPath: Game/HeroTeam/GameResources/Spine/BC_014/014.png
@@ -6199,7 +6199,7 @@ MonoBehaviour:
       assetName: 038_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_038/038.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 871
       assetPath: Game/HeroTeam/GameResources/Spine/BC_038/038.png
@@ -6250,7 +6250,7 @@ MonoBehaviour:
       assetName: 009_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BC_009/009.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 878
       assetPath: Game/HeroTeam/GameResources/Spine/BC_009/009.png
@@ -6537,11 +6537,7 @@ MonoBehaviour:
       - Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
       - Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
       - Game/HeroTeam/GameResources/Textures/White_1x1.png
-      - Resources/Res_BC_025/025_Controller.controller
-      - Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
       - Game/HeroTeam/GameResources/Materials/Dissolve.mat
-      - Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
-      - Resources/Res_BC_025/025_SkeletonData.asset
       isStaticAndInOnceBundle: 0
     - index: 915
       assetPath: Game/HeroTeam/GameResources/Spine/BM_910/910.atlas.txt
@@ -6575,7 +6571,7 @@ MonoBehaviour:
       assetName: 910_material
       dependArr:
       - Game/HeroTeam/GameResources/Spine/BM_910/910.png
-      - ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      - Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
       isStaticAndInOnceBundle: 0
     - index: 920
       assetPath: Game/HeroTeam/GameResources/Spine/BM_910/910_SkeletonData.asset
@@ -7858,209 +7854,201 @@ MonoBehaviour:
       dependArr: []
       isStaticAndInOnceBundle: 0
     - index: 1109
-      assetPath: ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
-      bundleName: rahc7.bin
+      assetPath: Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
+      bundleName: 2r5bv21.bin
+      assetName: skeletongraphicdefault
+      dependArr:
+      - Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+      isStaticAndInOnceBundle: 0
+    - index: 1110
+      assetPath: Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+      bundleName: 2r5bv21.bin
       assetName: spine-skeletongraphic
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1110
+    - index: 1111
       assetPath: G_Artist/Material/UI/CommingGame_LightObjectMat.mat
       bundleName: 28dtkdg.bin
       assetName: comminggame_lightobjectmat
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1111
+    - index: 1112
       assetPath: G_Artist/Shader/UI-FogOfWarMaskEffectImge.shader
       bundleName: 2sy04be.bin
       assetName: ui-fogofwarmaskeffectimge
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1112
+    - index: 1113
       assetPath: G_Artist/Shader/URP/CaptureBlur.shader
       bundleName: 2sy04be.bin
       assetName: captureblur
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1113
+    - index: 1114
       assetPath: G_Artist/Shader/UI-HSB_Outline.shader
       bundleName: 2sy04be.bin
       assetName: ui-hsb_outline
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1114
+    - index: 1115
       assetPath: G_Artist/Shader/UI-MaskEffectImge.shader
       bundleName: 2sy04be.bin
       assetName: ui-maskeffectimge
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1115
+    - index: 1116
       assetPath: G_Artist/Shader/UI-MaskLevel.shader
       bundleName: 2sy04be.bin
       assetName: ui-masklevel
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1116
-      assetPath: ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-      bundleName: n6apqt.bin
+    - index: 1117
+      assetPath: Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+      bundleName: 2r5bv21.bin
       assetName: spine-skeleton
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1117
+    - index: 1118
       assetPath: G_Artist/Shader/UIGlow.shader
       bundleName: 2sy04be.bin
       assetName: uiglow
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1118
+    - index: 1119
       assetPath: G_Artist/Shader/UI-MaskBorderBlur.shader
       bundleName: 2sy04be.bin
       assetName: ui-maskborderblur
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1119
+    - index: 1120
       assetPath: G_Artist/Shader/A_VFX_distort_add.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_distort_add
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1120
+    - index: 1121
       assetPath: G_Artist/Shader/Effect_distortion_blend.shader
       bundleName: 2sy04be.bin
       assetName: effect_distortion_blend
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1121
+    - index: 1122
       assetPath: G_Artist/Shader/A_VFX_distort_blend_fgui_list.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_distort_blend_fgui_list
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1122
+    - index: 1123
       assetPath: G_Artist/Shader/A_VFX_Dissolution_blend3.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_dissolution_blend3
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1123
+    - index: 1124
       assetPath: G_Artist/Shader/A_VFX_Dissolution_Blend_JZB.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_dissolution_blend_jzb
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1124
+    - index: 1125
       assetPath: G_Artist/Shader/A_VFX_Niuqu.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_niuqu
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1125
+    - index: 1126
       assetPath: G_Artist/Shader/A_VFX_Additive_Mask_Sprite.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_additive_mask_sprite
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1126
+    - index: 1127
       assetPath: G_Artist/Shader/A_VFX_Additive_Mask.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_additive_mask
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1127
+    - index: 1128
       assetPath: G_Artist/Shader/Effect_distortion_add.shader
       bundleName: 2sy04be.bin
       assetName: effect_distortion_add
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1128
+    - index: 1129
       assetPath: G_Artist/Shader/panda shader/PandaShaderSampleV1.0.shader
       bundleName: 2sy04be.bin
       assetName: pandashadersamplev1.0
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1129
+    - index: 1130
       assetPath: G_Artist/Shader/AB_VFX_AB.shader
       bundleName: 2sy04be.bin
       assetName: ab_vfx_ab
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1130
+    - index: 1131
       assetPath: G_Artist/Shader/A_VFX_AD.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_ad
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1131
+    - index: 1132
       assetPath: G_Artist/Shader/A_VFX_AB.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_ab
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1132
+    - index: 1133
       assetPath: G_Artist/Shader/AB_VFX_AD.shader
       bundleName: 2sy04be.bin
       assetName: ab_vfx_ad
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1133
+    - index: 1134
       assetPath: G_Artist/Shader/A_VFX_lizi_katong.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_lizi_katong
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1134
+    - index: 1135
       assetPath: G_Artist/Shader/PFX_Trail.shader
       bundleName: 2sy04be.bin
       assetName: pfx_trail
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1135
+    - index: 1136
       assetPath: G_Artist/Shader/A_VFX_Blend_Mask.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_blend_mask
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1136
+    - index: 1137
       assetPath: G_Artist/Shader/A_VFX_Dissolution_Additvie_JZB.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_dissolution_additvie_jzb
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1137
+    - index: 1138
       assetPath: G_Artist/Shader/A_VFX_Additive.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_additive
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1138
+    - index: 1139
       assetPath: G_Artist/Shader/A_VFX_distort_blend.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_distort_blend
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1139
+    - index: 1140
       assetPath: G_Artist/Shader/A_VFX_Dissolution_blend.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_dissolution_blend
       dependArr: []
       isStaticAndInOnceBundle: 0
-    - index: 1140
+    - index: 1141
       assetPath: G_Artist/Shader/A_VFX_Additive_Mask_JZB.shader
       bundleName: 2sy04be.bin
       assetName: a_vfx_additive_mask_jzb
       dependArr: []
-      isStaticAndInOnceBundle: 0
-    - index: 1141
-      assetPath: Resources/Res_BC_025/025_Controller.controller
-      bundleName: 363cbqa.bin
-      assetName: 025_controller
-      dependArr: []
-      isStaticAndInOnceBundle: 0
-    - index: 1142
-      assetPath: Resources/Res_BC_025/025_SkeletonData.asset
-      bundleName: 8tu29f.bin
-      assetName: 025_skeletondata
-      dependArr:
-      - Game/HeroTeam/GameResources/Spine/BC_025/025.skel.bytes
-      - Resources/Res_BC_025/025_Controller.controller
-      - Game/HeroTeam/GameResources/Spine/BC_025/025_Atlas.asset
       isStaticAndInOnceBundle: 0

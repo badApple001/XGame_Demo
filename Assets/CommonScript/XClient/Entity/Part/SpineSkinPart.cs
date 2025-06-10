@@ -1,11 +1,11 @@
 
-//**ÎÄ¼þÃû:	SpinePrefabPart.cs
-//** °æ  È¨:	(C)±ù´¨ÍøÂç
-//* *´´½¨ÈË:	´ÞÎÀ»ª
-//** ÈÕ  ÆÚ:	2024.12.31
-//* *°æ  ±¾: 1.0
-//* *Ãè  Êö:
-//**Ó¦  ÓÃ: ¸ºÔð¼ÓÔØspineµÄ»»×°
+//**ï¿½Ä¼ï¿½ï¿½ï¿½:	SpinePrefabPart.cs
+//** ï¿½ï¿½  È¨:	(C)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//* *ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//** ï¿½ï¿½  ï¿½ï¿½:	2024.12.31
+//* *ï¿½ï¿½  ï¿½ï¿½: 1.0
+//* *ï¿½ï¿½  ï¿½ï¿½:
+//**Ó¦  ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½spineï¿½Ä»ï¿½×°
 
 using System.Collections;
 using System.Collections.Generic;
@@ -23,262 +23,262 @@ namespace XGame.Entity.Part
     public class SpineSkinPart : BasePart
     {
 
-        private Dictionary<int, int> m_skins;
-        private int m_displayId;
-        private bool m_isPlayer;
+        // private Dictionary<int, int> m_skins;
+        // private int m_displayId;
+        // private bool m_isPlayer;
 
-        protected override void OnInit(object context)
-        {
-            base.OnInit(context);
-            NetEntityShareInitContext netentityContext = context as NetEntityShareInitContext;
-            if (netentityContext != null)
-            {
-                CreateMonsterContext createContext = netentityContext.localInitContext as CreateMonsterContext;
-                if (createContext != null)
-                {
-                    m_skins = createContext.dicSkinData;
-                    m_displayId = createContext.displayID;
-                    m_isPlayer = createContext.isPlayer;
-                    if (GameIni.Instance.enableDebug)
-                    {
-                        Debug.Log($"SetSkin:  CreatureViewId:{m_displayId}");
-                    }
-                }
-            }
-        }
+        // protected override void OnInit(object context)
+        // {
+        //     base.OnInit(context);
+        //     NetEntityShareInitContext netentityContext = context as NetEntityShareInitContext;
+        //     if (netentityContext != null)
+        //     {
+        //         CreateMonsterContext createContext = netentityContext.localInitContext as CreateMonsterContext;
+        //         if (createContext != null)
+        //         {
+        //             m_skins = createContext.dicSkinData;
+        //             m_displayId = createContext.displayID;
+        //             m_isPlayer = createContext.isPlayer;
+        //             if (GameIni.Instance.enableDebug)
+        //             {
+        //                 Debug.Log($"SetSkin:  CreatureViewId:{m_displayId}");
+        //             }
+        //         }
+        //     }
+        // }
 
-        protected override void OnReset()
-        {
-            OnResUnLoaded();
-            m_skins = null;
-            m_isPlayer = true;
-            skelAnimation = null;
-            skelGraphic = null;
+        // protected override void OnReset()
+        // {
+        //     OnResUnLoaded();
+        //     m_skins = null;
+        //     m_isPlayer = true;
+        //     skelAnimation = null;
+        //     skelGraphic = null;
 
-            base.OnReset();
+        //     base.OnReset();
          
           
-        }
+        // }
 
-        private SkeletonAnimation skelAnimation;
-        private SkeletonGraphic skelGraphic;
+        // private SkeletonAnimation skelAnimation;
+        // private SkeletonGraphic skelGraphic;
 
-        private ISpineSkin spineClothGraphic;
-        private uint equipHandle = 0;
-        private void OnResLoaded()
-        {
-            if (!m_isPlayer)
-                return;
-            //todo ´Ó³ØÖÐÈ¡
-            if (skelGraphic != null)
-            {
-                spineClothGraphic = SpineObjectPoolFacade.Instance().Pop<SpineMixSkinGraphic>();// new SpineMixSkinGraphic();
-                spineClothGraphic.Init(skelGraphic);
-            }
-            else if (skelAnimation != null)
-            {
-                spineClothGraphic = SpineObjectPoolFacade.Instance().Pop<SpineMixSkinAnimation>(); //new SpineMixSkinAnimation();
-                spineClothGraphic.Init(skelAnimation);
-            }
-            EquipSkin(m_skins);
-            //LoadSkinTest();
-            //test
-            //Dictionary<int, int> equipskins = new Dictionary<int, int>();
-            //for (int i = (int)EnDiscipleProp.DISCIPLE_PROP_SKIN_UPPER; i <= (int)EnDiscipleProp.DISCIPLE_PROP_SKIN_MOUTH; i++)
-            //{
-            //    equipskins.Add(i, 101);
-            //}
-            //EquipSkin(equipskins);
-        }
-        private void OnResUnLoaded()
-        {
-            if (spineClothGraphic != null)
-            {
-                SpineObjectPoolFacade.Instance().Push(spineClothGraphic);
-                spineClothGraphic = null;
-            }
-            skelGraphic = null;
-            skelAnimation = null;
-            //LoadSkinTest();
-        }
+        // private ISpineSkin spineClothGraphic;
+        // private uint equipHandle = 0;
+        // private void OnResLoaded()
+        // {
+        //     if (!m_isPlayer)
+        //         return;
+        //     //todo ï¿½Ó³ï¿½ï¿½ï¿½È¡
+        //     if (skelGraphic != null)
+        //     {
+        //         spineClothGraphic = SpineObjectPoolFacade.Instance().Pop<SpineMixSkinGraphic>();// new SpineMixSkinGraphic();
+        //         spineClothGraphic.Init(skelGraphic);
+        //     }
+        //     else if (skelAnimation != null)
+        //     {
+        //         spineClothGraphic = SpineObjectPoolFacade.Instance().Pop<SpineMixSkinAnimation>(); //new SpineMixSkinAnimation();
+        //         spineClothGraphic.Init(skelAnimation);
+        //     }
+        //     EquipSkin(m_skins);
+        //     //LoadSkinTest();
+        //     //test
+        //     //Dictionary<int, int> equipskins = new Dictionary<int, int>();
+        //     //for (int i = (int)EnDiscipleProp.DISCIPLE_PROP_SKIN_UPPER; i <= (int)EnDiscipleProp.DISCIPLE_PROP_SKIN_MOUTH; i++)
+        //     //{
+        //     //    equipskins.Add(i, 101);
+        //     //}
+        //     //EquipSkin(equipskins);
+        // }
+        // private void OnResUnLoaded()
+        // {
+        //     if (spineClothGraphic != null)
+        //     {
+        //         SpineObjectPoolFacade.Instance().Push(spineClothGraphic);
+        //         spineClothGraphic = null;
+        //     }
+        //     skelGraphic = null;
+        //     skelAnimation = null;
+        //     //LoadSkinTest();
+        // }
 
-        public void EquipSkin(Dictionary<int, int> equipskins)
-        {
-            /*
-            var viewCfg = GameGlobal.GameScheme.CreatureView_0(m_displayId);
-            if (viewCfg == null)
-            {
-                Debug.LogError($"ÎÞÐ§µÄCreatureViewÅäÖÃ Id:{m_displayId}");
-                return;
-            }*/
+        // public void EquipSkin(Dictionary<int, int> equipskins)
+        // {
+        //     /*
+        //     var viewCfg = GameGlobal.GameScheme.CreatureView_0(m_displayId);
+        //     if (viewCfg == null)
+        //     {
+        //         Debug.LogError($"ï¿½ï¿½Ð§ï¿½ï¿½CreatureViewï¿½ï¿½ï¿½ï¿½ Id:{m_displayId}");
+        //         return;
+        //     }*/
 
-           //equipskins.Clear();
-            //equipskins.Add((int)SkinPartType.Hair, 903);
-            //equipskins.Add((int)SkinPartType.Body, 206);
-            //equipskins.Add((int)SkinPartType.SkinUpper, 201);
-            //equipskins.Add((int)SkinPartType.SkinLower, 802);
-            //equipskins.Add((int)SkinPartType.Mouth, 207);
-            //equipskins.Add((int)SkinPartType.Eye, 804);
+        //    //equipskins.Clear();
+        //     //equipskins.Add((int)SkinPartType.Hair, 903);
+        //     //equipskins.Add((int)SkinPartType.Body, 206);
+        //     //equipskins.Add((int)SkinPartType.SkinUpper, 201);
+        //     //equipskins.Add((int)SkinPartType.SkinLower, 802);
+        //     //equipskins.Add((int)SkinPartType.Mouth, 207);
+        //     //equipskins.Add((int)SkinPartType.Eye, 804);
 
-            //equipskins.Add((int)SkinPartType.Suit, 1003);
-            //equipskins.Add((int)SkinPartType.Hair, 1004);
-            //equipskins.Add((int)SkinPartType.Eye, 1005);
-            //equipskins.Add((int)SkinPartType.Body, 1007);
-            //equipskins.Add((int)SkinPartType.Mouth, 1008);
-            ////if (null != equipskins)
-            //{
-            //    foreach (var kv in equipskins)
-            //    {
-            //        if (kv.Value == 0)
-            //            continue;
-            //        EquipAsset(kv.Key, kv.Value);
-            //    }
-            //}
+        //     //equipskins.Add((int)SkinPartType.Suit, 1003);
+        //     //equipskins.Add((int)SkinPartType.Hair, 1004);
+        //     //equipskins.Add((int)SkinPartType.Eye, 1005);
+        //     //equipskins.Add((int)SkinPartType.Body, 1007);
+        //     //equipskins.Add((int)SkinPartType.Mouth, 1008);
+        //     ////if (null != equipskins)
+        //     //{
+        //     //    foreach (var kv in equipskins)
+        //     //    {
+        //     //        if (kv.Value == 0)
+        //     //            continue;
+        //     //        EquipAsset(kv.Key, kv.Value);
+        //     //    }
+        //     //}
 
-            //ÄÃ¹Ù·½×ÊÔ´²âÊÔµÄÊ±ºò£¬ÕûÌå»»×°¼ÓÔÚºóÃæµÄÊ±ºòÇ°ÃæµÄ×Ó»»×°²ÅÉúÐ§
-            //µ«ÊÇÄÃÎÒÃÇµÄ×ÊÔ´²âÊÔµÄÊ±ºò£¬ÎÒÃÇµÄÕûÌå»»×°Òª¼ÓÔÚÇ°Ãæ
-            //²»µÈÓÚ1ºÍ0Ê±ºò,ÏÈÌí¼ÓÕûÌå»»×°
-            /*
-            if (SkinHelper.IsWholeSkin(equipskins))
-            {
-                if (viewCfg.iSkinType != 0)
-                {
-                    if (viewCfg.iSkinParamWhole == 0)
-                    {
-                        Debug.LogError($"CreatureViewµÄÕûÌåÆ¤·ôÅäÖÃ´íÎó Id:{m_displayId}");
-                        return;
-                    }
-                    spineClothGraphic.EquipAsset((int)SkinPartType.Whole, viewCfg.iSkinParamWhole);
-                }
-            }
-            else
-            {
-                if (null != equipskins)
-                {
-                    for (int i = 0; i < SkinHelper.DrawSkinOrders.Count; i++)
-                    {
-                        int skinType = SkinHelper.DrawSkinOrders[i];
-                        if (equipskins.ContainsKey(skinType) && equipskins[skinType] != 0)
-                        {
-                            spineClothGraphic.EquipAsset(skinType, equipskins[skinType]);
-                        }
-                    }
-                }
-            }
-            spineClothGraphic.Apply();
-            */
-        }
+        //     //ï¿½Ã¹Ù·ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Ôµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½å»»×°ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Ó»ï¿½×°ï¿½ï¿½ï¿½ï¿½Ð§
+        //     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½Ôµï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Çµï¿½ï¿½ï¿½ï¿½å»»×°Òªï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½
+        //     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1ï¿½ï¿½0Ê±ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å»»×°
+        //     /*
+        //     if (SkinHelper.IsWholeSkin(equipskins))
+        //     {
+        //         if (viewCfg.iSkinType != 0)
+        //         {
+        //             if (viewCfg.iSkinParamWhole == 0)
+        //             {
+        //                 Debug.LogError($"CreatureViewï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ Id:{m_displayId}");
+        //                 return;
+        //             }
+        //             spineClothGraphic.EquipAsset((int)SkinPartType.Whole, viewCfg.iSkinParamWhole);
+        //         }
+        //     }
+        //     else
+        //     {
+        //         if (null != equipskins)
+        //         {
+        //             for (int i = 0; i < SkinHelper.DrawSkinOrders.Count; i++)
+        //             {
+        //                 int skinType = SkinHelper.DrawSkinOrders[i];
+        //                 if (equipskins.ContainsKey(skinType) && equipskins[skinType] != 0)
+        //                 {
+        //                     spineClothGraphic.EquipAsset(skinType, equipskins[skinType]);
+        //                 }
+        //             }
+        //         }
+        //     }
+        //     spineClothGraphic.Apply();
+        //     */
+        // }
        
 
-        #region testcode
+        // #region testcode
      
-        //private void LoadSkinTest()
-        //{
-        //    spineClothGraphic.Reset(EquipType.Gun);
-        //    spineClothGraphic.Equip(new EquipAsset()
-        //    {
-        //        equipType = EquipType.Gun,
-        //        skin = "yueru_shangyi"
-        //    });
-        //    spineClothGraphic.Equip(new EquipAsset()
-        //    {
-        //        equipType = EquipType.Goggles,
-        //        skin = "yueru_shenti"
-        //    });
-        //    spineClothGraphic.Equip(new EquipAsset()
-        //    {
-        //        equipType = EquipType.Goggles,
-        //        skin = "yueru_toufa"
-        //    });
-        //    spineClothGraphic.Equip(new EquipAsset()
-        //    {
-        //        equipType = EquipType.Goggles,
-        //        skin = "yueru_wuguan"
-        //    });
-        //    spineClothGraphic.Equip(new EquipAsset()
-        //    {
-        //        equipType = EquipType.Goggles,
-        //        skin = "yueru_xiayi"
-        //    });
+        // //private void LoadSkinTest()
+        // //{
+        // //    spineClothGraphic.Reset(EquipType.Gun);
+        // //    spineClothGraphic.Equip(new EquipAsset()
+        // //    {
+        // //        equipType = EquipType.Gun,
+        // //        skin = "yueru_shangyi"
+        // //    });
+        // //    spineClothGraphic.Equip(new EquipAsset()
+        // //    {
+        // //        equipType = EquipType.Goggles,
+        // //        skin = "yueru_shenti"
+        // //    });
+        // //    spineClothGraphic.Equip(new EquipAsset()
+        // //    {
+        // //        equipType = EquipType.Goggles,
+        // //        skin = "yueru_toufa"
+        // //    });
+        // //    spineClothGraphic.Equip(new EquipAsset()
+        // //    {
+        // //        equipType = EquipType.Goggles,
+        // //        skin = "yueru_wuguan"
+        // //    });
+        // //    spineClothGraphic.Equip(new EquipAsset()
+        // //    {
+        // //        equipType = EquipType.Goggles,
+        // //        skin = "yueru_xiayi"
+        // //    });
 
-        //    spineClothGraphic.Apply();
-        //}
-        #endregion
-
-
+        // //    spineClothGraphic.Apply();
+        // //}
+        // #endregion
 
 
-        private SpineComponent spineComponent;
-        public override void OnReceiveEntityMessage(uint id, object data = null)
-        {
-            base.OnReceiveEntityMessage(id, data);
 
-            IPrefabResource res = data as IPrefabResource;
 
-            switch (id)
-            {
-                case EntityMessageID.ResLoaded:
-                    {
-                        SpineComponent component = res?.gameObject.GetComponentInChildren<SpineComponent>();
-                        skelAnimation = component.skeAni;
-                        skelGraphic = component.skeGra;
-                        spineComponent = component;
-                        OnResLoaded();
-                    }
-                    break;
-                case EntityMessageID.ResUnloaded:
-                    {
-                        //ÕâÀïÓÐ¿ÉÄÜ²»ÊÇ×Ô¼º´´½¨µÄÆ¤·ô£¬ ¾Í²»ÒªÇåÀíÁË£¬ ¿¿spineClothGraphic ÄÚ²¿ÇåÀí
-                        /*
-                        if (skelAnimation != null)
-                        {
-                            skelAnimation.Skeleton.Skin.Clear(false);
-                            skelAnimation = null;
-                        }
-                        if (skelGraphic != null)
-                        {
-                            skelGraphic.Skeleton.Skin.Clear(false);
-                            skelGraphic = null;
-                        }
-                        */
+        // private SpineComponent spineComponent;
+        // public override void OnReceiveEntityMessage(uint id, object data = null)
+        // {
+        //     base.OnReceiveEntityMessage(id, data);
 
-                        OnResUnLoaded();
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }
-        #region Ìæ»»attachment
-        //private List<EquipHook> m_equipables;
-        //public List<EquipHook> equipHooks
-        //{
-        //    get
-        //    {
-        //        if (m_equipables == null)
-        //        {
-        //            m_equipables = new List<EquipHook>();
-        //            EquipHook equipHook = new EquipHook()
-        //            {
-        //                type = EquipType.Gun,
-        //                slot = "gun",
-        //                templateSkin = "base",
-        //                templateAttachment = "gun",
-        //            };
-        //            m_equipables.Add(equipHook);
-        //            equipHook = new EquipHook()
-        //            {
-        //                type = EquipType.Goggles,
-        //                slot = "goggles",
-        //                templateSkin = "base",
-        //                templateAttachment = "goggles",
-        //            };
-        //            m_equipables.Add(equipHook);
-        //        }
-        //        return m_equipables;
-        //    }
-        //}
-        #endregion
+        //     IPrefabResource res = data as IPrefabResource;
+
+        //     switch (id)
+        //     {
+        //         case EntityMessageID.ResLoaded:
+        //             {
+        //                 SpineComponent component = res?.gameObject.GetComponentInChildren<SpineComponent>();
+        //                 skelAnimation = component.skeAni;
+        //                 skelGraphic = component.skeGra;
+        //                 spineComponent = component;
+        //                 OnResLoaded();
+        //             }
+        //             break;
+        //         case EntityMessageID.ResUnloaded:
+        //             {
+        //                 //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ü²ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¤ï¿½ï¿½ï¿½ï¿½ ï¿½Í²ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ ï¿½ï¿½spineClothGraphic ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½
+        //                 /*
+        //                 if (skelAnimation != null)
+        //                 {
+        //                     skelAnimation.Skeleton.Skin.Clear(false);
+        //                     skelAnimation = null;
+        //                 }
+        //                 if (skelGraphic != null)
+        //                 {
+        //                     skelGraphic.Skeleton.Skin.Clear(false);
+        //                     skelGraphic = null;
+        //                 }
+        //                 */
+
+        //                 OnResUnLoaded();
+        //             }
+        //             break;
+        //         default:
+        //             break;
+        //     }
+        // }
+        // #region ï¿½æ»»attachment
+        // //private List<EquipHook> m_equipables;
+        // //public List<EquipHook> equipHooks
+        // //{
+        // //    get
+        // //    {
+        // //        if (m_equipables == null)
+        // //        {
+        // //            m_equipables = new List<EquipHook>();
+        // //            EquipHook equipHook = new EquipHook()
+        // //            {
+        // //                type = EquipType.Gun,
+        // //                slot = "gun",
+        // //                templateSkin = "base",
+        // //                templateAttachment = "gun",
+        // //            };
+        // //            m_equipables.Add(equipHook);
+        // //            equipHook = new EquipHook()
+        // //            {
+        // //                type = EquipType.Goggles,
+        // //                slot = "goggles",
+        // //                templateSkin = "base",
+        // //                templateAttachment = "goggles",
+        // //            };
+        // //            m_equipables.Add(equipHook);
+        // //        }
+        // //        return m_equipables;
+        // //    }
+        // //}
+        // #endregion
 
     }
 }

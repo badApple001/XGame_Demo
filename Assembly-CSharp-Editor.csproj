@@ -82,6 +82,7 @@
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\UGUI2PSDTool.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\GUI\TreeView\AssetTreeViewItem.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\XCBuildConfiguration.cs" />
+    <Compile Include="Assets\ThirdParty\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\TableView\TableViewColDesc.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\AssetVerifyTool\Action\ToggleVerifyAction.cs" />
     <Compile Include="Assets\Editor\AssetsTool\Importer\Helper\XmlHelper.cs" />
@@ -135,15 +136,16 @@
     <Compile Include="Assets\Editor\UI\EditorGUILayoutUtility.cs" />
     <Compile Include="Assets\Editor\XGame\EditorGameSchame.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\ExecutionOrderSetter.cs" />
-    <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\GUI\ReferenceFinderWindow.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\XCConfigurationList.cs" />
     <Compile Include="Assets\Editor\Tools\CodeReviewTools.cs" />
     <Compile Include="Assets\Editor\AssetsTool\Importer\Helper\AssetImportHelper.cs" />
     <Compile Include="Assets\Editor\SpliteJsonAltas\SplitJsonAltas.cs" />
+    <Compile Include="Assets\Editor\AssetsTool\NewReferenceFinder\Editor\GUI\ReferenceFinderWindow.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\EditorHelper.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\JoystickEditor.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\AssetConfig\AssetConfigEditor.cs" />
     <Compile Include="Assets\Editor\Attribute\ObjectAttributeDefineAttribute.cs" />
+    <Compile Include="Assets\ThirdParty\XLua\Src\Editor\TemplateRef.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXParser.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\ShaderEditor\ShaderWarmupCollectionEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\TrialsSystem\SmokePlumeEditor.cs" />
@@ -178,6 +180,7 @@
     <Compile Include="Assets\Editor\AssetsTool\ImageOptimizeRelation\UnReferenceImageDeleter.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\XCodePostProcess.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Editor\InputProcessorEditor.cs" />
+    <Compile Include="Assets\ThirdParty\XLua\Editor\ExampleConfig.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXGroup.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\ModelMatTool.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Effect\Editor_Tween.cs" />
@@ -198,9 +201,9 @@
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDSettingEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\MaterialEditor\FlowLight\FlowLight_StandardShaderGUI.cs" />
     <Compile Include="Assets\Editor\AssetsTool\SpineAssets.cs" />
-    <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Editor\notice.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\CommandBuildBoot.cs" />
     <Compile Include="Assets\Editor\AssetsTool\Importer\Editor\AssetProcessMenu.cs" />
+    <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Editor\notice.cs" />
     <Compile Include="Assets\Editor\Util\EditorGameScheme.cs" />
     <Compile Include="Assets\Editor\PSDTool\PSD2UGUI\PSDPostProcessor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ResTools\Texture\FastPackerPolicy.cs" />
@@ -216,6 +219,7 @@
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Util\EditorCoroutineRunner.cs" />
     <Compile Include="Assets\Editor\AssetsTool\U3D_Editor\Skin\SkinPrefabOptimizer.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\XCMod.cs" />
+    <Compile Include="Assets\ThirdParty\XLua\Src\Editor\Hotfix.cs" />
     <Compile Include="Assets\Editor\ResTools\InvalidScriptFinder.cs" />
     <Compile Include="Assets\Editor\ShaderControl\Editor\SCShader.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXFileReference.cs" />
@@ -245,6 +249,7 @@
     <Compile Include="Assets\Editor\EditorUse.cs" />
     <Compile Include="Assets\Editor\AssetsTool\Importer\Editor\AssetImportSetting.cs" />
     <Compile Include="Assets\Editor\Builder\XUPorter\PBX Editor\PBXObject.cs" />
+    <Compile Include="Assets\ThirdParty\XLua\Src\Editor\Generator.cs" />
     <Compile Include="Assets\Editor\UGUIFont\Editor\Font\BMGlyph.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\Export\AssetBundleBuildConfig.cs" />
     <Compile Include="Assets\Editor\AssetsTool\ResTools\Texture\TextureForamtHelper.cs" />
@@ -259,6 +264,7 @@
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\ModifyCodeCheck.cs" />
     <Compile Include="Assets\Editor\PSDTool\UGUI2PSD\Ugui2Psd_Setting.cs" />
     <Compile Include="Assets\Editor\MeshRenderSortingLayerAndOrderSetterEditor.cs" />
+    <Compile Include="Assets\ThirdParty\LuaPerfect\Editor\ApiGenerator.cs" />
     <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Editor\AndroidBuilder.cs" />
     <Compile Include="Assets\Editor\ResTools\ShaderEditor\MaterialOptimizer.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\BuildAppConfig.cs" />
@@ -268,6 +274,7 @@
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\SpriteAltasChecker.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Editor\CalcHeroGridCoordEditor.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\AutoBuildDLL.cs" />
+    <Compile Include="Assets\ThirdParty\XLua\Src\Editor\LuaImporter.cs" />
     <Compile Include="Assets\Editor\AssetsTool\NewLoad\ResInquireUtil.cs" />
     <Compile Include="Assets\Editor\AssetsTool\GLA\AssetVerifyTool\Util\VerifyPath.cs" />
     <Compile Include="Assets\Editor\AssetsTool\TextureFormat\TexureFmtSetting.cs" />
@@ -340,11 +347,14 @@
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_msg_receive_func.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_msg_send_game_func.txt" />
     <None Include="Assets\Editor\Dll\NPOI.OpenXmlFormats.dll" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaInterfaceBridge.tpl.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaWrapPusher.tpl.txt" />
     <None Include="Assets\Editor\PSDTool\PSD2UGUI\Resources\TextPattern.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_window_exe_event_handler.txt" />
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\繁体字.txt" />
     <None Include="Assets\Editor\ShaderControl\Editor\Keywords.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_flexitem.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaDelegateWrap.tpl.txt" />
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\chars_currency.txt" />
     <None Include="Assets\Editor\ShaderControl\Demo\Resources\ChromaScreen.shader" />
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\chars_EN.txt" />
@@ -352,10 +362,13 @@
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\主界面标题.txt" />
     <None Include="Assets\Editor\Dll\NPOI.OOXML.xml" />
     <None Include="Assets\Editor\ShaderControl\Editor\Packages_com.unity.render-pipelines.universal_Keywords.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaRegister.tpl.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaClassWrap.tpl.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_list_generate.txt" />
     <None Include="Assets\Editor\Monitor\Config\monitor_mono_only_add.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_config.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaRegisterGCM.tpl.txt" />
     <None Include="Assets\Editor\Dll\EPPlus.dll" />
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\繁体字大全.txt" />
     <None Include="Assets\Editor\AssetsTool\Importer\AssetBundleSetting.xml" />
@@ -363,6 +376,7 @@
     <None Include="Assets\Editor\Dll\NPOI.OpenXml4Net.xml" />
     <None Include="Assets\Editor\ShaderControl\Editor\Packages_com.unity.render-pipelines.universal_Shaders.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_msg_receive_rpc_func.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\LinkXmlGen\LinkXmlGen.tpl.txt" />
     <None Include="Assets\Editor\Dll\schemeormtool.dll" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_uiframework_settings.txt" />
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\属性.txt" />
@@ -370,22 +384,28 @@
     <None Include="Assets\Editor\AssetsTool\Importer\AssetImportSetting.xml" />
     <None Include="Assets\Editor\Dll\NPOI.xml" />
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\简体中文.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\PackUnpack.tpl.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_interface.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_msghandler.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_msg_send_cs_func.txt" />
     <None Include="Assets\Editor\ShaderControl\Editor\Shaders.txt" />
     <None Include="Assets\Editor\Dll\XGameTools.ORM.dll" />
     <None Include="Assets\G_Artist\Fonts\Editor\Chars\chars_base.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaEnumWrapGCM.tpl.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_game_extensions.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaClassWrapGCM.tpl.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_module_msg_send_rpc_func.txt" />
     <None Include="Assets\Editor\Dll\BouncyCastle.Crypto.xml" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\TemplateCommon.lua.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_state_associate_windows.txt" />
     <None Include="Assets\Editor\PSDTool\Plugins\x86_64\PsdFile.dll" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_uiwindow_ex.txt" />
     <None Include="Assets\Editor\Dll\NPOI.dll" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaDelegateBridge.tpl.txt" />
     <None Include="Assets\Editor\ShaderControl\README.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_list.txt" />
     <None Include="Assets\Editor\XGame\Resources\CodeGenerator\cs_templates\code_templete_uiwindow_container.txt" />
+    <None Include="Assets\ThirdParty\XLua\Src\Editor\Template\LuaEnumWrap.tpl.txt" />
     <None Include="Assets\Editor\Monitor\Config\monitor_mono_not_add.txt" />
     <None Include="Assets\Editor\Dll\NPOI.OpenXml4Net.dll" />
     <None Include="Assets\Editor\ShaderControl\Editor\BigWorld_Keywords.txt" />
@@ -1384,14 +1404,15 @@
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj" />
     <ProjectReference Include="Assembly-CSharp.csproj" />
     <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj" />
-    <ProjectReference Include="spine-timeline.csproj" />
     <ProjectReference Include="UniFramework.Machine.csproj" />
+    <ProjectReference Include="spine-unity-examples-editor.csproj" />
     <ProjectReference Include="HotUpdate.csproj" />
     <ProjectReference Include="DOTween-Scripts.csproj" />
     <ProjectReference Include="XGame-SDK.csproj" />
     <ProjectReference Include="UnityEditor.CacheServer.csproj" />
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj" />
     <ProjectReference Include="spine-unity.csproj" />
+    <ProjectReference Include="spine-unity-examples.csproj" />
     <ProjectReference Include="Unity.TextMeshPro.csproj" />
     <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj" />
     <ProjectReference Include="spine-unity-editor.csproj" />
@@ -1399,7 +1420,6 @@
     <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj" />
     <ProjectReference Include="UnityEditor.UI.csproj" />
     <ProjectReference Include="UnityEngine.UI.csproj" />
-    <ProjectReference Include="spine-timeline-editor.csproj" />
     <ProjectReference Include="uhypertext-scrpits.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />

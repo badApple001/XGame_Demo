@@ -39,30 +39,30 @@ namespace XGameEditor
         [MenuItem("XGame/资源工具/同步spine加载路径")]
         public static void SynSpineLoadPath()
         {
-            string[] filePaths = Directory.GetFiles("Assets", "*.asset", SearchOption.AllDirectories);
-            for (int i = 0; i < filePaths.Length; ++i)
-            {
-                SkeletonDataAsset sd = AssetDatabase.LoadAssetAtPath<SkeletonDataAsset>(filePaths[i]);
-                if (sd)
-                {
-                    if (sd.skeletonJSON)
-                    {
-                        sd.skeletonJsonPath = AssetDatabase.GetAssetPath(sd.skeletonJSON);
-                        sd.skeletonJsonPath = sd.skeletonJsonPath.Replace("Assets/", "");
-                        EditorUtility.SetDirty(sd);
+            // string[] filePaths = Directory.GetFiles("Assets", "*.asset", SearchOption.AllDirectories);
+            // for (int i = 0; i < filePaths.Length; ++i)
+            // {
+            //     SkeletonDataAsset sd = AssetDatabase.LoadAssetAtPath<SkeletonDataAsset>(filePaths[i]);
+            //     if (sd)
+            //     {
+            //         if (sd.skeletonJSON)
+            //         {
+            //             sd.skeletonJsonPath = AssetDatabase.GetAssetPath(sd.skeletonJSON);
+            //             sd.skeletonJsonPath = sd.skeletonJsonPath.Replace("Assets/", "");
+            //             EditorUtility.SetDirty(sd);
 
-                    }
-                } else
-                {
-                    SpineAtlasAsset sa = AssetDatabase.LoadAssetAtPath<SpineAtlasAsset>(filePaths[i]);
-                    if (sa && sa.atlasFile)
-                    {
-                        sa.atlasPath = AssetDatabase.GetAssetPath(sa.atlasFile);
-                        sa.atlasPath = sa.atlasPath.Replace("Assets/", "");
-                        EditorUtility.SetDirty(sa);
-                    }
-                }
-            }
+            //         }
+            //     } else
+            //     {
+            //         SpineAtlasAsset sa = AssetDatabase.LoadAssetAtPath<SpineAtlasAsset>(filePaths[i]);
+            //         if (sa && sa.atlasFile)
+            //         {
+            //             sa.atlasPath = AssetDatabase.GetAssetPath(sa.atlasFile);
+            //             sa.atlasPath = sa.atlasPath.Replace("Assets/", "");
+            //             EditorUtility.SetDirty(sa);
+            //         }
+            //     }
+            // }
 
             AssetDatabase.SaveAssets();
         }
@@ -72,46 +72,46 @@ namespace XGameEditor
         [MenuItem("XGame/资源工具/增加Spine索引组件")]
         public static void AddSpineComponent()
         {
-            string[] filePaths = Directory.GetFiles("Assets", "*.prefab", SearchOption.AllDirectories);
-            for (int i = 0; i < filePaths.Length; ++i)
-            {
-                GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(filePaths[i]);
-                if (go)
-                {
-                    SkeletonAnimation sa = go.GetComponentInChildren<SkeletonAnimation>();
-                    SkeletonGraphic sg = go.GetComponentInChildren<SkeletonGraphic>();
-                    if (sa || sg)
-                    {
-                        bool bChange = false;
+            // string[] filePaths = Directory.GetFiles("Assets", "*.prefab", SearchOption.AllDirectories);
+            // for (int i = 0; i < filePaths.Length; ++i)
+            // {
+            //     GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>(filePaths[i]);
+            //     if (go)
+            //     {
+            //         SkeletonAnimation sa = go.GetComponentInChildren<SkeletonAnimation>();
+            //         SkeletonGraphic sg = go.GetComponentInChildren<SkeletonGraphic>();
+            //         if (sa || sg)
+            //         {
+            //             bool bChange = false;
 
-                        SpineComponent sc = go.GetComponent<SpineComponent>();
-                        if (sc == null)
-                        {
-                            sc = go.AddComponent<SpineComponent>();
-                            bChange = true;
-                        }
+            //             SpineComponent sc = go.GetComponent<SpineComponent>();
+            //             if (sc == null)
+            //             {
+            //                 sc = go.AddComponent<SpineComponent>();
+            //                 bChange = true;
+            //             }
 
-                        if (sc.skeAni != sa || sc.skeGra != sg)
-                        {
-                            sc.skeAni = sa;
-                            sc.skeGra = sg;
-                            bChange = true;
-                        }
+            //             if (sc.skeAni != sa || sc.skeGra != sg)
+            //             {
+            //                 sc.skeAni = sa;
+            //                 sc.skeGra = sg;
+            //                 bChange = true;
+            //             }
 
-                        if (bChange)
-                        {
-                            PrefabUtility.SavePrefabAsset(go);
-                        }
+            //             if (bChange)
+            //             {
+            //                 PrefabUtility.SavePrefabAsset(go);
+            //             }
 
 
 
-                    }
+            //         }
 
-                }
+            //     }
 
-            }
+            // }
 
-            AssetDatabase.SaveAssets();
+            // AssetDatabase.SaveAssets();
         }
 
         [MenuItem("XGame/资源工具/设置材质的GPUInstance")]

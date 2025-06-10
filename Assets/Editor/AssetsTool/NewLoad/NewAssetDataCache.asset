@@ -475,17 +475,17 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Artist/Prefabs/Effect/UI/huodejiangli.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
-    hash: bc00d087a4d34495aaf43e89859559e3
-  - assetPath: Assets/ThirdParty/Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
+    - Assets/Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
+    hash: a56a289c9d06cc6f2cc0ddfe38adc203
+  - assetPath: Assets/Spine/Runtime/spine-unity/Materials/SkeletonGraphicDefault.mat
     isMainAsset: 0
     dependAssetList:
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
-    hash: b62dc7cee3081aef77f1ed5ca4f2cdca
-  - assetPath: Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+    hash: 5f6ed598122377b7933071ec2f6c9603
+  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
     isMainAsset: 0
     dependAssetList: []
-    hash: b6ce1747c102c007f613237e9927dbda
+    hash: 2c7aca9a35daf2082cbe64bd00da84cb
   - assetPath: Assets/G_Resources/Artist/Prefabs/Effect/UI/TestEffect.prefab
     isMainAsset: 1
     dependAssetList: []
@@ -1924,7 +1924,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Shaders/BurningPaper.shader
     - Assets/G_Artist/Shader/UI-MaskEffectImge.shader
     - Assets/G_Artist/Shader/UI-MaskLevel.shader
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/G_Artist/Shader/UIGlow.shader
     - Assets/G_Artist/Shader/Sprites_ClipWithAngle.shader
     - Assets/G_Artist/Shader/UI-MaskBorderBlur.shader
@@ -1962,10 +1962,10 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList: []
     hash: 216d8c6615f6dc494df416f2cffa1c00
-  - assetPath: Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     isMainAsset: 0
     dependAssetList: []
-    hash: ec047befa31a2f8cf2e6484cf647931f
+    hash: dce7fe2329bb5129c0d30f0c81435e7c
   - assetPath: Assets/G_Artist/Shader/UIGlow.shader
     isMainAsset: 0
     dependAssetList: []
@@ -2003,7 +2003,7 @@ MonoBehaviour:
     - Assets/G_Artist/Shader/A_VFX_AB.shader
     - Assets/G_Artist/Shader/AB_VFX_AD.shader
     - Assets/G_Artist/Shader/UI-MaskEffectImge.shader
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/G_Artist/Shader/UI-MaskLevel.shader
     - Assets/G_Artist/Shader/A_VFX_lizi_katong.shader
     - Assets/G_Artist/Shader/PFX_Trail.shader
@@ -2013,7 +2013,7 @@ MonoBehaviour:
     - Assets/G_Artist/Shader/A_VFX_Dissolution_Additvie_JZB.shader
     - Assets/G_Artist/Shader/A_VFX_Additive.shader
     - Assets/G_Artist/Shader/UI-MaskBorderBlur.shader
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/SkeletonGraphic/Spine-SkeletonGraphic.shader
     - Assets/G_Artist/Shader/A_VFX_distort_blend.shader
     - Assets/G_Resources/Game/Shadervariant/GameShadervariant.shadervariants
     - Assets/G_Artist/Shader/A_VFX_Dissolution_blend.shader
@@ -4359,7 +4359,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: ae804408ee89635cc36b0a59faa31898
+    hash: 67f266655e0be7ecbf3e813823ce957a
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4380,7 +4380,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.png
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     hash: eb7b673f10e140f624f191aa5e929a8d
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.png
     isMainAsset: 1
@@ -4402,7 +4402,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_Material.mat
     - Assets/Game/HeroTeam/GameResources/Textures/skill_arrow.png
-    hash: 205205161bac13f01a212c49f0866249
+    hash: f693b522e555f18fe16b9f29b48b41ef
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4423,7 +4423,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.png
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     hash: 993d83b3e2a0b5c979a46d78e1cdcd1e
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.png
     isMainAsset: 1
@@ -4443,11 +4443,11 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: b503100b558ce1f27a1a0b62b3cc941f
+    hash: 8777f83fcc2ce220c57c91cd2f09b55a
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.png
     hash: 8aee7029021b023273214f7d42d0a399
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.png
@@ -4480,7 +4480,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_Material.mat
-    hash: e79d14cf0a22298bad1f676e8111e197
+    hash: 41f1b9201060acae857338251df7b35c
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4505,7 +4505,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.png
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     hash: 022e81e57fb5781c239fd55a244a5886
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.png
     isMainAsset: 1
@@ -4517,11 +4517,11 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Material.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: aaf4507f978611cd32228c5483ec948f
+    hash: 6dcfe931bcae154780222f404ef89af7
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.png
     hash: 711d1727e6bff0ee0beabf99e82373be
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.png
@@ -4554,11 +4554,11 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Material.mat
     - Assets/Game/HeroTeam/GameResources/Materials/Dissolve.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_SkeletonData.asset
-    hash: 4bca90ceb14934eef47a60df4ff9dc15
+    hash: 9caf09432c35b6c38eacf6acb6ad638a
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002.png
     hash: 4d5e4b75c417c5cc7964cb0bd6595bee
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_SkeletonData.asset
@@ -4587,7 +4587,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: d8324613eb1fb1dcdcfde89a87bf6715
+    hash: 6a72b9d3faf9167d56118c9238083e5f
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4611,7 +4611,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.png
     hash: 60a8d8cd4213178f968e073c2e51035c
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.png
@@ -4624,7 +4624,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 1a4e36b9aa3dd96a9ee86513ad3a1a11
+    hash: 1b25c27389bc67aeae8cafb97cdd0bdf
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4649,7 +4649,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.png
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     hash: 690dab61c937e1bcdcd26354864ad647
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.png
     isMainAsset: 1
@@ -4661,7 +4661,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: bf9368f2a536e1a4d83697a231629997
+    hash: b21a43eeceda7f85c98d98e571ebb161
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4682,7 +4682,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.png
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     hash: d5d52290cb800e0b1715c1a3325c41a8
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.png
     isMainAsset: 1
@@ -4698,7 +4698,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 0d5a27c57e00788b6647e6601b4f927d
+    hash: aa590d5743f6479ccc698bf914a5c21e
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4719,7 +4719,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.png
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     hash: 1afc9d045847fa91b0a617362b211e66
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.png
     isMainAsset: 1
@@ -4932,23 +4932,8 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     - Assets/Game/HeroTeam/GameResources/Textures/White_1x1.png
-    - Assets/Resources/Res_BC_025/025_Controller.controller
-    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     - Assets/Game/HeroTeam/GameResources/Materials/Dissolve.mat
-    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
-    - Assets/Resources/Res_BC_025/025_SkeletonData.asset
-    hash: a6cfe51556cf67483b33bb1a9792274b
-  - assetPath: Assets/Resources/Res_BC_025/025_Controller.controller
-    isMainAsset: 0
-    dependAssetList: []
-    hash: 57c6f17c517651025234034639690a74
-  - assetPath: Assets/Resources/Res_BC_025/025_SkeletonData.asset
-    isMainAsset: 0
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.skel.bytes
-    - Assets/Resources/Res_BC_025/025_Controller.controller
-    - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Atlas.asset
-    hash: 0c1ce12eccc5895eea3cee1d387e0db3
+    hash: 782b95aa6220c1a55deafed7c3402989
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.atlas.txt
     isMainAsset: 1
     dependAssetList: []
@@ -4971,7 +4956,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.png
-    - Assets/ThirdParty/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     hash: 837c079d0be537be25efc50c395e75f8
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910_SkeletonData.asset
     isMainAsset: 1

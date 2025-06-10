@@ -8,7 +8,7 @@ namespace XGame.Entity.Part
 {
     public class SpineMixSkinAnimation : ISpineSkin
     {
-        private Skin resultCombinedSkin = SpineObjectPoolFacade.Instance().Pop<Skin>(); //new Skin("character-combined");
+        // private Skin resultCombinedSkin = SpineObjectPoolFacade.Instance().Pop<Skin>(); //new Skin("character-combined");
         //private Skin characterSkin;
         private SkeletonAnimation skeletonAnimation;
 
@@ -22,7 +22,7 @@ namespace XGame.Entity.Part
         {
             if (applied)
             {
-                resultCombinedSkin.Clear(false);
+                // resultCombinedSkin.Clear(false);
                 applied = false;
             }
             var skeleton = skeletonAnimation.Skeleton;
@@ -30,31 +30,31 @@ namespace XGame.Entity.Part
             Skin skin = skeletonData.FindSkin(asset.skin);
             if (skin != null)
             {
-                resultCombinedSkin.AddSkin(skin);
+                // resultCombinedSkin.AddSkin(skin);
             }
             else
             {
-                Debug.LogError($" ²¿Î»{asset.partType} Æ¤·ô{asset.skin}ÕÒ²»µ½");
+                Debug.LogError($" ï¿½ï¿½Î»{asset.partType} Æ¤ï¿½ï¿½{asset.skin}ï¿½Ò²ï¿½ï¿½ï¿½");
             }
         }
         private bool applied = false;
         public void Apply()
         {
             var skeleton = skeletonAnimation.Skeleton;
-            //todo ¼õÉÙnew
+            //todo ï¿½ï¿½ï¿½ï¿½new
             //var resultCombinedSkin = new Skin("character-combined");
             //resultCombinedSkin.Clear(false);
             //resultCombinedSkin.AddSkin(characterSkin);
             //AddEquipmentSkinsTo(resultCombinedSkin);
 
-            skeleton.SetSkin(resultCombinedSkin);
+            // skeleton.SetSkin(resultCombinedSkin);
             skeleton.SetSlotsToSetupPose();
             applied = true;
         }
 
         public void Reset()
         {
-            resultCombinedSkin.Clear(false);
+            // resultCombinedSkin.Clear(false);
             skeletonAnimation = null;
             applied = true;
         }
@@ -67,8 +67,8 @@ namespace XGame.Entity.Part
         public void Release()
         {
             Reset();
-            SpineObjectPoolFacade.Instance().Push(resultCombinedSkin);
-            resultCombinedSkin = null;
+            // SpineObjectPoolFacade.Instance().Push(resultCombinedSkin);
+            // resultCombinedSkin = null;
         }
     }
 }

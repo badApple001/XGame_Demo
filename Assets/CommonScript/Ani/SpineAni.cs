@@ -1,16 +1,16 @@
 /*******************************************************************
-** ÎÄ¼þÃû:	SpineAni.cs
-** °æ  È¨:	(C) ±ù´¨ÍøÂç
-** ´´½¨ÈË:	ÐíµÂ¼Í
-** ÈÕ  ÆÚ:	2024.9.03
-** °æ  ±¾:	1.0
-** Ãè  Êö:	
-** Ó¦  ÓÃ:  ¿ØÖÆspine²¥·Å¶¯»­
+** ï¿½Ä¼ï¿½ï¿½ï¿½:	SpineAni.cs
+** ï¿½ï¿½  È¨:	(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+** ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	ï¿½ï¿½ï¿½Â¼ï¿½
+** ï¿½ï¿½  ï¿½ï¿½:	2024.9.03
+** ï¿½ï¿½  ï¿½ï¿½:	1.0
+** ï¿½ï¿½  ï¿½ï¿½:	
+** Ó¦  ï¿½ï¿½:  ï¿½ï¿½ï¿½ï¿½spineï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½
 
-**************************** ÐÞ¸Ä¼ÇÂ¼ ******************************
-** ÐÞ¸ÄÈË: ¸Ê±þ¾û
-** ÈÕ  ÆÚ: 2024.12.03
-** Ãè  Êö: Ö§³ÖSkeletonGraphic
+**************************** ï¿½Þ¸Ä¼ï¿½Â¼ ******************************
+** ï¿½Þ¸ï¿½ï¿½ï¿½: ï¿½Ê±ï¿½ï¿½ï¿½
+** ï¿½ï¿½  ï¿½ï¿½: 2024.12.03
+** ï¿½ï¿½  ï¿½ï¿½: Ö§ï¿½ï¿½SkeletonGraphic
 ********************************************************************/
 
 
@@ -27,16 +27,16 @@ namespace GameScripts
     {
         public class SpineAniData : MonoNetObject
         {
-            //¶¯×÷²¥·ÅÐòÁÐ°æ±¾ºÅ
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð°æ±¾ï¿½ï¿½
             public NetVarLong m_version;
 
-            //ÕýÔÚ²¥·ÅµÄ¶¯×÷
+            //ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ÅµÄ¶ï¿½ï¿½ï¿½
             public NetVarString m_aniName;
 
-            //ÊÇ·ñÑ­»·
+            //ï¿½Ç·ï¿½Ñ­ï¿½ï¿½
             public NetVarBool m_loop;
 
-            //ÊÇ·ñÍ£ÔÚ×îºóÒ»¸ö¶¯×÷
+            //ï¿½Ç·ï¿½Í£ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             public NetVarBool m_stay;
 
 
@@ -53,17 +53,17 @@ namespace GameScripts
             }
         }
 
-        //2D¹Ç÷À¶¯»­
+        //2Dï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         public SkeletonAnimation skeletonAnimation;
         public SkeletonGraphic skeletonGraphic;
         private IAnimationStateComponent skeletonAnimationState;
 
-        //Ä¬ÈÏ¶¯×÷
+        //Ä¬ï¿½Ï¶ï¿½ï¿½ï¿½
         public string defaultAniName = "idle";
 
-        //µ±Ç°²¥·Å¶¯×÷µÄ°æ±¾ºÅ
+        //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½ï¿½Ä°æ±¾ï¿½ï¿½
         private long m_playVersion = 0;
-        //add by ´ÞÎÀ»ª
+        //add by ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         private bool isAddEvent = false;
 
         // Start is called before the first frame update
@@ -81,7 +81,7 @@ namespace GameScripts
 
             if (null != skeletonAnimation)
             {
-                skeletonAnimation.freeze = false;
+                // skeletonAnimation.freeze = false;
                 skeletonAnimationState = skeletonAnimation as IAnimationStateComponent;
             }
 
@@ -119,14 +119,14 @@ namespace GameScripts
                     if (skeletonAnimationState.AnimationState.Data.SkeletonData
                             .FindAnimation(NetObj.m_aniName.Value) == null)
                     {
-                        Debug.LogError("²»´æÔÚµÄ¶¯×÷: " + NetObj.m_aniName.Value);
+                        Debug.LogError("ï¿½ï¿½ï¿½ï¿½ï¿½ÚµÄ¶ï¿½ï¿½ï¿½: " + NetObj.m_aniName.Value);
                         return;
                     }
 
                     /*
                     if(NetObj.m_aniName.Value!="move")
                     {
-                        Debug.LogError("²¥·Å¶¯×÷: " + this.gameObject.GetHashCode() + "¶¯×÷Ãû³Æ" + NetObj.m_aniName.Value);
+                        Debug.LogError("ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½: " + this.gameObject.GetHashCode() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + NetObj.m_aniName.Value);
                     }*/
 
 
@@ -173,7 +173,7 @@ namespace GameScripts
                 /*
                 if (NetObj.m_aniName.Value != "move")
                 {
-                    Debug.LogError("²¥·Å¶¯×÷: " + this.gameObject.GetHashCode() + "¶¯×÷Ãû³Æ" + NetObj.m_aniName.Value);
+                    Debug.LogError("ï¿½ï¿½ï¿½Å¶ï¿½ï¿½ï¿½: " + this.gameObject.GetHashCode() + "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" + NetObj.m_aniName.Value);
                 }
                 */
             }
@@ -195,7 +195,7 @@ namespace GameScripts
         {
             if (null != skeletonAnimation)
             {
-                skeletonAnimation.freeze = freeze;
+                // skeletonAnimation.freeze = freeze;
                
             }else if (null != skeletonGraphic)
             {
@@ -204,7 +204,7 @@ namespace GameScripts
             }
         }
 
-        //ÊÇ·ñÏÔÊ¾
+        //ï¿½Ç·ï¿½ï¿½ï¿½Ê¾
         public void EnableSpineView(bool enable)
         {
             if (null != skeletonAnimation)

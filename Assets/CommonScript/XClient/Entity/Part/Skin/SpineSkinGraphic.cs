@@ -1,6 +1,6 @@
 //author: weihua.cui 
 //date: 2025.01.09
-//SkeletonGraphic ÎÆÀí»»×°
+//SkeletonGraphic ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×°
 
 using Spine.Unity.AttachmentTools;
 using Spine.Unity;
@@ -22,11 +22,11 @@ namespace XGame.Entity.Part
         Eye,
         Weapon,
         Body,
-        Mouth,          //¾Ö²¿µÄÃ¶¾ÙÖµ×î´óµ½Mouth
-        Whole,          //ÕûÌå
+        Mouth,          //ï¿½Ö²ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½Öµï¿½ï¿½ï¿½Mouth
+        Whole,          //ï¿½ï¿½ï¿½ï¿½
     }
     [SerializeField]
-    //»»×°Ïà¹Ø
+    //ï¿½ï¿½×°ï¿½ï¿½ï¿½
     public class SkinPartHook
     {
         public SkinPartType type;
@@ -158,7 +158,7 @@ namespace XGame.Entity.Part
 
             if (true)
             {
-                repackedSkin.Clear(false);
+                // repackedSkin.Clear(false);
                 repackedSkin.AddAttachments(skeleton.Data.DefaultSkin);
                 repackedSkin.AddAttachments(customSkin);
                 // Note: materials and textures returned by GetRepackedSkin() behave like 'new Texture2D()' and need to be destroyed
@@ -171,7 +171,7 @@ namespace XGame.Entity.Part
             }
             else
             {
-                //ÕâÀïÓÐÎÊÌâ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 skeleton.SetSkin(customSkin);
             }
 
@@ -203,10 +203,10 @@ namespace XGame.Entity.Part
 
 
 
-            //// »ñÈ¡ Skeleton ¶ÔÏó
+            //// ï¿½ï¿½È¡ Skeleton ï¿½ï¿½ï¿½ï¿½
             //var skeleton = skeletonAnimation.Skeleton;
 
-            // ±éÀúËùÓÐ²å²Û²¢»¹Ô­µ½Ä¬ÈÏ attachment
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½Û²ï¿½ï¿½ï¿½Ô­ï¿½ï¿½Ä¬ï¿½ï¿½ attachment
             //foreach (var slot in skeleton.Slots)
             //{
             //    var setupAttachment = slot.Data.AttachmentName != null

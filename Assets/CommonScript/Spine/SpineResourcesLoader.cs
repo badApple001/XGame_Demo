@@ -254,25 +254,26 @@ namespace XClient.Scripts.Api
 
             if (null == sa && sg == null)
             {
-                SpineComponent sc = obj.GetComponentInChildren<SpineComponent>();
-                if (sc == null)
-                {
-                  
-                    sa = obj.GetComponentInChildren<SkeletonAnimation>();
-                    sg = obj.GetComponentInChildren<SkeletonGraphic>();
+                
+                // SpineComponent sc = obj.GetComponentInChildren<SpineComponent>();
+                // if (sc == null)
+                // {
 
-                    //spine资源，报错警告
-                    if (sa != null|| sg!=null)
-                    {
-                        Debug.LogError("Spine预制体没有添加 SpineComponent name=" + obj.name);
-                    }
+                //     sa = obj.GetComponentInChildren<SkeletonAnimation>();
+                //     sg = obj.GetComponentInChildren<SkeletonGraphic>();
 
-                }
-                else
-                {
-                    sa = sc.skeAni;
-                    sg = sc.skeGra;
-                }
+                //     //spine资源，报错警告
+                //     if (sa != null || sg != null)
+                //     {
+                //         Debug.LogError("Spine预制体没有添加 SpineComponent name=" + obj.name);
+                //     }
+
+                // }
+                // else
+                // {
+                //     sa = sc.skeAni;
+                //     sg = sc.skeGra;
+                // }
             }
 
 
@@ -340,36 +341,36 @@ namespace XClient.Scripts.Api
             string atlasPath = null;
             for (int i = 0; i < atlasAssets.Length; ++i)
             {
-                atlasPath = atlasAssets[i].GetAtlasPath();
-                if (String.IsNullOrEmpty(skeletonDataAsset.skeletonJsonPath) == false)
-                {
-                    handle = base.LoadRes(atlasPath, m_OnSpineAtlasCallback, false, reqKey);
+//                 atlasPath = atlasAssets[i].GetAtlasPath();
+//                 if (String.IsNullOrEmpty(skeletonDataAsset.skeletonJsonPath) == false)
+//                 {
+//                     handle = base.LoadRes(atlasPath, m_OnSpineAtlasCallback, false, reqKey);
 
-                    AtlasInfo atlasInfo = XGameComs.Get<IItemPoolManager>().Pop<AtlasInfo>(null);
-                    atlasInfo.index = i;
-                    atlasInfo.data = null;
-                    info.dicAtlasData.Add(handle, atlasInfo);
-                }
-#if UNITY_EDITOR
-                else
-                {
-                    Debug.LogError(obj.name + ":tlasAssets[i].GetAtlasPath()==null i =" + i);
-                }
-#endif
+//                     AtlasInfo atlasInfo = XGameComs.Get<IItemPoolManager>().Pop<AtlasInfo>(null);
+//                     atlasInfo.index = i;
+//                     atlasInfo.data = null;
+//                     info.dicAtlasData.Add(handle, atlasInfo);
+//                 }
+// #if UNITY_EDITOR
+//                 else
+//                 {
+//                     Debug.LogError(obj.name + ":tlasAssets[i].GetAtlasPath()==null i =" + i);
+//                 }
+// #endif
 
             }
 
-            //获取骨骼数据,加载骨骼动画数据
-            if (String.IsNullOrEmpty(skeletonDataAsset.skeletonJsonPath) == false)
-            {
-                info.aniReqkey = base.LoadRes(skeletonDataAsset.skeletonJsonPath, m_OnSpineAniCallback, false, reqKey);
-            }
-#if UNITY_EDITOR
-            else
-            {
-                Debug.LogError(obj.name + ":skeletonDataAsset.skeletonJsonPath==null");
-            }
-#endif           
+//             //获取骨骼数据,加载骨骼动画数据
+//             if (String.IsNullOrEmpty(skeletonDataAsset.skeletonJsonPath) == false)
+//             {
+//                 info.aniReqkey = base.LoadRes(skeletonDataAsset.skeletonJsonPath, m_OnSpineAniCallback, false, reqKey);
+//             }
+// #if UNITY_EDITOR
+//             else
+//             {
+//                 Debug.LogError(obj.name + ":skeletonDataAsset.skeletonJsonPath==null");
+//             }
+// #endif           
 
         }
 
@@ -433,11 +434,11 @@ namespace XClient.Scripts.Api
                         return;
                     }
 
-                    info.skeletonDataAsset.LoadAtlas(value.index, value.data);
+                    // info.skeletonDataAsset.LoadAtlas(value.index, value.data);
                 }
 
                 //加载骨骼
-                info.skeletonDataAsset.GetSkeletonData(true, info.texAniData.bytes);
+                // info.skeletonDataAsset.GetSkeletonData(true, info.texAniData.bytes);
             }
 #if UNITY_EDITOR
             else
@@ -465,7 +466,7 @@ namespace XClient.Scripts.Api
                     if (info.sa != null)
                     {
                         info.sa.enabled = true;
-                        info.sa.Initialize(false, false);
+                        // info.sa.Initialize(false, false);
                         /*
                         if(info.sa.gameObject.activeSelf==false)
                         {

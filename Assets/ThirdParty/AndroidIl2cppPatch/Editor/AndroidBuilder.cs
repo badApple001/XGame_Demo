@@ -120,13 +120,11 @@ public class AndroidBuilder : MonoBehaviour
 
         if (!Directory.Exists(keystoreDir)) { Directory.CreateDirectory(keystoreDir); }
 
-        /*
-        PlayerSettings.applicationIdentifier = "ImmortalFamily.q1.com";
+        PlayerSettings.applicationIdentifier = "KingHero.q1.com";
         PlayerSettings.companyName = "Q1";
-        PlayerSettings.productName = "ImmortalFamily";
-        */
+        PlayerSettings.productName = "KingHero";
 
-        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android)
+        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android )
         {
             EditorUserBuildSettings.androidBuildSystem = AndroidBuildSystem.Gradle;
             PlayerSettings.SetScriptingBackend(BuildTargetGroup.Android, ScriptingImplementation.IL2CPP);
@@ -148,12 +146,6 @@ public class AndroidBuilder : MonoBehaviour
             PlayerSettings.bundleVersion = appVer;
         }
 
-        // PlayerSettings.Android.keystoreName = keystoreDir + "/imm.keystore";
-        // PlayerSettings.Android.keystorePass = "22222";
-        // PlayerSettings.Android.keyaliasName = PlayerSettings.applicationIdentifier;
-        // PlayerSettings.Android.keyaliasPass = "34444";
-
-        //打包签名设置
         PlayerSettings.Android.keystoreName = keystoreDir + "/heroTeam.keystore";
         PlayerSettings.Android.keystorePass = "123456";
         PlayerSettings.Android.keyaliasName = "heroteam";
@@ -232,31 +224,11 @@ public class AndroidBuilder : MonoBehaviour
                     Directory.CreateDirectory(exeDir);
                     apkPath = exeDir + "/" + PlayerSettings.applicationIdentifier + ".exe";
                 }
-                else if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WebGL)
-                {
-                    string exeDir = targetDir + "/WebGL";
-                    if (Directory.Exists(exeDir))
-                    {
-                        Directory.Delete(exeDir, true);
-                    }
-
-                    Directory.CreateDirectory(exeDir);
-                    apkPath = exeDir;
-                }
 
                 error_msg = BuildPipeline.BuildPlayer(EditorBuildSettings.scenes, apkPath, EditorUserBuildSettings.activeBuildTarget, options).summary.result == UnityEditor.Build.Reporting.BuildResult.Succeeded ? string.Empty : "Failed to export project!";
 
                 if (string.IsNullOrEmpty(error_msg) == false)
                     Debug.LogError("error_msg=" + error_msg);
-
-
-                //删除临时文件夹
-                string burstDebugInformationDir = targetDir + "/" + PlayerSettings.productName + "_BurstDebugInformation_DoNotShip";
-                if (Directory.Exists(burstDebugInformationDir))
-                {
-                    Directory.Delete(burstDebugInformationDir, true);
-                }
-
             }
 
         }
@@ -483,8 +455,7 @@ import io.github.noodle1983.Boostrap;");
         //sign
         string keystoreDir = PROJECT_DIR + "/AndroidKeystore";
         if (!Directory.Exists(keystoreDir)) { Directory.CreateDirectory(keystoreDir); }
-        string keystoreFile = keystoreDir + "/imm.keystore";
-
+        string keystoreFile = keystoreDir + "/hyl.keystore";
         if (!File.Exists(keystoreFile))
         {
             string keytoolPath = jdkPath + "/bin/keytool.exe";

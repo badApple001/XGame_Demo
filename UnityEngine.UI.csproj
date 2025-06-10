@@ -65,12 +65,13 @@
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\ScrollRect.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\LayoutElement.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Button.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Image.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\HorizontalLayoutGroup.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\ContentSizeFitter.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\CanvasScaler.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Image.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Scrollbar.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\InputModules\StandaloneInputModule.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Text.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Scrollbar.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\RawImage.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\UIElements\PanelRaycaster.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Toggle.cs" />
@@ -104,7 +105,6 @@
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\GraphicRaycaster.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\InputField.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\FrameEvent\IFrameSink.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\InputModules\StandaloneInputModule.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\FontUpdateTracker.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\RaycastResult.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\ToggleGroup.cs" />

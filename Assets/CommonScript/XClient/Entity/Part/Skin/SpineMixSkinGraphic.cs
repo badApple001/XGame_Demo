@@ -6,7 +6,7 @@ using UnityEngine;
 using XGame.Ini;
 using XGame.Poolable;
 //author weihua.cui
-//Ìæ»»µ¥ÕÅÎÆÀí
+//ï¿½æ»»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 namespace XGame.Entity.Part
 {
@@ -30,7 +30,7 @@ namespace XGame.Entity.Part
             skeletonGraphic = context as SkeletonGraphic;
             if(null== resultCombinedSkin)
             {
-                resultCombinedSkin = SpineObjectPoolFacade.Instance().Pop<Skin>();
+                // resultCombinedSkin = SpineObjectPoolFacade.Instance().Pop<Skin>();
             }
            
             //characterSkin = new Skin("character-base");
@@ -40,7 +40,7 @@ namespace XGame.Entity.Part
         {
             if (applied)
             {
-                resultCombinedSkin.Clear(false);
+                // resultCombinedSkin.Clear(false);
                 applied = false;
             }
             var skeleton = skeletonGraphic.Skeleton;
@@ -53,14 +53,14 @@ namespace XGame.Entity.Part
             else
             {
                 if (GameIni.Instance.enableDebug)
-                    Debug.LogError($" ²¿Î»{asset.partType} Æ¤·ô{asset.skin}ÕÒ²»µ½");
+                    Debug.LogError($" ï¿½ï¿½Î»{asset.partType} Æ¤ï¿½ï¿½{asset.skin}ï¿½Ò²ï¿½ï¿½ï¿½");
             }
         }
         private bool applied = false;
         public void Apply()
         {
             var skeleton = skeletonGraphic.Skeleton;
-            //todo ¼õÉÙnew
+            //todo ï¿½ï¿½ï¿½ï¿½new
             //var resultCombinedSkin = new Skin("character-combined");
             //resultCombinedSkin.Clear(false) ;
             //resultCombinedSkin.AddSkin(characterSkin);
@@ -79,8 +79,8 @@ namespace XGame.Entity.Part
 
             if(null!= resultCombinedSkin)
             {
-                resultCombinedSkin.Clear(false);
-                SpineObjectPoolFacade.Instance().Push(resultCombinedSkin);
+                // resultCombinedSkin.Clear(false);
+                // SpineObjectPoolFacade.Instance().Push(resultCombinedSkin);
                 resultCombinedSkin = null;
             }
           

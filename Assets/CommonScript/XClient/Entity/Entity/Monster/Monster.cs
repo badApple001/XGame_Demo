@@ -559,12 +559,14 @@ namespace XClient.Entity
 
         public SkeletonGraphic GetSkeltonGraphic()
         {
-            return GetComponent<SpineComponent>().skeGra;
+            return null;
+            // return GetComponent<SpineComponent>().skeGra;
         }
 
         public SkeletonAnimation GetSkeletonAnimation()
         {
-            return GetComponent<SpineComponent>().skeAni;
+            return null;
+            // return GetComponent<SpineComponent>().skeAni;
         }
 
         private Transform m_stateTrans;

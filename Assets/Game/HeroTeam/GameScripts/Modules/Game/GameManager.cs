@@ -1,9 +1,12 @@
 using DG.Tweening;
+using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XClient.Common;
+using XGame;
+using XGame.Asset;
 using XGame.EventEngine;
 
 namespace GameScripts.HeroTeam
@@ -63,7 +66,6 @@ namespace GameScripts.HeroTeam
             LevelManager.Instance.Setup(null);
             LevelManager.Instance.ActorDieHandler += OnActorDieHandle;
             LevelManager.Instance.RegisterActorCampUpdateProcessPipe(CampDef.HERO, RankPipe.Instance);
-
             InitGame();
         }
 

@@ -100,9 +100,9 @@
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\Tools\EditorIK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\HitReactionTrigger.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\PickUpSphere.cs" />
+    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKMappingBone.cs" />
     <Compile Include="Assets\Plugins\BuglyPlugins\BuglyCallback.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Components\LimbIK.cs" />
-    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKMappingBone.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\VRIK\Scripts\VRIKCalibrationController.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\InteractionSystem\InteractionSystem.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Demo Assets\Scripts\Character Controllers\SimpleLocomotion.cs" />
@@ -223,9 +223,9 @@
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\KissingRig.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Demo Assets\Scripts\Character Controllers\UserControlThirdPerson.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKSolverFABRIKRoot.cs" />
-    <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\SoccerDemo.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Components\VRIK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Scripts\Comments.cs" />
+    <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\SoccerDemo.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Components\TrigonometricIK.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Demo Assets\Scripts\Camera Controllers\CameraControllerFPS.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKSolverVR.cs" />
@@ -1143,14 +1143,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="spine-timeline.csproj" />
     <ProjectReference Include="UniFramework.Machine.csproj" />
+    <ProjectReference Include="spine-unity-examples-editor.csproj" />
     <ProjectReference Include="HotUpdate.csproj" />
     <ProjectReference Include="DOTween-Scripts.csproj" />
     <ProjectReference Include="XGame-SDK.csproj" />
     <ProjectReference Include="UnityEditor.CacheServer.csproj" />
     <ProjectReference Include="Unity.TextMeshPro.Editor.csproj" />
     <ProjectReference Include="spine-unity.csproj" />
+    <ProjectReference Include="spine-unity-examples.csproj" />
     <ProjectReference Include="Unity.TextMeshPro.csproj" />
     <ProjectReference Include="Unity.ScriptableBuildPipeline.csproj" />
     <ProjectReference Include="spine-unity-editor.csproj" />
@@ -1158,7 +1159,6 @@
     <ProjectReference Include="Unity.ScriptableBuildPipeline.Editor.csproj" />
     <ProjectReference Include="UnityEditor.UI.csproj" />
     <ProjectReference Include="UnityEngine.UI.csproj" />
-    <ProjectReference Include="spine-timeline-editor.csproj" />
     <ProjectReference Include="uhypertext-scrpits.csproj" />
   </ItemGroup>
   <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk" />
