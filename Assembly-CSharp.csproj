@@ -437,7 +437,7 @@
     <Compile Include="Assets\CommonScript\XClient\Network\NetID.cs" />
     <Compile Include="Assets\CommonScript\GamePlayConfig.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\InnerResourceLoader\InnerResourceLoader.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Part\CreatureTargetMoverPart.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Part\SpineCreatureTargetMoverPart.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNodeDataLife.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\ForceLayoutRebuider.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\NetObjectBehaviour.cs" />
