@@ -151,6 +151,14 @@ namespace GameScripts.HeroTeam
             Vector3 repulseDir = (transform.position - bossPos).normalized;
             Vector3 repulseTarget = startPos + (Vector3)(repulseDir * repulseDistance);
             transform.DOKill();
+
+            //拖尾
+            var szfogTailPath = "Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Environment/Water/Bubbles/BubbleSimpleTrail_Fog.prefab";
+            var fogTail = GameEffectManager.Instance.ShowEffect(szfogTailPath, 0.8f);
+            fogTail.SetParent(transform, false);
+            fogTail.localPosition = Vector3.zero;
+            fogTail.localScale = Vector3.one * 5f;
+
             transform.DOMove(repulseTarget, 0.3f)
                .SetEase(Ease.OutQuad)
                .OnComplete(() =>

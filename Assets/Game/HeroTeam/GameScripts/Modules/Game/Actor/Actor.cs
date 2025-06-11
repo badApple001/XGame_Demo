@@ -40,7 +40,12 @@ namespace GameScripts.HeroTeam
         /// <summary>
         /// int 属性字典
         /// </summary>
-        protected Dictionary<int, int> m_dicProp = new Dictionary<int, int>();
+        protected Dictionary<int, int> m_dicIntProp = new Dictionary<int, int>();
+
+        /// <summary>
+        /// float 字典
+        /// </summary>
+        protected Dictionary<int, float> m_dicFloatProp = new Dictionary<int, float>();
 
         /// <summary>
         /// 父节点
@@ -207,13 +212,25 @@ namespace GameScripts.HeroTeam
         public int GetIntAttr(int propID)
         {
             int val = 0;
-            m_dicProp.TryGetValue(propID, out val);
+            m_dicIntProp.TryGetValue(propID, out val);
             return val;
         }
 
         public void SetIntAttr(int propID, int val)
         {
-            m_dicProp[propID] = val;
+            m_dicIntProp[propID] = val;
+        }
+
+        public float GetFloatAttr(int propID)
+        {
+            float val = 0;
+            m_dicFloatProp.TryGetValue(propID, out val);
+            return val;
+        }
+
+        public void SetFloatAttr(int propID, float val)
+        {
+            m_dicFloatProp[propID] = val;
         }
 
         public void SetResLoadedCallback(Action callback)
@@ -225,7 +242,7 @@ namespace GameScripts.HeroTeam
         {
             base.OnReset();
             m_resPath = null;
-            m_dicProp.Clear();
+            m_dicIntProp.Clear();
             m_MonoType.Clear();
             m_state = ActorState.Release;
             ClearTimes();

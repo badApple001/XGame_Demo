@@ -1,9 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
 using XClient.Common;
-using XClient.Entity;
 
 namespace GameScripts.HeroTeam
 {
@@ -33,7 +30,7 @@ namespace GameScripts.HeroTeam
 
             //模拟一发 贤者的子弹
             var cfg_sageBullet = GameGlobal.GameScheme.HeroTeamBullet_0(102);
-            var pos = MonsterSystem.Instance.BossDeathPosition + Vector3.up * 2.4f;
+            var pos = GameManager.Instance.BossDeathPosition + Vector3.up * 2.4f;
             var bullet = BulletManager.Instance.Get<Bullet>(cfg_sageBullet, pos);
             bullet.SetHarm(-999999);//98# 加满！不差$
             bullet.SetSender(m_Owner.id);
@@ -73,7 +70,7 @@ namespace GameScripts.HeroTeam
         {
             m_Anim.AnimationState.SetAnimation(0, m_ActorAnimConfig.szMove, true);
 
-            var bossPos = MonsterSystem.Instance.BossDeathPosition;
+            var bossPos = GameManager.Instance.BossDeathPosition;
             var pos = m_Owner.GetTr().position;
 
             var target = (bossPos - pos) * 0.618f + pos;

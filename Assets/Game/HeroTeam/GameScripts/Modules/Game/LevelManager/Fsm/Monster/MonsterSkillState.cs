@@ -177,12 +177,23 @@ namespace GameScripts.HeroTeam
             int damage = skill.iType == 1 ? skill.iValue : -skill.iValue;
             damage = CombatUtils.ApplyRandomVariance(damage);
 
+            var bullet_cfg = GameGlobal.GameScheme.HeroTeamBullet_0(105);
+            Vector3 pos = m_Owner.GetLockTr().position;
             selects.ForEach(m =>
             {
-                m.SetHPDelta(damage);
-                m.ReceiveBossSelect(m_Anim.transform.position);
-                m.SetHatred(0);//点名的角色 仇恨值清零
+                var bullet = BulletManager.Instance.Get<EventBullet>(bullet_cfg, pos);
+                bullet.SetHarm(-damage);
+                bullet.SetSender(m_Owner.id);
+                bullet.SetTarget(m);
+                bullet.SetCollisionCallback(() =>
+                {
+                    m.ReceiveBossSelect(pos);
+                    m.SetHatred(0);//点名的角色 仇恨值清零
+                });
             });
+
+            string szVfx = "Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Nova/Standard/NovaFire.prefab";
+            GameEffectManager.Instance.ShowEffect(szVfx, m_Owner.GetLockTr().position, Quaternion.identity, 1f);
 
             yield return new WaitForSeconds(1.4f);
             m_StateMachine.ChangeState<MonsterIdleState>();

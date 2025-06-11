@@ -31,6 +31,11 @@ namespace GameScripts.HeroTeam
 
         int GetIntAttr(int key);
 
+
+        void SetFloatAttr(int key, float value);
+
+        float GetFloatAttr(int key);
+
         void SetResLoadedCallback(Action callback);
 
         void ClearTimes();

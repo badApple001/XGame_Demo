@@ -24,8 +24,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614653326}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.42, y: 4.5, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: 0, y: 3.2, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7136365524479406838}
@@ -162,6 +162,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -183,7 +184,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!1 &7136365523784746550
 GameObject:
   m_ObjectHideFlags: 0

@@ -46,7 +46,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/Config/FlowTextConfigAsset.asset
     isMainAsset: 1
     dependAssetList: []
-    hash: 58e210146f64de67afe7da9ac79def7c
+    hash: c03afcacab8c0dff26a559ec101b015e
   - assetPath: Assets/G_Resources/App/GameConfig.asset
     isMainAsset: 1
     dependAssetList: []
@@ -66,7 +66,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Configs/GameInitConfig.asset
     - Assets/G_Resources/Game/Prefab/Other/Loading.prefab
     - Assets/G_Artist/Material/UI/UIResearchActive.mat
-    hash: 153c2b2b16904902a4871c219fe52240
+    hash: 40151fd1e499ca86db478f01a9b325e5
   - assetPath: Assets/G_Resources/App/Materials/UIBlur.mat
     isMainAsset: 1
     dependAssetList:
@@ -968,7 +968,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/gamescheme.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 1d7cdb24b63e62c00a1bc66f4e1a6ba8
+    hash: 84a8a267b61e36fdf9640c500ffe1eaa
   - assetPath: Assets/G_Resources/Game/GameScp/Goods.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -992,15 +992,15 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBuff.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: e0425ad2ce91065736a6246b2ac7a6dd
+    hash: 68bfc727f3c76d2fcd7878a9a07ac2e5
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBullet.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 73fb6d51db7f8542026edfe16c06ffb8
+    hash: eb2ec942e53284afe33241cf2f16c657
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamCreature.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 8a8ef08b36fd80834f0a47723763b4bd
+    hash: 0ff33942b2296827e93fd5d9e6187ea0
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLevels.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamSkills.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: e909439c3f8c50983fa7ab20940cb683
+    hash: 23d3efcca26c7ec15cb66b51d447f36a
   - assetPath: Assets/G_Resources/Game/GameScp/I18N.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1924,12 +1924,12 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Shaders/BurningPaper.shader
     - Assets/G_Artist/Shader/UI-MaskEffectImge.shader
     - Assets/G_Artist/Shader/UI-MaskLevel.shader
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/G_Artist/Shader/UIGlow.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
     - Assets/G_Artist/Shader/Sprites_ClipWithAngle.shader
     - Assets/G_Artist/Shader/UI-MaskBorderBlur.shader
     - Assets/Game/HeroTeam/GameResources/Shaders/Spine_CutoffBottom2Top.shader
-    hash: 702f30563e46679374c2d04dd0a15ae6
+    hash: b6985c9a1624ed525e7616c9f94d0612
   - assetPath: Assets/Game/HeroTeam/GameResources/Shaders/HealthBarShader.shader
     isMainAsset: 1
     dependAssetList: []
@@ -1962,14 +1962,14 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList: []
     hash: 216d8c6615f6dc494df416f2cffa1c00
-  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    isMainAsset: 0
-    dependAssetList: []
-    hash: dce7fe2329bb5129c0d30f0c81435e7c
   - assetPath: Assets/G_Artist/Shader/UIGlow.shader
     isMainAsset: 0
     dependAssetList: []
     hash: 9d5864956aa979dc124c46f061e0e433
+  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    isMainAsset: 0
+    dependAssetList: []
+    hash: de609ee1e1588ba6be684445527e45ae
   - assetPath: Assets/G_Artist/Shader/UI-MaskBorderBlur.shader
     isMainAsset: 0
     dependAssetList: []
@@ -2075,6 +2075,10 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList: []
     hash: 0247a103df56531740350b8a98acf185
+  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    isMainAsset: 0
+    dependAssetList: []
+    hash: dce7fe2329bb5129c0d30f0c81435e7c
   - assetPath: Assets/G_Artist/Shader/A_VFX_lizi_katong.shader
     isMainAsset: 0
     dependAssetList: []
@@ -2783,6 +2787,1291 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList: []
     hash: ca4ee31caacbf5822df10b7641f98fb7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/circle.png
+    hash: 59344ab144a309174a87b0b797771878
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/circle.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 713528fb80203ada625240264092806a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/circle.png
+    hash: 6e905f8bc243e8acf2a48c646ac30c91
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_sharp_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/circle_sharp.png
+    hash: 937ddd17f5b8867e62e9640b3e3a9bbf
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/circle_sharp.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: a8e9aedfe341e9607cd57118f1f36217
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circlestretchy_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/circlestretchy.png
+    hash: d5e0a0e76f569870e3958fbbb5b54a84
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/circlestretchy.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 8969f884a163606bbe24eb236855092b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/cloud_2x2_hardshadow.png
+    hash: a90d42c1ab4abf0fa91d86d0c8a73271
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/cloud_2x2_hardshadow.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 42f4d752057d9b582777383a7ab26aaf
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_soft_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/cloud_2x2_soft.png
+    hash: d80ab998e228f1a56b8514e2cfe8f4cc
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/cloud_2x2_soft.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: c09c31031b13a91b9d4e80fe776b30a7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/glow1.png
+    hash: 402d5c83777b5fbf74d0d718c472cc10
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/glow1.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 4c0c2ce0a54f41d19915fa3f9a7132b7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow2_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/glow2.png
+    hash: d7d38fbb8f8023e17d4ceb38c32aac54
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/glow2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: e5e4efed4627eeb2973141e1c3e7a94d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow4_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/glow4.png
+    hash: 25df7753ce93c1ef857f668ded8fd6fb
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/glow4.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 62a20f4b7cd54186c209425f22392737
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/gradient_circle_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_circle.png
+    hash: d02a2f8ea1987fcc801a119ac5723306
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_circle.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 6739b50d81f418ebbd5994285fafc9da
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/gradient_horizontal_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_horizontal.png
+    hash: 34c00c1edfa9f3091e2e210e6df58ae5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_horizontal.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: d02665edb426ba508c2603c59cca82d4
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/gradient_vertical_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_vertical.png
+    hash: d5aa1809798755d81c75fb4feecf37e0
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_vertical.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: d6e5d35b7f3c8bd1444b28c939046f4a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/ring.png
+    hash: 44080207b5dc86f46e04d2aacaaa1a09
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/ring.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 57b986d260cdb9a2e7fdcba1eca54cd3
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/rocketgradient_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/rocket_gradient.png
+    hash: d674a2c82336fe44cbbffcb3f78187b5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/rocket_gradient.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: d10c205d9e483fdb786afb38542f8314
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle2_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/sparkle2.png
+    hash: da3cf5e0c31c95e9d99f3ffbbdebfb1b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/sparkle2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f79121ea13ee9f9088838287866dc3b7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/sparkle3.png
+    hash: 01d7f9192ebe35e94b1a124c97e3ed50
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/sparkle3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ac846b59edd6734dfb34f4bf0d53e63d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/triangle_curve_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/triangle_curve.png
+    hash: ccfd1e1610759cc76696a45dd462e089
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/triangle_curve.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 3a0aa5209327f46f29ad8976d09f5db1
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Bubbles/bubble_fog.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/cloud_2x2_hard.png
+    hash: 40589ae5836dc2e7fe9819cf898fdd94
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/cloud_2x2_hard.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 3fa209372f75ed22463439a12be1638f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Bubbles/bubble_soap_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/bubble_soap.png
+    hash: 6d285dbe4202c0a9e1d2897c289d9423
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/bubble_soap.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 3af86f461d20fc60ae7039f361e17caa
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_angry.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/angry.png
+    hash: 7c87728f8438d4d84fc33a9ae974bdad
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/angry.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 48eb16a94862f19d40b5e90cc633fb15
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_angryscream.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/angryscream.png
+    hash: 8031ffc8246029976b2204b62ab79f46
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/angryscream.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 8031214817cfb5387ff652ab99024c31
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_bigsmile.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/bigsmile.png
+    hash: 82cd897df4e2d49185733643ee6b496d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/bigsmile.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 596caff2cd67f4e911b61c00a8b89e3d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_blush.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/blush.png
+    hash: f35db2a19c100a8622f9cbeb95ab6f87
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/blush.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: d8ab804d17acc851849326a36a550b65
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_clenchteeth.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth.png
+    hash: bf3ae219f1f57edb8eaa9aba3693ea98
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 95ce14f57a137eb94c404946055d405b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_clenchteeth2.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth2.png
+    hash: b0039a2b2d28e4a9baaf12fa70a05d6d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 6066aeea4f86bb5f528c313865e794f9
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_cool.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/cool.png
+    hash: 7c1a57b6bd3b62c45ab2b2ecbe4d5f05
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/cool.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 1c5706ac216e2a5143ae5e757d4cfc88
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_crazy.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/crazy.png
+    hash: bcd791a29b9e45cc049a3c36583bb4c0
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/crazy.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 0091152332d69678dd1b260a013cbd14
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_cry.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/cry.png
+    hash: 565aad46f180fe6f039c173ba5686e1a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/cry.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 5acaddabbaa363ee740459e8073a1a6c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_cute.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/cute.png
+    hash: ddefbbdef59f8a2101ae868fd1944538
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/cute.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 938dc81c9c02603fcb8bca20871edadc
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_dead.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/dead.png
+    hash: b047130e83eb91a2aa3fcc9647b29fc2
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/dead.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: fea7ece7d104d8a48b35ad717afd7850
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_deadtired.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/deadtired.png
+    hash: 02897386ff2765404261f0305e03edc6
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/deadtired.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: aee71b1bbfdd6bd83612aecc9006016e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_derp.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/derp.png
+    hash: 9aa722d016e523fcd331fc860bfec6ea
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/derp.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f778b791d0c3a632bbacdf63e8340a8f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_derpgasp.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/derpgasp.png
+    hash: f63990e7247f26aa9be70afb9cec2c28
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/derpgasp.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 14f37423d1c7a0e91522e095a5e6f725
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_disappoint.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/disappoint2.png
+    hash: 13e65335c0799e2cc27072063f089d7b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/disappoint2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f112479d33e4121ab4d0e54992fe4fa0
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_drool.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/drool.png
+    hash: 85121c846212a405283055896ddf3bf4
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/drool.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 9dda082bf565d0d9273b970a3f75beba
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_evil.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/evil.png
+    hash: 75f3f52bf05ff832aba4e6e2bf498f6f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/evil.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 9e4654b02a975a3a10953d6630c1c2ef
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_expressionless.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/expressionless.png
+    hash: 217443ee7ecca53d6f5616230f225bf7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/expressionless.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: b321124a166851fe165ec0367a31243d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_happy.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/happy.png
+    hash: f30b31cfe3889979979641d83af4d223
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/happy.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 0ab90236a641fed03e5bcd842a4ccb3e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_heart.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/heart.png
+    hash: dd449fc455fb37552b508d99c70e7aef
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/heart.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 2a181ff7ce739f4172037d7277af0993
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_injured.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/injured.png
+    hash: 1182513a1bb3ceccc579a322509503c9
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/injured.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: d3c90aff293af4e01e3eff12a26c2e15
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_kiss.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/kiss.png
+    hash: 8da777552f392bbcd2f2e51a7b700119
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/kiss.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 505c35aed58a2019ec1b5faec24e6af2
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_kissyface.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/kissyface.png
+    hash: 5d812806a3cb010e38462f652299b439
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/kissyface.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: eedfeb6055ce7ca44ce4441ea5828dfa
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_laughcry.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/laughcry.png
+    hash: 9660919116956485391be5afd33c5069
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/laughcry.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: e80dff30715b18b51a4199b82ca25727
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_laughsweatdrop.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/laughsweatdrop.png
+    hash: de57dda24ecd2fa5728522471d4471f6
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/laughsweatdrop.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 3d67dcff6d4ea64589842395aa370d5c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_mad.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/mad.png
+    hash: b35a995c31059cb97022125fad07904c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/mad.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 3adedd7e1b8b42f43226466a8a837351
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_nauseous.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/nauseous.png
+    hash: 9e5b6e48535a0b7dd174e5ef93d52f3d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/nauseous.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 47a4c2389fb28490a4a5c2bb10164507
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_OwO.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/OwO.png
+    hash: 32902836f3dcb3d665a7bfa42febeef5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/OwO.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 03f861a612e5c0201b23d021962d3a3a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_OwOEyebrow.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/OwOEyebrow.png
+    hash: e3ae749d6e58b905e2fb6fa6283cac0a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/OwOEyebrow.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ff83c1c4be916cbabd786cd6f279dffc
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_pleading.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/pleading.png
+    hash: 025c3adffbf694ee5746795e559e7b60
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/pleading.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 8a4587c4946d05e6cb34c12434987cba
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_poop.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/poop.png
+    hash: d59890d3b67e4448c891fb1b46372106
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/poop.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: c5f245a9b18137d7599f0bec75e9036e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sad.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sad.png
+    hash: fb1ed277514a3e6a7dc85126a129b31f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sad.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 7775917d68487625abc77122633e5c77
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sadcry.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sadcry.png
+    hash: 72a875e99ae9e03d03128eddc1ba6105
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sadcry.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 29a79e11574e2f11cebb66a9cce9921d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_scared.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/scared.png
+    hash: 1a2173102b72cc8ae583a48f8a585487
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/scared.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ff132f00b5b8ecbd6f48ec91f982d6e5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_shocked.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/shocked.png
+    hash: b9a1436a08dbe1e493ad1a89cb530238
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/shocked.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 79bee9e7d9b4d9308c700f7669fa8a65
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sick.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick.png
+    hash: 178e6f902f3a00157cb7243635da5e67
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ba09882ce56424e5f19e38f0ae487110
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sick2.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick2.png
+    hash: 6c1ba6932a1a9f16d1bc61d2b21c18d9
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 038a8b44f313438e553ef32d231f6c6d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sick3.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick3.png
+    hash: 0abaee391e30f8028b1fc03f32e8c601
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: b4d8cfe7a429e7ac322df2cc2d370a9f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_silly.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/silly.png
+    hash: 0e2a6ab219dbffe80fc3bf9c9d3c768b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/silly.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ff324371c09d0216a29251f36c127b58
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sillyhappy.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sillyhappy.png
+    hash: 562fd5d955856908c75b2fb9b44fd419
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sillyhappy.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: b7c7baab90d1473713009dbbe6c1c56d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sillysmile.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sillysmile.png
+    hash: 12ab81499a1e814ee3f9a729881b7d50
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sillysmile.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: e6de2768fe7abeffd7ca2c04f0285d3c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sillywink.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sillywink.png
+    hash: fabd2fe8b282041f84508726830a4b44
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sillywink.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: bede99b3351a48d399702345bb38149b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sinister.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sinister.png
+    hash: 36cdd10d55e3bf04053ae11c88ca0f40
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sinister.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f1ac7155b334d34ff1a605caf59b21a9
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sleep.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sleep.png
+    hash: 114221915037880aebcd9343c68b445e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sleep.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 779d90f165fe0eb3bc63358f6882e11a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_starstruck.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/starstruck.png
+    hash: 754a94dd4655777eea12d1097b393d99
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/starstruck.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 2ac5fd86d3a80e904f85398afd3abfff
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_tearyeyes.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/tearyeyes.png
+    hash: 53ac83f9b2b11b61062774eff4e87eba
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/tearyeyes.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 0665fa341d74da92a2d34cfbc2f3e89c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_text_ah_zz.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/text_ah_zz.png
+    hash: f5be7a8c0a72b489f37f53cfa7fc90c3
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/text_ah_zz.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: c8e32e926dfcbbe4d377d9f082c9d2b4
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_text_haha.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/text_haha.png
+    hash: 1fea2fe96a38bf4ec64ac318a6d63e4b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/text_haha.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: cc41afa086e73b6629bb826872988430
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_thumbsdown.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/thumbsdown.png
+    hash: 07cb37ea6de019e7d3b849d416fac2a5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/thumbsdown.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: d3804ea70a3015361644c30fa9fb3400
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_thumbsup.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/thumbsup.png
+    hash: e564823b093026d59879aa4a0232deed
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/thumbsup.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 6c6717ef075dbe9be16f1c4d0c41e05e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_UwU.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/UwU.png
+    hash: e1e03b50e049fc56bdbcf4f3bebfb2c7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/UwU.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 4056c6fab7fcb8f1deacaba44561ff66
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_XD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/XD.png
+    hash: 4404b2527411216bcdb06588cb59d24a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/XD.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: b5bb7a2a318bd4a6be478b28d866ad18
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_yawn.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/yawn.png
+    hash: 851301d9f7caeab6490cbd226bae6e6b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/yawn.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 9dd41fee9414899eceb0b8f93ee2e183
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Explosions/explosion_spritesheet_3x3_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/explosion_round_3x3.png
+    hash: c7d77ef3f5a9f9f536fc25b3bcf66441
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/explosion_round_3x3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 37cdf95e4325e7da1ee7ec2262d503db
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Explosions/nova_3x3_spritesheet_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/nova_3x3.png
+    hash: 76380ec30eeb4c986eda0b0ba67879b7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/nova_3x3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f40d4d5bd17e217e387251d67886af51
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Explosions/nova_6x3_spritesheet_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/nova_6x3.png
+    hash: 0eecea9d7890a4719eaee9e815d1762e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/nova_6x3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 35ff8581d646617b7a78467fabc6fed7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Fire/fire_3x6_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/fire2_6x3.png
+    hash: 4b74f8def9347b5796486290f34e0dab
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/fire2_6x3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 5cba793ece9077a8219ddfe4baf7a4f5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Fire/fire_soft_blank_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/fire_soft_blank.png
+    hash: ab0de3d8de8d19d6298b760ca867797d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/fire_soft_blank.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 7e6871a76a584372f0ec83ee7d4b8a07
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Fire/fire_soft_spiky_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/fire_soft.png
+    hash: f3e2880509f52cd6fe38678f08f4b923
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/fire_soft.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: c0316533d69c16b4981ce27037c1e3c6
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Hearts/heart_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/heart.png
+    hash: dd0f715e7845ba00af31cd1771a8fce9
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/heart.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 2cb0322ed976a16d9c0b520cd88f4f4c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Lightning/lightning2_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/lightning2.png
+    hash: 2d4dbb512689602d1dea010ad43e65ad
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/lightning2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 25cfea797fb3b52966a1f404f057eb2a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Lightning/lightning_3x3_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/lightning_v2_3x3.png
+    hash: 66c3763c4a6689db435c70c15cbcb169
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/lightning_v2_3x3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 2ba06440b07fef162692e692369030b8
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Liquid/drop_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/drop_trsp.png
+    hash: c0d4d365743adf921314a3388c6afd66
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/drop_trsp.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: aed654e067cbf60242d4e80ef86ebcb1
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Liquid/splat03_3x3_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/splat03_flat_3x3.png
+    hash: 600efccb6e5a9caa2b7ed11e2117857b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/splat03_flat_3x3.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: a547c00bb0c843e7ffe475c7b23979aa
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/aura_slam_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_vertical_spiky.png
+    hash: 8bb87bf6e9c8009dc964c07eee1cab23
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/gradient_vertical_spiky.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 5899a468f12bc6e7c25acb2cb261a878
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_line_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/magic_line.png
+    hash: 1a48d1c90e35f6d39bb3869db1045006
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/magic_line.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: c8ffd514a6dda475380f1a168b21523d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/magic_orb2.png
+    hash: 97dfa037e4dcd45a228a45040856c26c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/magic_orb2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: c88812d264905f75555d579a9cf174fb
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_runecircle_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/magic_runecircle.png
+    hash: 5e770294e1ae726571fe423646c46253
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/magic_runecircle.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: a3feb3b37c5e9767f98ae627d46d85e7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Powerbox/Metal/power_metal_question.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Powerbox/powerbox_base02.png
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Powerbox/powerbox_n.png
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Powerbox/powerbox_quest_e.png
+    hash: 613a43a015d1ad60056ac71a5e4603bb
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Powerbox/powerbox_base02.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 877c3869464fb01d4a044b0b1e625a58
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Powerbox/powerbox_n.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: a3508e75d5e2bb2074154d8e2442a3cd
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Powerbox/powerbox_quest_e.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 34c0b5de0e6f3e04c6c665a911639843
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Stars/star_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/star.png
+    hash: 90642a846600d45ddededf995beb6dd2
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/star.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 6581a6f6f9619de0d051d799c3986839
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Stars/star_outlined_AB.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/star_outlined.png
+    hash: 38f06da3b63088db6736426831270df2
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/star_outlined.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 76a7bb150a06960b856b43f5885d0670
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Text/txt_boom.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Text/txt_boom.png
+    hash: 7106ef3bd5db46cdd56a38b6ffd6cff8
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Text/txt_boom.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 655d37f81479bb6978e868a495a24085
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/aura_straight.FBX
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/Materials/verticalglow02.mat
+    hash: 8a5da06fb97b053f0ff601dd2a20ae75
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/Materials/verticalglow02.mat
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f68f7ea5c91911385cb3ffa2f06c785d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_AuraVertical.FBX
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/Materials/verticalgradient2.mat
+    hash: 3a6105f2a49f1a3d1cec44153527ac76
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/Materials/verticalgradient2.mat
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 9ccfd78144fbd2b8f19e6d4945632ec1
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_CirclePlane2.FBX
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 48f6bb01776cb94c02a1b24a426ac9b9
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_PowerBoxSmooth.FBX
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 5819de373b6aa83ade73622b5fe34441
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_Rocket2.FBX
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 077b2f2fe44443c697ecf8c4373cf630
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_Shield.FBX
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/Materials/sphereshield.mat
+    hash: 7d32f97e212cec011b02d773b5e682b3
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/Materials/sphereshield.mat
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f80150ec894986857220a68da6144214
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Explosions
+      (Text)/Boom.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/triangle_curve_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Text/txt_boom.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: 1f8028f0a423feae3133c77e6f1d454f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Magic/Buff/MagicBuffBlue.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_line_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: 1e6d958dbb17e4830b3a4530bf355268
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Magic/Circle/MagicCircleBlue.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/aura_slam_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_runecircle_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/aura_straight.FBX
+    hash: a1936b6464aed745d6e75548cbd4feb6
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/FatBullet/BulletFatBlue.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_pistol03.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: e813fbf075701874239e7b27a8a8ed5b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_pistol03.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 3d6a07f96515d1d3f54bcf704c9febed
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/Fireball/FireballMissilePink.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_fireball2.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Explosions/explosion_spritesheet_3x3_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: 3f3f82d80f2343259d99911cd93458ef
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_fireball2.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: e353c1f3c6f0176b73ec0274ac2f6ff8
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/Flash/FlashMissilePink.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_flash.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_soft_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle_ADD.mat
+    hash: 408e686a71502adbda56c8d413591c1c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_flash.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: b318effcb47d18d2130686a1da55994e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/Magic/MagicMissileFire.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Explosions/nova_3x3_spritesheet_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_magic.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Stars/star_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: b6527a29cfa9e3e94ef9f19d47fb6cfe
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_magic.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: a287e895786e5782bca473e41260cbe0
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Nova/Standard/NovaFire.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_plasma.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Explosions/nova_6x3_spritesheet_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: f04f007835499a5af85f7afe152abef8
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_plasma.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: cd7e45345536bfb15e47a6276cac5eab
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Nova/Standard/NovaGreen.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_plasma.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Explosions/nova_6x3_spritesheet_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: 8cbcd0049c0d4a53b0b7c6767ca5c3cb
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Environment/Fire/Trails/SoftFireTrail.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Fire/fire_soft_blank_ADD.mat
+    hash: 0497f7276b8a88b0dc22d66fe838015d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Environment/Water/Bubbles/BubbleSimpleTrail_Fog.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Bubbles/bubble_fog.mat
+    hash: 310b058377223642f4f43d97c1e67948
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Anger/EmojiAngry.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Lightning/lightning2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_angry.mat
+    hash: f0a79059def9b9a640777b321ed01058
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Anger/EmojiAngry2.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_angryscream.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Lightning/lightning2_ADD.mat
+    hash: 2cedd10df842d6ee76631704642c7c1c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_mad.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
+    hash: 08eba049b4b33579a0c4790a064b8b94
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Anger/EmojiSinister.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sinister.mat
+    hash: 4027fa5151797b9ed35f97fa5b0ca9f3
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Disgust/EmojiNauseous.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_nauseous.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Liquid/splat03_3x3_AB.mat
+    hash: 80f10616c3c6dd93768657c5c049d751
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Disgust/EmojiPuke.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sick3.mat
+    hash: 28df993f5532522fb78e00e6e09a0990
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Disgust/EmojiQueasy.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sick2.mat
+    hash: 3edd9a07526b6cbf51a83671c68e4536
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Disgust/EmojiSick.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sick.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Liquid/splat03_3x3_AB.mat
+    hash: f5861a9a0dfa287509e035240ac78cbc
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Fear
+      & Surprise/EmojiBlush.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_blush.mat
+    hash: 6d5850f9882f8e7d13fdafafd10612fe
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Fear
+      & Surprise/EmojiClenchTeeth.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_clenchteeth.mat
+    hash: 2639d24140a06419a043740b5073974d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Fear
+      & Surprise/EmojiCrazy.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_crazy.mat
+    hash: 007eb1b4006084f17e230ffc479117be
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Fear
+      & Surprise/EmojiNervous.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_clenchteeth2.mat
+    hash: 9aaebdcba9ef7c568c6e8bb8169f2610
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Fear
+      & Surprise/EmojiScared.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_scared.mat
+    hash: 1e229fe56feebf022f01b54a7962387f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Fear
+      & Surprise/EmojiShocked.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/triangle_curve_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow4_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_shocked.mat
+    hash: 9f4d4e154ce5a7016cbfebe295b24e16
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiCool.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_cool.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle_ADD.mat
+    hash: a265f882e8959f538d2c0d8dabfd7512
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiCute.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_cute.mat
+    hash: 209b26c018ff989d611077703e00b58b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiDerp.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_derp.mat
+    hash: 4d501f49ef86dd3cbe71afb99defbc61
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiDerpGasp.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/triangle_curve_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow4_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_derpgasp.mat
+    hash: ffa92d2c1d6194604badecf56bd42f1f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiDrool.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_drool.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Hearts/heart_AB.mat
+    hash: 436a2c53532096dec9a69ae54416cc51
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiEvilLaugh.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_text_haha.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_evil.mat
+    hash: 0f9d2ea090a08238d907d1f95740d3e1
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiHappy.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_bigsmile.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle_ADD.mat
+    hash: 68b2bb4bc53ca59634373f4a97516ebc
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiKiss.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_kiss.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Hearts/heart_AB.mat
+    hash: 136504d80e6616360df7b13709d1e5d7
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiKissyface.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Hearts/heart_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_kissyface.mat
+    hash: 193687c7eb33e72d66ea33b397d7f82c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiLaughCry.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_text_haha.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_laughcry.mat
+    hash: c7f4f71e113c1125d5e1aab0123df3ad
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiLaughSweatdrop.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_laughsweatdrop.mat
+    hash: cd79f59fcb1d72e7b174a86d79e56b1e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiOwO.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_OwO.mat
+    hash: b127d64503ce9578ce76434145f50125
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiOwOEyebrow.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_OwOEyebrow.mat
+    hash: 1130d9b4b291358fdb616efd0200e933
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiSilly.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_silly.mat
+    hash: 53ff2f1fa023ab9d1dbf12dd73d0d3b3
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiSillyHappy.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sillyhappy.mat
+    hash: 86f854f1858015b15eefe24a2d007200
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiSillySmile.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sillysmile.mat
+    hash: b870012bc8bb3e54196d49923b046b2e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiSillyWink.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sillywink.mat
+    hash: ddeed58b64471d91d5da59ab128b74a0
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiSmile.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_happy.mat
+    hash: 2b5becb5d906531e5d579941b485a3c6
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiStarstruck.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_starstruck.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Stars/star_outlined_AB.mat
+    hash: c018198f2336f0f2a40fe5f4d1423ad6
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiUwU.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_UwU.mat
+    hash: 78ac215451dd7f950d127a4fa565e944
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Joy/EmojiXD.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_XD.mat
+    hash: 0fea8f36868f4d41aef14a7aa47401bf
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiCry.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_cry.mat
+    hash: bcd108e810823347cb711557281d824d
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiDisappointed.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_disappoint.mat
+    hash: be858dec82b33de6a8022630d2e7a7ce
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiExpressionless.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_expressionless.mat
+    hash: 8611b27b68757451f68946f822e559cc
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiPleading.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_pleading.mat
+    hash: 5b6a6e7172f0fd4f5eb25ff96d353f63
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiSad.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sad.mat
+    hash: 381cd262075d948cdf873e1691e7f8d1
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiSadCry.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sadcry.mat
+    hash: e84d53f33ba85ad34690755632e332f5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiTearyEyes.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_tearyeyes.mat
+    hash: 9f739c2c090bc7472be2c8d8a9c11373
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Tired/EmojiDead.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_dead.mat
+    hash: cee1b8ab3a74ef5a353445f0c294aee6
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Tired/EmojiDeadTired.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_deadtired.mat
+    hash: d2b2466c8d73a2a24f97007aa9444182
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Tired/EmojiInjured.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Lightning/lightning2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_injured.mat
+    hash: 5d3fec9afdba2f6a06dc0a5208258c6c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Tired/EmojiSleep.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_sleep.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_text_ah_zz.mat
+    hash: 2f4889380aa0b0143ef49a97a289da06
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Tired/EmojiYawn.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_yawn.mat
+    hash: ae0dc71955bc7d93be693bd3a092964b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Level
+      Up/Cylinder/LevelupCylinderGreen.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_line_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/gradient_vertical_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_AuraVertical.FBX
+    hash: cd6d5d67387a5a2f65a61c735b809da0
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Powerups/PowerBox/Box
+      Metal/PowerboxMetalQuestion.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Powerbox/Metal/power_metal_question.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_PowerBoxSmooth.FBX
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/gradient_horizontal_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle_ADD.mat
+    hash: cc485fc82c5a27e2c9a649e735b9ef90
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_bubble.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 0ef5a082e502876e17083f56587ca021
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_bullet.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: cac1a9c8071e67854bf0d7de9bba850b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_fireball2.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 3f41e89f73269784a0d099c7200c0bdb
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_magic2.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: f12e7826b6cf06b980bad39d3a7aee7c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_energy03.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: b1dc5db4d6a2f007459d9e1f96ca246f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_lightning2.wav
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ebf6403222dba9719156c3dd74809e15
   - assetPath: Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Achievements!/achiev_box.png
     isMainAsset: 1
     dependAssetList: []
@@ -3364,7 +4653,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Piloto Studio/Materials/Blood/BloodSpecks.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_CirclePlane2.FBX
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_CirclePlane2.FBX
     - Assets/Game/HeroTeam/GameResources/Piloto Studio/Materials/Blood/BloodTrail_Slash_Wave.mat
     - Assets/Game/HeroTeam/GameResources/Piloto Studio/Models/SlashWave.fbx
     - Assets/Game/HeroTeam/GameResources/Piloto Studio/Materials/Blood/SlashWave_Base_Crimson.mat
@@ -3374,10 +4663,6 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Piloto Studio/Materials/Fire/SlashWave_Base_Smoke.mat
     - Assets/Game/HeroTeam/GameResources/Piloto Studio/Materials/Shields/Shared/FuzzAlpha.mat
     hash: 269f048957860bae051c675eedb0e328
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_CirclePlane2.FBX
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 48f6bb01776cb94c02a1b24a426ac9b9
   - assetPath: Assets/Game/HeroTeam/GameResources/Powerup FX/Demo/Materials/Ground.mat
     isMainAsset: 1
     dependAssetList: []
@@ -4019,347 +5304,83 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Buff/Buff_Combustibility.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Fire/fire_3x6_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_sharp_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Fire/fire_3x6_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_sharp_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
     hash: 290f8ab61761d0cb8a8b9c25112f6822
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Fire/fire_3x6_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/fire2_6x3.png
-    hash: 4b74f8def9347b5796486290f34e0dab
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/fire2_6x3.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 5cba793ece9077a8219ddfe4baf7a4f5
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_sharp_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/circle_sharp.png
-    hash: 937ddd17f5b8867e62e9640b3e3a9bbf
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/circle_sharp.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: a8e9aedfe341e9607cd57118f1f36217
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/glow1.png
-    hash: 402d5c83777b5fbf74d0d718c472cc10
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/glow1.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 4c0c2ce0a54f41d19915fa3f9a7132b7
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Buff/MagicCircleBlue.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/aura_slam_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/ring_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_runecircle_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/aura_straight.FBX
-    hash: ad3e678e10202ed791500f241f002c76
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/aura_slam_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/gradient_vertical_spiky.png
-    hash: 8bb87bf6e9c8009dc964c07eee1cab23
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/gradient_vertical_spiky.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 5899a468f12bc6e7c25acb2cb261a878
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/ring_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/ring.png
-    hash: 44080207b5dc86f46e04d2aacaaa1a09
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/ring.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 57b986d260cdb9a2e7fdcba1eca54cd3
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_runecircle_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/magic_runecircle.png
-    hash: 5e770294e1ae726571fe423646c46253
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/magic_runecircle.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: a3feb3b37c5e9767f98ae627d46d85e7
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Models/aura_straight.FBX
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/Materials/verticalglow02.mat
-    hash: 8a5da06fb97b053f0ff601dd2a20ae75
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Models/Materials/verticalglow02.mat
-    isMainAsset: 1
-    dependAssetList: []
-    hash: f68f7ea5c91911385cb3ffa2f06c785d
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/aura_slam_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_runecircle_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/aura_straight.FBX
+    hash: 4f606bb4554da737c3fd04c1c733ec07
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/BulletHitEffect/BubbleExplosion.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_bubble.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Bubbles/bubble_soap_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Liquid/drop_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_bubble.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Bubbles/bubble_soap_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Liquid/drop_AB.mat
     hash: 3f7e457f1aecb821e6611d2726520b6a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_bubble.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 0ef5a082e502876e17083f56587ca021
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Bubbles/bubble_soap_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/bubble_soap.png
-    hash: 6d285dbe4202c0a9e1d2897c289d9423
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/bubble_soap.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 3af86f461d20fc60ae7039f361e17caa
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow2_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/glow2.png
-    hash: d7d38fbb8f8023e17d4ceb38c32aac54
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/glow2.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: e5e4efed4627eeb2973141e1c3e7a94d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Liquid/drop_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/drop_trsp.png
-    hash: c0d4d365743adf921314a3388c6afd66
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/drop_trsp.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: aed654e067cbf60242d4e80ef86ebcb1
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/BulletHitEffect/BulletExplosionFire.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/triangle_curve_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_bullet.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circlestretchy_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/triangle_curve_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_bullet.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circlestretchy_AB.mat
     hash: b5661a00caf18e6ed6863603f59bacd9
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/triangle_curve_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/triangle_curve.png
-    hash: ccfd1e1610759cc76696a45dd462e089
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/triangle_curve.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 3a0aa5209327f46f29ad8976d09f5db1
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_bullet.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: cac1a9c8071e67854bf0d7de9bba850b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circlestretchy_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/circlestretchy.png
-    hash: d5e0a0e76f569870e3958fbbb5b54a84
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/circlestretchy.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 8969f884a163606bbe24eb236855092b
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/BulletHitEffect/MagicSoftExplosionPink.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_orb2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_line_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_magic2.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/gradient_circle_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_line_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_magic2.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/gradient_circle_ADD.mat
     hash: 80077fd558a2b59129665ceaf03240ab
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_orb2_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/magic_orb2.png
-    hash: 97dfa037e4dcd45a228a45040856c26c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/magic_orb2.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: c88812d264905f75555d579a9cf174fb
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_line_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/magic_line.png
-    hash: 1a48d1c90e35f6d39bb3869db1045006
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/magic_line.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: c8ffd514a6dda475380f1a168b21523d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_magic2.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: f12e7826b6cf06b980bad39d3a7aee7c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/gradient_circle_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/gradient_circle.png
-    hash: d02a2f8ea1987fcc801a119ac5723306
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/gradient_circle.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 6739b50d81f418ebbd5994285fafc9da
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/BulletHitEffect/NovaLightningGreen.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_orb2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/ring_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_lightning2.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Lightning/lightning_3x3_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circlestretchy_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_lightning2.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Lightning/lightning_3x3_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circlestretchy_AB.mat
     hash: d49939005d81411a44c9770ee6ebbd61
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_lightning2.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: ebf6403222dba9719156c3dd74809e15
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Lightning/lightning_3x3_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/lightning_v2_3x3.png
-    hash: 66c3763c4a6689db435c70c15cbcb169
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/lightning_v2_3x3.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 2ba06440b07fef162692e692369030b8
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Bullets/Bullet.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Combat/Missiles/Fireball/FireballMissilePink.prefab
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/Fireball/FireballMissilePink.prefab
     hash: e2dece6a13759b62f844f6b2100c1c97
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Combat/Missiles/Fireball/FireballMissilePink.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_fireball2.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Explosions/explosion_spritesheet_3x3_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_default_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
-    hash: 3f3f82d80f2343259d99911cd93458ef
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_fireball2.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: e353c1f3c6f0176b73ec0274ac2f6ff8
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/circle.png
-    hash: 59344ab144a309174a87b0b797771878
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/circle.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 713528fb80203ada625240264092806a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Explosions/explosion_spritesheet_3x3_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/explosion_round_3x3.png
-    hash: c7d77ef3f5a9f9f536fc25b3bcf66441
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/explosion_round_3x3.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 37cdf95e4325e7da1ee7ec2262d503db
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_default_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/cloud_2x2_hardshadow.png
-    hash: a90d42c1ab4abf0fa91d86d0c8a73271
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/cloud_2x2_hardshadow.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 42f4d752057d9b582777383a7ab26aaf
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Bullets/HunterBullet.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Combat/Missiles/FatBullet/BulletFatBlue.prefab
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/FatBullet/BulletFatBlue.prefab
     hash: 72c3702ad88ba4617656ee4c73d20637
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Combat/Missiles/FatBullet/BulletFatBlue.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_pistol03.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
-    hash: e813fbf075701874239e7b27a8a8ed5b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/circle.png
-    hash: 6e905f8bc243e8acf2a48c646ac30c91
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_pistol03.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 3d6a07f96515d1d3f54bcf704c9febed
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Bullets/SageBullet.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/rocketgradient_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_energy03.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_Rocket2.FBX
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/rocketgradient_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_energy03.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_Rocket2.FBX
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
     hash: b429d47410ddb65ab94c29f4155edb7e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/rocketgradient_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/rocket_gradient.png
-    hash: d674a2c82336fe44cbbffcb3f78187b5
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/rocket_gradient.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: d10c205d9e483fdb786afb38542f8314
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_energy03.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: b1dc5db4d6a2f007459d9e1f96ca246f
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/sparkle3.png
-    hash: 01d7f9192ebe35e94b1a124c97e3ed50
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/sparkle3.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: ac846b59edd6734dfb34f4bf0d53e63d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_Rocket2.FBX
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 077b2f2fe44443c697ecf8c4373cf630
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Bullets/WarlockBullet.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Combat/Missiles/Flash/FlashMissilePink.prefab
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/Flash/FlashMissilePink.prefab
     hash: f6e9768d5b78dfd7d3f7c2a086252486
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Combat/Missiles/Flash/FlashMissilePink.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_flash.wav
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_soft_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle_ADD.mat
-    hash: 408e686a71502adbda56c8d413591c1c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_shoot_flash.wav
-    isMainAsset: 1
-    dependAssetList: []
-    hash: b318effcb47d18d2130686a1da55994e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_soft_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/cloud_2x2_soft.png
-    hash: d80ab998e228f1a56b8514e2cfe8f4cc
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/cloud_2x2_soft.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: c09c31031b13a91b9d4e80fe776b30a7
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Characters/Assassin.prefab
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 67f266655e0be7ecbf3e813823ce957a
+    hash: 05cab846b44cebf4a6f6a03e7c863273
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4380,8 +5401,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    hash: eb7b673f10e140f624f191aa5e929a8d
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    hash: 22819baae6d63b99e8eefeee9bca2138
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.png
     isMainAsset: 1
     dependAssetList: []
@@ -4423,8 +5444,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    hash: 993d83b3e2a0b5c979a46d78e1cdcd1e
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    hash: 486ca552b11307276c7b76594139a5a3
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.png
     isMainAsset: 1
     dependAssetList: []
@@ -4443,13 +5464,13 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 8777f83fcc2ce220c57c91cd2f09b55a
+    hash: d8fc7343c33d303f637e641cebf36b93
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.png
-    hash: 8aee7029021b023273214f7d42d0a399
+    hash: 07e301b4784dcbd1511c924da3f7e618
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.png
     isMainAsset: 1
     dependAssetList: []
@@ -4480,7 +5501,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_Material.mat
-    hash: 41f1b9201060acae857338251df7b35c
+    hash: 930f4d4ec8c86df16f95d3d2822d9e9a
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4505,8 +5526,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    hash: 022e81e57fb5781c239fd55a244a5886
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    hash: 27fb78698af5beb0ff7f69688e7b1333
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.png
     isMainAsset: 1
     dependAssetList: []
@@ -4517,13 +5538,13 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Material.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 6dcfe931bcae154780222f404ef89af7
+    hash: 0410ad13cd9b9af1404d121db23373b9
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.png
-    hash: 711d1727e6bff0ee0beabf99e82373be
+    hash: c6af32e9858ea2b3c3f4eef87235769e
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.png
     isMainAsset: 1
     dependAssetList: []
@@ -4558,9 +5579,9 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002.png
-    hash: 4d5e4b75c417c5cc7964cb0bd6595bee
+    hash: 8863430357abc7dd35bef2679adbb879
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4587,7 +5608,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 6a72b9d3faf9167d56118c9238083e5f
+    hash: 4ebd458d091355c927ccca7330e96eb9
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4611,9 +5632,9 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.png
-    hash: 60a8d8cd4213178f968e073c2e51035c
+    hash: ff3e33dca29df3a4b3b9744c79e4be2d
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.png
     isMainAsset: 1
     dependAssetList: []
@@ -4624,7 +5645,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 1b25c27389bc67aeae8cafb97cdd0bdf
+    hash: 9cf1c5a47ca71fcf2cb3f531c91258de
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4649,8 +5670,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    hash: 690dab61c937e1bcdcd26354864ad647
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    hash: c5d76344d29fad21f299ec9591915631
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.png
     isMainAsset: 1
     dependAssetList: []
@@ -4661,7 +5682,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: b21a43eeceda7f85c98d98e571ebb161
+    hash: 0cc1379a93cc89f2911c00756d25be66
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4682,8 +5703,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    hash: d5d52290cb800e0b1715c1a3325c41a8
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    hash: 25f45141df2738bdebd281c998679d84
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.png
     isMainAsset: 1
     dependAssetList: []
@@ -4698,7 +5719,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: aa590d5743f6479ccc698bf914a5c21e
+    hash: d2355240e61dda0eb73c5c5d4adcd52c
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4719,8 +5740,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    hash: 1afc9d045847fa91b0a617362b211e66
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    hash: d27c634d18f276372d061fc3ad53580c
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.png
     isMainAsset: 1
     dependAssetList: []
@@ -4729,45 +5750,30 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList: []
     hash: 4309096edf72503b4d93347a43230b80
+  - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiCry.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_cry.mat
+    hash: 05469819813f6b611a86356a1f2e616a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiMad.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_mad.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
+    hash: de5c4d08a03f7737a60ba84bc2b7322e
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiScared.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_scared.mat
-    hash: 618bddb0c93f037fe20ea0d896adce43
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_scared.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/scared.png
-    hash: 1a2173102b72cc8ae583a48f8a585487
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/scared.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: ff132f00b5b8ecbd6f48ec91f982d6e5
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_scared.mat
+    hash: f8c2c96ae65ec5e68eff65a224b8eb97
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiStarstruck.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_starstruck.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Stars/star_outlined_AB.mat
-    hash: 122623caff5bbc49e3609b5ee13a55df
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_starstruck.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/starstruck.png
-    hash: 754a94dd4655777eea12d1097b393d99
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/starstruck.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 2ac5fd86d3a80e904f85398afd3abfff
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Stars/star_outlined_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/star_outlined.png
-    hash: 38f06da3b63088db6736426831270df2
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/star_outlined.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 76a7bb150a06960b856b43f5885d0670
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Emojis/em_starstruck.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Stars/star_outlined_AB.mat
+    hash: 51428790dda94e5763845bd5d0365281
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExclTiltedGlossy.prefab
     isMainAsset: 1
     dependAssetList:
@@ -4781,109 +5787,44 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Fire/fire_3x6_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_default_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_sharp_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_fireball2.wav
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Fire/fire_3x6_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_sharp_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_explosion_fireball2.wav
     hash: 287af09cfe38c88966efd1683503da2c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Sound/etfx_explosion_fireball2.wav
+  - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Fx/MagicBuffBlue.prefab
     isMainAsset: 1
-    dependAssetList: []
-    hash: 3f41e89f73269784a0d099c7200c0bdb
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_line_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
+    hash: dfcf90b24c9288c376c11211cc97f992
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Fx/PowerOrbYellow.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_orb2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Powerups/PowerBox/Box
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/sparkle2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Powerups/PowerBox/Box
       Metal/PowerboxMetalQuestion.prefab
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_Shield.FBX
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/ETFX_Shield.FBX
     hash: bb8811c101587d4b6a7e41aaaa9a8fd0
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle2_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/sparkle2.png
-    hash: da3cf5e0c31c95e9d99f3ffbbdebfb1b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/sparkle2.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: f79121ea13ee9f9088838287866dc3b7
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Powerups/PowerBox/Box
-      Metal/PowerboxMetalQuestion.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Powerbox/Metal/power_metal_question.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_PowerBoxSmooth.FBX
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/gradient_horizontal_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle_ADD.mat
-    hash: cc485fc82c5a27e2c9a649e735b9ef90
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Powerbox/Metal/power_metal_question.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Powerbox/powerbox_base02.png
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Powerbox/powerbox_n.png
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Powerbox/powerbox_quest_e.png
-    hash: 613a43a015d1ad60056ac71a5e4603bb
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Powerbox/powerbox_base02.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 877c3869464fb01d4a044b0b1e625a58
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Powerbox/powerbox_n.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: a3508e75d5e2bb2074154d8e2442a3cd
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Powerbox/powerbox_quest_e.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 34c0b5de0e6f3e04c6c665a911639843
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_PowerBoxSmooth.FBX
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 5819de373b6aa83ade73622b5fe34441
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/gradient_horizontal_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/gradient_horizontal.png
-    hash: 34c00c1edfa9f3091e2e210e6df58ae5
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/gradient_horizontal.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: d02665edb426ba508c2603c59cca82d4
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Models/ETFX_Shield.FBX
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/Materials/sphereshield.mat
-    hash: 7d32f97e212cec011b02d773b5e682b3
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Models/Materials/sphereshield.mat
-    isMainAsset: 1
-    dependAssetList: []
-    hash: f80150ec894986857220a68da6144214
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Fx/SpikyFireBigAdditiveRed.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Fire/fire_soft_spiky_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_soft_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Fire/fire_soft_spiky_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_soft_AB.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
     hash: cf3ee36de4bd29750f990ed2115aba5b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Fire/fire_soft_spiky_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/fire_soft.png
-    hash: f3e2880509f52cd6fe38678f08f4b923
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/fire_soft.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: c0316533d69c16b4981ce27037c1e3c6
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Hit/SwordHitMagicBlue.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_orb2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_line_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/ring_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow1_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_orb2_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_line_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
     hash: f1bee90676e19dfd26f87977decd5842
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/UI/Toast.prefab
     isMainAsset: 1
@@ -4901,7 +5842,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Buttons/btn_big.png
     - Assets/Game/HeroTeam/GameResources/Easy mobile input/Prefabs/Joystick 1 Black.prefab
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Icons/icon_blue_back.png
-    hash: 287695a6a3ec79d036b29ac538b614b6
+    hash: ee4b220d0885b7a95d5813ac2670e03b
   - assetPath: Assets/Game/HeroTeam/GameResources/Sprite/collapse.png
     isMainAsset: 1
     dependAssetList: []
@@ -4933,7 +5874,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     - Assets/Game/HeroTeam/GameResources/Textures/White_1x1.png
     - Assets/Game/HeroTeam/GameResources/Materials/Dissolve.mat
-    hash: 782b95aa6220c1a55deafed7c3402989
+    hash: 6731b8323f43c42708e9101832463477
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.atlas.txt
     isMainAsset: 1
     dependAssetList: []
@@ -4956,8 +5897,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    hash: 837c079d0be537be25efc50c395e75f8
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    hash: a49e97fa253d4c8df32b6b94be7cb7b3
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -4980,778 +5921,6 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList: []
     hash: 84e54597c247a83516f6658ff18ab877
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow4_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/glow4.png
-    hash: 25df7753ce93c1ef857f668ded8fd6fb
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/glow4.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 62a20f4b7cd54186c209425f22392737
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_angry.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/angry.png
-    hash: 7c87728f8438d4d84fc33a9ae974bdad
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/angry.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 48eb16a94862f19d40b5e90cc633fb15
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_angryscream.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/angryscream.png
-    hash: 8031ffc8246029976b2204b62ab79f46
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/angryscream.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 8031214817cfb5387ff652ab99024c31
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_bigsmile.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/bigsmile.png
-    hash: 82cd897df4e2d49185733643ee6b496d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/bigsmile.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 596caff2cd67f4e911b61c00a8b89e3d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_blush.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/blush.png
-    hash: f35db2a19c100a8622f9cbeb95ab6f87
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/blush.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: d8ab804d17acc851849326a36a550b65
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_clenchteeth.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/clenchteeth.png
-    hash: bf3ae219f1f57edb8eaa9aba3693ea98
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/clenchteeth.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 95ce14f57a137eb94c404946055d405b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_clenchteeth2.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/clenchteeth2.png
-    hash: b0039a2b2d28e4a9baaf12fa70a05d6d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/clenchteeth2.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 6066aeea4f86bb5f528c313865e794f9
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_cool.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/cool.png
-    hash: 7c1a57b6bd3b62c45ab2b2ecbe4d5f05
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/cool.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 1c5706ac216e2a5143ae5e757d4cfc88
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_crazy.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/crazy.png
-    hash: bcd791a29b9e45cc049a3c36583bb4c0
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/crazy.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 0091152332d69678dd1b260a013cbd14
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_cry.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/cry.png
-    hash: 565aad46f180fe6f039c173ba5686e1a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/cry.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 5acaddabbaa363ee740459e8073a1a6c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_cute.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/cute.png
-    hash: ddefbbdef59f8a2101ae868fd1944538
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/cute.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 938dc81c9c02603fcb8bca20871edadc
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_dead.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/dead.png
-    hash: b047130e83eb91a2aa3fcc9647b29fc2
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/dead.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: fea7ece7d104d8a48b35ad717afd7850
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_deadtired.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/deadtired.png
-    hash: 02897386ff2765404261f0305e03edc6
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/deadtired.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: aee71b1bbfdd6bd83612aecc9006016e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_derp.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/derp.png
-    hash: 9aa722d016e523fcd331fc860bfec6ea
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/derp.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: f778b791d0c3a632bbacdf63e8340a8f
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_derpgasp.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/derpgasp.png
-    hash: f63990e7247f26aa9be70afb9cec2c28
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/derpgasp.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 14f37423d1c7a0e91522e095a5e6f725
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_disappoint.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/disappoint2.png
-    hash: 13e65335c0799e2cc27072063f089d7b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/disappoint2.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: f112479d33e4121ab4d0e54992fe4fa0
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_drool.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/drool.png
-    hash: 85121c846212a405283055896ddf3bf4
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/drool.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 9dda082bf565d0d9273b970a3f75beba
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_evil.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/evil.png
-    hash: 75f3f52bf05ff832aba4e6e2bf498f6f
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/evil.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 9e4654b02a975a3a10953d6630c1c2ef
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_expressionless.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/expressionless.png
-    hash: 217443ee7ecca53d6f5616230f225bf7
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/expressionless.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: b321124a166851fe165ec0367a31243d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_happy.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/happy.png
-    hash: f30b31cfe3889979979641d83af4d223
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/happy.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 0ab90236a641fed03e5bcd842a4ccb3e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_heart.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/heart.png
-    hash: dd449fc455fb37552b508d99c70e7aef
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/heart.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 2a181ff7ce739f4172037d7277af0993
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_injured.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/injured.png
-    hash: 1182513a1bb3ceccc579a322509503c9
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/injured.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: d3c90aff293af4e01e3eff12a26c2e15
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_kiss.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/kiss.png
-    hash: 8da777552f392bbcd2f2e51a7b700119
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/kiss.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 505c35aed58a2019ec1b5faec24e6af2
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_kissyface.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/kissyface.png
-    hash: 5d812806a3cb010e38462f652299b439
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/kissyface.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: eedfeb6055ce7ca44ce4441ea5828dfa
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_laughcry.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/laughcry.png
-    hash: 9660919116956485391be5afd33c5069
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/laughcry.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: e80dff30715b18b51a4199b82ca25727
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_laughsweatdrop.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/laughsweatdrop.png
-    hash: de57dda24ecd2fa5728522471d4471f6
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/laughsweatdrop.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 3d67dcff6d4ea64589842395aa370d5c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_mad.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/mad.png
-    hash: b35a995c31059cb97022125fad07904c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/mad.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 3adedd7e1b8b42f43226466a8a837351
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_nauseous.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/nauseous.png
-    hash: 9e5b6e48535a0b7dd174e5ef93d52f3d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/nauseous.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 47a4c2389fb28490a4a5c2bb10164507
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_OwO.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/OwO.png
-    hash: 32902836f3dcb3d665a7bfa42febeef5
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/OwO.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 03f861a612e5c0201b23d021962d3a3a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_OwOEyebrow.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/OwOEyebrow.png
-    hash: e3ae749d6e58b905e2fb6fa6283cac0a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/OwOEyebrow.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: ff83c1c4be916cbabd786cd6f279dffc
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_pleading.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/pleading.png
-    hash: 025c3adffbf694ee5746795e559e7b60
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/pleading.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 8a4587c4946d05e6cb34c12434987cba
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_poop.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/poop.png
-    hash: d59890d3b67e4448c891fb1b46372106
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/poop.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: c5f245a9b18137d7599f0bec75e9036e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sad.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sad.png
-    hash: fb1ed277514a3e6a7dc85126a129b31f
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sad.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 7775917d68487625abc77122633e5c77
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sadcry.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sadcry.png
-    hash: 72a875e99ae9e03d03128eddc1ba6105
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sadcry.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 29a79e11574e2f11cebb66a9cce9921d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_shocked.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/shocked.png
-    hash: b9a1436a08dbe1e493ad1a89cb530238
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/shocked.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 79bee9e7d9b4d9308c700f7669fa8a65
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sick.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sick.png
-    hash: 178e6f902f3a00157cb7243635da5e67
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sick.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: ba09882ce56424e5f19e38f0ae487110
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sick2.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sick2.png
-    hash: 6c1ba6932a1a9f16d1bc61d2b21c18d9
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sick2.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 038a8b44f313438e553ef32d231f6c6d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sick3.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sick3.png
-    hash: 0abaee391e30f8028b1fc03f32e8c601
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sick3.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: b4d8cfe7a429e7ac322df2cc2d370a9f
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_silly.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/silly.png
-    hash: 0e2a6ab219dbffe80fc3bf9c9d3c768b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/silly.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: ff324371c09d0216a29251f36c127b58
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sillyhappy.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sillyhappy.png
-    hash: 562fd5d955856908c75b2fb9b44fd419
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sillyhappy.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: b7c7baab90d1473713009dbbe6c1c56d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sillysmile.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sillysmile.png
-    hash: 12ab81499a1e814ee3f9a729881b7d50
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sillysmile.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: e6de2768fe7abeffd7ca2c04f0285d3c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sillywink.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sillywink.png
-    hash: fabd2fe8b282041f84508726830a4b44
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sillywink.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: bede99b3351a48d399702345bb38149b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sinister.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sinister.png
-    hash: 36cdd10d55e3bf04053ae11c88ca0f40
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sinister.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: f1ac7155b334d34ff1a605caf59b21a9
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sleep.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sleep.png
-    hash: 114221915037880aebcd9343c68b445e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/sleep.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 779d90f165fe0eb3bc63358f6882e11a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_tearyeyes.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/tearyeyes.png
-    hash: 53ac83f9b2b11b61062774eff4e87eba
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/tearyeyes.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 0665fa341d74da92a2d34cfbc2f3e89c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_text_ah_zz.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/text_ah_zz.png
-    hash: f5be7a8c0a72b489f37f53cfa7fc90c3
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/text_ah_zz.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: c8e32e926dfcbbe4d377d9f082c9d2b4
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_text_haha.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/text_haha.png
-    hash: 1fea2fe96a38bf4ec64ac318a6d63e4b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/text_haha.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: cc41afa086e73b6629bb826872988430
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_thumbsdown.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/thumbsdown.png
-    hash: 07cb37ea6de019e7d3b849d416fac2a5
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/thumbsdown.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: d3804ea70a3015361644c30fa9fb3400
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_thumbsup.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/thumbsup.png
-    hash: e564823b093026d59879aa4a0232deed
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/thumbsup.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 6c6717ef075dbe9be16f1c4d0c41e05e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_UwU.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/UwU.png
-    hash: e1e03b50e049fc56bdbcf4f3bebfb2c7
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/UwU.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 4056c6fab7fcb8f1deacaba44561ff66
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_XD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/XD.png
-    hash: 4404b2527411216bcdb06588cb59d24a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/XD.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: b5bb7a2a318bd4a6be478b28d866ad18
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_yawn.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/yawn.png
-    hash: 851301d9f7caeab6490cbd226bae6e6b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/Emojis/yawn.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 9dd41fee9414899eceb0b8f93ee2e183
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Hearts/heart_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/heart.png
-    hash: dd0f715e7845ba00af31cd1771a8fce9
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/heart.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 2cb0322ed976a16d9c0b520cd88f4f4c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Lightning/lightning2_ADD.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/lightning2.png
-    hash: 2d4dbb512689602d1dea010ad43e65ad
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/lightning2.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 25cfea797fb3b52966a1f404f057eb2a
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Liquid/splat03_3x3_AB.mat
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/splat03_flat_3x3.png
-    hash: 600efccb6e5a9caa2b7ed11e2117857b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Textures/splat03_flat_3x3.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: a547c00bb0c843e7ffe475c7b23979aa
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Combat/Magic/Circle/MagicCircleBlue.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/aura_slam_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/ring_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Magic/magic_runecircle_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Models/aura_straight.FBX
-    hash: a1936b6464aed745d6e75548cbd4feb6
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiAngry.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Lightning/lightning2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_angry.mat
-    hash: f0a79059def9b9a640777b321ed01058
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiAngry2.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_angryscream.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Lightning/lightning2_ADD.mat
-    hash: 2cedd10df842d6ee76631704642c7c1c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_mad.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_default_AB.mat
-    hash: 9d98880751ba2ae2fe6cdb8588a2e7f3
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiSinister.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sinister.mat
-    hash: 4027fa5151797b9ed35f97fa5b0ca9f3
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Disgust/EmojiNauseous.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_nauseous.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Liquid/splat03_3x3_AB.mat
-    hash: 80f10616c3c6dd93768657c5c049d751
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Disgust/EmojiPuke.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sick3.mat
-    hash: 28df993f5532522fb78e00e6e09a0990
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Disgust/EmojiQueasy.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sick2.mat
-    hash: 3edd9a07526b6cbf51a83671c68e4536
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Disgust/EmojiSick.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sick.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Liquid/splat03_3x3_AB.mat
-    hash: f5861a9a0dfa287509e035240ac78cbc
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Fear
-      & Surprise/EmojiBlush.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_blush.mat
-    hash: 6d5850f9882f8e7d13fdafafd10612fe
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Fear
-      & Surprise/EmojiClenchTeeth.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_clenchteeth.mat
-    hash: 2639d24140a06419a043740b5073974d
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Fear
-      & Surprise/EmojiCrazy.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_crazy.mat
-    hash: 007eb1b4006084f17e230ffc479117be
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Fear
-      & Surprise/EmojiNervous.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_clenchteeth2.mat
-    hash: 9aaebdcba9ef7c568c6e8bb8169f2610
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Fear
-      & Surprise/EmojiScared.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_scared.mat
-    hash: 88dcb759a2b31f5f4dfad8a723aca6de
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Fear
-      & Surprise/EmojiShocked.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/triangle_curve_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow4_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_shocked.mat
-    hash: 9f4d4e154ce5a7016cbfebe295b24e16
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiCool.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_cool.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle_ADD.mat
-    hash: a265f882e8959f538d2c0d8dabfd7512
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiCute.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_cute.mat
-    hash: 209b26c018ff989d611077703e00b58b
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiDerp.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_derp.mat
-    hash: 4d501f49ef86dd3cbe71afb99defbc61
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiDerpGasp.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/triangle_curve_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/glow4_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_derpgasp.mat
-    hash: ffa92d2c1d6194604badecf56bd42f1f
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiDrool.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_drool.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Hearts/heart_AB.mat
-    hash: 436a2c53532096dec9a69ae54416cc51
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiEvilLaugh.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_text_haha.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_evil.mat
-    hash: 0f9d2ea090a08238d907d1f95740d3e1
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiHappy.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_bigsmile.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/sparkle_ADD.mat
-    hash: 68b2bb4bc53ca59634373f4a97516ebc
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiKiss.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_kiss.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Hearts/heart_AB.mat
-    hash: 136504d80e6616360df7b13709d1e5d7
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiKissyface.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Hearts/heart_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_kissyface.mat
-    hash: 193687c7eb33e72d66ea33b397d7f82c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiLaughCry.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_text_haha.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_laughcry.mat
-    hash: c7f4f71e113c1125d5e1aab0123df3ad
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiLaughSweatdrop.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_laughsweatdrop.mat
-    hash: cd79f59fcb1d72e7b174a86d79e56b1e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiOwO.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_OwO.mat
-    hash: b127d64503ce9578ce76434145f50125
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiOwOEyebrow.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_OwOEyebrow.mat
-    hash: 1130d9b4b291358fdb616efd0200e933
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiSilly.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_silly.mat
-    hash: 53ff2f1fa023ab9d1dbf12dd73d0d3b3
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiSillyHappy.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sillyhappy.mat
-    hash: 86f854f1858015b15eefe24a2d007200
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiSillySmile.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sillysmile.mat
-    hash: b870012bc8bb3e54196d49923b046b2e
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiSillyWink.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sillywink.mat
-    hash: ddeed58b64471d91d5da59ab128b74a0
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiSmile.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_happy.mat
-    hash: 2b5becb5d906531e5d579941b485a3c6
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiStarstruck.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_starstruck.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Stars/star_outlined_AB.mat
-    hash: c018198f2336f0f2a40fe5f4d1423ad6
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiUwU.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_UwU.mat
-    hash: 78ac215451dd7f950d127a4fa565e944
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Joy/EmojiXD.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_XD.mat
-    hash: 0fea8f36868f4d41aef14a7aa47401bf
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Sadness/EmojiCry.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_cry.mat
-    hash: 20bb5c30947eafa471a9f258b4385677
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Sadness/EmojiDisappointed.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_disappoint.mat
-    hash: be858dec82b33de6a8022630d2e7a7ce
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Sadness/EmojiExpressionless.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_expressionless.mat
-    hash: 8611b27b68757451f68946f822e559cc
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Sadness/EmojiPleading.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_pleading.mat
-    hash: 5b6a6e7172f0fd4f5eb25ff96d353f63
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Sadness/EmojiSad.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sad.mat
-    hash: 381cd262075d948cdf873e1691e7f8d1
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Sadness/EmojiSadCry.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sadcry.mat
-    hash: e84d53f33ba85ad34690755632e332f5
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Sadness/EmojiTearyEyes.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/circle_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_tearyeyes.mat
-    hash: 9f739c2c090bc7472be2c8d8a9c11373
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Tired/EmojiDead.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Basics/cloud_2x2_default_AB.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_dead.mat
-    hash: cee1b8ab3a74ef5a353445f0c294aee6
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Tired/EmojiDeadTired.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_deadtired.mat
-    hash: d2b2466c8d73a2a24f97007aa9444182
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Tired/EmojiInjured.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Lightning/lightning2_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_injured.mat
-    hash: 5d3fec9afdba2f6a06dc0a5208258c6c
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Tired/EmojiSleep.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_sleep.mat
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_text_ah_zz.mat
-    hash: 2f4889380aa0b0143ef49a97a289da06
-  - assetPath: Assets/Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Tired/EmojiYawn.prefab
-    isMainAsset: 1
-    dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/ToomEffects/Materials/Misc/Emojis/em_yawn.mat
-    hash: ae0dc71955bc7d93be693bd3a092964b
   - assetPath: Assets/Game/HeroTeam/GameScripts/Debugger/Debugger/Sprites/Resources/IconClear.psd
     isMainAsset: 1
     dependAssetList: []

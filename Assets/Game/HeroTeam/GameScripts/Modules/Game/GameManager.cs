@@ -359,15 +359,18 @@ namespace GameScripts.HeroTeam
         }
 
         //团长指令: 攻击
-        //新更改: 集火
+        //新更改: 集火 - 给队员增加 无限火力buff
         private void OnLeaderSkillAttack()
         {
             // 团长攻击技能逻辑
             if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
             {
                 m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
-                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
+                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiMad.prefab");
 
+                //无限火力buff
+                var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+                heros.ForEach(h => BuffManager.Instance.CreateBuff(h, 103));
             }
         }
 
@@ -378,7 +381,7 @@ namespace GameScripts.HeroTeam
             if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
             {
                 m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
-                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
+                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiMad.prefab");
 
                 var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
                 heros.ForEach(h =>
@@ -402,13 +405,26 @@ namespace GameScripts.HeroTeam
             if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
             {
                 m_Leader.GetSkeleton().state.SetAnimation(0, "skill2", false);
-                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/ToomEffects/Prefabs/Interactive/Emojis/Anger/EmojiMad.prefab");
+                m_Leader.ShowEmoji("Game/HeroTeam/GameResources/Prefabs/Game/Emoji/EmojiMad.prefab");
 
-                //治疗玩家
-                var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
-                //治疗
-                var sageHeros = heros.FindAll(hero => hero.GetHeroCls() > HeroClassDef.SAGE);
-                sageHeros.ForEach(sage => sage.GetStateMachine().ChangeState<HeroAttackState>());
+                // //治疗玩家
+                // var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+                // //治疗
+                // var sageHeros = heros.FindAll(hero => hero.GetHeroCls() > HeroClassDef.SAGE);
+                // sageHeros.ForEach(sage => sage.GetStateMachine().ChangeState<HeroAttackState>());
+
+                string szLevUpVfxPath = "Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Level Up/Cylinder/LevelupCylinderGreen.prefab";
+                GameEffectManager.Instance.ShowEffect(szLevUpVfxPath, m_Leader.GetTr().position + Vector3.back * 1.4f, Quaternion.Euler(40, 0, 0), 2);
+
+                //驱散减益buff
+                string clearBuffVfxPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/MagicBuffBlue.prefab";
+                var buffs = BuffManager.Instance.GetActiveBuffByType(BuffTypeDef.DEBUFF);
+                buffs.ForEach(buff =>
+                {
+                    var pos = buff.GetOwner().GetTr().position;
+                    GameEffectManager.Instance.ShowEffect(clearBuffVfxPath, pos, Quaternion.Euler(-90, 0, 0), 2);
+                    BuffManager.Instance.ReleaseBuff(buff);
+                });
             }
         }
 
@@ -539,45 +555,19 @@ namespace GameScripts.HeroTeam
 
         private void OnGameOverAndPlayerWin()
         {
-            // if (DHeroTeamEvent.EVENT_WIN == wEventID)
-            // {
+            Debug.Log($"<color=#ff0000>######## Boss已死亡 </color>");
 
-            //     Debug.Log(">>>>>>>>> Boss Win Event Triggered");
-            //     foreach (ISpineCreature monster in m_dicMonster.Values)
-            //     {
-            //         if (null != monster)
-            //         {
-            //             if (!monster.IsDie())
-            //             {
-            //                 // if (((cfg_Actor)monster.config).HeroClass > HeroClassDef.WARRIOR)
-            //                 // {
-            //                 ////离boss比较远的玩家 跑到boss实体附近去捡装备
-            //                 var prefab = monster.GetPart<PrefabPart>();
-            //                 if (prefab != null)
-            //                 {
-            //                     if (prefab.transform.TryGetComponent<Actor>(out var actor))
-            //                     {
-            //                         actor.Switch2State<ActorWinState>();
-            //                     }
-            //                 }
-            //                 // }
-            //             }
-            //         }
-            //     }
-            // }
-            // else if (DGlobalEvent.EVENT_ENTITY_DESTROY == wEventID)
-            // {
-            //     ISpineCreature monster = pContext as ISpineCreature;
-            //     if (null != monster)
-            //     {
-            //         ulong entID = monster.id;
-            //         if (m_dicMonster.ContainsKey(entID))
-            //         {
-            //             //m_dicMonster[entID] = null;
-            //             m_hashWaitDel.Add(entID);
-            //         }
-            //     }
-            // }
+            var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+            foreach (ISpineCreature hero in heros)
+            {
+                if (null != hero)
+                {
+                    if (!hero.IsDie())
+                    {
+                        hero.GetStateMachine().ChangeState<HeroWinState>();
+                    }
+                }
+            }
         }
 
         private void Update()
@@ -594,16 +584,20 @@ namespace GameScripts.HeroTeam
                 ApplyUserInput();
             }
 
-            // if ( Input.GetKeyDown( KeyCode.Space ) )
+            // if (Input.GetKeyDown(KeyCode.Space))
             // {
-            //     var pContext = CameraShakeEventContext.Ins;
-            //     pContext.intensity = 1f;
-            //     pContext.duration = 0.5f;
-            //     pContext.vibrato = 30;
-            //     pContext.randomness = 100f;
-            //     pContext.fadeOut = true;
-            //     GameGlobal.EventEgnine.FireExecute( DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext );
+            //     // var pContext = CameraShakeEventContext.Ins;
+            //     // pContext.intensity = 1f;
+            //     // pContext.duration = 0.5f;
+            //     // pContext.vibrato = 30;
+            //     // pContext.randomness = 100f;
+            //     // pContext.fadeOut = true;
+            //     // GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
+
+            //     GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+
             // }
+
 
             // if ( Input.GetKeyDown( KeyCode.Q ) )
             // {

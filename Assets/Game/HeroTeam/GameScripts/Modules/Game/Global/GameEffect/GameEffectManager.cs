@@ -83,6 +83,10 @@ namespace GameScripts.HeroTeam
             return pool;
         }
 
+        public Transform ShowEffect(string resPath, float duration = 1f )
+        {
+            return ShowEffect(resPath, Vector3.zero, Quaternion.identity, duration);
+        }
 
         public Transform ShowEffect(string resPath, Vector3 position, Quaternion rotation = default(Quaternion), float duration = 1f)
         {

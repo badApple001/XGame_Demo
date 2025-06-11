@@ -712,12 +712,14 @@ public class cfg_HeroTeamBuff : IDataObj
 {
 	public int iID;  // 
 	public string szBuffName;  // 
+	public int iType;  // 
 	public string szBuffCls;  // 
 	public string szBuffEffect;  // 
 	public float[] float3RelativePos;  // float[-1]  
 	public int iInterval;  // 
 	public int iCount;  // 
 	public int iAddHp;  // 
+	public float fATKSpeedMul;  // 
 	public int isStackable;  // 
 	public int allowDurationReset;  // 
 
@@ -726,12 +728,14 @@ public class cfg_HeroTeamBuff : IDataObj
 	{
 		iID = pDataChunk.ReadINT32();
 		szBuffName = pDataChunk.ReadSTRING();
+		iType = pDataChunk.ReadINT32();
 		szBuffCls = pDataChunk.ReadSTRING();
 		szBuffEffect = pDataChunk.ReadSTRING();
 		float3RelativePos = pDataChunk.ReadFLOAT_Array(-1);
 		iInterval = pDataChunk.ReadINT32();
 		iCount = pDataChunk.ReadINT32();
 		iAddHp = pDataChunk.ReadINT32();
+		fATKSpeedMul = pDataChunk.ReadFLOAT();
 		isStackable = pDataChunk.ReadINT32();
 		allowDurationReset = pDataChunk.ReadINT32();
 	}

@@ -20,7 +20,8 @@ namespace GameScripts.HeroTeam
             base.OnEnter();
             m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
             m_AttackCoolding = 0f;
-            m_AttackInterval = m_Cfg.fAttackInterval;
+            // m_AttackInterval = m_Cfg.fAttackInterval;
+            m_AttackInterval = m_Owner.GetATKInterval();
         }
 
         public override void OnExit()

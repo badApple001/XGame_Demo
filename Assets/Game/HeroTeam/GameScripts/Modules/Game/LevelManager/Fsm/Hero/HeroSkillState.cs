@@ -72,18 +72,22 @@ namespace GameScripts.HeroTeam
         {
             m_Anim.state.SetAnimation(0, skill.szAnimName, false);
 
+
             //固伤+百分比暴击
             var damage = skill.iValue + skill.iPercentValue / 100.0f * m_Cfg.iAttack;
             //技能附带仇恨 + 攻击百分比仇恨值叠加
             var hate = skill.iHate + m_Cfg.iAttackHatred / 100f * damage;
 
             var target = GameManager.Instance.GetBossEntity();
-            //嘲讽技能， 没有伤害
-            // target.SetHPDelta(-Mathf.FloorToInt(damage));
-            target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
+            if (target.GetState() < ActorState.Dying)
+            {
+                //嘲讽技能， 没有伤害
+                // target.SetHPDelta(-Mathf.FloorToInt(damage));
+                target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
 
-            yield return new WaitForSeconds(1.4f);
-            m_StateMachine.ChangeState<HeroIdleState>();
+                yield return new WaitForSeconds(1.4f);
+                m_StateMachine.ChangeState<HeroIdleState>();
+            }
         }
 
         /// <summary>
@@ -104,14 +108,18 @@ namespace GameScripts.HeroTeam
             int iDamage = CombatUtils.ApplyRandomVariance(-Mathf.FloorToInt(damage));
 
             var target = GameManager.Instance.GetBossEntity();
-            target.SetHPDelta(iDamage);
-            target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
+            if (target.GetState() < ActorState.Dying)
+            {
 
-            //暴击飘字
-            FlowTextManager.Instance.ShowFlowText(FlowTextType.CriticalHit, Mathf.FloorToInt(damage).ToString(), target.GetTr().position);
+                target.SetHPDelta(iDamage);
+                target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
 
-            yield return new WaitForSeconds(1.4f);
-            m_StateMachine.ChangeState<HeroIdleState>();
+                //暴击飘字
+                FlowTextManager.Instance.ShowFlowText(FlowTextType.CriticalHit, Mathf.FloorToInt(damage).ToString(), target.GetTr().position);
+
+                yield return new WaitForSeconds(1.4f);
+                m_StateMachine.ChangeState<HeroIdleState>();
+            }
         }
 
         public override void OnExit()

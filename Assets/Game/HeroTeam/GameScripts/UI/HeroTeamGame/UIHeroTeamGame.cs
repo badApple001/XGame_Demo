@@ -242,7 +242,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         {
             m_OpenCollapsed = !m_OpenCollapsed;
 
-            float height = m_OpenCollapsed ? 2000f : 65f;
+            float height = m_OpenCollapsed ? Screen.height - 200 : 65f;
             img_PropertyPanel.rectTransform.DOKill();
             var size = img_PropertyPanel.rectTransform.sizeDelta;
             size.y = height;
@@ -377,11 +377,13 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
         private void OnReciveHarm()
         {
+
             if (img_RedScreen.SafeGetActiveSelf()) return;
             img_RedScreen.gameObject.BetterSetActive(true);
-            img_RedScreen.color = new Color(1, 0, 0, 109f / 255);
-            img_RedScreen.DOKill();
-            img_RedScreen.DOFade(0f, 0.3f).SetLoops(2, LoopType.Yoyo).SetAutoKill(true).OnComplete(() => img_RedScreen.gameObject.BetterSetActive(false));
+            var cg = img_RedScreen.GetComponent<CanvasGroup>();
+            cg.DOKill();
+            cg.alpha = 0f;
+            cg.DOFade(0.43f, 0.5f).SetLoops(4, LoopType.Yoyo).OnComplete(() => img_RedScreen.gameObject.BetterSetActive(false)).SetAutoKill(true);
         }
 
         private void OnJoystickInputChanged(Vector3 old, Vector3 current)

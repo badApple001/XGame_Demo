@@ -89,7 +89,9 @@ namespace GameScripts.HeroTeam
         bool IsDie();
 
         Vector3 GetForward();
-        
+
         void SetForward(Vector3 forward);
+
+        float GetATKInterval();  
     }
 }

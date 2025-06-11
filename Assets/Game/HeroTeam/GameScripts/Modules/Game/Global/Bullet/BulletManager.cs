@@ -1,11 +1,9 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XGame;
 using XGame.Asset;
 using XGame.FrameUpdate;
-using XGame.Utils;
 
 namespace GameScripts.HeroTeam
 {
@@ -22,11 +20,14 @@ namespace GameScripts.HeroTeam
     {
 
         private List<IBullet> m_ActiveBullets = new List<IBullet>();
-        // private Stack<IBullet> m_FreeBulletPools = new Stack<IBullet>();
         private Transform m_trActiveRoot, m_trHidddenRoot;
+        private Dictionary<int, UnityEngine.Pool.ObjectPool<Bullet>> m_BulletPool = new Dictionary<int, UnityEngine.Pool.ObjectPool<Bullet>>();
         private Dictionary<int, GameObject> m_PrefabDict = new Dictionary<int, GameObject>();
-        private Dictionary<int, LinkedList<IBullet>> m_BulletPool = new Dictionary<int, LinkedList<IBullet>>();
-        private Dictionary<GameObject, List<GameObject>> m_PrefabPool = new Dictionary<GameObject, List<GameObject>>();
+
+        // private Stack<IBullet> m_FreeBulletPools = new Stack<IBullet>();
+
+        // private Dictionary<GameObject, List<GameObject>> m_PrefabPool = new Dictionary<GameObject, List<GameObject>>();
+
         public void Setup(Transform activeRoot, Transform hiddenRoot)
         {
             m_trActiveRoot = activeRoot;
@@ -65,31 +66,40 @@ namespace GameScripts.HeroTeam
 
         public void Recycle(IBullet bullet)
         {
-            bullet.ClearState();
-            bullet.GetTr().SetParent(m_trHidddenRoot, false);
 
             // m_FreeBulletPools.Push(bullet);
-            if (m_BulletPool.TryGetValue(bullet.GetPoolId(), out var pool))
+            // if (m_BulletPool.TryGetValue(bullet.GetPoolId(), out var pool))
+            // {
+            //     // Debug.Log($"池子: {bullet.GetPoolId()}");
+            //     pool.AddLast(new LinkedListNode<IBullet>(bullet));
+            // }
+            // else
+            // {
+            //     Debug.LogError($"没有注册的池子: {bullet.GetPoolId()}");
+            // }
+            // int hashCode = bullet.GetType().GetHashCode();
+            int hashCode = bullet.GetPoolId();
+            if (m_BulletPool.TryGetValue(hashCode, out var pool))
             {
-                // Debug.Log($"池子: {bullet.GetPoolId()}");
-                pool.AddLast(new LinkedListNode<IBullet>(bullet));
+                pool.Release(bullet as Bullet);
             }
             else
             {
-                Debug.LogError($"没有注册的池子: {bullet.GetPoolId()}");
+                string ero_msg = $"Pool undefined: {bullet.GetType().FullName}";
+                Debug.LogError(ero_msg);
+#if UNITY_EDITOR
+                throw new System.Exception(ero_msg);
+#endif
             }
         }
 
-        public IBullet Get<T>(cfg_HeroTeamBullet cfg, Vector3 newPos) where T : Bullet, new()
+        public T Get<T>(cfg_HeroTeamBullet cfg, Vector3 newPos) where T : Bullet, new()
         {
-            IBullet bullet = null;
-            if (!m_BulletPool.TryGetValue(cfg.iID, out var pool))
+            // int hashCode = typeof(T).GetHashCode();
+            int hashCode = cfg.iID;
+            if (!m_BulletPool.TryGetValue(hashCode, out var pool))
             {
-                pool = new LinkedList<IBullet>();
-                m_BulletPool.Add(cfg.iID, pool);
-            }
-            if (pool.Count == 0)
-            {
+                //获取模型预设
                 if (!m_PrefabDict.TryGetValue(cfg.iID, out var pref))
                 {
                     var resLoader = XGameComs.Get<IGAssetLoader>();
@@ -97,61 +107,50 @@ namespace GameScripts.HeroTeam
                     pref = (GameObject)resLoader.LoadResSync<GameObject>(cfg.szResPath, out handle);
                     m_PrefabDict.Add(cfg.iID, pref);
                 }
-                var inst = GameObject.Instantiate(pref);
-                bullet = new T();
-                bullet.Init(inst);
-                bullet.SetConfig(cfg);
+
+                //创建对象池
+                pool = new UnityEngine.Pool.ObjectPool<Bullet>(() =>
+                {
+                    var creat_blt = new T();
+                    creat_blt.Init(GameObject.Instantiate(pref));
+                    creat_blt.SetConfig(cfg);
+                    return creat_blt;
+                }, get_blt =>
+                {
+                    get_blt.GetTr().SetParent(m_trActiveRoot, false);
+                }, rels_blt =>
+                {
+                    rels_blt.ClearState();
+                    rels_blt.GetTr().SetParent(m_trHidddenRoot, false);
+                }, cls_blt => Destroy(cls_blt.GetTr().gameObject), true, 1);
+                m_BulletPool.Add(hashCode, pool);
             }
-            else
-            {
-                bullet = pool.Last.Value;
-                pool.RemoveLast();
-            }
-            bullet.GetTr().SetParent(m_trActiveRoot, false);
+
+            var bullet = pool.Get();
             bullet.Active(newPos);
             m_ActiveBullets.Add(bullet);
-            return bullet;
+            return bullet as T;
         }
 
-        public void ShowEffect(GameObject prefab, Vector3 pos, float duration = 1f)
-        {
-            if (!m_PrefabPool.TryGetValue(prefab, out var pool))
-            {
-                pool = new List<GameObject>();
-            }
-            GameObject ins = null;
-            if (pool.Count == 0)
-            {
-                ins = GameObject.Instantiate(prefab, pos, Quaternion.identity, m_trActiveRoot);
-            }
-            else
-            {
-                ins = pool[pool.Count - 1];
-                ins.transform.position = pos;
-                ins.transform.SetParent(m_trActiveRoot, false);
-                pool.RemoveAt(pool.Count - 1);
-            }
-            GameManager.Instance.OpenCoroutine(DelayRecycleGameObject(ins, duration, pool));
-        }
+        public Transform ShowEffect(string effectPath, Vector3 pos, float duration = 1f) => ShowEffect(effectPath, pos, Quaternion.identity, duration);
+        public Transform ShowEffect(string effectPath, Vector3 pos, Quaternion rotation, float duration = 1f) => GameEffectManager.Instance.ShowEffect(effectPath, pos, rotation, duration);
 
-        private IEnumerator DelayRecycleGameObject(GameObject obj, float duration, List<GameObject> pool)
-        {
-            yield return new WaitForSeconds(duration);
-            obj.transform.SetParent(m_trHidddenRoot, false);
-            pool.Add(obj);
-        }
-
-
+        // private IEnumerator DelayRecycleGameObject(GameObject obj, float duration, List<GameObject> pool)
+        // {
+        //     yield return new WaitForSeconds(duration);
+        //     obj.transform.SetParent(m_trHidddenRoot, false);
+        //     pool.Add(obj);
+        // }
 
         // public void OnLoadAssetSuccess(Object obj, uint nResKey, object ud = null)
         // {
         //     m_BulletPrefab = (GameObject)obj;
         // }
 
-        public void OnLoadAssetFail(uint nResKey, object userData = null)
-        {
-            Debug.Log($"加载资源失败: {nResKey}");
-        }
+        // public void OnLoadAssetFail(uint nResKey, object userData = null)
+        // {
+        //     Debug.Log($"加载资源失败: {nResKey}");
+        // }
 
 
         public void Release()
@@ -167,12 +166,6 @@ namespace GameScripts.HeroTeam
 
             foreach (var pool in m_BulletPool.Values)
             {
-                foreach (var bullet in pool)
-                {
-                    var tr = bullet.GetTr();
-                    if (tr != null)
-                        GameObject.Destroy(tr.gameObject);
-                }
                 pool.Clear();
             }
             m_BulletPool.Clear();
@@ -184,16 +177,16 @@ namespace GameScripts.HeroTeam
             }
             m_PrefabDict.Clear();
 
-            foreach (var pool in m_PrefabPool.Values)
-            {
-                foreach (var obj in pool)
-                {
-                    if (obj != null)
-                        GameObject.Destroy(obj);
-                }
-                pool.Clear();
-            }
-            m_PrefabPool.Clear();
+            // foreach (var pool in m_PrefabPool.Values)
+            // {
+            //     foreach (var obj in pool)
+            //     {
+            //         if (obj != null)
+            //             GameObject.Destroy(obj);
+            //     }
+            //     pool.Clear();
+            // }
+            // m_PrefabPool.Clear();
 
             m_trActiveRoot = null;
             m_trHidddenRoot = null;

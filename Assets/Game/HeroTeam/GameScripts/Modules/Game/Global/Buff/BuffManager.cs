@@ -157,6 +157,13 @@ namespace GameScripts.HeroTeam
 
             }
         }
+
+        /// <summary>
+        /// 通过类型来获取激活的buff列表 
+        /// </summary>
+        /// <param name="type"> 0:减益，1：增益 </param>
+        /// <returns></returns>
+        public List<IBuff> GetActiveBuffByType(int type) => m_ActiveBuffs.FindAll(buff => buff.GetCfg().iType == type);
     }
 
 }

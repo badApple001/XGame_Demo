@@ -95,6 +95,9 @@ namespace GameScripts.HeroTeam
             GetPart<CreatureDataPart>().m_hp.Value = cfg.baseHP;
             //职业
             m_HeroCls = cfg.HeroClass;
+
+            //攻速 默认1
+            SetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED, 1f);
         }
 
         protected override void OnInstantiated()
@@ -122,6 +125,7 @@ namespace GameScripts.HeroTeam
             }
 
             m_trFace = transform.Find("Face");
+            m_trFace?.SetParent(m_trVisual);
 
             //初始化状态机
             InitFsm();
@@ -281,6 +285,11 @@ namespace GameScripts.HeroTeam
 
             //由 Part里去设置Spine的ScaleX
             GetPart<CreatureDataPart>().m_forward.Value = forward;
+        }
+
+        public float GetATKInterval()
+        {
+            return GetCreatureCig().fAttackInterval / GetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED);
         }
 
         public int GetPower()

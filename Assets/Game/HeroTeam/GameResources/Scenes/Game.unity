@@ -459,6 +459,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -480,7 +481,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &75952683
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -867,6 +867,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -888,7 +889,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &119544976
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1168,6 +1168,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -1189,7 +1190,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &184471640
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1366,6 +1366,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -1387,7 +1388,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &195878473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1996,6 +1996,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -2017,7 +2018,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &296181351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2229,6 +2229,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -2250,7 +2251,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &357777655
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2467,6 +2467,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -2488,7 +2489,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &392893409
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2799,6 +2799,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -2820,7 +2821,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &443564649
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3489,6 +3489,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -3510,7 +3511,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &618403820
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3795,6 +3795,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -3816,7 +3817,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &706616771
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4320,6 +4320,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -4341,7 +4342,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &826658590
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4442,6 +4442,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -4463,7 +4464,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &832021130
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5400,6 +5400,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -5421,7 +5422,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &951856407
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5769,6 +5769,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -5790,7 +5791,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &997461246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6292,6 +6292,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -6313,7 +6314,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1050179707
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6946,6 +6946,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -6967,7 +6968,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1181682727
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7199,6 +7199,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -7220,7 +7221,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1228411893
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7321,6 +7321,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -7342,7 +7343,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1248625262
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7712,6 +7712,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -7733,7 +7734,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1321461698
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7834,6 +7834,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -7855,7 +7856,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1327525322
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9211,6 +9211,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -9232,7 +9233,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1622518457
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9449,6 +9449,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -9470,7 +9471,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1646825328
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10502,6 +10502,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -10523,7 +10524,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1798890820
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11107,6 +11107,7 @@ MonoBehaviour:
   initialSkinName: 
   initialFlipX: 0
   initialFlipY: 0
+  updateMode: 3
   updateWhenInvisible: 3
   separatorSlotNames: []
   zSpacing: 0
@@ -11128,7 +11129,6 @@ MonoBehaviour:
   _animationName: idle
   loop: 1
   timeScale: 1
-  freeze: 0
 --- !u!23 &1965929617
 MeshRenderer:
   m_ObjectHideFlags: 0

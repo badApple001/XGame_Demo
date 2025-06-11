@@ -1,6 +1,4 @@
 using UnityEngine;
-using XGame;
-using XGame.Asset;
 
 namespace GameScripts.HeroTeam
 {
@@ -14,23 +12,21 @@ namespace GameScripts.HeroTeam
         //主要原因还是迁就开发者的习惯
         //其它类依旧采用 m_nXXX 的规则
         protected Transform transform;
-        protected GameObject gameObject;
-        protected GameObject hitPrefab;
+        protected string szHitPrefab;
         protected Transform target;
         protected ISpineCreature targetEntity;
         protected float speed;
         protected int harm;
         protected ulong sender;
         protected float radius;
-        protected int poolId;
         protected float maxLifeTime;//最大飞行时间
         protected Vector3 pos;
         protected bool isExpired;
+        protected int poolId;
 
         public virtual void Init(GameObject objRef)
         {
-            gameObject = objRef;
-            transform = gameObject.transform;
+            transform = objRef.transform;
         }
 
         public virtual void Active(Vector3 newPos)
@@ -59,6 +55,7 @@ namespace GameScripts.HeroTeam
         public virtual void ClearState()
         {
             target = null;
+            isExpired = true;
         }
 
 
@@ -73,6 +70,7 @@ namespace GameScripts.HeroTeam
                 if (maxLifeTime <= 0f)
                 {
                     isExpired = true;
+                    OnExpired();
                     return;
                 }
                 Vector3 dir = speed * TimeUtils.DeltaTime * (target.position - transform.position).normalized;
@@ -86,6 +84,11 @@ namespace GameScripts.HeroTeam
             }
         }
 
+        protected virtual void OnExpired()
+        {
+
+        }
+
         protected virtual void OnCollision()
         {
             isExpired = true;
@@ -96,7 +99,7 @@ namespace GameScripts.HeroTeam
                 return;
             }
 
-            BulletManager.Instance.ShowEffect(hitPrefab, target.position);
+            BulletManager.Instance.ShowEffect(szHitPrefab, target.position);
             targetEntity.SetHPDelta(-harm);
         }
 
@@ -112,11 +115,9 @@ namespace GameScripts.HeroTeam
         {
             radius = cfg.fRadius;
             speed = cfg.fSpeed;
+            szHitPrefab = cfg.szHitEffect;
             poolId = cfg.iID;
             transform.GetChild(0).localScale = cfg.fScale * Vector3.one;
-            var resLoader = XGameComs.Get<IGAssetLoader>();
-            uint handle = 0;
-            hitPrefab = (GameObject)resLoader.LoadResSync<GameObject>(cfg.szHitEffect, out handle);
         }
 
         public int GetPoolId() => poolId;
