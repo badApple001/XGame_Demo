@@ -5,7 +5,7 @@ using XGame.EventEngine;
 
 namespace GameScripts.HeroTeam
 {
-    
+
 
 
     public class CameraController : MonoSingleton<CameraController>, IEventExecuteSink
@@ -13,7 +13,7 @@ namespace GameScripts.HeroTeam
         private Transform m_trCamera = null;
         private Vector3 m_vec3Original;
         private Tween m_tweenShake;
-        private Camera m_MainCamrea;
+        private Camera m_camMain;
 
         public void OnExecute(ushort wEventID, byte bSrcType, uint dwSrcID, object pContext)
         {
@@ -42,15 +42,15 @@ namespace GameScripts.HeroTeam
             }
             else if (wEventID == DHeroTeamEvent.EVENT_START_GAME)
             {
-                m_trCamera.DOMoveY(15f, 2f).OnComplete(() =>
+                m_trCamera.DOMoveY(5.39f, 2f).OnComplete(() =>
                 {
                     m_vec3Original = transform.localPosition;
                 });
             }
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
-                var cam = m_trCamera.GetComponent<Camera>();
-                cam.DOOrthoSize(21f, 1.0f);
+                m_camMain.DOOrthoSize(21f, 1f);
+                m_trCamera.DOMoveY(5.7f, 1f);
             }
         }
 
@@ -64,7 +64,7 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "CameraController:Start");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "CameraController:Start");
 
-            m_MainCamrea = Camera.main;
+            m_camMain = Camera.main;
         }
 
 
@@ -79,7 +79,7 @@ namespace GameScripts.HeroTeam
 
         public Rect GetCamViewBounds()
         {
-            var cam = m_MainCamrea;
+            var cam = m_camMain;
             float vert_half = cam.orthographicSize;
             float horz_half = vert_half * cam.aspect;
 

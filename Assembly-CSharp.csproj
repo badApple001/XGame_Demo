@@ -198,7 +198,6 @@
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateSwitchValidator.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\BuffBaseComponent.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSNetModuleNode.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroJumpState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\FlowTextManager.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\CameraOrthographicProjectionSizeAdapter.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Monster\MonsterSkillState.cs" />
@@ -632,6 +631,8 @@
     <Compile Include="Assets\Piloto Studio\Scripts\ParticleHandler.cs" />
     <Compile Include="Assets\Piloto Studio\Scripts\ParticleShowcase.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\BuffTypeDef.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\MonoComponents\ForceParticleBounds.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroRandomBehaviourState.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
@@ -778,6 +779,7 @@
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\ThirdParty\XLua\Plugins\WSA\x86\xlua.dll" />
     <None Include="Assets\版本文件.txt" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Shaders\SimpleParticleUnlit.shader" />
     <None Include="Assets\G_Artist\Shader\AB_VFX_distort_AD.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Shaders\BurningPaper.shader" />
     <None Include="Assets\Game\HeroTeam\GameResources\Shaders\HealthBarShader.shader" />

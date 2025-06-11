@@ -17,7 +17,7 @@ namespace GameScripts.HeroTeam
             m_fsmActor.AddNode<HeroHitState>();
             m_fsmActor.AddNode<HeroDeathState>();
             m_fsmActor.AddNode<HeroWinState>();
-            m_fsmActor.AddNode<HeroJumpState>();
+            m_fsmActor.AddNode<HeroRandomBehaviourState>();
         }
 
         protected override void OnAfterInit(object context)

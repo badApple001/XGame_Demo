@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Spine.Unity;
@@ -17,6 +18,21 @@ namespace GameScripts.HeroTeam
         private Renderer m_renderer;
 
         private int m_nSortingLayer = int.MinValue;
+
+        private Action<int> m_fnSortChangedCallback;
+
+        public event Action<int> OnSortChangedCallback
+        {
+            remove
+            {
+                m_fnSortChangedCallback -= value;
+            }
+            add
+            {
+                m_fnSortChangedCallback += value;
+            }
+        }
+
 
         public override void OnReceiveEntityMessage(uint id, object data = null)
         {
@@ -46,9 +62,14 @@ namespace GameScripts.HeroTeam
                 {
                     m_nSortingLayer = currentLayer;
                     m_renderer.sortingOrder = m_nSortingLayer;
+                    m_fnSortChangedCallback?.Invoke(currentLayer);
                 }
             }
+        }
 
+        public void SetSortChangedCallback(Action<int> fnSortChangedCallback)
+        {
+            m_fnSortChangedCallback = fnSortChangedCallback;
         }
     }
 

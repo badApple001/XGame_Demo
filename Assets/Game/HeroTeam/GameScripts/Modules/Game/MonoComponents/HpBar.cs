@@ -22,15 +22,16 @@ namespace GameScripts.HeroTeam
         private float m_fTrailAlpha = 0f;
         private ISpineCreature m_iEntity;
         private Action m_applyDamage;
+        private SpriteRenderer[] renderers;
 
         private void Awake()
         {
             m_MPB = new MaterialPropertyBlock();
+            renderers = GetComponentsInChildren<SpriteRenderer>();
         }
 
         private void Update()
         {
-
             if (m_iEntity != null)
             {
                 float newHealth = m_iEntity.GetHP() * 1.0f / m_iEntity.GetMaxHP();
@@ -42,6 +43,7 @@ namespace GameScripts.HeroTeam
                     }
                     RefreshMaterialProperty(newHealth);
                 }
+
             }
 
             if (m_fTrailAlpha > 0f)
@@ -55,7 +57,18 @@ namespace GameScripts.HeroTeam
         public void SetEntity(ISpineCreature actor)
         {
             m_iEntity = actor;
+            var sortPart = actor.GetPart<SpineRTSortPart>();
+            sortPart.OnSortChangedCallback += OnBoneSorttingChanged;
         }
+
+        private void OnBoneSorttingChanged(int layer)
+        {
+            foreach (var renderer in renderers)
+            {
+                renderer.sortingOrder = layer;
+            }
+        }
+
 
         // ���²���
         private void UpdateMaterial()

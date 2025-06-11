@@ -242,7 +242,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         {
             m_OpenCollapsed = !m_OpenCollapsed;
 
-            float height = m_OpenCollapsed ? Screen.height - 200 : 65f;
+            float height = m_OpenCollapsed ? 1000 : 65f;
             img_PropertyPanel.rectTransform.DOKill();
             var size = img_PropertyPanel.rectTransform.sizeDelta;
             size.y = height;
@@ -336,8 +336,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             }
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
-                // 3秒后显示胜利页面
-                GameManager.Instance.AddTimer(3f, () =>
+                // 5秒后显示胜利页面
+                GameManager.Instance.AddTimer(5f, () =>
                 {
                     UIWindowManager.Instance.ShowWindow<UIWin>();
                 });

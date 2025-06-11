@@ -5,13 +5,5 @@ using XClient.Entity;
 
 namespace GameScripts.HeroTeam
 {
-    public class LeaderBuff : BuffBase
-    {
-
-        public override void OnInit(ISpineCreature owner, cfg_HeroTeamBuff cfg)
-        {
-            base.OnInit(owner, cfg);
-            m_trEffect.rotation = Quaternion.Euler(45, 0, 0);
-        }
-    }
+    public class LeaderBuff : BuffBase { }
 }

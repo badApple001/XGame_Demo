@@ -24,6 +24,15 @@ namespace GameScripts.HeroTeam
 
                     m_StateMachine.ChangeState<HeroIdleState>();
                 });
+
+
+            if (Random.value < 0.8f && m_Owner.GetHP() < m_Owner.GetMaxHP() * 0.4f)
+            {
+                if (m_Owner is IHero hero)
+                {
+                    hero.ShowEmoji("Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Interactive/Emojis/Sadness/EmojiTearyEyes.prefab");
+                }
+            }
         }
 
         public override void OnExit()

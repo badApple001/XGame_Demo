@@ -56,7 +56,7 @@ namespace Game
         //特有的游戏配置
         public GameConfig gameConfig;
 
-
+        public RectTransform BattleBubbleMessageRoot;
 
         private void Awake()
         {
