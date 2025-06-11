@@ -1,5 +1,4 @@
 using UnityEngine;
-using XClient.Entity;
 
 namespace GameScripts.HeroTeam
 {
@@ -20,7 +19,7 @@ namespace GameScripts.HeroTeam
 
         public ISpineCreature GetOwner() => m_Owner;
 
-        public virtual bool IsDone() => m_nTimes >= m_Cfg.iCount;
+        public virtual bool IsDone() => m_nTimes >= m_Cfg.iCount || m_Owner == null || m_Owner.GetState() > ActorState.Normal;
 
         public virtual float NextTime() => m_fNextTime;
 

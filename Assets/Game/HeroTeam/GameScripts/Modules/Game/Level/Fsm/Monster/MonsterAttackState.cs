@@ -79,15 +79,16 @@ namespace GameScripts.HeroTeam
                     {
                         if (foes[i].GetHatred() != maxHate)
                         {
+                            i += 1;
                             break;
                         }
                     }
                     if (i >= 0 && i != foes.Count - 1)
                     {
                         //如果有多个仇恨值相同的怪物，随机选一个
-                        var randomIndex = UnityEngine.Random.Range(i + 1, foes.Count);
+                        var randomIndex = UnityEngine.Random.Range(i, foes.Count);
                         target = foes[randomIndex];
-                        Debug.Log($"<color=0x00ff00>{foes.Count - 1 - i}个Hero仇恨值相同, 执行随机选择</color>");
+                        Debug.Log($"<color=0x00ff00>{foes.Count - i}个Hero仇恨值相同, 执行随机选择</color>");
                     }
                     else
                     {

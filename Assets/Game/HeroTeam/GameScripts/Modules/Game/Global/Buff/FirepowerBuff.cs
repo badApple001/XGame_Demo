@@ -13,7 +13,11 @@ namespace GameScripts.HeroTeam
         public override void OnClear()
         {
             base.OnClear();
-            m_Owner.SetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED, m_fOldAttackSpeed);
+
+            if (m_Owner != null && m_Owner.GetState() < ActorState.Dying)
+            {
+                m_Owner.SetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED, m_fOldAttackSpeed);
+            }
         }
     }
 }

@@ -633,6 +633,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\BuffTypeDef.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\MonoComponents\ForceParticleBounds.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroRandomBehaviourState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\BubbleMessage\BubbleMessageManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />

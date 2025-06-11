@@ -35,7 +35,8 @@ namespace GameScripts.HeroTeam
 
         public override void OnClear()
         {
-            m_Owner.GetSkeleton().skeleton.SetColor(Color.white);
+            if (m_Owner != null && m_Owner.GetState() < ActorState.Dying)
+                m_Owner.GetSkeleton().skeleton.SetColor(Color.white);
             base.OnClear();
         }
 

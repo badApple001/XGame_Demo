@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Game;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -57,11 +58,21 @@ namespace GameScripts.HeroTeam
 
         void Start()
         {
+            
+            //子弹
             BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
+
+            //特效
             GameEffectManager.Instance.Setup(m_trEffectActiveRoot, m_trEffectHiddenRoot);
+
+            //关卡
             LevelManager.Instance.Setup(null);
             LevelManager.Instance.ActorDieHandler += OnActorDieHandle;
             LevelManager.Instance.RegisterActorCampUpdateProcessPipe(CampDef.HERO, RankPipe.Instance);
+
+            //气泡弹窗
+            BubbleMessageManager.Instance.Setup(GameRoots.Instance.BattleBubbleMessageRoot);
+            
             InitGame();
         }
 
