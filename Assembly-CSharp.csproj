@@ -78,7 +78,7 @@
     <Compile Include="Assets\CommonScript\XClient\PreLoad\PreLoadCache.cs" />
     <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\Test\Rotate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateLogin.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Hero\HeroHitState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroHitState.cs" />
     <Compile Include="Assets\CommonScript\Ani\SpriteRenderAni.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\InputEvents\InputEventCamera.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Def\NumbericGoodsID.cs" />
@@ -127,7 +127,7 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IAgent.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.InputLocationInformationWindow.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ShaderCollectionWarmUp.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Hero\Hero.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Hero\Hero.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\DelayActive.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\TitleBuffComponent.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Bullet\IBullet.cs" />
@@ -143,7 +143,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXButtonScript.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.InputAccelerationInformationWindow.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Monster\MonsterDeathState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Monster\MonsterDeathState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\GameEffect\GameEffectManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\InfoBar\CreatureInfoBarPart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\RectTransformSizeSyncer.cs" />
@@ -198,10 +198,10 @@
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateSwitchValidator.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\BuffBaseComponent.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSNetModuleNode.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Hero\HeroJumpState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroJumpState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\FlowTextManager.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Utils\CameraOrthographicProjectionSizeAdapter.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Monster\MonsterSkillState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Monster\MonsterSkillState.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCInnerNames.cs" />
     <Compile Include="Assets\ThirdParty\XLua\LuaMemoryLeakChecker\LuaMemoryLeakCheckerTest.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.WebPlayerInformationWindow.cs" />
@@ -311,7 +311,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\VisibleComponent.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\UIWindowExSetting.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\SpineCreature\ISpineCreature.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Monster\MonsterIdleState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Monster\MonsterIdleState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.QualityInformationWindow.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIBatchDepthAnalyzeResultReader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\ISelectOneDataSource.cs" />
@@ -354,7 +354,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\LevelEditor\SpawnPosTool.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonoTestClass.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamGame\UIHeroTeamGame_Generate.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Hero\HeroSkillState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroSkillState.cs" />
     <Compile Include="Assets\CommonScript\Spine\SpineTimeLine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\XLua\ILuaProxyMono.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\NetTransferMessageRegister.cs" />
@@ -363,9 +363,9 @@
     <Compile Include="Assets\CommonScript\XClient\FlowText\FlowSpriteSwitcherView.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.InputGyroscopeInformationWindow.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateGateway.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Hero\HeroWinState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroWinState.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\InnerResourceLoader\ResourceData.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Monster\Monster.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Monster\Monster.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Button.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\NetDataPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\GMVirMsgHandler.cs" />
@@ -382,7 +382,7 @@
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\Orm\CORM_packaux.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\HeroTeamLogin\UIHeroTeamLogin_Generate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\PersonEntity.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Hero\IHero.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Hero\IHero.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateMachine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\WWW\WWWRequest.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Base\DebuggerManager.DebuggerWindowGroup.cs" />
@@ -398,7 +398,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineMixSkinAnimation.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameSceneManager.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNodeData.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Pipes\RankPipe.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Pipes\RankPipe.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\EnvProviderMgr.cs" />
     <Compile Include="Assets\ThirdParty\XLua\Src\GenAttributes.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIBatchDepthRunningAnalyze.cs" />
@@ -449,7 +449,7 @@
     <Compile Include="Assets\CommonScript\XClient\RPC\RPCModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\IBuff.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\CampDef.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Monster\IMonster.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Monster\IMonster.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\MessageSinkEvent.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Coroutine\CoroutineBaseExcutorNodeBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IAgentModule.cs" />
@@ -472,7 +472,7 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\INetModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\StateNone.cs" />
     <Compile Include="Assets\CommonScript\XClient\Utils\ModuleMessageHandler.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Hero\HeroIdleState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroIdleState.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableItemPoolNodeBase.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.GraphicsInformationWindow.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkSceneSelect.cs" />
@@ -491,7 +491,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Damage\IDamagePart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\TextStyleSwitcher.cs" />
     <Compile Include="Assets\CommonScript\XClient\LightEffect\EffectMgr.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Hero\HeroDeathState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroDeathState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Bullet\SageBullet.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineMixSkinGraphic.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Part\CreatureDataPart.cs" />
@@ -523,12 +523,12 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestEntityType.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Actor\Debug\Runtime\ActorPartInspector.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Entity\AgentEntityType.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Hero\HeroAttackState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroAttackState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.InputTouchInformationWindow.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Bullet\CircleMovement.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\NetMessageHandle.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\CombatUtils.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Monster\MonsterHitState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Monster\MonsterHitState.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\INetVarSerializer.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\ETFXProjectileScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\Entity\AgentDataPart.cs" />
@@ -547,7 +547,7 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UHyperText\SymbolTextEmojItem.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetRecoObject.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\InputProcessor.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\SpineCreatureStateBase.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\SpineCreatureStateBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\NetworkUtility.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\DeadZoneVectorInputProcessor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Utils\CountdownManager.cs" />
@@ -561,7 +561,7 @@
     <Compile Include="Assets\CommonScript\XClient\Reddot\IReddotModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Agent\AgentModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\ModuleDef\IGameExtensions.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\LevelManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\LevelManager.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskScreenTime.cs" />
     <Compile Include="Assets\ThirdParty\XLua\Src\ReflectionMonitor.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\XGameSink.cs" />
@@ -609,7 +609,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameResources\Powerup FX\Demo\Scripts\QMarkLoopScript.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Data\NetCommData.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\EntityType.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\LevelManager\Fsm\Monster\MonsterAttackState.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Monster\MonsterAttackState.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skill\SkillPart.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIBatchDepthAnalyzeBase.cs" />
     <Compile Include="Assets\CommonScript\XClient\FlowText\TMPFlowSpriteView.cs" />

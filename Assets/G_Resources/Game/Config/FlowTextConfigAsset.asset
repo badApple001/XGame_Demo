@@ -21,7 +21,7 @@ MonoBehaviour:
     maxShowCount: 1
     appData: 0
   - name: "\u4F24\u5BB3\u98D8\u5B57\u961F\u5217"
-    showInterval: 0.1
+    showInterval: 0.01
     position: {x: 0, y: 0}
     positionOffset: {x: 0, y: 20}
     positionFadeTime: 1
@@ -35,7 +35,7 @@ MonoBehaviour:
     maxShowCount: 999
     appData: 1
   - name: "buff\u74E2\u5B57\u961F\u5217"
-    showInterval: 0.5
+    showInterval: 0.01
     position: {x: 0, y: 0}
     positionOffset: {x: 0, y: 55}
     positionFadeTime: 0.35
