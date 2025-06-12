@@ -83,11 +83,20 @@ namespace GameScripts.HeroTeam
         /// 伤害红屏效果
         /// </summary>
         public readonly static ushort EVENT_HARM_RED_SCREEN = EVENT_HEROTEAM_BASE++;
-      
+
         /// <summary>
         /// 重置游戏
         /// </summary>
         public readonly static ushort EVENT_RESET_GAME = EVENT_HEROTEAM_BASE++;
+        /// <summary>
+        /// Boss狂暴提示
+        /// </summary>
+        public readonly static ushort EVENT_BOSS_BERSERK_HINT = EVENT_HEROTEAM_BASE++;
+
+        /// <summary>
+        /// 失败
+        /// </summary>
+        public readonly static ushort EVENT_FAIL = EVENT_HEROTEAM_BASE++;
 
         /// <summary>
         /// 所有事件的最大ID值

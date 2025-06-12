@@ -147,17 +147,18 @@ namespace GameScripts.HeroTeam
                                                 Shot(damage, target);
                                             });
                 }
+
+
+                AddTimer(1f, () =>
+                      {
+                          m_AttackCount++;
+                          m_StateMachine.ChangeState<MonsterIdleState>();
+                      });
             }
             else
             {
-                // Debug.LogWarning("No valid target found for attack.");
+                m_StateMachine.ChangeState<MonsterIdleState>();
             }
-
-            AddTimer(1f, () =>
-                  {
-                      m_AttackCount++;
-                      m_StateMachine.ChangeState<MonsterIdleState>();
-                  });
         }
 
         private void Shot(int damage, ISpineCreature target)

@@ -131,6 +131,17 @@ namespace GameScripts.HeroTeam
             //对还没有离开boss区域的玩家进行扣血
             List<IHero> selects = GetPlayersInSector(skillRoot.position, dir, 100, skill_range_angle);
             selects.ForEach(h => h.SetHPDelta(-skill.iValue));
+            // Debug.Log("============= Boss AOE SKILL =============");
+            // if (selects.Count > 0)
+            // {
+            //     selects.ForEach(h =>
+            //     {
+            //         Debug.Log($"Target: {h.id}");
+            //         h.SetHPDelta(-skill.iValue);
+            //     });
+            // }
+            // Debug.Log("============= Boss AOE END =============");
+
 
             yield return new WaitForSeconds(0.6f);
             var pContext = CameraShakeEventContext.Ins;
@@ -141,7 +152,7 @@ namespace GameScripts.HeroTeam
             pContext.fadeOut = true;
             GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
 
-            yield return new WaitForSeconds(2.4f);
+            yield return new WaitForSeconds(1.4f);
             m_StateMachine.ChangeState<MonsterIdleState>();
         }
 
@@ -215,7 +226,6 @@ namespace GameScripts.HeroTeam
                     result.Add(foe as IHero);
 #if UNITY_EDITOR
                     Debug.DrawLine(bossPos, foe.GetTr().position, Color.red, 2f);
-
 #endif
                 }
 

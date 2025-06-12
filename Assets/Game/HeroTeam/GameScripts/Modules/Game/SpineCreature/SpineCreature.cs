@@ -16,9 +16,11 @@ namespace GameScripts.HeroTeam
             RefrenshCD();
         }
 
-        public void RefrenshCD()
+        public void RefrenshCD(float cdScale = 1f)
         {
-            cdTime = (int)TimeUtils.CurrentTime + UnityEngine.Random.Range(-skill.iSkillCDFlot, skill.iSkillCDFlot);
+            int cd = skill.iSkillCD + UnityEngine.Random.Range(-skill.iSkillCDFlot, skill.iSkillCDFlot);
+            cd = Mathf.FloorToInt(cd * cdScale);
+            cdTime = (int)TimeUtils.CurrentTime + cd;
         }
 
         public cfg_HeroTeamSkills skill;
@@ -192,7 +194,17 @@ namespace GameScripts.HeroTeam
             {
 
                 var skillData = cdSkills.PickRandom();
-                skillData.RefrenshCD();
+
+                //应用技能冷却缩放
+                if (m_dicFloatProp.TryGetValue(ActorPropKey.ACTOR_PROP_CD_SCALE, out float scale))
+                {
+                    skillData.RefrenshCD(scale);
+                }
+                else
+                {
+                    skillData.RefrenshCD();
+                }
+
                 return skillData.skill;
             }
             return null;
@@ -229,8 +241,7 @@ namespace GameScripts.HeroTeam
             var dataPart = GetPart<CreatureDataPart>();
             if (dataPart != null)
             {
-                dataPart.m_hp.RemoteValueDelta += hp;
-                dataPart.m_hp.Value += hp;
+                dataPart.m_hp.Value = (long)Mathf.Min(hp + dataPart.m_hp.Value, dataPart.m_maxHp.Value);
             }
             OnHpChanged(hp);
         }

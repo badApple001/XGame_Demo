@@ -78,6 +78,21 @@ MonoBehaviour:
     IsSupportPopupAnim: 0
     IsSupportLoadingMask: 0
     IsLoadingMaskBlockWindowShow: 0
+  - Name: UIFail
+    IsOverlayMode: 0
+    IsSupportStack: 1
+    IsShieldBackWnds: 1
+    IsCanBeShield: 1
+    OccupyStackTopSound: 0
+    DisplayMode: 0
+    BackgroundMode: 0
+    IsSupportClickBackgroundClose: 0
+    IsAlignToMousePosition: 0
+    WndType: GameScripts.HeroTeam.UI.Fail.UIFail
+    IsCloseWhenExitGame: 1
+    IsSupportPopupAnim: 0
+    IsSupportLoadingMask: 0
+    IsLoadingMaskBlockWindowShow: 0
   StateWndSettings:
   - stateID: 1
     showWndsOnEnter:

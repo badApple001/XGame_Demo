@@ -11,18 +11,28 @@ using XGame.UI.Framework;
 using XGame.EventEngine;
 using XClient.Common;
 using DG.Tweening;
-using GameScripts.HeroTeam.UI.Win;
 using System.Text;
 using EasyMobileInput;
 using System.Collections.Generic;
 using Game;
 using System;
 using System.Collections;
+using GameScripts.HeroTeam.UI.Win;
+using GameScripts.HeroTeam.UI.Fail;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
+
+    public class BossRageEventContext
+    {
+        public static BossRageEventContext Instance { private set; get; } = new BossRageEventContext();
+        public bool showHintWindow = false;
+        public float bossCDScale = 1f;
+    }
+
+
     /// <summary>
-    /// 英雄小队游戏主UI窗口
+    /// 团长别开腔 主UI窗口
     /// </summary>
     public partial class UIHeroTeamGame : UIWindowEx, IEventExecuteSink
     {
@@ -40,6 +50,14 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         //下次可以使用技能的时间
         private Dictionary<string, float> m_dicNextCanUseSkillTime = new Dictionary<string, float>();
 
+        /// <summary>
+        /// 游戏时间
+        /// </summary>
+        private int m_nGameTime;
+
+        private Sequence m_FlashTween;
+
+        private bool m_bShowBossBerserkWindows = false;
 
         /// <summary>
         /// 刷新UI时调用
@@ -58,6 +76,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
             Debug.Log("####### UIHeroTeamGame.OnInitialize");
 
+            m_bShowBossBerserkWindows = false;
+
             // 获取属性面板下的各个排行榜根节点
             var propertyPanel = tran_PropertyContent;
             m_trHateListRoot = propertyPanel.GetChild(0);
@@ -73,6 +93,68 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             CreateTemplate(m_trHateListRoot);
             CreateTemplate(m_trHarmListRoot);
             CreateTemplate(m_trCuringListRoot);
+        }
+        private IEnumerator GameTimeUpdate()
+        {
+
+            while (true)
+            {
+                if (m_nGameTime == 20)
+                {
+
+                    var pContext = BossRageEventContext.Instance;
+                    pContext.showHintWindow = true;
+                    pContext.bossCDScale = 1f / (1f + 1f);
+                    GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
+                    StartLastSecondsEffect();
+                }
+
+                if (m_nGameTime == 60)
+                {
+                    var pContext = BossRageEventContext.Instance;
+                    pContext.showHintWindow = false;
+                    pContext.bossCDScale = 1f / (1 + 0.5f);
+                    text_GameTime.color = Color.yellow;
+                    GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
+                }
+
+                if (m_nGameTime >= 0)
+                {
+                    text_GameTime.text = m_nGameTime.ToString();
+                    m_nGameTime--;
+                }
+                else
+                {
+                    break;
+                }
+                yield return new WaitForSeconds(1);
+            }
+            StopAllEffects();
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_FAIL, 0, 0, null);
+        }
+
+        private void StartLastSecondsEffect()
+        {
+            // 缩放跳动
+            text_GameTime.transform.DOScale(1.2f, 0.2f)
+                .SetLoops(-1, LoopType.Yoyo)
+                .SetEase(Ease.InOutQuad);
+
+            // 颜色闪烁 + 透明闪烁（红白交替）
+            m_FlashTween = DOTween.Sequence()
+                .Append(text_GameTime.DOColor(Color.red, 0.3f))
+                .Append(text_GameTime.DOFade(0.3f, 0.2f))
+                .Append(text_GameTime.DOColor(Color.white, 0.3f))
+                .Append(text_GameTime.DOFade(1f, 0.2f))
+                .SetLoops(-1);
+        }
+
+        private void StopAllEffects()
+        {
+            text_GameTime.transform.DOKill();
+            m_FlashTween?.Kill();
+            text_GameTime.color = Color.white;
+            text_GameTime.transform.localScale = Vector3.one;
         }
 
         private void SetButtonCD(UnityEngine.UI.Button btn, float cd)
@@ -283,6 +365,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "UIHeroTeamGame:OnSubscribeEvents");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0, "UIHeroTeamGame:OnSubscribeEvents");
 
             //游戏摇杆事件注册
             var joystick = tran_JoystickParent.GetComponentInChildren<Joystick>();
@@ -302,7 +386,6 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         {
             base.OnUnsubscribeEvents();
 
-
             //移除事件
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
@@ -311,6 +394,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0);
 
             //游戏摇杆事件移除
             if (null != m_Joystick)
@@ -356,12 +441,27 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             }
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
+
+                StopAllEffects();
+
                 tran_TopPanel.gameObject.SetActive(false);
 
                 // 5秒后显示胜利页面
                 GameRoots.Instance.StartCoroutine(DelayCall(5f, () =>
                 {
                     UIWindowManager.Instance.ShowWindow<UIWin>();
+                }));
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_FAIL)
+            {
+                StopAllEffects();
+
+                tran_TopPanel.gameObject.SetActive(false);
+
+                // 5秒后显示胜利页面
+                GameRoots.Instance.StartCoroutine(DelayCall(5f, () =>
+                {
+                    UIWindowManager.Instance.ShowWindow<UIFail>();
                 }));
             }
             else if (DHeroTeamEvent.EVENT_START_GAME == wEventID)
@@ -372,10 +472,14 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             }
             else if (DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE == wEventID)
             {
+                //激活摇杆
                 tran_JoystickParent.gameObject.SetActive(true);
                 tran_LeaderSkillPanel.gameObject.SetActive(true);
 
 
+                //激活游戏倒计时
+                m_nGameTime = GameManager.Instance.GetCurrentLevelConfig().iGameTime;
+                GameManager.Instance.OpenCoroutine(GameTimeUpdate());
 
                 //技能CD 
                 // TODO: 后续由技能管理器来处理
@@ -398,6 +502,23 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             else if (DHeroTeamEvent.EVENT_RESET_GAME == wEventID)
             {
                 OnResetGame();
+            }
+            else if (DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT == wEventID)
+            {
+                if (BossRageEventContext.Instance.showHintWindow && !m_bShowBossBerserkWindows)
+                {
+                    m_bShowBossBerserkWindows = true;
+
+                    var cg = tran_BossRageHintPanel.GetComponent<CanvasGroup>();
+                    cg.gameObject.SetActive(true);
+
+                    DOTween.Sequence().Append(cg.DOFade(0.95f, 0.4f).SetUpdate(false)).AppendInterval(2f).Append(cg.DOFade(0, 0.4f).SetUpdate(false)).AppendCallback(() =>
+                    {
+                        cg.gameObject.SetActive(false);
+                        Time.timeScale = 1f;
+                    }).SetUpdate(true).SetAutoKill(true);
+                    Time.timeScale = 0.01f;
+                }
             }
         }
 

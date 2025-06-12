@@ -1016,6 +1016,7 @@ public class cfg_HeroTeamLevels : IDataObj
 {
 	public int iChapterID;  // 
 	public int iLevelID;  // 
+	public int iGameTime;  // 
 	public int iBossID;  // 
 	public float[] aryBossBornPos;  // float[-1]  
 	public int iBossBornDelaySeconds;  // 
@@ -1035,6 +1036,7 @@ public class cfg_HeroTeamLevels : IDataObj
 	{
 		iChapterID = pDataChunk.ReadINT32();
 		iLevelID = pDataChunk.ReadINT32();
+		iGameTime = pDataChunk.ReadINT32();
 		iBossID = pDataChunk.ReadINT32();
 		aryBossBornPos = pDataChunk.ReadFLOAT_Array(-1);
 		iBossBornDelaySeconds = pDataChunk.ReadINT32();
@@ -1147,8 +1149,8 @@ class cfg_HeroTeamCreature_idx0_cmper : IComparer<IIndexObj>
 public class cfg_HeroTeamLeaderConfig : IDataObj
 {
 	public int iChapterID;  // 
-	public int iLevelID;  // 
-	public int iBossID;  // 
+	public int iDefaultMp;  // 
+	public int iMpCost;  // 
 	public float[] aryBossBornPos;  // float[-1]  
 	public int iBossBornDelaySeconds;  // 
 	public int iNpcID;  // 
@@ -1166,8 +1168,8 @@ public class cfg_HeroTeamLeaderConfig : IDataObj
 	public void Load(IDataChunk pDataChunk)
 	{
 		iChapterID = pDataChunk.ReadINT32();
-		iLevelID = pDataChunk.ReadINT32();
-		iBossID = pDataChunk.ReadINT32();
+		iDefaultMp = pDataChunk.ReadINT32();
+		iMpCost = pDataChunk.ReadINT32();
 		aryBossBornPos = pDataChunk.ReadFLOAT_Array(-1);
 		iBossBornDelaySeconds = pDataChunk.ReadINT32();
 		iNpcID = pDataChunk.ReadINT32();

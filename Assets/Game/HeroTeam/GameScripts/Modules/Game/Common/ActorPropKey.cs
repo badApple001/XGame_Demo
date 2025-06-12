@@ -9,6 +9,11 @@ namespace GameScripts.HeroTeam
         /// 攻速
         /// </summary>
         public readonly static int ACTOR_PROP_ATTACK_SPEED = ACTOR_PROP_KEY_BASE++;
+
+        /// <summary>
+        /// CD
+        /// </summary>
+        public readonly static int ACTOR_PROP_CD_SCALE = ACTOR_PROP_KEY_BASE++;
     }
 
 }

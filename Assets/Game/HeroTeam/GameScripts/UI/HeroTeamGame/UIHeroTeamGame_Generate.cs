@@ -24,6 +24,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		private Image img_UIHp_Boss_Foreground = null;
 		private Text text_BossName = null;
 		private Text text_UIHp_Boss_Text = null;
+		private Text text_GameTime = null;
 		private Button btn_BtnFight = null;
 		private RectTransform tran_JoystickParent = null;
 		private RectTransform tran_LeaderSkillPanel = null;
@@ -34,6 +35,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		private Image img_PropertyPanel = null;
 		private Button btn_Collapse = null;
 		private RectTransform tran_PropertyContent = null;
+		private RectTransform tran_BossRageHintPanel = null;
 		//@End_Widget_Variables
 		
 		protected override void OnSetupOrClearWndInstance(bool isCreate)
@@ -56,16 +58,18 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			img_UIHp_Boss_Foreground = Meta.Widgets.GetWidgetComponent<Image>(2);
 			text_BossName = Meta.Widgets.GetWidgetComponent<Text>(3);
 			text_UIHp_Boss_Text = Meta.Widgets.GetWidgetComponent<Text>(4);
-			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(5);
-			tran_JoystickParent = Meta.Widgets.GetWidgetComponent<RectTransform>(6);
-			tran_LeaderSkillPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(7);
-			btn_BtnAvoidance = Meta.Widgets.GetWidgetComponent<Button>(8);
-			btn_BtnAttack = Meta.Widgets.GetWidgetComponent<Button>(9);
-			btn_BtnTreat = Meta.Widgets.GetWidgetComponent<Button>(10);
-			tran_ParametersPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(11);
-			img_PropertyPanel = Meta.Widgets.GetWidgetComponent<Image>(12);
-			btn_Collapse = Meta.Widgets.GetWidgetComponent<Button>(13);
-			tran_PropertyContent = Meta.Widgets.GetWidgetComponent<RectTransform>(14);
+			text_GameTime = Meta.Widgets.GetWidgetComponent<Text>(5);
+			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(6);
+			tran_JoystickParent = Meta.Widgets.GetWidgetComponent<RectTransform>(7);
+			tran_LeaderSkillPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(8);
+			btn_BtnAvoidance = Meta.Widgets.GetWidgetComponent<Button>(9);
+			btn_BtnAttack = Meta.Widgets.GetWidgetComponent<Button>(10);
+			btn_BtnTreat = Meta.Widgets.GetWidgetComponent<Button>(11);
+			tran_ParametersPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(12);
+			img_PropertyPanel = Meta.Widgets.GetWidgetComponent<Image>(13);
+			btn_Collapse = Meta.Widgets.GetWidgetComponent<Button>(14);
+			tran_PropertyContent = Meta.Widgets.GetWidgetComponent<RectTransform>(15);
+			tran_BossRageHintPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(16);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
@@ -77,6 +81,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			img_UIHp_Boss_Foreground = null;
 			text_BossName = null;
 			text_UIHp_Boss_Text = null;
+			text_GameTime = null;
 			btn_BtnFight = null;
 			tran_JoystickParent = null;
 			tran_LeaderSkillPanel = null;
@@ -87,6 +92,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			img_PropertyPanel = null;
 			btn_Collapse = null;
 			tran_PropertyContent = null;
+			tran_BossRageHintPanel = null;
 
 		} //@End_ClearWidgets
 

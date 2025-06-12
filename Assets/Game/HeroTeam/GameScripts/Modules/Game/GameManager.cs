@@ -1,5 +1,7 @@
 using DG.Tweening;
 using Game;
+using GameScripts.HeroTeam.UI.HeroTeamGame;
+using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -74,6 +76,8 @@ namespace GameScripts.HeroTeam
             BubbleMessageManager.Instance.Setup(GameRoots.Instance.BattleBubbleMessageRoot);
 
             InitGame();
+
+            GameGlobal.AudioCom.PlayAudio(4001);
         }
 
         private void ResetGame()
@@ -318,6 +322,8 @@ namespace GameScripts.HeroTeam
 
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0, "GameManager:OnEnable");
             // ListenJoystickEvent();
         }
 
@@ -337,6 +343,9 @@ namespace GameScripts.HeroTeam
 
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0);
+
         }
 
         private void ListenJoystickEvent()
@@ -367,6 +376,11 @@ namespace GameScripts.HeroTeam
                     OnGameOverAndPlayerWin();
                 });
             }
+            else if (wEventID == DHeroTeamEvent.EVENT_FAIL)
+            {
+                LevelManager.Instance.RecycleAll();
+                StopAllCoroutines();
+            }
             else if (wEventID == DHeroTeamEvent.EVENT_JOYSTICK_STARTED)
             {
                 OnJoystickStarted();
@@ -395,6 +409,12 @@ namespace GameScripts.HeroTeam
             {
                 ResetGame();
             }
+            else if (wEventID == DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT)
+            {
+                var context = BossRageEventContext.Instance;
+                m_Boss.SetFloatAttr(ActorPropKey.ACTOR_PROP_CD_SCALE, context.bossCDScale);
+                m_Boss.GetSkeleton().skeleton.SetColor(new Color(1, 0, 0, 0.6f));
+            }
         }
 
         //团长指令: 攻击
@@ -410,6 +430,8 @@ namespace GameScripts.HeroTeam
                 //无限火力buff
                 var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
                 heros.ForEach(h => BuffManager.Instance.CreateBuff(h, 103));
+
+                GameGlobal.AudioCom.PlayAudio(4004);
             }
         }
 
@@ -433,6 +455,7 @@ namespace GameScripts.HeroTeam
                         }
                     }
                 });
+                GameGlobal.AudioCom.PlayAudio(4002);
             }
         }
 
@@ -464,6 +487,7 @@ namespace GameScripts.HeroTeam
                     GameEffectManager.Instance.ShowEffect(clearBuffVfxPath, pos, Quaternion.Euler(-90, 0, 0), 2);
                     BuffManager.Instance.ReleaseBuff(buff);
                 });
+                GameGlobal.AudioCom.PlayAudio(4003);
             }
         }
 

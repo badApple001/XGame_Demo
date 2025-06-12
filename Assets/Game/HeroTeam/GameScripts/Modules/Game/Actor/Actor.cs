@@ -250,6 +250,7 @@ namespace GameScripts.HeroTeam
             m_resPath = null;
             m_dicIntProp.Clear();
             m_MonoType.Clear();
+            SetState(ActorState.Release);
             ClearTimes();
         }
 

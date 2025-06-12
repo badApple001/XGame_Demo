@@ -12,6 +12,7 @@ namespace GameScripts.HeroTeam
         public SpriteRenderer GetSkillTipRenderer() => m_SkillTipRenderer;
 
         protected bool m_IsBoss = false;  //是否是boss
+        protected bool m_IsBerserk = false;//是否已经狂暴了
         protected Transform m_SkillRoot; //技能施法的根节点
         public Transform GetSkillRoot() => m_SkillRoot;
 
@@ -73,6 +74,16 @@ namespace GameScripts.HeroTeam
                 else if (!IsBoos()) //boss是霸体状态 ( ps: 总不能一群人打它,每人打他一下 他都要进入hit一下吧, 从设计上就不合理了~ )
                 {
                     m_fsmActor.ChangeState<MonsterHitState>();
+                }
+
+                //boss残血的时候狂暴
+                if (!m_IsBerserk && GetState() < ActorState.Dying && IsBoos() && GetHP() <= GetMaxHP() * 0.1f)
+                {
+                    m_IsBerserk = true;
+                    var pContext = UI.HeroTeamGame.BossRageEventContext.Instance;
+                    pContext.showHintWindow = true;
+                    pContext.bossCDScale = 1f / (1f + 1f);
+                    GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
                 }
             }
 

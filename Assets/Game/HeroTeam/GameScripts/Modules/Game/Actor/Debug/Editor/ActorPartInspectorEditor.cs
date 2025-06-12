@@ -75,8 +75,8 @@ namespace GameScripts.HeroTeam
 
             // 新增折叠Entity Info区
             GUILayout.Space(10);
-            m_showEntityInfo = EditorGUILayout.Foldout(m_showEntityInfo, "Entity Info", true);
-            if (m_showEntityInfo)
+            // m_showEntityInfo = EditorGUILayout.Foldout(m_showEntityInfo, "Entity Info", true);
+            // if (m_showEntityInfo)
             {
                 GUILayout.BeginVertical(m_outerBoxStyle);
 
@@ -88,6 +88,28 @@ namespace GameScripts.HeroTeam
                 DrawReadOnlyField("config", ((IActor)m_actorPartInspector.Entity).GetActorCig());
                 GUILayout.EndVertical();
             }
+
+            GUILayout.BeginVertical(m_outerBoxStyle);
+            if (m_actorPartInspector.Entity is Actor actor)
+            {
+                //技能缩放
+                float cdScale = actor.GetFloatAttr(ActorPropKey.ACTOR_PROP_CD_SCALE);
+                GUILayout.TextField("冷却缩减: " + string.Format("{0:P}", cdScale));
+
+                //攻速加成
+                float attackSpeedScale = actor.GetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED);
+                GUILayout.TextField("攻速: " + string.Format("{0:P}", attackSpeedScale));
+
+            }
+
+            if (m_actorPartInspector.Entity is ISpineCreature spineCreature)
+            {
+                //血量
+                GUILayout.TextField("Hp: " + string.Format("{0:D}/{1:D}", spineCreature.GetHP(), spineCreature.GetMaxHP()));
+            }
+
+
+            GUILayout.EndVertical();
 
             GUILayout.EndVertical();
         }
