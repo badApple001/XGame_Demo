@@ -120,9 +120,9 @@ public class AndroidBuilder : MonoBehaviour
 
         if (!Directory.Exists(keystoreDir)) { Directory.CreateDirectory(keystoreDir); }
 
-        PlayerSettings.applicationIdentifier = "KingHero.q1.com";
+        PlayerSettings.applicationIdentifier = "demo.q1.com";
         PlayerSettings.companyName = "Q1";
-        PlayerSettings.productName = "KingHero";
+        PlayerSettings.productName = "团长别开腔";
 
         if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.Android )
         {

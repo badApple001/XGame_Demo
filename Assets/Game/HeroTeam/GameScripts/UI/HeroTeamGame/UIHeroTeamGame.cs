@@ -15,6 +15,9 @@ using GameScripts.HeroTeam.UI.Win;
 using System.Text;
 using EasyMobileInput;
 using System.Collections.Generic;
+using Game;
+using System;
+using System.Collections;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
@@ -52,6 +55,8 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         protected override void OnInitialize()
         {
             base.OnInitialize();
+
+            Debug.Log("####### UIHeroTeamGame.OnInitialize");
 
             // 获取属性面板下的各个排行榜根节点
             var propertyPanel = tran_PropertyContent;
@@ -277,6 +282,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "UIHeroTeamGame:OnSubscribeEvents");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "UIHeroTeamGame:OnSubscribeEvents");
 
             //游戏摇杆事件注册
             var joystick = tran_JoystickParent.GetComponentInChildren<Joystick>();
@@ -304,6 +310,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_REFRESH_RANKDATA, DEventSourceType.SOURCE_TYPE_MONSTERSYSTEAM, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
 
             //游戏摇杆事件移除
             if (null != m_Joystick)
@@ -312,6 +319,19 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
                 joystick.OnInputChanged -= OnJoystickInputChanged;
                 joystick.OnInputStarted -= OnJoystickInputStarted;
                 joystick.OnInputEnded -= OnJoystickInputEnded;
+            }
+        }
+
+        IEnumerator DelayCall(float delaySeconds, Action callback)
+        {
+            yield return new WaitForSeconds(delaySeconds);
+            try
+            {
+                callback();
+            }
+            catch (Exception e)
+            {
+                Debug.LogException(e);
             }
         }
 
@@ -336,11 +356,13 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             }
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
+                tran_TopPanel.gameObject.SetActive(false);
+
                 // 5秒后显示胜利页面
-                GameManager.Instance.AddTimer(5f, () =>
+                GameRoots.Instance.StartCoroutine(DelayCall(5f, () =>
                 {
                     UIWindowManager.Instance.ShowWindow<UIWin>();
-                });
+                }));
             }
             else if (DHeroTeamEvent.EVENT_START_GAME == wEventID)
             {
@@ -373,6 +395,35 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             {
                 OnReciveHarm();
             }
+            else if (DHeroTeamEvent.EVENT_RESET_GAME == wEventID)
+            {
+                OnResetGame();
+            }
+        }
+
+        private void OnResetGame()
+        {
+            //重置排行榜
+            var pContext = RefreshRankContext.Ins;
+            pContext.arrCuringRank.Clear();
+            pContext.arrHarmRank.Clear();
+            pContext.arrHateRank.Clear();
+            RefreshRank(pContext);
+
+            tran_ParametersPanel.gameObject.SetActive(false);
+            tran_JoystickParent.gameObject.SetActive(false);
+            tran_LeaderSkillPanel.gameObject.SetActive(false);
+            btn_BtnFight.gameObject.SetActive(true);
+
+            var pContext2 = BossHpEventContext.Ins;
+            pContext2.Health = 1f;
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext2);
+
+            float height = 65f;
+            img_PropertyPanel.rectTransform.DOKill();
+            var size = img_PropertyPanel.rectTransform.sizeDelta;
+            size.y = height;
+            img_PropertyPanel.rectTransform.sizeDelta = size; //(size, 1.0f).SetEase(Ease.OutQuad);
         }
 
         private void OnReciveHarm()

@@ -6,7 +6,24 @@ namespace GameScripts.HeroTeam
     using UnityEngine;
     using XClient.Common;
     using XClient.Entity;
-    using XGame.Entity;
+
+    public class SkillCDData
+    {
+        private SkillCDData() { }
+        public SkillCDData(cfg_HeroTeamSkills skill)
+        {
+            this.skill = skill;
+            RefrenshCD();
+        }
+
+        public void RefrenshCD()
+        {
+            cdTime = (int)TimeUtils.CurrentTime + UnityEngine.Random.Range(-skill.iSkillCDFlot, skill.iSkillCDFlot);
+        }
+
+        public cfg_HeroTeamSkills skill;
+        public int cdTime;
+    }
 
     public class SpineCreature : Actor, ISpineCreature
     {
@@ -15,12 +32,6 @@ namespace GameScripts.HeroTeam
         /// 角色的有限状态机
         /// </summary>
         protected StateMachine m_fsmActor;
-
-        /// <summary>
-        /// 拥有的所有技能
-        /// </summary>
-        protected List<cfg_HeroTeamSkills> m_Skills = null;
-
 
         /// <summary>
         /// Spine组件
@@ -50,6 +61,10 @@ namespace GameScripts.HeroTeam
         /// </summary>
         protected float m_fModeScaleMul = 1f;
 
+        /// <summary>
+        /// 技能CD数据列表
+        /// </summary>
+        protected List<SkillCDData> m_arrSkillCD = new List<SkillCDData>();
 
         public int GetHeroCls() => m_HeroCls;
 
@@ -72,6 +87,19 @@ namespace GameScripts.HeroTeam
 
             //名字后面要策划的表来配 这里只是临时用来区分每个玩家
             name += string.Format("{0:D2}", m_byteShareSpawnIndex++);
+            var config = (cfg_HeroTeamCreature)GetCreatureCig();
+            if (config != null)
+            {
+                int[] skillIDs = config.Skills;
+                for (int i = 0; i < skillIDs.Length; i++)
+                {
+                    cfg_HeroTeamSkills skill = GameGlobal.GameScheme.HeroTeamSkills_0(skillIDs[i]);
+                    if (skill != null)
+                    {
+                        m_arrSkillCD.Add(new SkillCDData(skill));
+                    }
+                }
+            }
         }
 
         protected override void OnAfterInit(object context)
@@ -154,28 +182,20 @@ namespace GameScripts.HeroTeam
 
         public cfg_ActorAnimConfig GetAnimConfig() => GameGlobal.GameScheme.ActorAnimConfig_0(configId);
 
-        public List<cfg_HeroTeamSkills> GetSkills()
+        public cfg_HeroTeamSkills RandomSelectSkill()
         {
-            if (m_Skills != null)
+
+            if (m_arrSkillCD.Count == 0) return null;
+
+            var cdSkills = m_arrSkillCD.FindAll(skill => skill.cdTime <= TimeUtils.CurrentTime);
+            if (cdSkills.Count > 0)
             {
-                return m_Skills;
+
+                var skillData = cdSkills.PickRandom();
+                skillData.RefrenshCD();
+                return skillData.skill;
             }
-            List<cfg_HeroTeamSkills> skills = new List<cfg_HeroTeamSkills>();
-            var config = (cfg_HeroTeamCreature)GetCreatureCig();
-            if (config != null)
-            {
-                int[] skillIDs = config.Skills;
-                for (int i = 0; i < skillIDs.Length; i++)
-                {
-                    cfg_HeroTeamSkills skill = GameGlobal.GameScheme.HeroTeamSkills_0(skillIDs[i]);
-                    if (skill != null)
-                    {
-                        skills.Add(skill);
-                    }
-                }
-            }
-            m_Skills = skills;
-            return skills;
+            return null;
         }
 
         public int GetHatred()
@@ -230,7 +250,7 @@ namespace GameScripts.HeroTeam
             base.OnReset();
             m_fsmActor = null;
             m_SkeletonAnimation = null;
-            m_Skills = null;
+            m_arrSkillCD.Clear();
             m_nTotalHarm = 0;
             m_HeroCls = 0;
             m_fModeScaleMul = 1f;

@@ -54,11 +54,11 @@ namespace GameScripts.HeroTeam
         //缓存一份Boss的死亡位置        
         public Vector3 BossDeathPosition { private set; get; }
 
-
+        //需求：增加一个键盘摇杆操作映射
+        private bool m_bEnableUserInput = false;
 
         void Start()
         {
-            
             //子弹
             BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
 
@@ -72,10 +72,19 @@ namespace GameScripts.HeroTeam
 
             //气泡弹窗
             BubbleMessageManager.Instance.Setup(GameRoots.Instance.BattleBubbleMessageRoot);
-            
+
             InitGame();
         }
 
+        private void ResetGame()
+        {
+            Debug.Log("########## 重置游戏");
+            LevelManager.Instance.RecycleAll();
+            GameEffectManager.Instance.Release();
+            BuffManager.Instance.Release();
+            GC.Collect();
+            InitGame();
+        }
 
         private void InitGame()
         {
@@ -187,10 +196,10 @@ namespace GameScripts.HeroTeam
                 BuffManager.Instance.CreateBuff(m_Leader, 102);
 
                 //受到伤害红屏
-                bar.SetApplyDamageCallback(() =>
-                {
-                    GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
-                });
+                // bar.SetApplyDamageCallback(() =>
+                // {
+                //     GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+                // });
             }
         }
 
@@ -306,6 +315,9 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
+
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             // ListenJoystickEvent();
         }
 
@@ -322,6 +334,9 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT, DEventSourceType.SOURCE_TYPE_UI, 0);
+
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
         }
 
         private void ListenJoystickEvent()
@@ -338,10 +353,19 @@ namespace GameScripts.HeroTeam
             {
                 OnClickStartGame();
             }
+            else if (wEventID == DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE)
+            {
+                m_bEnableUserInput = true;
+            }
             else if (wEventID == DHeroTeamEvent.EVENT_WIN)
             {
-                StopAllCoroutines();
-                OnGameOverAndPlayerWin();
+
+                AddTimer(1f, () =>
+                {
+                    Debug.Log("清除GameManger所有协程");
+                    StopAllCoroutines();
+                    OnGameOverAndPlayerWin();
+                });
             }
             else if (wEventID == DHeroTeamEvent.EVENT_JOYSTICK_STARTED)
             {
@@ -366,6 +390,10 @@ namespace GameScripts.HeroTeam
             else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT)
             {
                 OnLeaderSkillTreat();
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_RESET_GAME)
+            {
+                ResetGame();
             }
         }
 
@@ -521,7 +549,7 @@ namespace GameScripts.HeroTeam
         private void ApplyUserInput()
         {
             var delta = JoystickEventContext.Ins.delta;
-            Debug.Log(delta);
+            // Debug.Log(delta);
             var viewBounds = CameraController.Instance.GetCamViewBounds();
             var nextPos = m_Leader.GetPos() + delta;
             if (!viewBounds.Contains(nextPos))
@@ -595,6 +623,17 @@ namespace GameScripts.HeroTeam
                 ApplyUserInput();
             }
 
+            if (m_bEnableUserInput) //激活键盘映射
+            {
+                float x = Input.GetAxis("Horizontal");
+                float y = Input.GetAxis("Vertical");
+                if (x != 0 || y != 0)
+                {
+                    var localDelta = new Vector2(x, y);
+                    JoystickEventContext.Ins.delta = localDelta;
+                    ApplyUserInput();
+                }
+            }
             // if (Input.GetKeyDown(KeyCode.Space))
             // {
             //     // var pContext = CameraShakeEventContext.Ins;

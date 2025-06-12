@@ -48,7 +48,8 @@ namespace GameScripts.HeroTeam
         protected override void OnReset()
         {
             base.OnReset();
-
+            m_renderer = null;
+            // Debug.Log("###### SpineRTSortPart.OnReset");
         }
         public override void OnUpdate()
         {

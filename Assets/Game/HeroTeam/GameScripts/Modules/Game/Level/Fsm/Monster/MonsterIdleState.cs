@@ -22,6 +22,8 @@ namespace GameScripts.HeroTeam
             m_AttackCoolding = 0f;
             // m_AttackInterval = m_Cfg.fAttackInterval;
             m_AttackInterval = m_Owner.GetATKInterval();
+
+            Debug.Log("EnterIdle");
         }
 
         public override void OnExit()

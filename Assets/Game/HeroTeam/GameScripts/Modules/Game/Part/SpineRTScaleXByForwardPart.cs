@@ -36,6 +36,11 @@ namespace GameScripts.HeroTeam
             }
         }
 
+        protected override void OnReset()
+        {
+            base.OnReset();
+            m_skel = null;
+        }
     }
 
 }

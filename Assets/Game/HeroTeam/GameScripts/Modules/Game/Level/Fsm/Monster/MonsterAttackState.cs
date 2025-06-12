@@ -22,14 +22,7 @@ namespace GameScripts.HeroTeam
 
         private cfg_HeroTeamSkills HasSkillCooldown()
         {
-            var skills = m_Owner.GetSkills();
-            int elapseTime = Mathf.RoundToInt(m_AttackCount * m_Cfg.fAttackInterval);
-            var cooldSkills = skills.FindAll(s => s.iSkillCD <= elapseTime);
-            if (cooldSkills.Count == 0)
-            {
-                return null;
-            }
-            var skill = cooldSkills.PickRandom();
+            var skill = m_Owner.RandomSelectSkill();
             return skill;
         }
 

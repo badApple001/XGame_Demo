@@ -244,10 +244,8 @@ namespace GameScripts.HeroTeam
             XGameComs.Get<IItemPoolManager>().Register<SpineCreatureCampUpdateProcessPipe>();
         }
 
-        /// <summary>
-        /// 释放系统资源
-        /// </summary>
-        public void Release()
+
+        public void RecycleAll()
         {
             // 清理所有Actor
             foreach (var actor in m_dicEntIdActor.Values)
@@ -268,6 +266,14 @@ namespace GameScripts.HeroTeam
 
             // 清理待删除Actor列表
             m_arrWaitDeleteActor.Clear();
+        }
+
+        /// <summary>
+        /// 释放系统资源
+        /// </summary>
+        public void Release()
+        {
+            RecycleAll();
 
             // 清理阵营更新管道
             IItemPoolManager itemPoolMgr = XGame.XGameComs.Get<IItemPoolManager>();

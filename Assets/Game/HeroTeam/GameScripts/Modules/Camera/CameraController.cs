@@ -52,6 +52,11 @@ namespace GameScripts.HeroTeam
                 m_camMain.DOOrthoSize(21f, 1f);
                 m_trCamera.DOMoveY(5.7f, 1f);
             }
+            else if (wEventID == DHeroTeamEvent.EVENT_RESET_GAME)
+            {
+                m_trCamera.position = new Vector3(0f, 5.4f, -10f);
+                m_camMain.orthographicSize = 33.56f;
+            }
         }
 
         // Start is called before the first frame update
@@ -63,6 +68,7 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "CameraController:Start");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "CameraController:Start");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "CameraController:Start");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "CameraController:Start");
 
             m_camMain = Camera.main;
         }
@@ -74,6 +80,7 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_CAMERA_SHAKE, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_START_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_WIN, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
         }
 
 

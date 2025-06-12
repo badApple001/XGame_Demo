@@ -136,6 +136,12 @@ namespace GameScripts.HeroTeam
             }
         }
 
+        public void Release()
+        {
+            m_ActiveBuffs.ForEach(buff => ReleaseBuffInternal(buff));
+            m_ActiveBuffs.Clear();
+        }
+        
         public void OnFrameUpdate()
         {
             float now = Time.time;

@@ -44,12 +44,12 @@ namespace GameScripts.HeroTeam
             {
                 case 400001:
                     {
-                        yield return Load_Skill_400001(skill);
+                        yield return GameManager.Instance.OpenCoroutine(Load_Skill_400001(skill));
                     }
                     break;
                 case 600001:
                     {
-                        yield return Load_Skill_600001(skill);
+                        yield return GameManager.Instance.OpenCoroutine(Load_Skill_600001(skill));
                     }
                     break;
                 default:

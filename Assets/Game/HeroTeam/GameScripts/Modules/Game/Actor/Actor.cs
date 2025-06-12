@@ -81,6 +81,7 @@ namespace GameScripts.HeroTeam
         protected override void OnInit(object context)
         {
             base.OnInit(context);
+            m_state = ActorState.Spawn;
             var cfg = GetActorCig();
             if (cfg == null)
             {
@@ -127,9 +128,14 @@ namespace GameScripts.HeroTeam
             {
                 if (m_MonoType.Count > 0)
                 {
-                    m_MonoType.ForEach(type => transform.gameObject.AddComponent(type));
+                    m_MonoType.ForEach(type =>
+                    {
+                        if (transform.gameObject.GetComponent(type) == null)
+                        {
+                            transform.gameObject.AddComponent(type);
+                        }
+                    });
                 }
-
 #if UNITY_EDITOR
                 if (transform.TryGetComponent<ActorPartInspector>(out var componet))
                 {
@@ -244,7 +250,6 @@ namespace GameScripts.HeroTeam
             m_resPath = null;
             m_dicIntProp.Clear();
             m_MonoType.Clear();
-            m_state = ActorState.Release;
             ClearTimes();
         }
 

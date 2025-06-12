@@ -18,9 +18,13 @@ namespace GameScripts.HeroTeam
         public override void OnEnter()
         {
             base.OnEnter();
+
+            Debug.Log("EnterIdle");
+
             m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
             m_AttackCoolding = 0f;
             m_AttackInterval = m_Owner.GetATKInterval();
+
 
             //有一定的概率进入AI行为状态
             if (Random.value < 0.2f)

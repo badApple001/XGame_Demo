@@ -83,7 +83,7 @@ namespace GameScripts.HeroTeam
             return pool;
         }
 
-        public Transform ShowEffect(string resPath, float duration = 1f )
+        public Transform ShowEffect(string resPath, float duration = 1f)
         {
             return ShowEffect(resPath, Vector3.zero, Quaternion.identity, duration);
         }
@@ -146,16 +146,26 @@ namespace GameScripts.HeroTeam
 
         public void Release()
         {
-            if (m_trActiveRoot != null)
+            foreach (var t in m_recycleTasks)
             {
-                foreach (Transform child in m_trActiveRoot)
+                if (t.EffectTransform != null)
                 {
-                    if (child != null && m_transformPoolByTransform.TryGetValue(child, out TransformPool pool))
-                    {
-                        pool.Release(child);
-                    }
+                    t.Pool.Release(t.EffectTransform);
                 }
+                ReleaseTask(t);
             }
+            m_recycleTasks.Clear();
+
+            // if (m_trActiveRoot != null)
+            // {
+            //     foreach (Transform child in m_trActiveRoot)
+            //     {
+            //         if (child != null && m_transformPoolByTransform.TryGetValue(child, out TransformPool pool))
+            //         {
+            //             pool.Release(child);
+            //         }
+            //     }
+            // }
         }
     }
 

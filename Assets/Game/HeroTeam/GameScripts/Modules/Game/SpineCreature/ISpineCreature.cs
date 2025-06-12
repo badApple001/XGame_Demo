@@ -37,11 +37,10 @@ namespace GameScripts.HeroTeam
 
 
         /// <summary>
-        /// 获取技能列表
+        /// 从CD了的技能中抽选一个
         /// </summary>
         /// <returns></returns>
-        List<cfg_HeroTeamSkills> GetSkills();
-
+        cfg_HeroTeamSkills RandomSelectSkill();
 
         cfg_HeroTeamCreature GetCreatureCig();
 
@@ -92,6 +91,6 @@ namespace GameScripts.HeroTeam
 
         void SetForward(Vector3 forward);
 
-        float GetATKInterval();  
+        float GetATKInterval();
     }
 }

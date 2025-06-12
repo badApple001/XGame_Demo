@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using XClient.Common;
-using XGame.Entity;
 using XGame.EventEngine;
 
 
@@ -23,6 +21,7 @@ namespace GameScripts.HeroTeam
             base.OnInstantiated();
             m_SkillRoot = transform.Find("Root_Skill");
             m_SkillTipRenderer = m_SkillRoot.GetChild(0).GetComponent<SpriteRenderer>();
+            m_SkeletonAnimation.state.SetAnimation(0, GetAnimConfig().szIdle, true);
         }
 
         protected override void InitFsm()

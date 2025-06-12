@@ -39,6 +39,8 @@ namespace GameScripts.HeroTeam
         protected override void OnReset()
         {
             base.OnReset();
+            m_actor = null;
+            m_stop = true;
         }
 
         public override void OnUpdate()

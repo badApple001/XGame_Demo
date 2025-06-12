@@ -169,5 +169,13 @@ namespace GameScripts.HeroTeam
                 m_Owner.GetVisual().position,
                 Vector3.up * 1f);
         }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+            m_Owner.GetVisual().DOKill();
+            m_Owner.GetVisual().localPosition = Vector3.zero;
+            
+        }
     }
 }

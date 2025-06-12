@@ -40,7 +40,7 @@ namespace GameScripts.HeroTeam
         //领取奖品
         private void RecevieBonus()
         {
-            Debug.Log("领取奖励");
+            // Debug.Log("领取奖励");
 
             //胜利动画
             m_Anim.state.Complete += entry =>

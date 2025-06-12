@@ -46,7 +46,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/Config/FlowTextConfigAsset.asset
     isMainAsset: 1
     dependAssetList: []
-    hash: c03afcacab8c0dff26a559ec101b015e
+    hash: b34eb67837185338d55a61030efdc4c3
   - assetPath: Assets/G_Resources/App/GameConfig.asset
     isMainAsset: 1
     dependAssetList: []
@@ -54,7 +54,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/App/GameEntry.unity
     isMainAsset: 1
     dependAssetList: []
-    hash: 08dd4f01308f1111798d0f9b9b3767f1
+    hash: 61931653125835b283e3f7a114c685fe
   - assetPath: Assets/G_Resources/App/GameManager.prefab
     isMainAsset: 1
     dependAssetList:
@@ -66,7 +66,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Configs/GameInitConfig.asset
     - Assets/G_Resources/Game/Prefab/Other/Loading.prefab
     - Assets/G_Artist/Material/UI/UIResearchActive.mat
-    hash: 40151fd1e499ca86db478f01a9b325e5
+    hash: 3dde75c1c4b94ecfe359c8c20e36e133
   - assetPath: Assets/G_Resources/App/Materials/UIBlur.mat
     isMainAsset: 1
     dependAssetList:
@@ -120,7 +120,7 @@ MonoBehaviour:
     dependAssetList:
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Fonts/TTF/simhei.ttf
-    hash: 5c64e5204d32685709e31ee956fb9a06
+    hash: 62d5c4dac75df2140369645ee39affeb
   - assetPath: Assets/G_Artist/Fonts/TTF/simhei.ttf
     isMainAsset: 1
     dependAssetList: []
@@ -224,7 +224,7 @@ MonoBehaviour:
     dependAssetList:
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Fonts/TTF/FZCY.TTF
-    hash: 19c22ec368a4e9cb05cad32bae6c3b6b
+    hash: 29a65c3f3984258d37b5b22ade556af9
   - assetPath: Assets/G_Artist/Fonts/TTF/FZCY.TTF
     isMainAsset: 1
     dependAssetList: []
@@ -250,7 +250,7 @@ MonoBehaviour:
     dependAssetList:
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Fonts/TTF/ObelixProNum.ttf
-    hash: 8c73ba4290d02d845e0bb35ba4cb0ce9
+    hash: a6111bf3d1e64bf61c6823a403199e3e
   - assetPath: Assets/G_Resources/App/Prefabs/Widgets/SmallYellowBtn.prefab
     isMainAsset: 1
     dependAssetList:
@@ -968,7 +968,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/gamescheme.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 84a8a267b61e36fdf9640c500ffe1eaa
+    hash: 807f1c668c0a3ff38c3487e37f79d824
   - assetPath: Assets/G_Resources/Game/GameScp/Goods.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -992,7 +992,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBuff.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 68bfc727f3c76d2fcd7878a9a07ac2e5
+    hash: c5992a4d83fb8c7653a9ae5d3be70f8a
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBullet.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1000,7 +1000,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamCreature.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 0ff33942b2296827e93fd5d9e6187ea0
+    hash: 65deff135d6e1c74abb95f61d456bb99
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLevels.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1008,7 +1008,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamSkills.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 23d3efcca26c7ec15cb66b51d447f36a
+    hash: 33c6aaacb288ba9cf0933447e870237f
   - assetPath: Assets/G_Resources/Game/GameScp/I18N.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1365,7 +1365,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/G_Artist/Fonts/SDF/COMMON/common.asset
-    hash: 321aa50c5487d043dbac3b24090b7155
+    hash: 281bc31a01e32989ece601f9298c4ca0
   - assetPath: Assets/G_Resources/Game/Prefab/FlowText/NormalText.prefab
     isMainAsset: 1
     dependAssetList: []
@@ -1916,20 +1916,22 @@ MonoBehaviour:
     - Assets/G_Artist/Shader/UIGray.shader
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Shader/UI-FogOfWarMaskEffectImge.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Outline/Sprite/SpritesUnlit-Outline.shader
     - Assets/G_Artist/Shader/UISpriteLine.shader
     - Assets/G_Resources/App/Shaders/UI-Blur.shader
     - Assets/G_Artist/Shader/URP/CaptureBlur.shader
     - Assets/G_Artist/Shader/UI-HSB_Outline.shader
+    - Assets/Game/HeroTeam/GameResources/Shaders/SimpleParticleUnlit.shader
     - Assets/Game/HeroTeam/GameResources/Shaders/Dissolve.shader
     - Assets/Game/HeroTeam/GameResources/Shaders/BurningPaper.shader
     - Assets/G_Artist/Shader/UI-MaskEffectImge.shader
     - Assets/G_Artist/Shader/UI-MaskLevel.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/G_Artist/Shader/UIGlow.shader
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
     - Assets/G_Artist/Shader/Sprites_ClipWithAngle.shader
     - Assets/G_Artist/Shader/UI-MaskBorderBlur.shader
     - Assets/Game/HeroTeam/GameResources/Shaders/Spine_CutoffBottom2Top.shader
-    hash: b6985c9a1624ed525e7616c9f94d0612
+    hash: 111d7e3625ecddf772111588dea8007f
   - assetPath: Assets/Game/HeroTeam/GameResources/Shaders/HealthBarShader.shader
     isMainAsset: 1
     dependAssetList: []
@@ -1938,6 +1940,10 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList: []
     hash: 0b662ee6a4bb3d0b95da9426a13635c6
+  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Outline/Sprite/SpritesUnlit-Outline.shader
+    isMainAsset: 0
+    dependAssetList: []
+    hash: b0b42e2f7c52615f245c425c38e93339
   - assetPath: Assets/G_Artist/Shader/URP/CaptureBlur.shader
     isMainAsset: 0
     dependAssetList: []
@@ -1946,6 +1952,10 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList: []
     hash: 21d67c9b8f3b931a84f25fca674667aa
+  - assetPath: Assets/Game/HeroTeam/GameResources/Shaders/SimpleParticleUnlit.shader
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 1b1bb63f0ff50047724f91f214eec6d2
   - assetPath: Assets/Game/HeroTeam/GameResources/Shaders/Dissolve.shader
     isMainAsset: 1
     dependAssetList: []
@@ -1962,14 +1972,14 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList: []
     hash: 216d8c6615f6dc494df416f2cffa1c00
+  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    isMainAsset: 0
+    dependAssetList: []
+    hash: dce7fe2329bb5129c0d30f0c81435e7c
   - assetPath: Assets/G_Artist/Shader/UIGlow.shader
     isMainAsset: 0
     dependAssetList: []
     hash: 9d5864956aa979dc124c46f061e0e433
-  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    isMainAsset: 0
-    dependAssetList: []
-    hash: de609ee1e1588ba6be684445527e45ae
   - assetPath: Assets/G_Artist/Shader/UI-MaskBorderBlur.shader
     isMainAsset: 0
     dependAssetList: []
@@ -2075,10 +2085,6 @@ MonoBehaviour:
     isMainAsset: 0
     dependAssetList: []
     hash: 0247a103df56531740350b8a98acf185
-  - assetPath: Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
-    isMainAsset: 0
-    dependAssetList: []
-    hash: dce7fe2329bb5129c0d30f0c81435e7c
   - assetPath: Assets/G_Artist/Shader/A_VFX_lizi_katong.shader
     isMainAsset: 0
     dependAssetList: []
@@ -2352,6 +2358,10 @@ MonoBehaviour:
     dependAssetList:
     - Assets/G_Artist/Fonts/SDF/Prop/prop.asset
     hash: c91ffcc4b1996ef39dc5b437648321cd
+  - assetPath: Assets/Game/HeroTeam/GameResources/Animations/BubbleMessage_Show.anim
+    isMainAsset: 1
+    dependAssetList: []
+    hash: bd7e6037febfb450635391e9680e0a9a
   - assetPath: Assets/Game/HeroTeam/GameResources/Easy mobile input/Background.png
     isMainAsset: 1
     dependAssetList: []
@@ -2985,7 +2995,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/blush.png
-    hash: f35db2a19c100a8622f9cbeb95ab6f87
+    hash: 3ed9e89caa447eca7bc6d1e1e63319e0
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/blush.png
     isMainAsset: 1
     dependAssetList: []
@@ -2994,7 +3004,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth.png
-    hash: bf3ae219f1f57edb8eaa9aba3693ea98
+    hash: 07bd911229f76ab34cdace2808448370
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth.png
     isMainAsset: 1
     dependAssetList: []
@@ -3003,7 +3013,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth2.png
-    hash: b0039a2b2d28e4a9baaf12fa70a05d6d
+    hash: 88b69352a6fd1cf7d7acbc30857c583c
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/clenchteeth2.png
     isMainAsset: 1
     dependAssetList: []
@@ -3219,7 +3229,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/pleading.png
-    hash: 025c3adffbf694ee5746795e559e7b60
+    hash: c35d4c82f931e48803b78eb7a00f86f3
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/pleading.png
     isMainAsset: 1
     dependAssetList: []
@@ -3264,7 +3274,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/shocked.png
-    hash: b9a1436a08dbe1e493ad1a89cb530238
+    hash: 1f4abe8de8435f695d2f0fb4cb5837e5
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/shocked.png
     isMainAsset: 1
     dependAssetList: []
@@ -3273,7 +3283,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick.png
-    hash: 178e6f902f3a00157cb7243635da5e67
+    hash: 4bddc05e3c9076b54bf220bc573ef02f
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/Emojis/sick.png
     isMainAsset: 1
     dependAssetList: []
@@ -4533,6 +4543,18 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList: []
     hash: 7549f4833355288df100c5c9cebeca1c
+  - assetPath: Assets/Game/HeroTeam/GameResources/Materials/Ring_ADD.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Shaders/SimpleParticleUnlit.shader
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/ring.png
+    hash: 064f0d3a23ab3488e48f0abdb6363d2b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Materials/SimpleParticleUnlit.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Textures/magic_runecircle.png
+    - Assets/Game/HeroTeam/GameResources/Shaders/SimpleParticleUnlit.shader
+    hash: 89d1fdc062b97bf53ff0c38c2808cd6c
   - assetPath: Assets/Game/HeroTeam/GameResources/Materials/Spine_CutoffBottom2Top.mat
     isMainAsset: 1
     dependAssetList:
@@ -5311,11 +5333,9 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Buff/MagicCircleBlue.prefab
     isMainAsset: 1
     dependAssetList:
-    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/aura_slam_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Magic/magic_runecircle_ADD.mat
-    - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Models/aura_straight.FBX
-    hash: 4f606bb4554da737c3fd04c1c733ec07
+    - Assets/Game/HeroTeam/GameResources/Materials/SimpleParticleUnlit.mat
+    - Assets/Game/HeroTeam/GameResources/Materials/Ring_ADD.mat
+    hash: 4c9d9481d3fda5db72e4def967069cb8
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/BulletHitEffect/BubbleExplosion.prefab
     isMainAsset: 1
     dependAssetList:
@@ -5380,7 +5400,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 05cab846b44cebf4a6f6a03e7c863273
+    hash: 51083a697e8c033b6ce0c7fec3b524c7
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5401,8 +5421,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    hash: 22819baae6d63b99e8eefeee9bca2138
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    hash: 478dfa7d77cd48877358aeb5c82b7e5e
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_045/045.png
     isMainAsset: 1
     dependAssetList: []
@@ -5423,7 +5443,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_Material.mat
     - Assets/Game/HeroTeam/GameResources/Textures/skill_arrow.png
-    hash: f693b522e555f18fe16b9f29b48b41ef
+    hash: 04c9c2b68367587bafbeea3bce6a7ed2
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5444,8 +5464,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    hash: 486ca552b11307276c7b76594139a5a3
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    hash: 3c1030ea499d0e13ea68f3f54ac9325e
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_007/007.png
     isMainAsset: 1
     dependAssetList: []
@@ -5464,13 +5484,13 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: d8fc7343c33d303f637e641cebf36b93
+    hash: 51834727985624c99b08f0eb8242e763
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.png
-    hash: 07e301b4784dcbd1511c924da3f7e618
+    hash: fbda9b47937b29475592dced3c690773
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_025/025.png
     isMainAsset: 1
     dependAssetList: []
@@ -5501,7 +5521,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_Material.mat
-    hash: 930f4d4ec8c86df16f95d3d2822d9e9a
+    hash: 61693f6106a31158fd46589bb5ed10aa
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5526,8 +5546,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    hash: 27fb78698af5beb0ff7f69688e7b1333
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    hash: a02e6921935c8d2819d593e3080b1903
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_010/010.png
     isMainAsset: 1
     dependAssetList: []
@@ -5538,13 +5558,13 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Material.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 0410ad13cd9b9af1404d121db23373b9
+    hash: 557cb7c3a1cde37215b7c4d352a53578
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.png
-    hash: c6af32e9858ea2b3c3f4eef87235769e
+    hash: 61e63b9c6a850d71745c343e89b84080
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_032/032.png
     isMainAsset: 1
     dependAssetList: []
@@ -5575,13 +5595,13 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Material.mat
     - Assets/Game/HeroTeam/GameResources/Materials/Dissolve.mat
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_SkeletonData.asset
-    hash: 9caf09432c35b6c38eacf6acb6ad638a
+    hash: 249bbeca844f804361a2294f624ad1ba
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_002/002.png
-    hash: 8863430357abc7dd35bef2679adbb879
+    hash: 4d5e4b75c417c5cc7964cb0bd6595bee
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_002/002_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5608,7 +5628,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 4ebd458d091355c927ccca7330e96eb9
+    hash: e8b7443895191d47ed6442c4961e2492
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5632,9 +5652,9 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011_Material.mat
     isMainAsset: 1
     dependAssetList:
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.png
-    hash: ff3e33dca29df3a4b3b9744c79e4be2d
+    hash: d1740703c42a67f66716d37dc73caaf1
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_011/011.png
     isMainAsset: 1
     dependAssetList: []
@@ -5645,7 +5665,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 9cf1c5a47ca71fcf2cb3f531c91258de
+    hash: bebfdf28bc4cf57ebba87029b9ef5384
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5670,8 +5690,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    hash: c5d76344d29fad21f299ec9591915631
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    hash: 71046b9786f8d0317db5fa3a377e0e6d
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_014/014.png
     isMainAsset: 1
     dependAssetList: []
@@ -5682,7 +5702,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 0cc1379a93cc89f2911c00756d25be66
+    hash: 7415397c063b0d55d90ef55a26d1bff9
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5703,8 +5723,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    hash: 25f45141df2738bdebd281c998679d84
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    hash: 98fdae8360e9540f094bd229804ce358
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_038/038.png
     isMainAsset: 1
     dependAssetList: []
@@ -5719,7 +5739,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_SkeletonData.asset
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_Material.mat
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: d2355240e61dda0eb73c5c5d4adcd52c
+    hash: ed13c504ca8666790b6a92b3882625d2
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
@@ -5739,9 +5759,9 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009_Material.mat
     isMainAsset: 1
     dependAssetList:
+    - Assets/Spine/Runtime/spine-unity/Shaders/Outline/Sprite/SpritesUnlit-Outline.shader
     - Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    hash: d27c634d18f276372d061fc3ad53580c
+    hash: c8b76505908c8d9174ead0fb14baf0db
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BC_009/009.png
     isMainAsset: 1
     dependAssetList: []
@@ -5826,11 +5846,18 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/ring_ADD.mat
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
     hash: f1bee90676e19dfd26f87977decd5842
+  - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/UI/BubbleMessage.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/G_Resources/Game/Prefab/update/FZCY_Update.TTF
+    - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Settings/settings_checkbox.png
+    - Assets/Game/HeroTeam/GameResources/Animations/BubbleMessage_Show.anim
+    hash: b8000f44c2dc0ce877c08795130cfce8
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/UI/Toast.prefab
     isMainAsset: 1
     dependAssetList:
     - Assets/G_Resources/Game/Prefab/update/kuangti.png
-    hash: 794bd1cee947c463cc0221d3b08f3826
+    hash: efeeb33556034e6992751590ddff2874
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/UI/UIHeroTeamGame.prefab
     isMainAsset: 1
     dependAssetList:
@@ -5842,7 +5869,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Buttons/btn_big.png
     - Assets/Game/HeroTeam/GameResources/Easy mobile input/Prefabs/Joystick 1 Black.prefab
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Icons/icon_blue_back.png
-    hash: ee4b220d0885b7a95d5813ac2670e03b
+    hash: c7c80f72c5a4f01798bb7c9421db75d5
   - assetPath: Assets/Game/HeroTeam/GameResources/Sprite/collapse.png
     isMainAsset: 1
     dependAssetList: []
@@ -5874,7 +5901,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Spine/BC_045/045_Material.mat
     - Assets/Game/HeroTeam/GameResources/Textures/White_1x1.png
     - Assets/Game/HeroTeam/GameResources/Materials/Dissolve.mat
-    hash: 6731b8323f43c42708e9101832463477
+    hash: 7b0463d986d702f92c1c80935fee1e09
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.atlas.txt
     isMainAsset: 1
     dependAssetList: []
@@ -5897,8 +5924,8 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Spine/BM_910/910.png
-    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton-Fill.shader
-    hash: a49e97fa253d4c8df32b6b94be7cb7b3
+    - Assets/Spine/Runtime/spine-unity/Shaders/Spine-Skeleton.shader
+    hash: 43281b368ee298e700e65ad6886dafe8
   - assetPath: Assets/Game/HeroTeam/GameResources/Spine/BM_910/910_SkeletonData.asset
     isMainAsset: 1
     dependAssetList:
