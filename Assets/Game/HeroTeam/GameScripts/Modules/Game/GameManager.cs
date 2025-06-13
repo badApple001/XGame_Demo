@@ -204,6 +204,19 @@ namespace GameScripts.HeroTeam
                 // {
                 //     GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_HARM_RED_SCREEN, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
                 // });
+                var movePart = m_Leader.GetPart<SpineCreatureTargetMoverPart>();
+                movePart.SetArriveCallback(() =>
+                {
+                    AddTimer(0.1f, () =>
+                    {
+                        movePart.SetDestination(new Vector3(0, -3.14f)).SetArriveCallback(() =>
+                      {
+                          GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+                          ListenJoystickEvent();
+                          BubbleMessageManager.Instance.Show("准备战斗", m_Leader.GetVisual().position, Vector3.up);
+                      }).Start();
+                    });
+                });
             }
         }
 
@@ -495,34 +508,33 @@ namespace GameScripts.HeroTeam
         {
             yield return new WaitForSeconds(2f);
             var chatPoint = m_Npc.transform.Find("ChatPoint");
-            List<string> chats = new List<string>()
-            {
-                "管理者埃克索图斯：“拉格纳罗斯，火焰之王，他比这个世界本身还要古老，在他面前屈服吧，在你们的末日面前屈服吧！”",
-                "拉格纳罗斯：“你为什么要唤醒我，埃克索图斯，为什么要打扰我？“",
-                "管理者埃克索图斯：“是因为这些入侵者，我的主人，他们闯入了您的圣殿，想要窃取你的秘密。”",
-                "拉格纳罗斯：“蠢货，你让这些不值一提的虫子进入了这个神圣的地方，现在还将他们引到了我这里来，你太让我失望了，埃克索图斯，你太让我失望了！”",
-                "管理者埃克索图斯：“我的火焰，请不要夺走我的火焰。”（管理者埃克索图斯死亡）",
-                "拉格纳罗斯：“现在轮到你们了，你们愚蠢的追寻拉格纳罗斯的力量，现在你们即将亲眼见到它。”"
-            };
 
-            for (int i = 0; i < chats.Count; i++)
+            if (GetCurrentLevelConfig().iPlotID > 0)
             {
-                var toast = ToastManager.Instance.Get();
-                toast.Show(chats[i], 1f);
+                var plotId = GetCurrentLevelConfig().iPlotID;
+                int i = 0;
+                while (plotId > 0)
+                {
+                    var plot = GameGlobal.GameScheme.Plot_0(plotId);
 
-                if (i % 2 == 0)
-                {
-                    toast.transform.SetParent(chatPoint);
-                    toast.transform.localPosition = Vector3.zero;
+                    var toast = ToastManager.Instance.Get();
+                    toast.Show(plot.szPlotContent, plot.iTime);
+
+                    if (i % 2 == 0)
+                    {
+                        toast.transform.SetParent(chatPoint);
+                        toast.transform.localPosition = Vector3.zero;
+                    }
+                    else
+                    {
+                        toast.transform.position = Vector3.up * 23f;
+                    }
+
+                    yield return new WaitForSeconds(plot.iTime);
+                    plotId = plot.iNext;
+                    i++;
                 }
-                else
-                {
-                    toast.transform.position = Vector3.up * 23f;
-                }
-                yield return new WaitForSeconds(1f);
             }
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
-
 
             var sa = m_Npc.GetSkeleton();
             sa.AnimationState.SetAnimation(0, "dead", false);
@@ -547,8 +559,10 @@ namespace GameScripts.HeroTeam
             yield return new WaitForSeconds(1f);
             LevelManager.Instance.DestroyActor(m_Npc);
 
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
-            ListenJoystickEvent();
+            BubbleMessageManager.Instance.Show("开团", m_Leader.GetVisual().position, Vector3.up);
+
+            yield return new WaitForSeconds(1f);
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
         }
 
         private bool m_OnJoystickTouched = false;

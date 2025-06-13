@@ -69,8 +69,8 @@
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\HorizontalLayoutGroup.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\ContentSizeFitter.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Layout\CanvasScaler.cs" />
-    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\InputModules\StandaloneInputModule.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Text.cs" />
+    <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\InputModules\StandaloneInputModule.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\Scrollbar.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\UI\Core\RawImage.cs" />
     <Compile Include="Packages\Local\com.unity.ugui@1.0.0\Runtime\EventSystem\UIElements\PanelRaycaster.cs" />

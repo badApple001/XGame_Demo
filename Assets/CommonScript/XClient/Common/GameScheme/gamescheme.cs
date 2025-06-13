@@ -1016,6 +1016,7 @@ public class cfg_HeroTeamLevels : IDataObj
 {
 	public int iChapterID;  // 
 	public int iLevelID;  // 
+	public int iPlotID;  // 
 	public int iGameTime;  // 
 	public int iBossID;  // 
 	public float[] aryBossBornPos;  // float[-1]  
@@ -1036,6 +1037,7 @@ public class cfg_HeroTeamLevels : IDataObj
 	{
 		iChapterID = pDataChunk.ReadINT32();
 		iLevelID = pDataChunk.ReadINT32();
+		iPlotID = pDataChunk.ReadINT32();
 		iGameTime = pDataChunk.ReadINT32();
 		iBossID = pDataChunk.ReadINT32();
 		aryBossBornPos = pDataChunk.ReadFLOAT_Array(-1);
@@ -1213,6 +1215,52 @@ class cfg_HeroTeamLeaderConfig_idx0_cmper : IComparer<IIndexObj>
 	}
 }
 
+[System.Serializable]
+public class cfg_Plot : IDataObj
+{
+	public int iID;  // 
+	public string szPlotContent;  // 
+	public int iTime;  // 
+	public int iNext;  // 
+
+	public IDataObj Clone(){return new cfg_Plot();}
+	public void Load(IDataChunk pDataChunk)
+	{
+		iID = pDataChunk.ReadINT32();
+		szPlotContent = pDataChunk.ReadSTRING();
+		iTime = pDataChunk.ReadINT32();
+		iNext = pDataChunk.ReadINT32();
+	}
+
+};
+
+public class cfg_Plot_idx0 : IIndexObj
+{
+	public int iID;  // 
+	public uint __dataarea_offset__;  // 
+
+	public IDataObj Clone(){return new cfg_Plot_idx0();}
+	public uint GetDataPosition(){return __dataarea_offset__;}
+	public void Load(IDataChunk pDataChunk)
+	{
+		iID = pDataChunk.ReadINT32();
+		__dataarea_offset__ = pDataChunk.ReadUINT32();
+	}
+
+};
+
+class cfg_Plot_idx0_cmper : IComparer<IIndexObj>
+{
+	public int Compare(IIndexObj _x, IIndexObj _y)
+	{
+		cfg_Plot_idx0 x = (cfg_Plot_idx0)_x;
+		cfg_Plot_idx0 y = (cfg_Plot_idx0)_y;
+		int __iStrTmpCompResult;
+		if (x.iID != y.iID) {return (x.iID < y.iID) ? -1 :1;} 
+		return 0;
+	}
+}
+
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -1275,6 +1323,9 @@ public interface Igamescheme
 	cfg_HeroTeamLeaderConfig HeroTeamLeaderConfig(int iIndex);
 	int HeroTeamLeaderConfig_nums();
 	cfg_HeroTeamLeaderConfig HeroTeamLeaderConfig_0(int iChapterID);
+	cfg_Plot Plot(int iIndex);
+	int Plot_nums();
+	cfg_Plot Plot_0(int iID);
 }   // interface
 
 
@@ -1305,6 +1356,7 @@ public class Cgamescheme : Igamescheme
 		HeroTeamLevels = 14,
 		HeroTeamCreature = 15,
 		HeroTeamLeaderConfig = 16,
+		Plot = 17,
 	}
 
 	public static int byteStrcmp(byte[] x, byte[] y){	int x_len = x.Length;	int y_len = y.Length;	int iCount = Math.Min(x_len, y_len);	for (int i = 0; i < iCount; ++i){		if (x[i] != y[i]){return x[i] < y[i] ? -1 : 1;}	}	if (x_len == y_len) { return 0; }	return x_len < y_len ? -1 : 1;}
@@ -1397,6 +1449,11 @@ public class Cgamescheme : Igamescheme
 			IIndexObj[] arrKeys ={new cfg_HeroTeamLeaderConfig_idx0()};
 			IComparer<IIndexObj>[] arrCmper ={new cfg_HeroTeamLeaderConfig_idx0_cmper()};
 			if (!pDataCenter.LoadData(16, new cfg_HeroTeamLeaderConfig(), arrKeys, arrCmper)) return false;
+		}
+		{
+			IIndexObj[] arrKeys ={new cfg_Plot_idx0()};
+			IComparer<IIndexObj>[] arrCmper ={new cfg_Plot_idx0_cmper()};
+			if (!pDataCenter.LoadData(17, new cfg_Plot(), arrKeys, arrCmper)) return false;
 		}
 		return true;
 	}
@@ -1541,6 +1598,13 @@ public class Cgamescheme : Igamescheme
 	public cfg_HeroTeamLeaderConfig HeroTeamLeaderConfig_0(int _iChapterID){
 		m_cfg_HeroTeamLeaderConfig_idx0.iChapterID = _iChapterID;
 		return (cfg_HeroTeamLeaderConfig)m_pDataCenter.GetRecord(16, 0, m_cfg_HeroTeamLeaderConfig_idx0);
+	}
+	public cfg_Plot Plot(int iIndex){return (cfg_Plot)m_pDataCenter.GetRecordByIndex(17, (uint)iIndex);}
+	public int Plot_nums(){return m_pDataCenter.GetFileRecordNums(17);}
+	private cfg_Plot_idx0 m_cfg_Plot_idx0 = new cfg_Plot_idx0();
+	public cfg_Plot Plot_0(int _iID){
+		m_cfg_Plot_idx0.iID = _iID;
+		return (cfg_Plot)m_pDataCenter.GetRecord(17, 0, m_cfg_Plot_idx0);
 	}
 }   //   class Cgamescheme
 

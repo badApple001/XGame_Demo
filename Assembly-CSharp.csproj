@@ -102,14 +102,16 @@
     <Compile Include="Assets\CommonScript\XClient\LightEffect\NetEffectPlayer.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ReddotConfigData.cs" />
     <Compile Include="Assets\CommonScript\XClient\NetTransfer\TransferMessageSinkEvent.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\BubbleMessage\BubbleMessageManager.cs" />
     <Compile Include="Assets\ThirdParty\XLua\Tutorial\LoadLuaScript\ByFile\ByFile.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\PreProcessers\ShaderWarmupPreProcesser.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\XmlLoader.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\Poolable\PoolableObjectItemPoolNewCountNode.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Buff\EffectActionBase.cs" />
-    <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\ReporterGUI.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\BuffTypeDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\ServerSelectManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\GoodsEntity.cs" />
+    <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\ReporterGUI.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\Monster.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\BaseHandler.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Extensions\GameStateAssociateWindowsSetup.cs" />
@@ -182,6 +184,7 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\TextSetting\TextColorLibrary.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterDataPart.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorNode\CSAssetNode.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroRandomBehaviourState.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Win\UIWin_Generate.cs" />
     <Compile Include="Assets\ThirdParty\XLua\LuaMemoryLeakChecker\LuaMemoryLeakChecker.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Collision\IDReco.cs" />
@@ -211,6 +214,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\PreProcessers\GamePreProcesser.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Epic Toon FX\Demo\Scripts\VFX Library\ParticleEffectsLibrary.cs" />
     <Compile Include="Assets\CommonScript\XClient\RPC\IRPCModule.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Bullet\EventBullet.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Buff\LeaderBuff.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateBattle.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.TimeInformationWindow.cs" />
@@ -221,6 +225,7 @@
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Scripts\Input processors\ToTransformSpace.cs" />
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\ShowPrizeVirMsgHandler.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.RuntimeMemoryInformationWindow.Sample.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Buff\FirepowerBuff.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Move\EntityMovePart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\ResLoader\HandleableResourceLoader.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\LoginDataManager.cs" />
@@ -260,6 +265,7 @@
     <Compile Include="Assets\CommonScript\XClient\Game\Monitors\Imp\Q1GameComsMonitor.cs" />
     <Compile Include="Assets\G_Artist\Shader\panda shader\PandaSampleShaderGUIV1.0.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.FpsCounter.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Fail\UIFail.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\EntityModuleMessageHandler.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameResources\Easy mobile input\Demo\Scripts\Demo.cs" />
     <Compile Include="Assets\BaseScripts\Utils\UGUIAnalyze\UGUIRebuild.cs" />
@@ -327,6 +333,7 @@
     <Compile Include="Assets\BaseScripts\AssetScripts\UI\MaskLevel.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorMgr.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Component\DebuggerComponent.RuntimeMemorySummaryWindow.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Fail\UIFail_Generate.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\SchemeModule\GameSchemeCom.cs" />
     <Compile Include="Assets\CommonScript\XClient\Room\RoomModule.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\GameNetCom\PackDataMerge.cs" />
@@ -370,6 +377,7 @@
     <Compile Include="Assets\CommonScript\XClient\VirtualServer\Handler\GMVirMsgHandler.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\Behaviour\NetObjectTransform.cs" />
     <Compile Include="Assets\CommonScript\XClient\KeywordFilter\Scripts\CKwFilter.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\MonoComponents\ForceParticleBounds.cs" />
     <Compile Include="Assets\CommonScript\XClient\Common\Src\GameNotify.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\SpineSkinPart.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\ResLoader\ResourceLoader.cs" />
@@ -410,6 +418,7 @@
     <Compile Include="Assets\ThirdParty\XLua\Tutorial\LoadLuaScript\ByString\ByString.cs" />
     <Compile Include="Assets\CommonScript\XClient\Game\GameState\GameStateLogin.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\TextSetting\PSDTMPTextStyleSettings.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\ActorPropKey.cs" />
     <Compile Include="Assets\ThirdParty\AndroidIl2cppPatch\Script\TestStrInScripts.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Base\Utility\Utility.Assembly.cs" />
     <Compile Include="Assets\ThirdParty\Unity-Logs-Viewer\Reporter\Test\TestReporter.cs" />
@@ -495,6 +504,7 @@
     <Compile Include="Assets\CommonScript\XClient\Entity\Part\Skin\SpineMixSkinGraphic.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Part\CreatureDataPart.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\NetVisibleEntity.cs" />
+    <Compile Include="Assets\Piloto Studio\Scripts\ParticleShowcase.cs" />
     <Compile Include="Assets\CommonScript\XClient\Login\State\LoginStateMachine.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Buff\BuffManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Vars\NetVarImpl.cs" />
@@ -619,23 +629,13 @@
     <Compile Include="Assets\CommonScript\XClient\Common\Interface\IUpdateEngine.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Entity\Monster\MonsterDieEffectMgr.cs" />
     <Compile Include="Assets\BaseScripts\Utils\Monitor\Core\MonitorResultReader.cs" />
+    <Compile Include="Assets\Piloto Studio\Scripts\ParticleHandler.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\AttackDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\NetObjectManager.cs" />
     <Compile Include="Assets\CommonScript\XClient\Features\SelectOne\Test\TestSelectOneDataSources.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Debugger\Debugger\Base\Utility\Utility.Text.ITextHelper.cs" />
     <Compile Include="Assets\BaseScripts\AssetScripts\Chat\ChatMessageTextEvent.cs" />
     <Compile Include="Assets\CommonScript\XClient\Entity\Net\TestNetEntityDataPart.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Buff\FirepowerBuff.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\ActorPropKey.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Bullet\EventBullet.cs" />
-    <Compile Include="Assets\Piloto Studio\Scripts\ParticleHandler.cs" />
-    <Compile Include="Assets\Piloto Studio\Scripts\ParticleShowcase.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\BuffTypeDef.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\MonoComponents\ForceParticleBounds.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Level\Fsm\Hero\HeroRandomBehaviourState.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\BubbleMessage\BubbleMessageManager.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Fail\UIFail.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Fail\UIFail_Generate.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />

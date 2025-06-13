@@ -107,11 +107,11 @@
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\InteractionSystem\InteractionSystem.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Demo Assets\Scripts\Character Controllers\SimpleLocomotion.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\Rotation Limits\RotationLimit.cs" />
-    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKSolverHeuristic.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\Constraints\ConstraintRotation.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Scripts\V2Tools.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\CCD IK\Scripts\MechSpider.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\FBIKBoxing.cs" />
+    <Compile Include="Assets\Plugins\RootMotion\FinalIK\IK Solvers\IKSolverHeuristic.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\_DEMOS\FBBIK\Scripts\OffsetEffector.cs" />
     <Compile Include="Assets\Plugins\RootMotion\Shared Scripts\Hierarchy.cs" />
     <Compile Include="Assets\Plugins\RootMotion\FinalIK\InteractionSystem\InteractionTrigger.cs" />

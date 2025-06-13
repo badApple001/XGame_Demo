@@ -92,7 +92,7 @@ MonoBehaviour:
   - assetPath: Assets/Game/HeroTeam/GameResources/Configs/UIFrameworkSettingData.asset
     isMainAsset: 1
     dependAssetList: []
-    hash: a85c225c33e73cc5262f5be0194d3695
+    hash: 9886ff60805327183f66859d457bf443
   - assetPath: Assets/Game/HeroTeam/GameResources/Configs/GameInitConfig.asset
     isMainAsset: 1
     dependAssetList: []
@@ -250,7 +250,7 @@ MonoBehaviour:
     dependAssetList:
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Fonts/TTF/ObelixProNum.ttf
-    hash: a6111bf3d1e64bf61c6823a403199e3e
+    hash: 03959688e8f9821680ee5fbda6b1bd13
   - assetPath: Assets/G_Resources/App/Prefabs/Widgets/SmallYellowBtn.prefab
     isMainAsset: 1
     dependAssetList:
@@ -912,7 +912,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/Audio.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 78b88a25a6933fbace5255452c95500d
+    hash: a1d7bea620f486f2c2d640a85457c337
   - assetPath: Assets/G_Resources/Game/GameScp/BattleBuffA.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -932,7 +932,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/Bullet.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: c47cdbb2a4c32ddbbdabcde4c1de5e39
+    hash: 5327e3728724314d21bc971026cde27f
   - assetPath: Assets/G_Resources/Game/GameScp/BulletGroup.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -968,7 +968,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/gamescheme.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 807f1c668c0a3ff38c3487e37f79d824
+    hash: 7d77f4c9ccdcd3e7a6d4dba33d418264
   - assetPath: Assets/G_Resources/Game/GameScp/Goods.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1000,15 +1000,19 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamCreature.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 65deff135d6e1c74abb95f61d456bb99
+    hash: ce0b0185800a9b80c3cf0d98d0dc9f15
+  - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLeaderConfig.bytes
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 16d5aa1f8300f21bbfa031f1d330b09a
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLevels.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 8dbd205407f309a9584d65c44d79200e
+    hash: 4e2a6e9d2d950e8de21752d18a2a189b
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamSkills.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 33c6aaacb288ba9cf0933447e870237f
+    hash: 08d0cabbd460f2d1bea33de81a5b09f3
   - assetPath: Assets/G_Resources/Game/GameScp/I18N.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1076,7 +1080,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/Skill.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: a94edf9d1dba32f9b4a048e2dbc1b023
+    hash: 98169f9b664bd92cca8ee6809bf1847b
   - assetPath: Assets/G_Resources/Game/GameScp/SkillA.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -2362,6 +2366,22 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList: []
     hash: bd7e6037febfb450635391e9680e0a9a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Audios/Bgm.mp3
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 2a6f0ad1430643ef7ee560738b0bc203
+  - assetPath: Assets/Game/HeroTeam/GameResources/Audios/skil_sankai.mp3
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 27a41a845841d62fe0adc39da031e498
+  - assetPath: Assets/Game/HeroTeam/GameResources/Audios/skill_jihuo.mp3
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ae0b3b64a1360f58841969dd528dbb19
+  - assetPath: Assets/Game/HeroTeam/GameResources/Audios/skill_qusan.mp3
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 9b393bb2b94678e4dcfc9a2e938726cf
   - assetPath: Assets/Game/HeroTeam/GameResources/Easy mobile input/Background.png
     isMainAsset: 1
     dependAssetList: []
@@ -5858,10 +5878,23 @@ MonoBehaviour:
     dependAssetList:
     - Assets/G_Resources/Game/Prefab/update/kuangti.png
     hash: efeeb33556034e6992751590ddff2874
+  - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/UI/UIFail.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/G_Artist/Fonts/TTF/FZCY.TTF
+    - Assets/G_Artist/Fonts/TTF/ObelixProNum.ttf
+    - Assets/Game/HeroTeam/GameResources/Sprite/reward.png
+    - Assets/G_Resources/Game/Prefab/update/ty_lv.png
+    hash: e2119b136d5178853222d1f5352fb865
+  - assetPath: Assets/Game/HeroTeam/GameResources/Sprite/reward.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 5a0facb46e273d6e63fac5e006b5a403
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/UI/UIHeroTeamGame.prefab
     isMainAsset: 1
     dependAssetList:
     - Assets/G_Resources/Game/Prefab/update/ty_yellow.png
+    - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Counter/counter.png
     - Assets/Game/HeroTeam/GameResources/Sprite/collapse.png
     - Assets/G_Resources/Game/Prefab/update/FZCY_Update.TTF
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Panels/panel.png
@@ -5869,7 +5902,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Buttons/btn_big.png
     - Assets/Game/HeroTeam/GameResources/Easy mobile input/Prefabs/Joystick 1 Black.prefab
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Icons/icon_blue_back.png
-    hash: c7c80f72c5a4f01798bb7c9421db75d5
+    hash: 5e32f938dac58eb0ee93eb8a58197c5d
   - assetPath: Assets/Game/HeroTeam/GameResources/Sprite/collapse.png
     isMainAsset: 1
     dependAssetList: []
@@ -5886,11 +5919,7 @@ MonoBehaviour:
     - Assets/G_Artist/Fonts/TTF/FZCY.TTF
     - Assets/Game/HeroTeam/GameResources/Sprite/reward.png
     - Assets/G_Resources/Game/Prefab/update/ty_lv.png
-    hash: 798255b396a74f48f617358128c2b7d8
-  - assetPath: Assets/Game/HeroTeam/GameResources/Sprite/reward.png
-    isMainAsset: 1
-    dependAssetList: []
-    hash: 5a0facb46e273d6e63fac5e006b5a403
+    hash: 80bf11f01f6f3626381cea607163d449
   - assetPath: Assets/Game/HeroTeam/GameResources/Scenes/Game.unity
     isMainAsset: 1
     dependAssetList:
