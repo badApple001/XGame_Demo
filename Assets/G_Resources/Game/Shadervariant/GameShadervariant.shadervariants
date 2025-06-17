@@ -111,3 +111,9 @@ ShaderVariantCollection:
       variants:
       - keywords: 
         passType: 13
+  - first: {fileID: -6465566751694194690, guid: 00191177e5fd5c4468ad546ce87ef329,
+      type: 3}
+    second:
+      variants:
+      - keywords: _BUILTIN_SURFACE_TYPE_TRANSPARENT
+        passType: 13

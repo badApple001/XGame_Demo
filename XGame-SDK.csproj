@@ -63,10 +63,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\BaseScripts\XGameSDK\BaseSDK\Scripts\BaseSDK_Android.cs" />
-    <Compile Include="Assets\BaseScripts\XGameSDK\BaseSDK\Scripts\BaseSDK_IOS.cs" />
-    <Compile Include="Assets\BaseScripts\XGameSDK\Core\SDK_Android.cs" />
     <Compile Include="Assets\BaseScripts\XGameSDK\Core\ISDK.cs" />
     <Compile Include="Assets\BaseScripts\XGameSDK\BaseSDK\Scripts\BaseSDKProxy.cs" />
+    <Compile Include="Assets\BaseScripts\XGameSDK\BaseSDK\Scripts\BaseSDK_IOS.cs" />
+    <Compile Include="Assets\BaseScripts\XGameSDK\Core\SDK_Android.cs" />
     <Compile Include="Assets\BaseScripts\XGameSDK\Core\GameSDKMessageProxyMono.cs" />
     <Compile Include="Assets\BaseScripts\XGameSDK\Core\GameSDKManager.cs" />
     <Compile Include="Assets\BaseScripts\XGameSDK\BaseSDK\Scripts\ExceptionHandler.cs" />

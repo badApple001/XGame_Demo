@@ -134,7 +134,7 @@ namespace Spine.Unity.Examples {
 			}
 
 			skeleton.SetSlotsToSetupPose(); // Use the pose from setup pose.
-			skeletonAnimation.Update(0); // Use the pose in the currently active animation.
+			skeletonAnimation.UpdateSkeleton(0); // Use the pose in the currently active animation.
 
 			Resources.UnloadUnusedAssets();
 		}

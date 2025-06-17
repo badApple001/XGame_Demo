@@ -64,10 +64,10 @@
   <ItemGroup>
     <Compile Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\CacheServerUploader.cs" />
     <Compile Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\CacheServerUploaderWindow.cs" />
+    <Compile Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\Client.cs" />
     <Compile Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\FileDownloadItem.cs" />
     <Compile Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\Util.cs" />
     <Compile Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\IDownloadItem.cs" />
-    <Compile Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\Client.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Packages\Local\com.unity.scriptablebuildpipeline@1.20.2\Editor\CacheServer\UnityEditor.CacheServer.asmdef" />

@@ -99,6 +99,20 @@ namespace GameScripts.HeroTeam
         public readonly static ushort EVENT_FAIL = EVENT_HEROTEAM_BASE++;
 
         /// <summary>
+        /// 点击团长技能时
+        /// 团长技能还没有冷却
+        /// </summary>
+        public readonly static ushort EVENT_LEADER_SKILL_NOT_CD = EVENT_HEROTEAM_BASE++;
+
+
+        /// <summary>
+        /// 点击团长技能时
+        /// 能力不够
+        /// </summary>
+        public readonly static ushort EVENT_LEADER_SKILL_NOT_MP = EVENT_HEROTEAM_BASE++;
+
+
+        /// <summary>
         /// 所有事件的最大ID值
         /// </summary>
         public readonly static ushort EVENT_ALL_MAXID = 30000;

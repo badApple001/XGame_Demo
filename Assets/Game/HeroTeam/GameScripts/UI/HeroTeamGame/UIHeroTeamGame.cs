@@ -13,12 +13,12 @@ using XClient.Common;
 using DG.Tweening;
 using System.Text;
 using EasyMobileInput;
-using System.Collections.Generic;
 using Game;
 using System;
 using System.Collections;
 using GameScripts.HeroTeam.UI.Win;
 using GameScripts.HeroTeam.UI.Fail;
+using UnityEngine.EventSystems;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
@@ -47,9 +47,6 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         private Joystick m_Joystick;
         // 是否展开属性面板
         private bool m_OpenCollapsed = false;
-        //下次可以使用技能的时间
-        private Dictionary<string, float> m_dicNextCanUseSkillTime = new Dictionary<string, float>();
-
         /// <summary>
         /// 游戏时间
         /// </summary>
@@ -93,7 +90,95 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             CreateTemplate(m_trHateListRoot);
             CreateTemplate(m_trHarmListRoot);
             CreateTemplate(m_trCuringListRoot);
+
+
+
+            //注册技能
+            var skillProperty = LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Fire);
+            skillProperty.BindAction(() => btn_BtnAttack.image.color = Color.white, () => btn_BtnAttack.image.color = Color.gray);
+
+            var skillProperty2 = LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Dodge);
+            skillProperty2.BindAction(() => btn_BtnAvoidance.image.color = Color.white, () => btn_BtnAvoidance.image.color = Color.gray);
+
+            var skillProperty3 = LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Purify);
+            skillProperty3.BindAction(() => btn_BtnTreat.image.color = Color.white, () => btn_BtnTreat.image.color = Color.gray);
+
+            LeaderManager.Instance.BindMpChangedEvent((int mp, int maxMap) =>
+            {
+                text_TextMp.text = $"{mp}/{maxMap}";
+                if (img_SliderMp != null)
+                {
+                    img_SliderMp.rectTransform.DOKill();
+                    img_SliderMp.rectTransform.DOSizeDelta(new Vector2(400f * mp / maxMap, 50), 0.8f);
+                }
+            });
+
+
+
+            //注册Trigger事件
+            var leftTrigger = btn_BtnLeft.GetComponent<EventTrigger>();
+            var left_touch_begin_callback = new EventTrigger.TriggerEvent();
+            left_touch_begin_callback.AddListener(OnTouchLeftButtonBegin);
+            var left_touch_end_callback = new EventTrigger.TriggerEvent();
+            left_touch_end_callback.AddListener(OnTouchLeftButtonEnd);
+
+            leftTrigger.triggers.Add(new EventTrigger.Entry()
+            {
+                eventID = EventTriggerType.PointerDown,
+                callback = left_touch_begin_callback
+            });
+            leftTrigger.triggers.Add(new EventTrigger.Entry()
+            {
+                eventID = EventTriggerType.PointerUp,
+                callback = left_touch_end_callback
+            });
+            var rightTrigger = btn_BtnRight.GetComponent<EventTrigger>();
+            var right_touch_begin_callback = new EventTrigger.TriggerEvent();
+            right_touch_begin_callback.AddListener(OnTouchRightButtonBegin);
+            var right_touch_end_callback = new EventTrigger.TriggerEvent();
+            right_touch_end_callback.AddListener(OnTouchRightButtonEnd);
+
+            rightTrigger.triggers.Add(new EventTrigger.Entry()
+            {
+                eventID = EventTriggerType.PointerDown,
+                callback = right_touch_begin_callback
+            });
+            rightTrigger.triggers.Add(new EventTrigger.Entry()
+            {
+                eventID = EventTriggerType.PointerUp,
+                callback = right_touch_end_callback
+            });
+
+            //蓝量消耗
+            var cfg = GameGlobal.GameScheme.HeroTeamLeaderConfig(0);
+            text_CostDodge.text = cfg.iMpCost_Dodge.ToString();
+            text_FireCost.text = cfg.iMpCost_Fire.ToString();
+            text_CostPurify.text = cfg.iMpCost_Purify.ToString();
         }
+
+
+        private void OnTouchLeftButtonBegin(BaseEventData data)
+        {
+            OnJoystickInputStarted();
+            OnJoystickInputChanged(Vector3.zero, Vector3.left);
+        }
+
+        private void OnTouchLeftButtonEnd(BaseEventData data)
+        {
+            OnJoystickInputEnded();
+        }
+
+        private void OnTouchRightButtonBegin(BaseEventData data)
+        {
+            OnJoystickInputStarted();
+            OnJoystickInputChanged(Vector3.zero, Vector3.right);
+        }
+
+        private void OnTouchRightButtonEnd(BaseEventData data)
+        {
+            OnJoystickInputEnded();
+        }
+
         private IEnumerator GameTimeUpdate()
         {
 
@@ -157,18 +242,11 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             text_GameTime.transform.localScale = Vector3.one;
         }
 
-        private void SetButtonCD(UnityEngine.UI.Button btn, float cd)
+        private void SetMaskCD(Image maskImg, float cd)
         {
-            btn.interactable = false;
-            var maskImg = btn.transform.GetChild(0).GetComponent<Image>();
-            maskImg.gameObject.SetActive(true);
             maskImg.DOKill();
             maskImg.fillAmount = 1f;
-            maskImg.DOFillAmount(0f, cd).OnComplete(() =>
-            {
-                btn.interactable = true;
-                maskImg.gameObject.SetActive(false);
-            });
+            maskImg.DOFillAmount(0f, cd);
         }
 
 
@@ -281,45 +359,88 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
         //@<<< ExecuteEventHandlerGenerator >>>
         //@<<< ButtonFuncGenerator >>>
+        private void OnBtn_BtnLeftClicked() //@Window 
+        {
+
+        }
+
+        private void OnBtn_BtnRightClicked() //@Window 
+        {
+
+        }
+
         //散开
         private void OnBtn_BtnAvoidanceClicked() //@Window 
         {
-            if (m_dicNextCanUseSkillTime["Avoidance"] > Time.time)
+
+            var skill = LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Dodge);
+            if (!skill.HasCD())
             {
+                //没有CD
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD, 0, 0, null);
                 return;
             }
-            m_dicNextCanUseSkillTime["Avoidance"] = Time.time + 5;
-            SetButtonCD(btn_BtnAvoidance, 5);
 
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE, DEventSourceType.SOURCE_TYPE_UI, 0, null);
+
+            if (!skill.enoughMp)
+            {
+                //能量不足
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, null);
+                return;
+            }
+
+            skill.Invoke();
+            SetMaskCD(img_MaskAvoidance, skill.CD);
+            // GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE, DEventSourceType.SOURCE_TYPE_UI, 0, null);
         }
 
         //攻击
         private void OnBtn_BtnAttackClicked() //@Window 
         {
-            if (m_dicNextCanUseSkillTime["Attack"] > Time.time)
+            var skill = LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Fire);
+            if (!skill.HasCD())
             {
+                //没有CD
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD, 0, 0, null);
                 return;
             }
-            m_dicNextCanUseSkillTime["Attack"] = Time.time + 5;
-            SetButtonCD(btn_BtnAttack, 5);
 
 
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK, DEventSourceType.SOURCE_TYPE_UI, 0, null);
+            if (!skill.enoughMp)
+            {
+                //能量不足
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, null);
+                return;
+            }
+
+            skill.Invoke();
+            SetMaskCD(img_MaskAttack, skill.CD);
+
+            // GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK, DEventSourceType.SOURCE_TYPE_UI, 0, null);
         }
 
         //治疗
         private void OnBtn_BtnTreatClicked() //@Window 
         {
-            if (m_dicNextCanUseSkillTime["Treat"] > Time.time)
+            var skill = LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Purify);
+            if (!skill.HasCD())
             {
+                //没有CD
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD, 0, 0, null);
                 return;
             }
-            m_dicNextCanUseSkillTime["Treat"] = Time.time + 5;
-            SetButtonCD(btn_BtnTreat, 5);
 
-            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT, DEventSourceType.SOURCE_TYPE_UI, 0, null);
 
+            if (!skill.enoughMp)
+            {
+                //能量不足
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, null);
+                return;
+            }
+
+            skill.Invoke();
+            SetMaskCD(img_MaskTreat, skill.CD);
+            // GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT, DEventSourceType.SOURCE_TYPE_UI, 0, null);
         }
 
         /// <summary>
@@ -476,19 +597,18 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
                 tran_JoystickParent.gameObject.SetActive(true);
                 tran_LeaderSkillPanel.gameObject.SetActive(true);
 
-
                 //激活游戏倒计时
                 m_nGameTime = GameManager.Instance.GetCurrentLevelConfig().iGameTime;
                 GameManager.Instance.OpenCoroutine(GameTimeUpdate());
 
                 //技能CD 
                 // TODO: 后续由技能管理器来处理
-                m_dicNextCanUseSkillTime["Attack"] = Time.time + 5;
-                m_dicNextCanUseSkillTime["Avoidance"] = Time.time + 5;
-                m_dicNextCanUseSkillTime["Treat"] = Time.time + 5;
-                SetButtonCD(btn_BtnAttack, 5);
-                SetButtonCD(btn_BtnAvoidance, 5);
-                SetButtonCD(btn_BtnTreat, 5);
+                // m_dicNextCanUseSkillTime["Attack"] = Time.time + 5;
+                // m_dicNextCanUseSkillTime["Avoidance"] = Time.time + 5;
+                // m_dicNextCanUseSkillTime["Treat"] = Time.time + 5;
+                // SetButtonCD(btn_BtnAttack, 5);
+                // SetButtonCD(btn_BtnAvoidance, 5);
+                // SetButtonCD(btn_BtnTreat, 5);
             }
             else if (DHeroTeamEvent.EVENT_REFRESH_RANKDATA == wEventID && pContext is RefreshRankContext ctx)
             {

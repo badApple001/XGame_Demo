@@ -666,8 +666,8 @@ public class cfg_Actor : IDataObj
 {
 	public int nID;  // ID
 	public string szName;  // Actor名称
-	public string szResPath;  // 模型路径
-	public float fSizeScale;  // 模型缩放
+	public string szResPath;  // 预制体路径：可以理解成可视的容器
+	public float fSizeScale;  // 可视容器的缩放，影响实际显示的资源大小
 
 	public IDataObj Clone(){return new cfg_Actor();}
 	public void Load(IDataChunk pDataChunk)
@@ -1017,6 +1017,7 @@ public class cfg_HeroTeamLevels : IDataObj
 	public int iChapterID;  // 
 	public int iLevelID;  // 
 	public int iPlotID;  // 
+	public int iBgmID;  // 
 	public int iGameTime;  // 
 	public int iBossID;  // 
 	public float[] aryBossBornPos;  // float[-1]  
@@ -1038,6 +1039,7 @@ public class cfg_HeroTeamLevels : IDataObj
 		iChapterID = pDataChunk.ReadINT32();
 		iLevelID = pDataChunk.ReadINT32();
 		iPlotID = pDataChunk.ReadINT32();
+		iBgmID = pDataChunk.ReadINT32();
 		iGameTime = pDataChunk.ReadINT32();
 		iBossID = pDataChunk.ReadINT32();
 		aryBossBornPos = pDataChunk.ReadFLOAT_Array(-1);
@@ -1095,6 +1097,7 @@ public class cfg_HeroTeamCreature : IDataObj
 	public float fAttackInterval;  // 攻击间隔，每多少秒攻击1次
 	public int iAttack;  // 攻击力
 	public string szAttackEffectPath;  // 攻击特效路径
+	public string szSpineResPath;  // Spine资源路径
 	public int iAttkBuffID;  // 普通攻击Buff
 	public float fMoveSpeed;  // 移动速度
 	public int[] Skills;  // int[-1]  技能列表
@@ -1112,6 +1115,7 @@ public class cfg_HeroTeamCreature : IDataObj
 		fAttackInterval = pDataChunk.ReadFLOAT();
 		iAttack = pDataChunk.ReadINT32();
 		szAttackEffectPath = pDataChunk.ReadSTRING();
+		szSpineResPath = pDataChunk.ReadSTRING();
 		iAttkBuffID = pDataChunk.ReadINT32();
 		fMoveSpeed = pDataChunk.ReadFLOAT();
 		Skills = pDataChunk.ReadINT32_Array(-1);
@@ -1152,38 +1156,30 @@ public class cfg_HeroTeamLeaderConfig : IDataObj
 {
 	public int iChapterID;  // 
 	public int iDefaultMp;  // 
-	public int iMpCost;  // 
-	public float[] aryBossBornPos;  // float[-1]  
-	public int iBossBornDelaySeconds;  // 
-	public int iNpcID;  // 
-	public float[] aryNpcBornPos;  // float[-1]  
-	public int[] aryHerosBornPos;  // int[-1]  
-	public int iLeaderIndex;  // 
-	public float fLeaderModeScale;  // 
-	public int[] aryOuterRingStance;  // int[-1]  
-	public int[] aryInnerCircleStanding;  // int[-1]  
-	public int[] aryTankStanding;  // int[-1]  
-	public int iGoodsID;  // 
-	public int iDropID;  // 
+	public int iMpCost_Fire;  // 
+	public int iMpCost_Dodge;  // 
+	public int iMpCost_Purify;  // 
+	public int iMpRecover;  // 
+	public int iBossSkillLockLeaderRate;  // 
+	public int iSkillCD_Fire;  // 
+	public int iSkillCD_Purify;  // 
+	public int iSkillCD_Dodge;  // 
+	public int iSkillRecoveRate;  // 
 
 	public IDataObj Clone(){return new cfg_HeroTeamLeaderConfig();}
 	public void Load(IDataChunk pDataChunk)
 	{
 		iChapterID = pDataChunk.ReadINT32();
 		iDefaultMp = pDataChunk.ReadINT32();
-		iMpCost = pDataChunk.ReadINT32();
-		aryBossBornPos = pDataChunk.ReadFLOAT_Array(-1);
-		iBossBornDelaySeconds = pDataChunk.ReadINT32();
-		iNpcID = pDataChunk.ReadINT32();
-		aryNpcBornPos = pDataChunk.ReadFLOAT_Array(-1);
-		aryHerosBornPos = pDataChunk.ReadINT32_Array(-1);
-		iLeaderIndex = pDataChunk.ReadINT32();
-		fLeaderModeScale = pDataChunk.ReadFLOAT();
-		aryOuterRingStance = pDataChunk.ReadINT32_Array(-1);
-		aryInnerCircleStanding = pDataChunk.ReadINT32_Array(-1);
-		aryTankStanding = pDataChunk.ReadINT32_Array(-1);
-		iGoodsID = pDataChunk.ReadINT32();
-		iDropID = pDataChunk.ReadINT32();
+		iMpCost_Fire = pDataChunk.ReadINT32();
+		iMpCost_Dodge = pDataChunk.ReadINT32();
+		iMpCost_Purify = pDataChunk.ReadINT32();
+		iMpRecover = pDataChunk.ReadINT32();
+		iBossSkillLockLeaderRate = pDataChunk.ReadINT32();
+		iSkillCD_Fire = pDataChunk.ReadINT32();
+		iSkillCD_Purify = pDataChunk.ReadINT32();
+		iSkillCD_Dodge = pDataChunk.ReadINT32();
+		iSkillRecoveRate = pDataChunk.ReadINT32();
 	}
 
 };

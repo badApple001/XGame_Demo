@@ -1,3 +1,4 @@
+using System;
 using UniFramework.Machine;
 using UnityEngine;
 using XClient.Common;
@@ -13,7 +14,7 @@ namespace GameScripts.HeroTeam
 
         protected Spine.Bone m_ShotBone = null;
 
-        protected cfg_HeroTeamBullet m_m_CfgBullet;
+        protected cfg_HeroTeamBullet m_CfgBullet;
 
         public override void OnCreate(StateMachine machine)
         {
@@ -146,7 +147,7 @@ namespace GameScripts.HeroTeam
                     //后续需要绑定动画帧事件
                     AddTimer(0.5f, () =>
                                             {
-                                                Shot(damage, target);
+                                                Shoot(damage, target);
                                             });
                 }
             }
@@ -162,7 +163,7 @@ namespace GameScripts.HeroTeam
                   });
         }
 
-        private void Shot(int damage, ISpineCreature target)
+        private void Shoot(int damage, ISpineCreature target)
         {
 
 
@@ -183,11 +184,36 @@ namespace GameScripts.HeroTeam
             }
 
             //创建一枚子弹/发球
-            var bullet = BulletManager.Instance.Get<Bullet>(m_m_CfgBullet, shotPos);
+            //这里本来是想用反射在表里配置的， 但考虑到子弹是高频类，所以还是加一些定义来处理吧
+            var bullet = BulletManager.Instance.GetBullet(m_CfgBullet, shotPos);
             bullet.SetHarm(damage);
             bullet.SetSender(m_Owner.id);
             bullet.SetTarget(target);
+            if (bullet is LightBeamBullet lb) lb.SetShooter(m_Owner.GetLockTr());
         }
+
+        // public Type GetBulletClsByCfgId(int cfgId)
+        // {
+        //     return cfgId switch
+        //     {
+        //         1 => typeof(Bullet),
+        //         2 => typeof(LightBeamBullet),
+        //         3 => typeof(EventBullet),
+        //         _ => typeof(Bullet),
+        //     };
+        // }
+
+        // public Bullet GetBullet(cfg_HeroTeamBullet cfg, Vector3 pos)
+        // {
+        //     int iType = cfg.iType;
+        //     return iType switch
+        //     {
+        //         1 => BulletManager.Instance.Get<Bullet>(cfg, pos),
+        //         2 => BulletManager.Instance.Get<LightBeamBullet>(cfg, pos),
+        //         3 => BulletManager.Instance.Get<EventBullet>(cfg, pos),
+        //         _ => BulletManager.Instance.Get<Bullet>(cfg, pos),
+        //     };
+        // }
 
         public override void OnEnter()
         {
@@ -195,7 +221,7 @@ namespace GameScripts.HeroTeam
 
             int nType = m_Cfg.AttackType;
             m_AttackType = (AttackTypeDef)nType;
-            m_m_CfgBullet = GameGlobal.GameScheme.HeroTeamBullet_0(m_Cfg.iBullet);
+            m_CfgBullet = GameGlobal.GameScheme.HeroTeamBullet_0(m_Cfg.iBullet);
 
             var skill = HasSkillCooldown();
             if (skill != null)

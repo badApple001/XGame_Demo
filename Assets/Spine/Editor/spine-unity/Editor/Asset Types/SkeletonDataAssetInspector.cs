@@ -901,7 +901,7 @@ namespace Spine.Unity.Editor {
 				if (!EditorApplication.isPlaying) {
 					float current = CurrentTime;
 					float deltaTime = (current - animationLastTime);
-					skeletonAnimation.Update(deltaTime);
+					skeletonAnimation.UpdateSkeleton(deltaTime);
 					animationLastTime = current;
 					skeletonAnimation.LateUpdate();
 				}

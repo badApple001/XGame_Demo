@@ -130,6 +130,11 @@ namespace GameScripts.HeroTeam
             SetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED, 1f);
         }
 
+        public override string GetResPath()
+        {
+            return PathUtils.GetCharacterABPath(m_resPath);
+        }
+
         protected override void OnInstantiated()
         {
             base.OnInstantiated();
@@ -141,9 +146,17 @@ namespace GameScripts.HeroTeam
             SetPos(GetPart<CreatureDataPart>().m_pos.Value);
             //如果是3D的，可以根据实际情况去算Rotation
             SetRotation(Quaternion.FromToRotation(Vector3.right, GetPart<CreatureDataPart>().m_forward.Value));
-
-            m_SkeletonAnimation = transform.GetComponentInChildren<SkeletonAnimation>();
             m_trVisual = transform.GetChild(0);
+
+            m_SkeletonAnimation = SpineManager.Instance.Spawn(PathUtils.GetSpineABPath(GetCreatureCig().szSpineResPath), m_trVisual);
+            m_SkeletonAnimation.transform.localScale = Vector3.one;
+            m_SkeletonAnimation.state.SetAnimation(0, GetAnimConfig().szIdle, true);
+
+            m_trFace = m_trVisual.Find("Face");
+            if (m_trFace == null) m_trFace = transform;
+
+            m_trLockTarget = m_trVisual.Find("LockTarget");
+            if (m_trLockTarget == null) m_trLockTarget = transform;
 
             var cfg = (cfg_Actor)base.GetActorCig();
             m_trVisual.localScale = m_fModeScaleMul * cfg.fSizeScale * Vector3.one;
@@ -153,9 +166,6 @@ namespace GameScripts.HeroTeam
             {
                 bar.SetEntity(this);
             }
-
-            m_trFace = transform.Find("Face");
-            m_trFace?.SetParent(m_trVisual);
 
             //初始化状态机
             InitFsm();
@@ -226,6 +236,10 @@ namespace GameScripts.HeroTeam
             return m_trFace;
         }
 
+        public Transform GetLockTr()
+        {
+            return m_trLockTarget;
+        }
 
         public void RecordHarm(int addHarm)
         {
@@ -259,8 +273,12 @@ namespace GameScripts.HeroTeam
         protected override void OnReset()
         {
             base.OnReset();
+            if (m_SkeletonAnimation != null)
+            {
+                SpineManager.Instance.DeSpawn(m_SkeletonAnimation);
+                m_SkeletonAnimation = null;
+            }
             m_fsmActor = null;
-            m_SkeletonAnimation = null;
             m_arrSkillCD.Clear();
             m_nTotalHarm = 0;
             m_HeroCls = 0;
@@ -268,7 +286,6 @@ namespace GameScripts.HeroTeam
             m_trFace = null;
             m_trVisual = null;
         }
-
 
         public int GetCamp()
         {
@@ -332,8 +349,6 @@ namespace GameScripts.HeroTeam
         {
             GetPart<CreatureDataPart>().m_power.Value = v;
         }
-
-
 
 
         public long GetHP() => GetPart<CreatureDataPart>().m_hp.Value;

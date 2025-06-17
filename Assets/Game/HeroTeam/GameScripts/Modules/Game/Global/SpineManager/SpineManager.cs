@@ -81,7 +81,7 @@ namespace GameScripts.HeroTeam
         /// <param name="mainCamera">用于LOD计算的主摄像机</param>
         /// <param name="setting">LOD与分区设置</param>
         /// <param name="loadResHandler">资源加载回调</param>
-        public void Setup(Camera mainCamera, SpineManagerSetting setting, LoadResHandler<SkeletonDataAsset> loadResHandler)
+        public void Setup(Camera mainCamera, SpineManagerLODConfig setting, LoadResHandler<SkeletonDataAsset> loadResHandler)
         {
             m_MainCamera = mainCamera;
             m_trMainCamera = mainCamera.transform;
@@ -303,23 +303,6 @@ namespace GameScripts.HeroTeam
         }
     }
 
-    /// <summary>
-    /// SpineManager的配置文件，定义LOD阈值、更新频率和分组数量
-    /// </summary>
-    [CreateAssetMenu(fileName = "SpineManagerSetting", menuName = "GameConfig/SpineManagerSetting", order = 100)]
-    public class SpineManagerSetting : ScriptableObject
-    {
-        [Header("LOD配置")]
-        public float highDetailDistance = 10f;
-        public float midDetailDistance = 25f;
-
-        [Header("不同等级下更新的帧间隔")]
-        [Range(1, 16)] public int highFrequency = 1;
-        [Range(1, 16)] public int midFrequency = 2;
-        [Range(1, 16)] public int lowFrequency = 4;
-
-        [Header("分区激活")]
-        [Tooltip("将激活的Spine分为 groupCount 个分区")]
-        [Range(1, 8)] public int groupCount = 4;
-    }
 }
+
+ 

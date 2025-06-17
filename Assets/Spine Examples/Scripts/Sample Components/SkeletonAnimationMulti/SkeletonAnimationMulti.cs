@@ -140,7 +140,7 @@ namespace Spine.Unity {
 				SetActiveSkeleton(skeletonAnimation);
 				skeletonAnimation.skeleton.SetToSetupPose();
 				var trackEntry = skeletonAnimation.state.SetAnimation(MainTrackIndex, animation, loop);
-				skeletonAnimation.Update(0);
+				skeletonAnimation.UpdateSkeleton(0);
 				return trackEntry;
 			}
 

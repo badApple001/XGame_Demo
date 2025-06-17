@@ -132,6 +132,7 @@ namespace GameScripts.HeroTeam
             return bullet as T;
         }
 
+
         public Transform ShowEffect(string effectPath, Vector3 pos, float duration = 1f) => ShowEffect(effectPath, pos, Quaternion.identity, duration);
         public Transform ShowEffect(string effectPath, Vector3 pos, Quaternion rotation, float duration = 1f) => GameEffectManager.Instance.ShowEffect(effectPath, pos, rotation, duration);
 

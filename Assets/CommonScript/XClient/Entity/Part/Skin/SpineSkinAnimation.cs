@@ -155,7 +155,7 @@ namespace XGame.Entity.Part
 
             //skeleton.SetSlotsToSetupPose();
             skeleton.SetToSetupPose();
-            skeletonAnimation.Update(0);
+            skeletonAnimation.UpdateSkeleton(0);
 
 
             AtlasUtilities.ClearCache();

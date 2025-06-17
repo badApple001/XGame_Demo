@@ -81,7 +81,7 @@ namespace Spine.Unity {
 			}
 
 			if (frames > 0) {
-				skeletonAnimation.Update(frames * frameDeltaTime);
+				skeletonAnimation.UpdateSkeleton(frames * frameDeltaTime);
 				requiresNewMesh = true;
 			}
 		}

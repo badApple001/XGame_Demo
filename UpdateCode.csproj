@@ -64,16 +64,16 @@
   <ItemGroup>
     <Compile Include="Assets\BaseScripts\Update\UpdateEngine\UpdateScene.cs" />
     <Compile Include="Assets\BaseScripts\Update\ILoaderProvider.cs" />
-    <Compile Include="Assets\BaseScripts\Update\HotUpdate\LoadSystem.cs" />
     <Compile Include="Assets\BaseScripts\Update\UpdateEngine\UpdateDebug.cs" />
     <Compile Include="Assets\BaseScripts\Update\HotUpdate\LoadDll.cs" />
     <Compile Include="Assets\BaseScripts\Update\UpdateEngine\UpdateI18NConfig.cs" />
     <Compile Include="Assets\BaseScripts\Update\UIMoviePlayer.cs" />
-    <Compile Include="Assets\BaseScripts\Update\UpdateEngine\UpdateSetup.cs" />
     <Compile Include="Assets\BaseScripts\Update\UpdateEngine\UpdateMessageBoxUI.cs" />
     <Compile Include="Assets\BaseScripts\Update\UpdateEngine\PingTest.cs" />
     <Compile Include="Assets\BaseScripts\Update\ResTools\RecordResTool.cs" />
     <Compile Include="Assets\BaseScripts\Update\UpdateTest\UpdateTest.cs" />
+    <Compile Include="Assets\BaseScripts\Update\HotUpdate\LoadSystem.cs" />
+    <Compile Include="Assets\BaseScripts\Update\UpdateEngine\UpdateSetup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\BaseScripts\Update\UpdateCode.asmdef" />

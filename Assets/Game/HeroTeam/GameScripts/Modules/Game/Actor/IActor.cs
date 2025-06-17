@@ -10,9 +10,6 @@ namespace GameScripts.HeroTeam
 
         cfg_Actor GetActorCig();
 
-
-        Transform GetLockTr();
-
         Vector3 GetPos();
 
         void SetPos(Vector3 pos);

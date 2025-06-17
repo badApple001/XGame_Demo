@@ -63,8 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\UniMachine\Runtime\IStateNode.cs" />
-    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\UniMachine\Runtime\StateMachine.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\UniMachine\Runtime\UniLogger.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\UniMachine\Runtime\StateMachine.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Game\HeroTeam\GameScripts\Modules\UniMachine\Runtime\UniFramework.Machine.asmdef" />

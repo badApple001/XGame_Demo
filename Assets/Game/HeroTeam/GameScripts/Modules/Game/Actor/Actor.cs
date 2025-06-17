@@ -94,10 +94,10 @@ namespace GameScripts.HeroTeam
                 //名称生成
                 name = cfg.szName;
             }
-            if (string.IsNullOrEmpty(m_resPath))
-            {
-                Debug.LogError("资源路径没有配置 configId=" + configId);
-            }
+            // if (string.IsNullOrEmpty(m_resPath))
+            // {
+            //     Debug.LogError("资源路径没有配置 configId=" + configId);
+            // }
         }
 
         protected override void OnAfterInit(object context)
@@ -152,9 +152,7 @@ namespace GameScripts.HeroTeam
             // transform.position = m_wolrdPos;
             // transform.rotation = m_Rotation;
 
-            m_trLockTarget = transform.Find("LockTarget");
-            if (m_trLockTarget == null)
-                m_trLockTarget = transform;
+            
         }
 
 
@@ -200,10 +198,6 @@ namespace GameScripts.HeroTeam
             SetPos(pos);
         }
 
-        public Transform GetLockTr()
-        {
-            return m_trLockTarget;
-        }
 
         public ActorState GetState()
         {
@@ -247,6 +241,7 @@ namespace GameScripts.HeroTeam
         protected override void OnReset()
         {
             base.OnReset();
+            m_trParent = null;
             m_resPath = null;
             m_dicIntProp.Clear();
             m_MonoType.Clear();

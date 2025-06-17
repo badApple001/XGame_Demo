@@ -900,7 +900,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/ActorAnimConfig.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: c548541e5205f19035ce6869f3663596
+    hash: 89f937dee9d1530eadef3b014cb7262f
   - assetPath: Assets/G_Resources/Game/GameScp/AI.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -912,7 +912,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/Audio.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: a1d7bea620f486f2c2d640a85457c337
+    hash: a791080c616e91cab3dab7cba639fec6
   - assetPath: Assets/G_Resources/Game/GameScp/BattleBuffA.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -932,7 +932,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/Bullet.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 5327e3728724314d21bc971026cde27f
+    hash: 194d5452e77f921262e69d84b567208a
   - assetPath: Assets/G_Resources/Game/GameScp/BulletGroup.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -968,7 +968,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/gamescheme.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 7d77f4c9ccdcd3e7a6d4dba33d418264
+    hash: 9a88c1c1c90bd3a9078f03ca24cce1e5
   - assetPath: Assets/G_Resources/Game/GameScp/Goods.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -992,27 +992,27 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBuff.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: c5992a4d83fb8c7653a9ae5d3be70f8a
+    hash: 38c72f8bfc3d86f68a93174276bd6462
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBullet.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: eb2ec942e53284afe33241cf2f16c657
+    hash: d198ef60c1eeb3aadead14e396ae5d10
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamCreature.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: ce0b0185800a9b80c3cf0d98d0dc9f15
+    hash: da1362f5b9bd3c83b0820ded6bb26bc6
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLeaderConfig.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 16d5aa1f8300f21bbfa031f1d330b09a
+    hash: 8f985c8ed7d25741ccdbcf25e6cf8830
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLevels.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 4e2a6e9d2d950e8de21752d18a2a189b
+    hash: 6b99d4d6aa60094334ba5b0121aeca78
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamSkills.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 08d0cabbd460f2d1bea33de81a5b09f3
+    hash: 872dfc2f33ddc15a3c4da2b20dc66070
   - assetPath: Assets/G_Resources/Game/GameScp/I18N.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1049,6 +1049,10 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList: []
     hash: 06af5ef2a656749067ba98196bc1fdaf
+  - assetPath: Assets/G_Resources/Game/GameScp/Plot.bytes
+    isMainAsset: 1
+    dependAssetList: []
+    hash: ebe33e946ad868ea51be855424bbe7e0
   - assetPath: Assets/G_Resources/Game/GameScp/PrizeGroup.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1080,7 +1084,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/Skill.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 98169f9b664bd92cca8ee6809bf1847b
+    hash: a94edf9d1dba32f9b4a048e2dbc1b023
   - assetPath: Assets/G_Resources/Game/GameScp/SkillA.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1917,6 +1921,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Shaders/HealthBarShader.shader
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_Blend_CG.shadergraph
     - Assets/G_Artist/Shader/UIGray.shader
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Shader/UI-FogOfWarMaskEffectImge.shader
@@ -1935,11 +1940,16 @@ MonoBehaviour:
     - Assets/G_Artist/Shader/Sprites_ClipWithAngle.shader
     - Assets/G_Artist/Shader/UI-MaskBorderBlur.shader
     - Assets/Game/HeroTeam/GameResources/Shaders/Spine_CutoffBottom2Top.shader
-    hash: 111d7e3625ecddf772111588dea8007f
+    hash: 95726989727ff61e12a1101deaf87fa2
   - assetPath: Assets/Game/HeroTeam/GameResources/Shaders/HealthBarShader.shader
     isMainAsset: 1
     dependAssetList: []
     hash: b9d575ef40cbd3a89e134385724a0e6b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Shaders/Shader
+      Graph/HS_Blend_CG.shadergraph
+    isMainAsset: 1
+    dependAssetList: []
+    hash: da5c4a88abf445f862046dc7f1cb4d0d
   - assetPath: Assets/G_Artist/Shader/UI-FogOfWarMaskEffectImge.shader
     isMainAsset: 0
     dependAssetList: []
@@ -3690,7 +3700,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/cloud_2x2_default_AB.mat
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Misc/Text/txt_boom.mat
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
-    hash: 1f8028f0a423feae3133c77e6f1d454f
+    hash: d684a355efe45c62ea5359405c11ab3f
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Magic/Buff/MagicBuffBlue.prefab
     isMainAsset: 1
     dependAssetList:
@@ -3713,7 +3723,7 @@ MonoBehaviour:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/circle_ADD.mat
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_pistol03.wav
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Materials/Basics/glow1_ADD.mat
-    hash: e813fbf075701874239e7b27a8a8ed5b
+    hash: e00e9d2d5175ed44a7d2c3738960f06e
   - assetPath: Assets/Game/HeroTeam/GameResources/Epic Toon FX/Sound/etfx_shoot_pistol03.wav
     isMainAsset: 1
     dependAssetList: []
@@ -4508,6 +4518,75 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList: []
     hash: b83f89cc2bf7e0e4ec30d99f6a55620b
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/3D Lasers Pack/Prefabs/LaserBeamNature.prefab
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/SparkExolosion1bcg.mat
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Point12cg.mat
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Laser1.mat
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Mask23cg.mat
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Point5cg.mat
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Models/Conus.fbx
+    hash: 40f363ec54207421dbcf4e8184c5364a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/SparkExolosion1bcg.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_Blend_CG.shadergraph
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/SparkExolosion2.png
+    hash: 72884f078421b1ba4b431b84555c8d93
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/SparkExolosion2.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: cc7ab646ca90871d3b91d48f41e41145
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Point12cg.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_Blend_CG.shadergraph
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Point12.png
+    hash: da0313d4b7599480dd4e0fb8188f32c0
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Point12.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 9728b4ca406487e2ee6c7af3075f98c8
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Laser1.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_Blend_CG.shadergraph
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Trail6.png
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Trail42.png
+    hash: f1cbe94819af882d966e1ba94073c7dc
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Trail6.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 08f5488a8300addc07842f342a81c41f
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Trail42.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 64795a835fa827c796fa5d8682d475c5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Mask23cg.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_Blend_CG.shadergraph
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Mask23.png
+    hash: e72ad6a4fdc012ab7d85791a1e238a97
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Mask23.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: a3f8cbaa14b3cc881d6b72396c942c91
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Materials/Point5cg.mat
+    isMainAsset: 1
+    dependAssetList:
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Shaders/Shader Graph/HS_Blend_CG.shadergraph
+    - Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Point5.png
+    hash: 00229626fdfc48cee773d57709348ed1
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Textures/Point5.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 40a616ab116165d38c37aaa82ad62c60
+  - assetPath: Assets/Game/HeroTeam/GameResources/Hovl Studio/HSFiles/Models/Conus.fbx
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 1a4d8ce56d1abaea46af72f9236301d1
   - assetPath: Assets/Game/HeroTeam/GameResources/Materials/BurningPaper.mat
     isMainAsset: 1
     dependAssetList:
@@ -5399,7 +5478,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Epic Toon FX/Prefabs/Combat/Missiles/FatBullet/BulletFatBlue.prefab
-    hash: 72c3702ad88ba4617656ee4c73d20637
+    hash: 1f727f7591bb579e586bfda6f575dddf
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Bullets/SageBullet.prefab
     isMainAsset: 1
     dependAssetList:
@@ -5895,18 +5974,38 @@ MonoBehaviour:
     dependAssetList:
     - Assets/G_Resources/Game/Prefab/update/ty_yellow.png
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Counter/counter.png
+    - Assets/Game/HeroTeam/GameResources/Textures/qusan.png
+    - Assets/G_Artist/Fonts/TTF/FZCY.TTF
+    - Assets/Game/HeroTeam/GameResources/Textures/sankai.png
     - Assets/Game/HeroTeam/GameResources/Sprite/collapse.png
     - Assets/G_Resources/Game/Prefab/update/FZCY_Update.TTF
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Panels/panel.png
     - Assets/G_Artist/Fonts/TTF/HYShangWeiShouShuW.ttf
-    - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Buttons/btn_big.png
-    - Assets/Game/HeroTeam/GameResources/Easy mobile input/Prefabs/Joystick 1 Black.prefab
+    - Assets/Game/HeroTeam/GameResources/Textures/jihuo.png
+    - Assets/Game/HeroTeam/GameResources/Easy mobile input/Prefabs/Horizontal joystick.prefab
+    - Assets/Game/HeroTeam/GameResources/Textures/Left-6.png
     - Assets/Game/HeroTeam/GameResources/HONETi/mobile_cartoon_GUI/GUI Elements/Icons/icon_blue_back.png
-    hash: 5e32f938dac58eb0ee93eb8a58197c5d
+    hash: bd54fa9031ea6ba61765b3d11e4e58e5
+  - assetPath: Assets/Game/HeroTeam/GameResources/Textures/qusan.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 595d7cac6bbe919989a54d3af1833c0e
+  - assetPath: Assets/Game/HeroTeam/GameResources/Textures/sankai.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 031d1cf2c937dfc5f81845d444fd8d46
   - assetPath: Assets/Game/HeroTeam/GameResources/Sprite/collapse.png
     isMainAsset: 1
     dependAssetList: []
     hash: afcb361d849cfff1c8d3398002c6650a
+  - assetPath: Assets/Game/HeroTeam/GameResources/Textures/jihuo.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: b750169f49254380a1bbf21dd89401ea
+  - assetPath: Assets/Game/HeroTeam/GameResources/Textures/Left-6.png
+    isMainAsset: 1
+    dependAssetList: []
+    hash: 5c2d39958d92c629dfd6d485521eb628
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/UI/UIHeroTeamLogin.prefab
     isMainAsset: 1
     dependAssetList:

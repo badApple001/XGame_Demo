@@ -64,19 +64,19 @@
   <ItemGroup>
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenProShortcuts.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenTextMeshPro.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenVisualManagerEx.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenQueueFade.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenAnimationEx.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModulePhysics2D.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenAnimation.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenTk2d.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModulePhysics.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModuleUtils.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenDeAudio.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenVisualManagerEx.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenQueueFade.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModulePhysics.cs" />
+    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModuleSprite.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenRecover.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModuleUI.cs" />
-    <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenDeAudio.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTween\Modules\DOTweenModuleAudio.cs" />
     <Compile Include="Assets\Plugins\Demigiant\DOTweenScripts\DOTweenPro\DOTweenDeUnityExtended.cs" />
   </ItemGroup>

@@ -93,8 +93,16 @@ namespace Spine.Unity {
 		}
 		#endregion
 
+
+		#region SpineManager Filed
+
+		public string __InstancePoolKey = null;
+
+		#endregion
+
 		/// <summary>Clears the loaded SkeletonData and AnimationStateData. Use this to force a reload for the next time GetSkeletonData is called.</summary>
-		public void Clear () {
+		public void Clear()
+		{
 			skeletonData = null;
 			stateData = null;
 		}

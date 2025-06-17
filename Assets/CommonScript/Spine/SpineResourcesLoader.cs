@@ -473,7 +473,7 @@ namespace XClient.Scripts.Api
                             info.sa.gameObject.BetterSetActive(true);
                         }
                         */
-                        info.sa.Update(0);
+                        info.sa.UpdateSkeleton(0);
                         info.sa.LateUpdate();
                     }
                     else if (info.sg != null)

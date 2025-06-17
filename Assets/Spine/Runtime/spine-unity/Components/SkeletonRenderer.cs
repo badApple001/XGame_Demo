@@ -55,6 +55,7 @@ namespace Spine.Unity {
 	[RequireComponent(typeof(MeshFilter), typeof(MeshRenderer)), DisallowMultipleComponent]
 	[HelpURL("http://esotericsoftware.com/spine-unity#SkeletonRenderer-Component")]
 	public class SkeletonRenderer : MonoBehaviour, ISkeletonComponent, IHasSkeletonDataAsset {
+
 		public SkeletonDataAsset skeletonDataAsset;
 
 		#region Initialization settings
@@ -242,8 +243,12 @@ namespace Spine.Unity {
 
 		public SkeletonDataAsset SkeletonDataAsset { get { return skeletonDataAsset; } } // ISkeletonComponent
 
+		public MeshRenderer GetMeshRenderer() => meshRenderer;
+
+
 		#region Runtime Instantiation
-		public static T NewSpineGameObject<T> (SkeletonDataAsset skeletonDataAsset) where T : SkeletonRenderer {
+		public static T NewSpineGameObject<T>(SkeletonDataAsset skeletonDataAsset) where T : SkeletonRenderer
+		{
 			return SkeletonRenderer.AddSpineComponent<T>(new GameObject("New Spine GameObject"), skeletonDataAsset);
 		}
 

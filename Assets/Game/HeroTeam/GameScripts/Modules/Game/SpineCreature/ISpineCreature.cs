@@ -81,6 +81,9 @@ namespace GameScripts.HeroTeam
 
         Transform GetVisual();
 
+        Transform GetLockTr();
+
+
         float GetSpeed();
 
         void SetSpeed(float speed);

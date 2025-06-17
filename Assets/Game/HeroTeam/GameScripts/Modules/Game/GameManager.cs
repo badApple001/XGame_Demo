@@ -7,6 +7,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using XClient.Common;
+using XGame;
+using XGame.Asset;
 using XGame.EventEngine;
 
 namespace GameScripts.HeroTeam
@@ -59,8 +61,17 @@ namespace GameScripts.HeroTeam
         //需求：增加一个键盘摇杆操作映射
         private bool m_bEnableUserInput = false;
 
+        public IGAssetLoader gAssetLoader { private set; get; }
+
         void Start()
         {
+            gAssetLoader = XGameComs.Get<IGAssetLoader>();
+
+            //SpineManager初始化
+            uint handle = 0;
+            SpineManagerLODConfig settings = (SpineManagerLODConfig)gAssetLoader.LoadResSync<SpineManagerLODConfig>(PathUtils.GetSpineManagerConfigABPath(), out handle);
+            SpineManager.Instance.Setup(Camera.main, settings, LoadSpineDataHandler);
+
             //子弹
             BulletManager.Instance.Setup(m_trBulletActiveRoot, m_trBulletHiddenRoot);
 
@@ -75,9 +86,14 @@ namespace GameScripts.HeroTeam
             //气泡弹窗
             BubbleMessageManager.Instance.Setup(GameRoots.Instance.BattleBubbleMessageRoot);
 
-            InitGame();
+            //团长技能初始化
+            LeaderManager.Instance.Setup();
+            LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Fire).SkillFoo += OnLeaderSkillAttack;
+            LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Dodge).SkillFoo += OnLeaderSkillAvoidance;
+            LeaderManager.Instance.GetLeaderSkillProperty(LeaderSkillType.Purify).SkillFoo += OnLeaderSkillTreat;
 
-            GameGlobal.AudioCom.PlayAudio(4001);
+            //初始化游戏
+            InitGame();
         }
 
         private void ResetGame()
@@ -92,6 +108,8 @@ namespace GameScripts.HeroTeam
 
         private void InitGame()
         {
+            //bgm
+            GameGlobal.AudioCom.PlayAudio(GetCurrentLevelConfig().iBgmID);
             CreateHeros();
             CreateNpc();
         }
@@ -211,8 +229,6 @@ namespace GameScripts.HeroTeam
                     {
                         movePart.SetDestination(new Vector3(0, -3.14f)).SetArriveCallback(() =>
                       {
-                          GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
-                          ListenJoystickEvent();
                           BubbleMessageManager.Instance.Show("准备战斗", m_Leader.GetVisual().position, Vector3.up);
                       }).Start();
                     });
@@ -337,6 +353,10 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0, "GameManager:OnEnable");
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0, "GameManager:OnEnable");
+
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD, 0, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, "GameManager:OnEnable");
+
             // ListenJoystickEvent();
         }
 
@@ -358,6 +378,9 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_RESET_GAME, DEventSourceType.SOURCE_TYPE_UI, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_BOSS_BERSERK_HINT, DEventSourceType.SOURCE_TYPE_ENTITY, 0);
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0);
+
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD, 0, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0);
 
         }
 
@@ -406,18 +429,18 @@ namespace GameScripts.HeroTeam
             {
                 OnJoystickEnded();
             }
-            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK)
-            {
-                OnLeaderSkillAttack();
-            }
-            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE)
-            {
-                OnLeaderSkillAvoidance();
-            }
-            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT)
-            {
-                OnLeaderSkillTreat();
-            }
+            // else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_ATTACK)
+            // {
+            //     OnLeaderSkillAttack();
+            // }
+            // else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_AVOIDANCE)
+            // {
+            //     OnLeaderSkillAvoidance();
+            // }
+            // else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_TREAT)
+            // {
+            //     OnLeaderSkillTreat();
+            // }
             else if (wEventID == DHeroTeamEvent.EVENT_RESET_GAME)
             {
                 ResetGame();
@@ -427,6 +450,18 @@ namespace GameScripts.HeroTeam
                 var context = BossRageEventContext.Instance;
                 m_Boss.SetFloatAttr(ActorPropKey.ACTOR_PROP_CD_SCALE, context.bossCDScale);
                 m_Boss.GetSkeleton().skeleton.SetColor(new Color(1, 0, 0, 0.6f));
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD)
+            {
+                //技能没有CD
+                if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
+                    BubbleMessageManager.Instance.Show("等一等，还没准备好", m_Leader.GetVisual().position, Vector3.up);
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP)
+            {
+                //技能没有气力
+                if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
+                    BubbleMessageManager.Instance.Show("没气了，毁灭吧...", m_Leader.GetVisual().position, Vector3.up);
             }
         }
 
@@ -474,6 +509,7 @@ namespace GameScripts.HeroTeam
 
         //团长指令: 治疗
         //新更改: 驱散buff
+        //新更改：附带治疗
         private void OnLeaderSkillTreat()
         {
             // 团长治疗技能逻辑
@@ -501,6 +537,30 @@ namespace GameScripts.HeroTeam
                     BuffManager.Instance.ReleaseBuff(buff);
                 });
                 GameGlobal.AudioCom.PlayAudio(4003);
+
+                // //治疗
+                // var cfg_sageBullet = GameGlobal.GameScheme.HeroTeamBullet_0(106);
+                // var pos = m_Leader.GetLockTr().position;
+                // var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+                // var senderId = m_Leader.id;
+                // var cfg = LeaderManager.Instance.GetLeaderConfig();
+
+                // heros.ForEach(hero =>
+                // {
+                //     var bullet = BulletManager.Instance.Get<LightBeamBullet>(cfg_sageBullet, pos);
+                //     //百分比回复血量  后续可以配表调，固定的也行
+                //     var recoveValue = hero.GetMaxHP() * cfg.iSkillRecoveRate / 100f;
+                //     bullet.SetHarm(-Mathf.FloorToInt(recoveValue));//98# 加满！不差$
+                //     bullet.SetSender(senderId);
+                //     bullet.SetTarget(hero);
+                //     bullet.SetShooter(m_Leader.GetLockTr());
+                // });
+
+                //治疗玩家
+                var heros = LevelManager.Instance.GetActorsByCamp(CampDef.HERO);
+                //治疗
+                var sageHeros = heros.FindAll(hero => hero.GetHeroCls() > HeroClassDef.SAGE);
+                sageHeros.ForEach(sage => sage.GetStateMachine().ChangeState<HeroAttackState>());
             }
         }
 
@@ -563,6 +623,9 @@ namespace GameScripts.HeroTeam
 
             yield return new WaitForSeconds(1f);
             GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_INTO_FIGHT_STATE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE, DEventSourceType.SOURCE_TYPE_ENTITY, 0, null);
+            ListenJoystickEvent();
         }
 
         private bool m_OnJoystickTouched = false;
@@ -697,6 +760,11 @@ namespace GameScripts.HeroTeam
         }
 
 
+        private SkeletonDataAsset LoadSpineDataHandler(string szSkeletonDataAssetPath)
+        {
+            uint handle = 0;
+            return (SkeletonDataAsset)gAssetLoader.LoadResSync<SkeletonDataAsset>(szSkeletonDataAssetPath, out handle);
+        }
     }
 
 }
