@@ -2,77 +2,85 @@ using System;
 using System.Collections.Generic;
 using Spine.Unity;
 using UnityEngine;
-// using XGame.Utils;
-
 
 namespace GameScripts.HeroTeam
 {
-
-
     /// <summary>
-    /// 
     /// SpineManager
-    /// 负责Spine动画实例的生成、回收、更新调度和LOD（Level of Detail）管理。
-    /// 
-    /// 主要功能：
-    /// 1. 通过对象池管理SkeletonAnimation实例，减少频繁创建和销毁带来的性能开销。
-    /// 2. 按距离分组管理Spine实例，实现不同距离下的降帧（LOD），提升整体性能。
-    /// 3. 支持通过GameConfig/SpineManagerSetting配置LOD参数和分组数量。
-    /// 4. 提供资源加载委托，支持自定义资源加载方式（如AssetBundle、Addressables等）。
-    /// 5. 支持分区轮转更新，避免同一帧内大量Spine实例同时更新造成性能抖动。
-    /// 
+    /// 负责 Spine 动画的统一管理，包括实例生成、更新调度、LOD 降级控制和对象池机制。
+    ///
+    /// 主要职责：
+    /// 1. 对 SkeletonAnimation 实例进行对象池管理，避免频繁创建与销毁；
+    /// 2. 根据主摄像机与目标之间的距离，动态设定不同更新频率（LOD）；
+    /// 3. 支持通过 ScriptableObject 配置参数，如更新间隔、分区数量、距离阈值；
+    /// 4. 提供 Spine 实例的租赁与归还接口；
+    /// 5. 使用分区轮转更新机制，避免同一帧中更新所有实例造成性能峰值；
+    /// 6. 采用真单例模式，确保唯一实例管理，避免资源冲突。
+    ///
     /// 使用方式：
-    /// - 通过SpineManager.Instance获取单例实例。
-    /// - 调用Setup方法初始化主摄像机、配置参数和资源加载委托。
-    /// - 通过RentSkeletonAnimation租赁SkeletonAnimation实例，使用完毕后自动回收到对象池。
-    /// - 在游戏主循环中调用Update方法，实现分组轮转和LOD调度。
-    /// 
+    /// - 调用 `SpineManager.Instance.Setup(...)` 进行初始化；
+    /// - 使用 `RentSkeletonAnimation()` 租用 Spine 实例；
+    /// - 使用 `RemandSkeletonAnimation()` 回收实例；
+    /// - 在主循环中调用 `Update()` 以驱动分区轮转和 LOD 调度；
+    ///
     /// 注意事项：
-    /// - 不建议手动修改SkeletonAnimation的__GroupId和__PoolIndex属性，避免池管理异常。
-    /// - SpineManager为真单例模式，避免多实例带来的资源管理混乱。
-    ///  
+    /// - 实例中的 `__GroupId` 和 `__PoolIndex` 为内部池管理字段，请勿手动更改；
+    /// - SpineManager 中的资源池默认支持自动清理，但不主动卸载资源；
     /// </summary>
-    public class SpineManager  /*: Singleton<SpineManager> */
+    public class SpineManager
     {
-
-        //这个类尽量还是保持真单例模式比较好，使用模板创建的单例存在安全隐患。 
+        // 使用真单例方式，避免模板单例带来的静态构造顺序或泛型实例冲突问题
         private SpineManager() { }
         public static SpineManager Instance { private set; get; } = new SpineManager();
-
 
         private Camera m_MainCamera;
         private Transform m_trMainCamera;
 
+        /// <summary>
+        /// Spine动画代理，用于记录每个实例的运行状态、更新间隔与位置引用等
+        /// </summary>
         public class SpineAgent
         {
-            public int FrameCounter;
-            public int UpdateInterval;
+            public int FrameCounter;       // 帧计数器，用于计算是否需要更新
+            public int UpdateInterval;     // 当前更新间隔（帧数）
             public SkeletonAnimation Skeleton;
             public Transform Transform;
-            public float PreUpdateTime;
-            public int LateUpdateable;
+            public float PreUpdateTime;    // 上次更新时间
+            public int LateUpdateable;     // 是否需要LateUpdate（1表示需要）
         }
+
+        // SpineAgent对象池，用于复用代理实例
         private Stack<SpineAgent> m_stackSpineAgentPool = new Stack<SpineAgent>();
+
+        // SpineAgent分组，每组在一帧中被调度更新，避免性能峰值
         private List<SpineAgent>[] m_AgentGroups;
         private int m_iCurrentGroupIndex = 0;
 
-        // 调整以下参数实现不同等级的降帧
+        // LOD 相关参数
         private float m_fHighDetailDistance = 10f;
         private float m_fMidDetailDistance = 25f;
-        private int m_iHighFrequency = 1;   // 每帧更新
-        private int m_iMidFrequency = 2;    // 每2帧更新
-        private int m_iLowFrequency = 4;    // 每4帧更新
-        private bool m_bLateUpdateDirty = false; //LateUpdate 脏标记
+        private int m_iHighFrequency = 1;   // 高精度，帧间隔为1
+        private int m_iMidFrequency = 2;    // 中精度
+        private int m_iLowFrequency = 4;    // 低精度
+        private bool m_bLateUpdateDirty = false; // LateUpdate脏标记
 
-        // Spine实例池子
+        // Spine 实例缓存的父节点（隐藏在场景中）
         private Transform m_trSpineCacheRoot;
-        private Dictionary<string, UnityEngine.Pool.ObjectPool<SkeletonAnimation>> m_dicSpineObjPool = new Dictionary<string, UnityEngine.Pool.ObjectPool<SkeletonAnimation>>();
-        private Dictionary<string, SkeletonDataAsset> m_dicShareSkeletonDataAssets = new Dictionary<string, SkeletonDataAsset>();
+
+        // 每种资源路径对应一个对象池
+        private Dictionary<string, UnityEngine.Pool.ObjectPool<SkeletonAnimation>> m_dicSpineObjPool = new();
+        private Dictionary<string, SkeletonDataAsset> m_dicShareSkeletonDataAssets = new();
         private const string m_szPoolSpineTag = "[Pool Spine]";
 
-        // 资源Bundle加载器
+        // 外部资源加载委托（支持自定义加载逻辑，如AB或Addressables）
         private LoadResHandler<SkeletonDataAsset> loadResHandler;
 
+        /// <summary>
+        /// 初始化 SpineManager，必须调用一次
+        /// </summary>
+        /// <param name="mainCamera">用于LOD计算的主摄像机</param>
+        /// <param name="setting">LOD与分区设置</param>
+        /// <param name="loadResHandler">资源加载回调</param>
         public void Setup(Camera mainCamera, SpineManagerSetting setting, LoadResHandler<SkeletonDataAsset> loadResHandler)
         {
             m_MainCamera = mainCamera;
@@ -83,6 +91,7 @@ namespace GameScripts.HeroTeam
             m_iHighFrequency = setting.highFrequency;
             m_iMidFrequency = setting.midFrequency;
             m_iLowFrequency = setting.lowFrequency;
+
             m_AgentGroups = new List<SpineAgent>[setting.groupCount];
             for (int i = 0; i < setting.groupCount; i++)
             {
@@ -92,25 +101,16 @@ namespace GameScripts.HeroTeam
             m_trSpineCacheRoot = new GameObject("[SpineManager]").transform;
             GameObject.DontDestroyOnLoad(m_trSpineCacheRoot.gameObject);
             m_trSpineCacheRoot.gameObject.SetActive(false);
-            this.loadResHandler = loadResHandler;
 
+            this.loadResHandler = loadResHandler;
             Debug.Assert(loadResHandler != null, "SpineManager.Setup 初始化必须配置资源获取句柄");
         }
 
-
         /// <summary>
-        /// 租赁一个SkeletonAnimation组件
-        /// 
-        /// var sa = SpineManager.RentSkeletonAnimation("xxx.skel");
-        /// sa.transform.SetParent( xxxNode, false );
-        /// sa.transform.localPosition = Vector3.zero;
-        /// 
+        /// 租赁一个SkeletonAnimation实例（会自动从池中复用或创建）
         /// </summary>
-        /// <param name="szSkeletonDataAssetPath"></param>
-        /// <returns></returns>
         public SkeletonAnimation RentSkeletonAnimation(string szSkeletonDataAssetPath)
         {
-
             if (!m_dicSpineObjPool.TryGetValue(szSkeletonDataAssetPath, out var pool))
             {
                 if (!m_dicShareSkeletonDataAssets.TryGetValue(szSkeletonDataAssetPath, out var dataAsset))
@@ -137,14 +137,16 @@ namespace GameScripts.HeroTeam
                 {
                     GameObject.Destroy(on_destory_obj.gameObject);
                 }, true, 0);
+
+                m_dicSpineObjPool[szSkeletonDataAssetPath] = pool;
             }
+
             return pool.Get();
         }
 
         /// <summary>
-        /// 归还 SkeletonAnimation组件
+        /// 将SkeletonAnimation归还回对象池
         /// </summary>
-        /// <param name="skeleton"></param>
         public void RemandSkeletonAnimation(SkeletonAnimation skeleton)
         {
             if (skeleton == null || skeleton.skeletonDataAsset == null)
@@ -161,17 +163,18 @@ namespace GameScripts.HeroTeam
             }
         }
 
-
+        /// <summary>
+        /// 注册新租出的SkeletonAnimation到轮转分组中
+        /// </summary>
         private void Register(SkeletonAnimation skeleton)
         {
             if (skeleton == null) return;
 
-            //直接禁用掉所有更新
             skeleton.enabled = false;
 
-            //均匀分组
+            // 找到最少的分组，平衡负载
             int group = 0;
-            int minCount = 9999;
+            int minCount = int.MaxValue;
             for (int i = 0; i < m_AgentGroups.Length; i++)
             {
                 int tmpCount = m_AgentGroups[i].Count;
@@ -185,15 +188,19 @@ namespace GameScripts.HeroTeam
             SpineAgent agent = m_stackSpineAgentPool.Count == 0 ? new SpineAgent() : m_stackSpineAgentPool.Pop();
             agent.Skeleton = skeleton;
             agent.Transform = skeleton.transform;
-            agent.FrameCounter = group;  //避免同帧爆发
+            agent.FrameCounter = group;
             agent.UpdateInterval = m_iHighFrequency;
             agent.PreUpdateTime = TimeUtils.CurrentTime;
             agent.LateUpdateable = 0;
+
             m_AgentGroups[group].Add(agent);
-            skeleton.__GroupId = group; //默认池子
-            skeleton.__PoolIndex = m_AgentGroups[group].Count - 1; //默认下标
+            skeleton.__GroupId = group;
+            skeleton.__PoolIndex = m_AgentGroups[group].Count - 1;
         }
 
+        /// <summary>
+        /// 从更新分组中移除SkeletonAnimation，回收到代理池中
+        /// </summary>
         private void UnRegister(SkeletonAnimation skeleton)
         {
             if (skeleton == null) return;
@@ -203,6 +210,7 @@ namespace GameScripts.HeroTeam
             Debug.Assert(skeleton.__PoolIndex != -1, "请不要手动修改 SkeletonAnimation内部的__PoolIndex");
 
 #endif
+
             var pool = m_AgentGroups[skeleton.__GroupId];
             if (skeleton.__PoolIndex >= 0 && skeleton.__PoolIndex < pool.Count && pool[skeleton.__PoolIndex].Skeleton == skeleton)
             {
@@ -210,11 +218,11 @@ namespace GameScripts.HeroTeam
             }
             else
             {
+
 #if UNITY_EDITOR
-                Debug.LogError($"请不要手动修改 SkeletonAnimation内部的__PoolIndex");
+                Debug.LogWarning($"请不要手动修改 SkeletonAnimation内部的__PoolIndex");
 #endif
-                //修复 PoolIndex
-                //回收
+
                 for (int i = 0; i < pool.Count; i++)
                 {
                     if (pool[i].Skeleton == skeleton)
@@ -225,29 +233,28 @@ namespace GameScripts.HeroTeam
                 }
 
 #if UNITY_EDITOR
-                Debug.LogError("请不要在外部对m_AgentGroups进行修改处理");
+                Debug.LogError("未能从分组中正确回收Skeleton，可能__PoolIndex索引错误或外部干预！");
 #endif
             }
         }
 
-
-        //内部 方法，调用前一定要先判断好各种越界情况 再调用
-        private void SleepSkeleton(int PoolIndex, List<SpineAgent> pool)
+        /// <summary>
+        /// 执行实际回收，将SkeletonAnimation从激活组中移除
+        /// </summary>
+        private void SleepSkeleton(int poolIndex, List<SpineAgent> pool)
         {
-            //回收
-            var release_agent = pool[PoolIndex];
+            var release_agent = pool[poolIndex];
             m_stackSpineAgentPool.Push(release_agent);
 
-            //从激活池子里移除
             var swap_agent = pool[pool.Count - 1];
-            //不需要检测，每个代理永远都不可能为null，不对外暴露，内部处理
-            // if (swap_agent == null)
-            //     throw new UnityEngine.UnityException("池子里的元素为null");
-            swap_agent.Skeleton.__PoolIndex = PoolIndex;
-            pool[PoolIndex] = swap_agent;
+            swap_agent.Skeleton.__PoolIndex = poolIndex;
+            pool[poolIndex] = swap_agent;
             pool.RemoveAt(pool.Count - 1);
         }
 
+        /// <summary>
+        /// 在每帧中调用，驱动轮转更新与LOD分发
+        /// </summary>
         public void Update()
         {
             if (m_MainCamera == null) return;
@@ -266,6 +273,7 @@ namespace GameScripts.HeroTeam
                     agent.UpdateInterval = m_iMidFrequency;
                 else
                     agent.UpdateInterval = m_iLowFrequency;
+
                 agent.FrameCounter++;
                 if (agent.FrameCounter >= agent.UpdateInterval)
                 {
@@ -290,14 +298,14 @@ namespace GameScripts.HeroTeam
                 }
             }
 
-            // 轮转
+            // 分组轮转更新
             m_iCurrentGroupIndex = (m_iCurrentGroupIndex + 1) % m_AgentGroups.Length;
         }
-
-
     }
 
-
+    /// <summary>
+    /// SpineManager的配置文件，定义LOD阈值、更新频率和分组数量
+    /// </summary>
     [CreateAssetMenu(fileName = "SpineManagerSetting", menuName = "GameConfig/SpineManagerSetting", order = 100)]
     public class SpineManagerSetting : ScriptableObject
     {
@@ -305,18 +313,13 @@ namespace GameScripts.HeroTeam
         public float highDetailDistance = 10f;
         public float midDetailDistance = 25f;
 
-        [Header("不同等级下 更新的帧间隔")]
-        [Range(1, 16)]
-        public int highFrequency = 1;
-        [Range(1, 16)]
-        public int midFrequency = 2;
-        [Range(1, 16)]
-        public int lowFrequency = 4;
+        [Header("不同等级下更新的帧间隔")]
+        [Range(1, 16)] public int highFrequency = 1;
+        [Range(1, 16)] public int midFrequency = 2;
+        [Range(1, 16)] public int lowFrequency = 4;
 
         [Header("分区激活")]
-        [Tooltip("将激活的Spine分为{groupCount}个分区")]
-        [Range(1, 8)]
-        public int groupCount = 4;
+        [Tooltip("将激活的Spine分为 groupCount 个分区")]
+        [Range(1, 8)] public int groupCount = 4;
     }
-
 }
