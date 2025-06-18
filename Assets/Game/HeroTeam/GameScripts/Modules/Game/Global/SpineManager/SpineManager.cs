@@ -260,7 +260,7 @@ namespace GameScripts.HeroTeam
             if (m_MainCamera == null) return;
 
             List<SpineAgent> group = m_AgentGroups[m_iCurrentGroupIndex];
-            Vector3 camPos = m_trMainCamera.position;
+            Vector3 camPos = GetScreenCenterProjectionOnZPlane();
             m_bLateUpdateDirty = false;
 
             foreach (var agent in group)
@@ -301,8 +301,54 @@ namespace GameScripts.HeroTeam
             // 分组轮转更新
             m_iCurrentGroupIndex = (m_iCurrentGroupIndex + 1) % m_AgentGroups.Length;
         }
-    }
 
+        //这块根据你自己的项目 自行去处理
+        //我这个项目默认的是2D视角
+        private Vector3 GetScreenCenterProjectionOnZPlane()
+        {
+            Vector2 screenCenter = new Vector2(Screen.width / 2f, Screen.height / 2f);
+            Vector3 origin = m_MainCamera.ScreenToWorldPoint(new Vector3(screenCenter.x, screenCenter.y, m_MainCamera.nearClipPlane));
+            Vector3 direction = m_trMainCamera.forward;
+
+            if (Mathf.Approximately(direction.z, 0f))
+                return origin; // 避免除以 0
+
+            float t = -origin.z / direction.z;
+
+            Vector3 hitPoint = origin + direction * t;
+
+#if UNITY_EDITOR
+            //绘制中心线
+            Debug.DrawLine(origin, hitPoint, Color.blue);
+#endif
+
+
+            return hitPoint;
+        }
+
+
+        //暂时用于面板上的Debug调试系统    
+        public SpineAgent GetSpineAgent(SkeletonAnimation skeleton)
+        {
+            if (skeleton == null) return null;
+            var pool = m_AgentGroups[skeleton.__GroupId];
+            if (skeleton.__PoolIndex >= 0 && skeleton.__PoolIndex < pool.Count && pool[skeleton.__PoolIndex].Skeleton == skeleton)
+            {
+                return pool[skeleton.__PoolIndex];
+            }
+            else
+            {
+                for (int i = 0; i < pool.Count; i++)
+                {
+                    if (pool[i].Skeleton == skeleton)
+                    {
+                        return pool[i];
+                    }
+                }
+            }
+            return null;
+        }
+    }
 }
 
- 
+

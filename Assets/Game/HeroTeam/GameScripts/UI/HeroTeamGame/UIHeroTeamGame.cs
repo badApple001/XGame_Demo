@@ -238,7 +238,10 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         {
             text_GameTime.transform.DOKill();
             m_FlashTween?.Kill();
-            text_GameTime.color = Color.white;
+
+            Color defaultCountdownTextColor;
+            ColorUtility.TryParseHtmlString("#00BFF3", out defaultCountdownTextColor);
+            text_GameTime.color = defaultCountdownTextColor;
             text_GameTime.transform.localScale = Vector3.one;
         }
 
@@ -644,6 +647,12 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
         private void OnResetGame()
         {
+
+            //重置倒计时
+            StopAllEffects();
+            m_nGameTime = GameManager.Instance.GetCurrentLevelConfig().iGameTime;
+            text_GameTime.text = m_nGameTime.ToString();
+
             //重置排行榜
             var pContext = RefreshRankContext.Ins;
             pContext.arrCuringRank.Clear();

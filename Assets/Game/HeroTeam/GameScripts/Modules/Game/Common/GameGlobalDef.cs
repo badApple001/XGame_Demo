@@ -7,4 +7,5 @@ namespace GameScripts.HeroTeam
     /// <param name="resPath"> assetBundle路径/Resource路径 </param>
     /// <returns></returns>
     public delegate T LoadResHandler<T>(string resPath);
+
 }

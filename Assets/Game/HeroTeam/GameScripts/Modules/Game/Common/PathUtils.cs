@@ -38,9 +38,9 @@ public class PathUtils
     /// <returns></returns>
     public static string GetCharacterABPath(string path)
     {
-        if (string.IsNullOrEmpty(path))
-            return "Game/HeroTeam/GameResources/Prefabs/Game/Characters/SpineCharacter.prefab";
+        if (string.IsNullOrEmpty(path)) return defaultCharacterPrefabPath;
         return "Game/HeroTeam/GameResources/Prefabs/Game/Characters/" + path;
     }
+    private const string defaultCharacterPrefabPath = "Game/HeroTeam/GameResources/Prefabs/Game/Characters/SpineCharacter.prefab";
 
 }

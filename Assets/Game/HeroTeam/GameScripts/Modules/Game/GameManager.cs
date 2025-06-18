@@ -45,15 +45,15 @@ namespace GameScripts.HeroTeam
         /// <summary>
         /// Npc
         /// </summary>
-        private ISpineCreature m_Npc;
+        public ISpineCreature m_Npc { private set; get; }
 
         /// <summary>
         /// 团长
         /// </summary>
-        private IHero m_Leader;
+        public IHero m_Leader { private set; get; }
 
         //当前场景就一个boss，访问量较高，为了避免每次都要遍历，直接缓存一个
-        private IMonster m_Boss = null;
+        public IMonster m_Boss { private set; get; }
 
         //缓存一份Boss的死亡位置        
         public Vector3 BossDeathPosition { private set; get; }
@@ -195,6 +195,7 @@ namespace GameScripts.HeroTeam
                     actor.SetResLoadedCallback(OnLeaderInited);
                 }
             }
+            LeaderManager.Instance.SetLeaderInstance(m_Leader);
         }
 
         /// <summary>
@@ -210,9 +211,9 @@ namespace GameScripts.HeroTeam
             {
                 //团长特殊处理
                 m_Leader.GetVisual().localScale = m_Leader.GetActorCig().fSizeScale * GetCurrentLevelConfig().fLeaderModeScale * Vector3.one;
-                Vector3 lp = bar.transform.localPosition;
-                lp.y *= GetCurrentLevelConfig().fLeaderModeScale;
-                bar.transform.localPosition = lp;
+                // Vector3 lp = bar.transform.localPosition;
+                // lp.y *= GetCurrentLevelConfig().fLeaderModeScale;
+                // bar.transform.localPosition = lp;
 
                 //以buff的形式给主角一个特效标识
                 BuffManager.Instance.CreateBuff(m_Leader, 102);
@@ -597,7 +598,7 @@ namespace GameScripts.HeroTeam
             }
 
             var sa = m_Npc.GetSkeleton();
-            sa.AnimationState.SetAnimation(0, "dead", false);
+            sa.AnimationState.SetAnimation(0, m_Npc.GetAnimConfig().szDeath, false);
 
             //燃烧效果
             var mr = sa.GetComponent<MeshRenderer>();
@@ -681,6 +682,10 @@ namespace GameScripts.HeroTeam
                     //Boss死亡特效
                     string explosResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab";
                     GameEffectManager.Instance.ShowEffect(explosResPath, BossDeathPosition + Vector3.up * 7.57f);
+
+                    //Boss的颜色恢复到正常
+                    m_Boss.SetFloatAttr(ActorPropKey.ACTOR_PROP_CD_SCALE, 1);
+                    m_Boss.GetSkeleton().skeleton.SetColor(Color.white);
                 }
             }
             else
@@ -713,6 +718,7 @@ namespace GameScripts.HeroTeam
         private void Update()
         {
             TimeUtils.Update();
+            SpineManager.Instance.Update();
 
             if (m_OnJoystickTouched)
             {

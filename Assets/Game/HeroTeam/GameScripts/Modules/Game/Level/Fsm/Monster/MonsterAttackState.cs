@@ -1,8 +1,7 @@
+using System.Collections.Generic;
 using UniFramework.Machine;
 using UnityEngine;
 using XClient.Common;
-using XClient.Entity;
-using XClient.Rand;
 
 namespace GameScripts.HeroTeam
 {
@@ -13,7 +12,9 @@ namespace GameScripts.HeroTeam
 
         protected Spine.Bone m_ShotBone = null;
 
-        protected cfg_HeroTeamBullet m_m_CfgBullet;
+        protected cfg_HeroTeamBullet m_CfgBullet;
+
+        protected List<ISpineCreature> m_heros = new List<ISpineCreature>();
 
         public override void OnCreate(StateMachine machine)
         {
@@ -36,73 +37,74 @@ namespace GameScripts.HeroTeam
 
             ISpineCreature target = null;
             int damage = 0;
-            //奶妈职业
-            if (m_AttackType == AttackTypeDef.Sage)
+            // //奶妈职业
+            // if (m_AttackType == AttackTypeDef.Sage)
+            // {
+            //     var friends = LevelManager.Instance.GetActorsByCamp(m_Owner.GetCamp());
+            //     float minHpRate = 1.01f;
+            //     foreach (var friend in friends)
+            //     {
+            //         float rate = friend.GetHP() * 1.0f / friend.GetMaxHP();
+            //         if (rate < minHpRate)
+            //         {
+            //             minHpRate = rate;
+            //             target = friend;
+            //         }
+            //     }
+            //     //治疗是加血 等于 减减血~~~
+            //     damage = -m_Owner.GetPower();
+            // }
+            // else
+            // {
+            var foesCamp = m_Owner.GetCamp() == CampDef.HERO ? CampDef.MONSTER : CampDef.HERO;
+            var foes = LevelManager.Instance.GetActorsByCamp(foesCamp);
+
+            if (foes.Count > 0)
             {
-                var friends = LevelManager.Instance.GetActorsByCamp(m_Owner.GetCamp());
-                float minHpRate = 1.01f;
-                foreach (var friend in friends)
+                m_heros.Clear();
+                m_heros.AddRange(foes);
+
+                damage = m_Owner.GetPower();
+                // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
+
+                //排序仇恨值
+                // m_heros.Sort(SelectMaxHateSortComparer);
+                // var maxHate = m_heros[m_heros.Count - 1].GetHatred();
+
+                // int i = m_heros.Count - 2;
+                // for (; i >= 0; i--)
+                // {
+                //     if (m_heros[i].GetHatred() != maxHate)
+                //     {
+                //         i += 1;
+                //         break;
+                //     }
+                // }
+                // if (i >= 0 && i != m_heros.Count - 1)
+                // {
+                //     //如果有多个仇恨值相同的怪物，随机选一个
+                //     var randomIndex = UnityEngine.Random.Range(i, m_heros.Count);
+                //     target = m_heros[randomIndex];
+                //     Debug.Log($"<color=0x00ff00>{m_heros.Count - i}个Hero仇恨值相同, 执行随机选择</color>");
+                // }
+                // else
+                // {
+                //     //如果只有一个仇恨值最大的怪物
+                //     target = m_heros[m_heros.Count - 1];
+                // }
+
+                //找到仇恨值最大的
+                target = m_heros[0];
+                int maxHatred = -1;
+                foreach (var hero in m_heros)
                 {
-                    float rate = friend.GetHP() * 1.0f / friend.GetMaxHP();
-                    if (rate < minHpRate)
+                    if (maxHatred < hero.GetHatred())
                     {
-                        minHpRate = rate;
-                        target = friend;
+                        maxHatred = hero.GetHatred();
+                        target = hero;
                     }
                 }
-                //治疗是加血 等于 减减血~~~
-                damage = -m_Owner.GetPower();
             }
-            else
-            {
-                var foesCamp = m_Owner.GetCamp() == CampDef.HERO ? CampDef.MONSTER : CampDef.HERO;
-                var foes = LevelManager.Instance.GetActorsByCamp(foesCamp);
-                if (foes.Count > 0)
-                {
-
-                    damage = m_Owner.GetPower();
-                    // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
-
-                    //排序仇恨值
-                    foes.Sort(SelectMaxHateSortComparer);
-                    var maxHate = foes[foes.Count - 1].GetHatred();
-
-                    int i = foes.Count - 2;
-                    for (; i >= 0; i--)
-                    {
-                        if (foes[i].GetHatred() != maxHate)
-                        {
-                            i += 1;
-                            break;
-                        }
-                    }
-                    if (i >= 0 && i != foes.Count - 1)
-                    {
-                        //如果有多个仇恨值相同的怪物，随机选一个
-                        var randomIndex = UnityEngine.Random.Range(i, foes.Count);
-                        target = foes[randomIndex];
-                        Debug.Log($"<color=0x00ff00>{foes.Count - i}个Hero仇恨值相同, 执行随机选择</color>");
-                    }
-                    else
-                    {
-                        //如果只有一个仇恨值最大的怪物
-                        target = foes[foes.Count - 1];
-                    }
-
-                    //找到仇恨值最大的
-                    // target = monsters[0];
-                    // int maxHatred = -1;
-                    // monsters.ForEach(current =>
-                    // {
-                    //     if (maxHatred < current.GetHatred())
-                    //     {
-                    //         maxHatred = current.GetHatred();
-                    //         target = current;
-                    //     }
-                    // });
-                }
-            }
-
 
             if (null != target)
             {
@@ -182,7 +184,7 @@ namespace GameScripts.HeroTeam
             }
 
             //创建一枚子弹/发球
-            var bullet = BulletManager.Instance.Get<Bullet>(m_m_CfgBullet, shotPos);
+            var bullet = BulletManager.Instance.Get<Bullet>(m_CfgBullet, shotPos);
             bullet.SetHarm(damage);
             bullet.SetSender(m_Owner.id);
             bullet.SetTarget(target);
@@ -194,7 +196,7 @@ namespace GameScripts.HeroTeam
 
             int nType = m_Cfg.AttackType;
             m_AttackType = (AttackTypeDef)nType;
-            m_m_CfgBullet = GameGlobal.GameScheme.HeroTeamBullet_0(m_Cfg.iBullet);
+            m_CfgBullet = GameGlobal.GameScheme.HeroTeamBullet_0(m_Cfg.iBullet);
 
             var skill = HasSkillCooldown();
             if (skill != null)

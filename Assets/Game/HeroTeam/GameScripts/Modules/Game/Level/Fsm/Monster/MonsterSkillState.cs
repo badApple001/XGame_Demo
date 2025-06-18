@@ -74,7 +74,20 @@ namespace GameScripts.HeroTeam
         private IEnumerator Load_Skill_200001(cfg_HeroTeamSkills skill)
         {
 
+            //新增：有一定概率朝团长丢技能
+
             float randomAngle = Random.Range(0, 360f);
+            if (LeaderManager.Instance.LockLeader())
+            {
+                var leader = LeaderManager.Instance.GetLeader();
+                var dir1 = leader.GetTr().position - m_Owner.GetTr().position;
+                dir1.Normalize();
+                randomAngle = Mathf.Atan2(dir1.y, dir1.x) * Mathf.Rad2Deg;
+#if UNITY_EDITOR
+                Debug.Log("$$$$$$$$$$$ Skill 200001: Lock Leader");
+#endif
+            }
+
             float skill_range_angle = 60;
             var rangeTipSr = ((IMonster)m_Owner).GetSkillTipRenderer();
             var skillRoot = ((IMonster)m_Owner).GetSkillRoot();
@@ -96,9 +109,15 @@ namespace GameScripts.HeroTeam
 
 
                             bool allActorEludeSkill = true;
+
+                            //新需求， 团长自己走去范围
+                            var leader = GameManager.Instance.m_Leader;
                             heros.ForEach(h =>
                             {
-                                allActorEludeSkill &= h.EludeBossSkill(skillRoot.position, dir, 100, skill_range_angle + 5);
+                                if (h != leader)
+                                {
+                                    allActorEludeSkill &= h.EludeBossSkill(skillRoot.position, dir, 100, skill_range_angle + 5);
+                                }
                             });
 
                             //存在队员没有躲避技能的情况下 提示团长

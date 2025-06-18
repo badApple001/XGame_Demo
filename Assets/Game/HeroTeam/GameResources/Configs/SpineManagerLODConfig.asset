@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03b7300e80c23664da6260ba4ddce2b5, type: 3}
   m_Name: SpineManagerLODConfig
   m_EditorClassIdentifier: 
-  highDetailDistance: 10
-  midDetailDistance: 25
+  highDetailDistance: 18
+  midDetailDistance: 36
   highFrequency: 1
   midFrequency: 2
   lowFrequency: 4
-  groupCount: 4
+  groupCount: 1

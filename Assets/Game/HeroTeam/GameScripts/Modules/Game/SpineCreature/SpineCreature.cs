@@ -150,6 +150,7 @@ namespace GameScripts.HeroTeam
 
             m_SkeletonAnimation = SpineManager.Instance.Spawn(PathUtils.GetSpineABPath(GetCreatureCig().szSpineResPath), m_trVisual);
             m_SkeletonAnimation.transform.localScale = Vector3.one;
+            m_SkeletonAnimation.transform.localRotation = Quaternion.identity;
             m_SkeletonAnimation.state.SetAnimation(0, GetAnimConfig().szIdle, true);
 
             m_trFace = m_trVisual.Find("Face");

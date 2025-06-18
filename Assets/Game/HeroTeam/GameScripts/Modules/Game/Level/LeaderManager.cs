@@ -71,6 +71,8 @@ namespace GameScripts.HeroTeam
     {
         void DeductMp(int cost);
         void Refresh();
+
+        IHero GetLeader();
     }
 
     public class LeaderManager : Singleton<LeaderManager>, ITimerHandler, ILeaderManager
@@ -83,7 +85,7 @@ namespace GameScripts.HeroTeam
         private int m_nMpRecover;
         private int m_nBossSkillLockLeaderRate;
         private Action<int, int> OnMpChanged;
-
+        private IHero m_Leader;
         public void Setup()
         {
             var cfg = GameGlobal.GameScheme.HeroTeamLeaderConfig(0);
@@ -126,7 +128,14 @@ namespace GameScripts.HeroTeam
         }
 
 
-        public bool LockLeader() => UnityEngine.Random.value < (m_nBossSkillLockLeaderRate / 100f);
+        public bool LockLeader()
+        {
+            if (m_Leader == null || m_Leader.GetTr() == null || m_Leader.GetState() > ActorState.Normal)
+            {
+                return false;
+            }
+            return UnityEngine.Random.value < (m_nBossSkillLockLeaderRate / 100f);
+        }
 
 
         public void OnTimer(TimerInfo ti)
@@ -179,6 +188,10 @@ namespace GameScripts.HeroTeam
         {
             m_nMp -= cost;
         }
+
+        public IHero GetLeader() => m_Leader;
+
+        public void SetLeaderInstance(IHero leader) => m_Leader = leader;
     }
 
 }
