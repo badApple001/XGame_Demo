@@ -95,7 +95,7 @@ namespace GameScripts.HeroTeam
                 GUILayout.Label("Propertys", m_headerStyle);
                 //技能缩放
                 float cdScale = actor.GetFloatAttr(ActorPropKey.ACTOR_PROP_CD_SCALE);
-                GUILayout.TextField("冷却缩减: " + string.Format("{0:P}", cdScale));
+                GUILayout.TextField("技能缩减: " + string.Format("{0:P}", cdScale));
 
                 //攻速加成
                 float attackSpeedScale = actor.GetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED);
@@ -105,8 +105,11 @@ namespace GameScripts.HeroTeam
                 if (m_actorPartInspector.Entity is ISpineCreature spineCreature)
                 {
                     //血量
-                    GUILayout.TextField("Hp: " + string.Format("{0:D}/{1:D}", spineCreature.GetHP(), spineCreature.GetMaxHP()));
+                    GUILayout.TextField("血量: " + string.Format("{0:D}/{1:D}", spineCreature.GetHP(), spineCreature.GetMaxHP()));
 
+                    //仇恨值
+                    GUILayout.TextField("仇恨: " + spineCreature.GetHatred());
+                    
                     var skeleton = spineCreature.GetSkeleton();
                     if (skeleton != null)
                     {
@@ -119,6 +122,7 @@ namespace GameScripts.HeroTeam
                             GUILayout.TextField($"Spine Rate: {60f / spineAgent.UpdateInterval}");
                         }
                     }
+
                 }
             }
 

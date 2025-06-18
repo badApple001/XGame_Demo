@@ -83,9 +83,6 @@ namespace GameScripts.HeroTeam
                 var dir1 = leader.GetTr().position - m_Owner.GetTr().position;
                 dir1.Normalize();
                 randomAngle = Mathf.Atan2(dir1.y, dir1.x) * Mathf.Rad2Deg;
-#if UNITY_EDITOR
-                Debug.Log("$$$$$$$$$$$ Skill 200001: Lock Leader");
-#endif
             }
 
             float skill_range_angle = 60;

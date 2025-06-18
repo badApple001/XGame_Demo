@@ -83,7 +83,9 @@ namespace GameScripts.HeroTeam
             {
                 //嘲讽技能， 没有伤害
                 // target.SetHPDelta(-Mathf.FloorToInt(damage));
-                target.SetHatred(target.GetHatred() + Mathf.FloorToInt(hate));
+
+                //增加仇恨值
+                m_Owner.SetHatred(m_Owner.GetHatred() + Mathf.FloorToInt(hate));
 
                 yield return new WaitForSeconds(1.4f);
                 m_StateMachine.ChangeState<HeroIdleState>();
