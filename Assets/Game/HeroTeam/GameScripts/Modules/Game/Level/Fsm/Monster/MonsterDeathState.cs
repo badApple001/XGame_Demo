@@ -19,6 +19,7 @@ namespace GameScripts.HeroTeam
 
             m_Owner.SetState(ActorState.Dying);
             m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szDeath, false);
+            Debug.Log("$$$$$$$$$$$ 怪物进入死亡状态");
 
             //后续换到帧事件中
             AddTimer(1f, () =>

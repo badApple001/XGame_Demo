@@ -30,16 +30,6 @@ namespace GameScripts.HeroTeam
     public class SpineCreature : Actor, ISpineCreature
     {
 
-        /// <summary>
-        /// 角色的有限状态机
-        /// </summary>
-        protected StateMachine m_fsmActor;
-
-        /// <summary>
-        /// Spine组件
-        /// </summary>
-        protected SkeletonAnimation m_SkeletonAnimation;
-
 
         /// <summary>
         /// 挂表情的节点
@@ -50,6 +40,23 @@ namespace GameScripts.HeroTeam
         /// 蒙皮父节点
         /// </summary>
         protected Transform m_trVisual;
+
+
+        /// <summary>
+        /// 对话位置节点
+        /// </summary>
+        protected Transform m_trChatPoint;
+
+
+        /// <summary>
+        /// 角色的有限状态机
+        /// </summary>
+        protected StateMachine m_fsmActor;
+
+        /// <summary>
+        /// Spine组件
+        /// </summary>
+        protected SkeletonAnimation m_SkeletonAnimation;
 
 
         /// <summary>
@@ -128,6 +135,8 @@ namespace GameScripts.HeroTeam
 
             //攻速 默认1
             SetFloatAttr(ActorPropKey.ACTOR_PROP_ATTACK_SPEED, 1f);
+            //重置攻击CD 默认1
+            SetFloatAttr(ActorPropKey.ACTOR_PROP_CD_SCALE, 1);
         }
 
         public override string GetResPath()
@@ -158,6 +167,9 @@ namespace GameScripts.HeroTeam
 
             m_trLockTarget = m_trVisual.Find("LockTarget");
             if (m_trLockTarget == null) m_trLockTarget = transform;
+
+            m_trChatPoint = m_trVisual.Find("ChatPoint");
+            if (m_trChatPoint == null) m_trChatPoint = transform;
 
             var cfg = (cfg_Actor)base.GetActorCig();
             m_trVisual.localScale = m_fModeScaleMul * cfg.fSizeScale * Vector3.one;
@@ -242,6 +254,11 @@ namespace GameScripts.HeroTeam
             return m_trLockTarget;
         }
 
+        public Transform GetChatPoint()
+        {
+            return m_trChatPoint;
+        }
+
         public void RecordHarm(int addHarm)
         {
             m_nTotalHarm += addHarm;
@@ -256,7 +273,7 @@ namespace GameScripts.HeroTeam
             var dataPart = GetPart<CreatureDataPart>();
             if (dataPart != null)
             {
-                dataPart.m_hp.Value = (long)Mathf.Min(hp + dataPart.m_hp.Value, dataPart.m_maxHp.Value);
+                dataPart.m_hp.Value = System.Math.Clamp(hp + dataPart.m_hp.Value, 0, dataPart.m_maxHp.Value);
             }
             OnHpChanged(hp);
         }

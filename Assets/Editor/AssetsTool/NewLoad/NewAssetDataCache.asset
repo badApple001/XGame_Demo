@@ -250,7 +250,7 @@ MonoBehaviour:
     dependAssetList:
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Fonts/TTF/ObelixProNum.ttf
-    hash: 03959688e8f9821680ee5fbda6b1bd13
+    hash: a6111bf3d1e64bf61c6823a403199e3e
   - assetPath: Assets/G_Resources/App/Prefabs/Widgets/SmallYellowBtn.prefab
     isMainAsset: 1
     dependAssetList:
@@ -896,11 +896,11 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/Actor.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 7c780b574f6968f95e4a4293740e5859
+    hash: af14da77b43ad349ebd207eec38cacda
   - assetPath: Assets/G_Resources/Game/GameScp/ActorAnimConfig.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: c548541e5205f19035ce6869f3663596
+    hash: 89f937dee9d1530eadef3b014cb7262f
   - assetPath: Assets/G_Resources/Game/GameScp/AI.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -968,7 +968,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/gamescheme.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 7c2132a2125a375ad363cd9ac142f259
+    hash: fc67596637ba109c89f7373e87cb92bb
   - assetPath: Assets/G_Resources/Game/GameScp/Goods.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -992,7 +992,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBuff.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 38c72f8bfc3d86f68a93174276bd6462
+    hash: 24277a591be2e2df8b451460a57b2c0b
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamBullet.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1000,11 +1000,11 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamCreature.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 9bcfb8e6db1c8412f6c8da88a333acb4
+    hash: de69e6b3550fabfb14e8febc97f38118
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLeaderConfig.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: b3f6af95636db4ca3b9018d3a81a45e0
+    hash: c589ec415ca2ecf57d44fc36edf349e1
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamLevels.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -1012,7 +1012,7 @@ MonoBehaviour:
   - assetPath: Assets/G_Resources/Game/GameScp/HeroTeamSkills.bytes
     isMainAsset: 1
     dependAssetList: []
-    hash: 8d6907e66ba46e4d5d2ce1e5dc19c96a
+    hash: bafa59b2e1cd53b1497b331299e6288a
   - assetPath: Assets/G_Resources/Game/GameScp/I18N.bytes
     isMainAsset: 1
     dependAssetList: []
@@ -5501,7 +5501,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Textures/skill_arrow.png
-    hash: 2a0303a219e9edb7d618ef04e937346d
+    hash: f309d5f8c2789243a8d5feda6d716244
   - assetPath: Assets/Game/HeroTeam/GameResources/Textures/skill_arrow.png
     isMainAsset: 1
     dependAssetList: []
@@ -5514,7 +5514,7 @@ MonoBehaviour:
     isMainAsset: 1
     dependAssetList:
     - Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
-    hash: 8c8e19a8ac660b67290eb8f18ef74d35
+    hash: ba5327c20194069225d85198cb6874f3
   - assetPath: Assets/Game/HeroTeam/GameResources/Prefabs/Game/Common/HpBar.prefab
     isMainAsset: 1
     dependAssetList:

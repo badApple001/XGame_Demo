@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Spine.Unity;
 using UniFramework.Machine;
@@ -12,8 +13,10 @@ namespace GameScripts.HeroTeam
         protected cfg_ActorAnimConfig m_ActorAnimConfig;
         protected StateMachine m_StateMachine;
         protected ISpineCreature m_Owner;
-        protected List<Coroutine> m_arrTimerGroup = new List<Coroutine>();
+        protected List<Coroutine> m_routinehandlers = new List<Coroutine>();
         protected cfg_HeroTeamCreature m_Cfg;
+
+
         public virtual void OnCreate(StateMachine machine)
         {
             m_Anim = ((ISpineCreature)machine.Owner).GetSkeleton();
@@ -30,17 +33,23 @@ namespace GameScripts.HeroTeam
         protected void AddTimer(float delay, Action callback)
         {
             var handler = GameManager.Instance.AddTimer(delay, callback);
-            m_arrTimerGroup.Add(handler);
+            m_routinehandlers.Add(handler);
         }
+
+        protected void OpenCoroutine(IEnumerator routine)
+        {
+            var handler = GameManager.Instance.OpenCoroutine(routine);
+            m_routinehandlers.Add(handler);
+        }
+
 
         public virtual void OnExit()
         {
-            if (m_arrTimerGroup.Count > 0)
+            if (m_routinehandlers.Count > 0)
             {
-                GameManager.Instance.ClearTimers(m_arrTimerGroup);
-                m_arrTimerGroup.Clear();
+                GameManager.Instance.ClearTimers(m_routinehandlers);
+                m_routinehandlers.Clear();
             }
-
         }
 
         public virtual void OnUpdate()

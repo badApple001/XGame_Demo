@@ -94,7 +94,6 @@ namespace GameScripts.HeroTeam
                 pContext.Health = GetHP() * 1.0f / GetMaxHP();
                 GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext);
             }
-
         }
 
         public void SetBoos()

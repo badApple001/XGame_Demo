@@ -19,7 +19,7 @@ namespace GameScripts.HeroTeam
         {
             base.OnEnter();
 
-            Debug.Log("EnterIdle");
+            // Debug.Log("EnterIdle");
 
             m_Anim.state.SetAnimation(0, m_ActorAnimConfig.szIdle, true);
             m_AttackCoolding = 0f;

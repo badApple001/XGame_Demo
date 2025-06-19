@@ -14,7 +14,7 @@ namespace GameScripts.HeroTeam
 
         protected cfg_HeroTeamBullet m_CfgBullet;
 
-        protected List<ISpineCreature> m_heros = new List<ISpineCreature>();
+        protected List<ISpineCreature> m_herosSorted = new List<ISpineCreature>();
 
         public override void OnCreate(StateMachine machine)
         {
@@ -61,10 +61,9 @@ namespace GameScripts.HeroTeam
 
             if (foes.Count > 0)
             {
-                m_heros.Clear();
-                m_heros.AddRange(foes);
-
                 damage = m_Owner.GetPower();
+                m_herosSorted.Clear();
+                m_herosSorted.AddRange(foes);
                 // target = monsters.Aggregate((max, current) => current.GetHatred() > max.GetHatred() ? current : max);
 
                 //排序仇恨值
@@ -94,9 +93,9 @@ namespace GameScripts.HeroTeam
                 // }
 
                 //找到仇恨值最大的
-                target = m_heros[0];
+                target = m_herosSorted[0];
                 int maxHatred = -1;
-                foreach (var hero in m_heros)
+                foreach (var hero in m_herosSorted)
                 {
                     if (maxHatred < hero.GetHatred())
                     {

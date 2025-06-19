@@ -1,9 +1,6 @@
-using System;
 using UniFramework.Machine;
 using UnityEngine;
 using XClient.Common;
-using XClient.Entity;
-using XClient.Rand;
 
 namespace GameScripts.HeroTeam
 {

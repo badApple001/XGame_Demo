@@ -75,14 +75,36 @@ namespace GameScripts.HeroTeam
 
         void SetMaxHP(long maxHp);
 
+        /// <summary>
+        /// 阵营
+        /// </summary>
+        /// <returns></returns>
         int GetCamp();
 
+
+        /// <summary>
+        /// 脸部表情节点
+        /// </summary>
+        /// <returns></returns>
         Transform GetFaceTr();
 
+        /// <summary>
+        /// 显示节点
+        /// </summary>
+        /// <returns></returns>
         Transform GetVisual();
 
+        /// <summary>
+        /// 锁定节点
+        /// </summary>
+        /// <returns></returns>
         Transform GetLockTr();
 
+        /// <summary>
+        /// 对话节点
+        /// </summary>
+        /// <returns></returns>
+        Transform GetChatPoint();
 
         float GetSpeed();
 

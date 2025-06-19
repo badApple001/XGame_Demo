@@ -51,6 +51,9 @@ namespace GameScripts.HeroTeam
             skeletonAnimation.Skeleton?.SetToSetupPose();
             skeletonAnimation.Skeleton?.SetSlotsToSetupPose();
             skeletonAnimation.Skeleton?.UpdateWorldTransform();
+          
+            //颜色
+            skeletonAnimation.Skeleton?.SetColor(Color.white);
 
             // 重置Transform，确保对象状态一致
             skeletonAnimation.transform.localPosition = Vector3.zero;

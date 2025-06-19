@@ -9,6 +9,7 @@ namespace GameScripts.HeroTeam
 {
     public class MonsterSkillState : SpineCreatureStateBase
     {
+
         public override void OnCreate(StateMachine machine)
         {
             base.OnCreate(machine);
@@ -20,7 +21,7 @@ namespace GameScripts.HeroTeam
 
             if (m_StateMachine.GetBlackboardValue(BlackboardDef.ACTOR_SKILL_CD_COMPLETED) is cfg_HeroTeamSkills skill)
             {
-                GameManager.Instance.OpenCoroutine(ActiveSkill(skill));
+                OpenCoroutine(ActiveSkill(skill));
             }
             else
             {
@@ -35,7 +36,7 @@ namespace GameScripts.HeroTeam
             if (!string.IsNullOrEmpty(skill.szChat))
             {
                 var toast = ToastManager.Instance.Get();
-                toast.transform.SetParent(((Actor)m_StateMachine.Owner).transform.Find("ChatPoint"));
+                toast.transform.SetParent(m_Owner.GetChatPoint());
                 toast.transform.localPosition = Vector3.zero;
                 toast.Show(skill.szChat, 2f);
             }
@@ -47,12 +48,12 @@ namespace GameScripts.HeroTeam
             {
                 case 200001:
                     {
-                        yield return GameManager.Instance.OpenCoroutine(Load_Skill_200001(skill));
+                        yield return Load_Skill_200001(skill);
                     }
                     break;
                 case 500001:
                     {
-                        yield return GameManager.Instance.OpenCoroutine(Load_Skill_500001(skill));
+                        yield return Load_Skill_500001(skill);
                     }
                     break;
                 default:
@@ -256,14 +257,5 @@ namespace GameScripts.HeroTeam
         }
 
 
-        public override void OnExit()
-        {
-            base.OnExit();
-        }
-
-        public override void OnUpdate()
-        {
-            base.OnUpdate();
-        }
     }
 }

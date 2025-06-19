@@ -21,6 +21,11 @@ namespace GameScripts.HeroTeam
     {
 
         /// <summary>
+        /// 父节点
+        /// </summary>
+        protected Transform m_trParent = null;
+
+        /// <summary>
         /// 被锁定的目标节点
         /// </summary>
         protected Transform m_trLockTarget;
@@ -47,10 +52,6 @@ namespace GameScripts.HeroTeam
         /// </summary>
         protected Dictionary<int, float> m_dicFloatProp = new Dictionary<int, float>();
 
-        /// <summary>
-        /// 父节点
-        /// </summary>
-        protected Transform m_trParent = null;
 
         /// <summary>
         /// 定时器协程组
@@ -152,7 +153,7 @@ namespace GameScripts.HeroTeam
             // transform.position = m_wolrdPos;
             // transform.rotation = m_Rotation;
 
-            
+
         }
 
 

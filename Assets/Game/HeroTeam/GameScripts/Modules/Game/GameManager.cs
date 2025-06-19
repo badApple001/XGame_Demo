@@ -156,7 +156,6 @@ namespace GameScripts.HeroTeam
             }
         }
 
-
         /// <summary>
         /// 清除定时器
         /// </summary>
@@ -167,6 +166,11 @@ namespace GameScripts.HeroTeam
         }
 
 
+        /// <summary>
+        /// 关闭协程列表
+        /// </summary>
+        /// <param name="Handlers"></param>
+        public void CloseCoroutines(List<Coroutine> Handlers) => ClearTimers(Handlers);
 
         /// <summary>
         /// 获取当前关卡配置
@@ -682,10 +686,6 @@ namespace GameScripts.HeroTeam
                     //Boss死亡特效
                     string explosResPath = "Game/HeroTeam/GameResources/Prefabs/Game/Fx/ExplosionFireballSharpFire.prefab";
                     GameEffectManager.Instance.ShowEffect(explosResPath, BossDeathPosition + Vector3.up * 7.57f);
-
-                    //Boss的颜色恢复到正常
-                    m_Boss.SetFloatAttr(ActorPropKey.ACTOR_PROP_CD_SCALE, 1);
-                    m_Boss.GetSkeleton().skeleton.SetColor(Color.white);
                 }
             }
             else
@@ -693,8 +693,6 @@ namespace GameScripts.HeroTeam
                 //玩家死亡.
                 Debug.Log($"<color=#ff0000>######## 玩家{actor.name}已死亡 </color>");
             }
-
-
         }
 
 
