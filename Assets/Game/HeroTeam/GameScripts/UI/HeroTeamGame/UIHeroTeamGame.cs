@@ -155,6 +155,16 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             text_CostDodge.text = cfg.iMpCost_Dodge.ToString();
             text_FireCost.text = cfg.iMpCost_Fire.ToString();
             text_CostPurify.text = cfg.iMpCost_Purify.ToString();
+
+
+
+            var typeCounters = tran_CareerRequirement.GetComponentsInChildren<HeroTypeCounterSelector>();
+            for (int i = 0; i < 8; i++)
+            {
+                int cfgId = 1004 + i;
+                typeCounters[i].SetCfgId(cfgId);
+            }
+
         }
 
 
@@ -424,7 +434,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_GENERATE_TEAM, 0, 0, null);
 
             tran_SelectTeam.gameObject.SetActive(false);
-            btn_BtnFight.gameObject.SetActive(true);   
+            btn_BtnFight.gameObject.SetActive(true);
         }
 
         private void OnBtn_BtnLeftClicked() //@Window 
@@ -732,7 +742,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
             //选择队伍            
             tran_SelectTeam.gameObject.SetActive(false);
-            btn_BtnFight.gameObject.SetActive(true);   
+            btn_BtnFight.gameObject.SetActive(true);
 
             //重置Boss的血条
             var pContext2 = BossHpEventContext.Ins;

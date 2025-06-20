@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: 007_Atlas
   m_EditorClassIdentifier: 
   atlasFile: {fileID: 4900000, guid: 44113c4ac845f0d46a8ca4a68e5e15c5, type: 3}
-  atlasPath: Game/HeroTeam/GameResources/Spine/BM_007/007.atlas.txt
   materials:
   - {fileID: 2100000, guid: 8730b63c295de08489c93885a3165d25, type: 2}
