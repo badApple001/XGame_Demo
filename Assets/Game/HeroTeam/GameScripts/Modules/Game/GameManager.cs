@@ -16,13 +16,16 @@ namespace GameScripts.HeroTeam
     public class GameManager : MonoSingleton<GameManager>, IEventExecuteSink
     {
         [Header("出生节点")]
-        [SerializeField] private Transform m_trHeroSpawnRoot;
+        [SerializeField] private SpawnPosTool m_pSpawnPosTool;
         [SerializeField] private Transform m_trBossSpawnRoot;
 
-        [Header("地图路径节点")]
-        [SerializeField] private Transform m_trAcherRoadRoot;
-        [SerializeField] private Transform m_trTankRoadRoot;
-        [SerializeField] private Transform m_tWarriorRoadRoot;
+        [Header("出生位置脚本")]
+        [SerializeField] private CalcHeroGridCoord m_pHeroGridCoord;
+
+        // [Header("地图路径节点")]
+        // [SerializeField] private Transform m_trAcherRoadRoot;
+        // [SerializeField] private Transform m_trTankRoadRoot;
+        // [SerializeField] private Transform m_tWarriorRoadRoot;
 
         [Header("子弹池回收组")]
         [SerializeField] Transform m_trBulletActiveRoot;
@@ -110,7 +113,7 @@ namespace GameScripts.HeroTeam
         {
             //bgm
             GameGlobal.AudioCom.PlayAudio(GetCurrentLevelConfig().iBgmID);
-            CreateHeros();
+            // CreateHeros();
             CreateNpc();
         }
 
@@ -181,15 +184,105 @@ namespace GameScripts.HeroTeam
             return GameGlobal.GameScheme.HeroTeamLevels_0(LevelID);
         }
 
-        private void CreateHeros()
+        private void CreateHeros(List<int> heroTypes)
         {
-            var levelCfg = GetCurrentLevelConfig();
-            int leaderIndex = levelCfg.iLeaderIndex;
-            for (int i = 0; i < levelCfg.aryHerosBornPos.Length; i++)
+
+            //类型可能不同
+            List<int> heroIds = new();
+
+            //策划预设的数量
+            foreach (var type in heroTypes)
             {
-                Vector3 pos = m_trHeroSpawnRoot.GetChild(i).position;
+                switch (type)
+                {
+                    case 1004:
+                        {
+                            //战士 最多三个
+                            heroIds.AddRepeat(1004, 3);
+                        }
+                        break;
+                    case 1005:
+                        {
+                            //圣骑士 最多2个
+                            heroIds.AddRepeat(1005, 2);
+                        }
+                        break;
+                    case 1006:
+                        {
+                            //盗贼 最多2个
+                            heroIds.AddRepeat(1006, 2);
+                        }
+                        break;
+                    case 1007:
+                        {
+                            //猎人
+                            heroIds.AddRepeat(1007, 3);
+                        }
+                        break;
+                    case 1008: //法师
+                        {
+                            //
+                            heroIds.AddRepeat(1008, 4);
+                        }
+                        break;
+                    case 1009: //术士
+                        {
+                            //
+                            heroIds.AddRepeat(1009, 3);
+                        }
+                        break;
+                    case 1010: //牧师
+                        {
+                            //
+                            heroIds.AddRepeat(1010, 5);
+                        }
+                        break;
+                    case 1011: //德鲁伊
+                        {
+                            //
+                            heroIds.AddRepeat(1011, 3);
+                        }
+                        break;
+                }
+            }
+
+            if (heroIds.Count < 25)
+            {
+                Debug.Log("角色数量不足25，根据选择的类型，自动补充...");
+
+                //从玩家选择的类型里去随机
+                while (heroIds.Count < 25)
+                {
+
+                    int maxCount = 25 - heroIds.Count;
+                    int type = heroTypes.PickRandom();
+                    if (maxCount == 1)
+                    {
+                        heroIds.Add(type); break;
+                    }
+
+                    int count = UnityEngine.Random.Range(1, maxCount);
+                    heroIds.AddRepeat(type, count);
+                }
+            }
+
+            //排序，将队伍的相同ID排在一起
+            heroIds.Sort();
+            heroIds.Reverse();
+
+            var levelCfg = GetCurrentLevelConfig();
+            int leaderIndex = 2;
+
+            //初始位置生成
+            int iLeftScale = m_pSpawnPosTool.m_nCols / 2;
+            Vector3 spawnPos = new Vector3(iLeftScale * -m_pSpawnPosTool.m_fXInterval + m_pSpawnPosTool.m_vec3SpawnPosBase.x, m_pSpawnPosTool.m_vec3SpawnPosBase.y, m_pSpawnPosTool.m_vec3SpawnPosBase.z);
+            for (int i = 0; i < heroIds.Count; i++)
+            {
+                int yScale = i / m_pSpawnPosTool.m_nCols;
+                int xScale = i % m_pSpawnPosTool.m_nCols;
+                Vector3 pos = spawnPos + Vector3.right * xScale * m_pSpawnPosTool.m_fXInterval + Vector3.down * yScale * m_pSpawnPosTool.m_fYInterval;
                 var pContext = CreateActorContext.Instance;
-                pContext.nActorCfgID = levelCfg.aryHerosBornPos[i];
+                pContext.nActorCfgID = heroIds[i];
                 pContext.worldPos = pos;
                 pContext.nCamp = CampDef.HERO;
                 ISpineCreature actor = LevelManager.Instance.CreateHero(pContext);
@@ -263,57 +356,30 @@ namespace GameScripts.HeroTeam
             var remoteHeros = heros.FindAll(hero => hero.GetHeroCls() > HeroClassDef.WARRIOR);
             //肉坦
             var tankHeros = heros.FindAll(hero => hero.GetHeroCls() == HeroClassDef.TANK);
-
             //战士和刺客
             var warriorHeros = heros.FindAll(hero => hero.GetHeroCls() == HeroClassDef.WARRIOR);
 
 
-            void Move2Path(Transform rootNode, List<ISpineCreature> heros, bool autoNear = false, bool ergodic = true)
+            //近战的位置处理
+            if (warriorHeros.Count > 0)
             {
-                for (int i = 0; i < heros.Count; i++)
+
+                int count = m_pHeroGridCoord.tankCellSector.____GetCells().Count;
+                Debug.Log("Tank Seat Count: " + count);
+            }
+
+
+            //坦克的位置处理
+            if (tankHeros.Count > 0)
+            {
+                foreach (var hero in tankHeros)
                 {
                     List<Vector3> path = new List<Vector3>();
-                    if (autoNear)
-                    {
-                        if (i >= heros.Count / 2)
-                        {
 
-                            for (int j = rootNode.childCount - 1; j >= i; j--)
-                            {
-                                var p = rootNode.GetChild(j).position;
-                                p.z = 0f;
-                                path.Add(p);
-                            }
-                        }
-                        else
-                        {
-                            for (int j = 0; j < rootNode.childCount / 2 - i; j++)
-                            {
-                                var p = rootNode.GetChild(j).position;
-                                p.z = 0f;
-                                path.Add(p);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        if (!ergodic)
-                        {
-                            var p = rootNode.GetChild(i).position;
-                            p.z = 0f;
-                            path.Add(p);
-                        }
-                        else
-                        {
-                            for (int j = 0; j <= rootNode.childCount - 1 - i; j++)
-                            {
-                                var p = rootNode.GetChild(j).position;
-                                p.z = 0f;
-                                path.Add(p);
-                            }
-                        }
-                    }
-                    var moverPart = heros[i].GetPart<SpineCreatureTargetMoverPart>();
+                    var target = m_pHeroGridCoord.tankCellSector.GetRandomPoint();
+                    path.Add(target);
+
+                    var moverPart = hero.GetPart<SpineCreatureTargetMoverPart>();
                     if (null != moverPart)
                     {
                         moverPart.SetPath(path).Start();
@@ -321,14 +387,70 @@ namespace GameScripts.HeroTeam
                 }
             }
 
-            //Acher
-            Move2Path(m_trAcherRoadRoot, remoteHeros, true);
+            //刺客或者战士
+            if (warriorHeros.Count > 0)
+            {
+                foreach (var hero in warriorHeros)
+                {
+                    List<Vector3> path = new List<Vector3>();
 
-            //Tank
-            Move2Path(m_trTankRoadRoot, tankHeros, false, false);
+                    var target = m_pHeroGridCoord.warriorCellSector.GetRandomPoint();
+                    path.Add(target);
 
-            //Warrior
-            Move2Path(m_tWarriorRoadRoot, warriorHeros);
+                    var moverPart = hero.GetPart<SpineCreatureTargetMoverPart>();
+                    if (null != moverPart)
+                    {
+                        moverPart.SetPath(path).Start();
+                    }
+                }
+            }
+
+            //远程的
+            if (remoteHeros.Count > 0)
+            {
+
+
+                // foreach (var hero in remoteHeros)
+                // {
+                //     List<Vector3> path = new List<Vector3>();
+
+                //     var target = m_pHeroGridCoord.hunterCellSector.GetRandomPoint();
+                //     path.Add(target);
+
+                //     var moverPart = hero.GetPart<SpineCreatureTargetMoverPart>();
+                //     if (null != moverPart)
+                //     {
+                //         moverPart.SetPath(path).Start();
+                //     }
+                // }
+                int count = remoteHeros.Count;
+                float unitAngle = 360f / count;
+                for (int i = 0; i < count; i++)
+                {
+                    float angle = i * unitAngle * Mathf.Deg2Rad;
+                    var dir = new Vector3(Mathf.Cos(angle), Mathf.Sin(angle));
+
+                    List<Vector3> path = new List<Vector3>();
+
+                    var target = m_pHeroGridCoord.transform.position + m_pHeroGridCoord.m_v3OrginOffset + dir * m_pHeroGridCoord.HunterScope.radius;
+                    path.Add(target);
+
+                    var moverPart = remoteHeros[i].GetPart<SpineCreatureTargetMoverPart>();
+                    if (null != moverPart)
+                    {
+                        moverPart.SetPath(path).Start();
+                    }
+                }
+
+            }
+            // //Acher
+            // Move2Path(m_trAcherRoadRoot, remoteHeros, true);
+
+            // //Tank
+            // Move2Path(m_trTankRoadRoot, tankHeros, false, false);
+
+            // //Warrior
+            // Move2Path(m_tWarriorRoadRoot, warriorHeros);
         }
 
         private void DelayCreateBoss()
@@ -360,7 +482,8 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0, "GameManager:OnEnable");
 
             GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD, 0, 0, "GameManager:OnEnable");
-            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_LACK_MP, 0, 0, "GameManager:OnEnable");
+            GameGlobal.EventEgnine.Subscibe(this, DHeroTeamEvent.EVENT_GENERATE_TEAM, 0, 0, "GameManager:OnEnable");
 
             // ListenJoystickEvent();
         }
@@ -385,7 +508,8 @@ namespace GameScripts.HeroTeam
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_FAIL, 0, 0);
 
             GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_CD, 0, 0);
-            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_LEADER_SKILL_LACK_MP, 0, 0);
+            GameGlobal.EventEgnine.UnSubscibe(this, DHeroTeamEvent.EVENT_GENERATE_TEAM, 0, 0);
 
         }
 
@@ -402,6 +526,11 @@ namespace GameScripts.HeroTeam
             if (wEventID == DHeroTeamEvent.EVENT_START_GAME)
             {
                 OnClickStartGame();
+            }
+            else if (wEventID == DHeroTeamEvent.EVENT_GENERATE_TEAM)
+            {
+                var heroTypes = GenerateTeamEventContext.Ins.heroTypes;
+                CreateHeros(heroTypes);
             }
             else if (wEventID == DHeroTeamEvent.EVENT_JOYSTICK_ACTIVE)
             {
@@ -462,7 +591,7 @@ namespace GameScripts.HeroTeam
                 if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)
                     BubbleMessageManager.Instance.Show("等一等，还没准备好", m_Leader.GetVisual().position, Vector3.up);
             }
-            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP)
+            else if (wEventID == DHeroTeamEvent.EVENT_LEADER_SKILL_LACK_MP)
             {
                 //技能没有气力
                 if (m_Leader != null && m_Leader.GetState() < ActorState.Dying)

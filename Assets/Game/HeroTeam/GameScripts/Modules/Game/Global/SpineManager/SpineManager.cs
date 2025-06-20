@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Spine.Unity;
 using UnityEngine;
@@ -260,12 +259,12 @@ namespace GameScripts.HeroTeam
             if (m_MainCamera == null) return;
 
             List<SpineAgent> group = m_AgentGroups[m_iCurrentGroupIndex];
-            Vector3 camPos = GetScreenCenterProjectionOnZPlane();
+            Vector3 cameraFocusPointAtGroundPos = GetScreenCenterProjectionOnZPlane();
             m_bLateUpdateDirty = false;
 
             foreach (var agent in group)
             {
-                float dist = Vector3.Distance(camPos, agent.Transform.position);
+                float dist = Vector3.Distance(cameraFocusPointAtGroundPos, agent.Transform.position);
 
                 if (dist < m_fHighDetailDistance)
                     agent.UpdateInterval = m_iHighFrequency;

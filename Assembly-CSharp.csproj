@@ -644,6 +644,10 @@
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Global\Bullet\LightBeamBullet.cs" />
     <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\AttackDef.cs" />
     <Compile Include="Assets\CommonScript\XClient\Network\Object\NetObjectManager.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\AttributeEx\InspectorNameAttribute.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\Def\PoisitionScope.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Game\Common\Sectors\SectorCellGenerator.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\UI\Components\HeroTypeCounterSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\G_Artist\Shader\Toon Outline_Hit.shader" />
@@ -694,6 +698,7 @@
     <None Include="Assets\资源目录说明.txt" />
     <None Include="Assets\G_Artist\Shader\HYL_Sprite-Lit-Default_Add.shader" />
     <None Include="Assets\Service\serverlist.xml" />
+    <None Include="Assets\Game\HeroTeam\GameResources\Shaders\GaussianBlur.shader" />
     <None Include="Assets\G_Artist\Shader\A_VFX_Dissolution_Additvie_JZB.shader" />
     <None Include="Assets\G_Artist\Shader\Add_Fresnel.shader" />
     <None Include="Assets\ThirdParty\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />

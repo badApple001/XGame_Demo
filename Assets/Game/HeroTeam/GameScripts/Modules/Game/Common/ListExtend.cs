@@ -19,4 +19,19 @@ public static class ListExtend
         int index = Random.Range(0, list.Count); // [0, Count)
         return list[index];
     }
+
+    /// <summary>
+    /// 重复添加一个元素
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <param name="element"></param>
+    /// <param name="count">添加多少个</param>
+    public static void AddRepeat<T>(this List<T> list, T element, int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            list.Add(element);
+        }
+    }
 }

@@ -19,6 +19,7 @@ using System.Collections;
 using GameScripts.HeroTeam.UI.Win;
 using GameScripts.HeroTeam.UI.Fail;
 using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 namespace GameScripts.HeroTeam.UI.HeroTeamGame
 {
@@ -362,6 +363,70 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 
         //@<<< ExecuteEventHandlerGenerator >>>
         //@<<< ButtonFuncGenerator >>>
+        private void OnBtn_RecruitClicked() //@Window 
+        {
+            //招募队友
+            var select_tank = tran_CareerRequirement.GetChild(0).GetComponent<Toggle>().isOn;
+            var select_pastor = tran_CareerRequirement.GetChild(1).GetComponent<Toggle>().isOn;
+            var select_warlock = tran_CareerRequirement.GetChild(2).GetComponent<Toggle>().isOn;
+            var select_robbers = tran_CareerRequirement.GetChild(3).GetComponent<Toggle>().isOn;
+            var select_Dryad = tran_CareerRequirement.GetChild(4).GetComponent<Toggle>().isOn;
+            var select_paladin = tran_CareerRequirement.GetChild(5).GetComponent<Toggle>().isOn;
+            var select_Master = tran_CareerRequirement.GetChild(6).GetComponent<Toggle>().isOn;
+            var select_Hunter = tran_CareerRequirement.GetChild(7).GetComponent<Toggle>().isOn;
+
+
+            List<int> heroTypes = new List<int>();
+            //肉盾
+            if (select_tank)
+            {
+                heroTypes.Add(1004);
+            }
+            //圣骑士
+            if (select_paladin)
+            {
+                heroTypes.Add(1005);
+            }
+            //盗贼
+            if (select_robbers)
+            {
+                heroTypes.Add(1006);
+            }
+            //猎人
+            if (select_Hunter)
+            {
+                heroTypes.Add(1007);
+            }
+            //法师
+            if (select_Master)
+            {
+                heroTypes.Add(1008);
+            }
+            //术士
+            if (select_warlock)
+            {
+                heroTypes.Add(1009);
+            }
+            //牧师
+            if (select_pastor)
+            {
+                heroTypes.Add(1010);
+            }
+            //牧师
+            if (select_Dryad)
+            {
+                heroTypes.Add(1011);
+            }
+
+            GenerateTeamEventContext pContext = GenerateTeamEventContext.Ins;
+            pContext.heroTypes.Clear();
+            pContext.heroTypes.AddRange(heroTypes);
+            GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_GENERATE_TEAM, 0, 0, null);
+
+            tran_SelectTeam.gameObject.SetActive(false);
+            btn_BtnFight.gameObject.SetActive(true);   
+        }
+
         private void OnBtn_BtnLeftClicked() //@Window 
         {
 
@@ -388,7 +453,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             if (!skill.enoughMp)
             {
                 //能量不足
-                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, null);
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_LACK_MP, 0, 0, null);
                 return;
             }
 
@@ -412,7 +477,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             if (!skill.enoughMp)
             {
                 //能量不足
-                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, null);
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_LACK_MP, 0, 0, null);
                 return;
             }
 
@@ -437,7 +502,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             if (!skill.enoughMp)
             {
                 //能量不足
-                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_NOT_MP, 0, 0, null);
+                GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_LEADER_SKILL_LACK_MP, 0, 0, null);
                 return;
             }
 
@@ -453,7 +518,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
         {
             m_OpenCollapsed = !m_OpenCollapsed;
 
-            float height = m_OpenCollapsed ? 1000 : 65f;
+            float height = m_OpenCollapsed ? 720f : 65f;
             img_PropertyPanel.rectTransform.DOKill();
             var size = img_PropertyPanel.rectTransform.sizeDelta;
             size.y = height;
@@ -660,15 +725,21 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
             pContext.arrHateRank.Clear();
             RefreshRank(pContext);
 
+            //摇杆，技能，和顶部的排行榜
             tran_ParametersPanel.gameObject.SetActive(false);
             tran_JoystickParent.gameObject.SetActive(false);
             tran_LeaderSkillPanel.gameObject.SetActive(false);
-            btn_BtnFight.gameObject.SetActive(true);
 
+            //选择队伍            
+            tran_SelectTeam.gameObject.SetActive(false);
+            btn_BtnFight.gameObject.SetActive(true);   
+
+            //重置Boss的血条
             var pContext2 = BossHpEventContext.Ins;
             pContext2.Health = 1f;
             GameGlobal.EventEgnine.FireExecute(DHeroTeamEvent.EVENT_BOSS_HP_CHANGED, GameScripts.HeroTeam.DEventSourceType.SOURCE_TYPE_ENTITY, 0, pContext2);
 
+            //顶部的排行榜收缩
             float height = 65f;
             img_PropertyPanel.rectTransform.DOKill();
             var size = img_PropertyPanel.rectTransform.sizeDelta;

@@ -1024,8 +1024,6 @@ public class cfg_HeroTeamLevels : IDataObj
 	public int iBossBornDelaySeconds;  // 
 	public int iNpcID;  // 
 	public float[] aryNpcBornPos;  // float[-1]  
-	public int[] aryHerosBornPos;  // int[-1]  
-	public int iLeaderIndex;  // 
 	public float fLeaderModeScale;  // 
 	public int[] aryOuterRingStance;  // int[-1]  
 	public int[] aryInnerCircleStanding;  // int[-1]  
@@ -1046,8 +1044,6 @@ public class cfg_HeroTeamLevels : IDataObj
 		iBossBornDelaySeconds = pDataChunk.ReadINT32();
 		iNpcID = pDataChunk.ReadINT32();
 		aryNpcBornPos = pDataChunk.ReadFLOAT_Array(-1);
-		aryHerosBornPos = pDataChunk.ReadINT32_Array(-1);
-		iLeaderIndex = pDataChunk.ReadINT32();
 		fLeaderModeScale = pDataChunk.ReadFLOAT();
 		aryOuterRingStance = pDataChunk.ReadINT32_Array(-1);
 		aryInnerCircleStanding = pDataChunk.ReadINT32_Array(-1);
@@ -1089,6 +1085,7 @@ class cfg_HeroTeamLevels_idx0_cmper : IComparer<IIndexObj>
 public class cfg_HeroTeamCreature : IDataObj
 {
 	public int nID;  // ID
+	public string szName;  // 名称
 	public int HeroClass;  // 角色职业（ 0: 其它； 1：近战坦克； 2：近战输出； 3：远程输出； 4：远程治疗；）
 	public int AttackType;  // 攻击方式（0:近战；1:远程；2:奶爸/奶妈；3:二五仔(混合型) ）
 	public int iBullet;  // 远程职业，子弹的皮肤
@@ -1107,6 +1104,7 @@ public class cfg_HeroTeamCreature : IDataObj
 	public void Load(IDataChunk pDataChunk)
 	{
 		nID = pDataChunk.ReadINT32();
+		szName = pDataChunk.ReadSTRING();
 		HeroClass = pDataChunk.ReadINT32();
 		AttackType = pDataChunk.ReadINT32();
 		iBullet = pDataChunk.ReadINT32();

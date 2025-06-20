@@ -337,6 +337,7 @@
     <Compile Include="Assets\Editor\ShaderControl\Editor\SCMaterial.cs" />
     <Compile Include="Assets\Editor\UI\EditorWindowWithTips.cs" />
     <Compile Include="Assets\Editor\GLAEditor\Editor\TestUIWindow\ABSnapShotCollector.cs" />
+    <Compile Include="Assets\Game\HeroTeam\GameScripts\Modules\Editor\InspectorNameDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Editor\XGame\Dll\XGameEditor.dll" />

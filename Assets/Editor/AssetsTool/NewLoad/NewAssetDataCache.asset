@@ -250,7 +250,7 @@ MonoBehaviour:
     dependAssetList:
     - Assets/ThirdParty/TextMesh Pro/Shaders/TMP_SDF.shader
     - Assets/G_Artist/Fonts/TTF/ObelixProNum.ttf
-    hash: a6111bf3d1e64bf61c6823a403199e3e
+    hash: 03959688e8f9821680ee5fbda6b1bd13
   - assetPath: Assets/G_Resources/App/Prefabs/Widgets/SmallYellowBtn.prefab
     isMainAsset: 1
     dependAssetList:

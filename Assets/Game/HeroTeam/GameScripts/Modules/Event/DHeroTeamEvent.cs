@@ -107,9 +107,14 @@ namespace GameScripts.HeroTeam
 
         /// <summary>
         /// 点击团长技能时
-        /// 能力不够
+        /// 缺少Mp
         /// </summary>
-        public readonly static ushort EVENT_LEADER_SKILL_NOT_MP = EVENT_HEROTEAM_BASE++;
+        public readonly static ushort EVENT_LEADER_SKILL_LACK_MP = EVENT_HEROTEAM_BASE++;
+
+        /// <summary>
+        /// 生成队伍编制
+        /// </summary>
+        public readonly static ushort EVENT_GENERATE_TEAM = EVENT_HEROTEAM_BASE++;
 
 
         /// <summary>
@@ -232,5 +237,18 @@ namespace GameScripts.HeroTeam
         /// 摇杆偏移量
         /// </summary>
         public Vector3 delta;
+    }
+
+    public class GenerateTeamEventContext
+    {
+        private GenerateTeamEventContext() { }
+        /// <summary>
+        /// 单例实例
+        /// </summary>
+        public static GenerateTeamEventContext Ins { private set; get; } = new GenerateTeamEventContext();
+        /// <summary>
+        /// 队伍编制
+        /// </summary>
+        public List<int> heroTypes = new List<int>();
     }
 }

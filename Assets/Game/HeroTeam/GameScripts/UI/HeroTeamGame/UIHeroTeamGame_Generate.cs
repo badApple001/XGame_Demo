@@ -26,6 +26,10 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		private Text text_UIHp_Boss_Text = null;
 		private Text text_GameTime = null;
 		private Button btn_BtnFight = null;
+		private RectTransform tran_SelectTeam = null;
+		private Button btn_Recruit = null;
+		private InputField input_TeamName = null;
+		private RectTransform tran_CareerRequirement = null;
 		private RectTransform tran_JoystickParent = null;
 		private Button btn_BtnLeft = null;
 		private Button btn_BtnRight = null;
@@ -71,27 +75,31 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			text_UIHp_Boss_Text = Meta.Widgets.GetWidgetComponent<Text>(4);
 			text_GameTime = Meta.Widgets.GetWidgetComponent<Text>(5);
 			btn_BtnFight = Meta.Widgets.GetWidgetComponent<Button>(6);
-			tran_JoystickParent = Meta.Widgets.GetWidgetComponent<RectTransform>(7);
-			btn_BtnLeft = Meta.Widgets.GetWidgetComponent<Button>(8);
-			btn_BtnRight = Meta.Widgets.GetWidgetComponent<Button>(9);
-			tran_LeaderSkillPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(10);
-			btn_BtnAttack = Meta.Widgets.GetWidgetComponent<Button>(11);
-			btn_BtnAvoidance = Meta.Widgets.GetWidgetComponent<Button>(12);
-			btn_BtnTreat = Meta.Widgets.GetWidgetComponent<Button>(13);
-			text_FireCost = Meta.Widgets.GetWidgetComponent<Text>(14);
-			text_CostDodge = Meta.Widgets.GetWidgetComponent<Text>(15);
-			text_CostPurify = Meta.Widgets.GetWidgetComponent<Text>(16);
-			tran_MaskSkills = Meta.Widgets.GetWidgetComponent<RectTransform>(17);
-			img_MaskAttack = Meta.Widgets.GetWidgetComponent<Image>(18);
-			img_MaskAvoidance = Meta.Widgets.GetWidgetComponent<Image>(19);
-			img_MaskTreat = Meta.Widgets.GetWidgetComponent<Image>(20);
-			img_SliderMp = Meta.Widgets.GetWidgetComponent<Image>(21);
-			text_TextMp = Meta.Widgets.GetWidgetComponent<Text>(22);
-			tran_ParametersPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(23);
-			img_PropertyPanel = Meta.Widgets.GetWidgetComponent<Image>(24);
-			btn_Collapse = Meta.Widgets.GetWidgetComponent<Button>(25);
-			tran_PropertyContent = Meta.Widgets.GetWidgetComponent<RectTransform>(26);
-			tran_BossRageHintPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(27);
+			tran_SelectTeam = Meta.Widgets.GetWidgetComponent<RectTransform>(7);
+			btn_Recruit = Meta.Widgets.GetWidgetComponent<Button>(8);
+			input_TeamName = Meta.Widgets.GetWidgetComponent<InputField>(9);
+			tran_CareerRequirement = Meta.Widgets.GetWidgetComponent<RectTransform>(10);
+			tran_JoystickParent = Meta.Widgets.GetWidgetComponent<RectTransform>(11);
+			btn_BtnLeft = Meta.Widgets.GetWidgetComponent<Button>(12);
+			btn_BtnRight = Meta.Widgets.GetWidgetComponent<Button>(13);
+			tran_LeaderSkillPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(14);
+			btn_BtnAttack = Meta.Widgets.GetWidgetComponent<Button>(15);
+			btn_BtnAvoidance = Meta.Widgets.GetWidgetComponent<Button>(16);
+			btn_BtnTreat = Meta.Widgets.GetWidgetComponent<Button>(17);
+			text_FireCost = Meta.Widgets.GetWidgetComponent<Text>(18);
+			text_CostDodge = Meta.Widgets.GetWidgetComponent<Text>(19);
+			text_CostPurify = Meta.Widgets.GetWidgetComponent<Text>(20);
+			tran_MaskSkills = Meta.Widgets.GetWidgetComponent<RectTransform>(21);
+			img_MaskAttack = Meta.Widgets.GetWidgetComponent<Image>(22);
+			img_MaskAvoidance = Meta.Widgets.GetWidgetComponent<Image>(23);
+			img_MaskTreat = Meta.Widgets.GetWidgetComponent<Image>(24);
+			img_SliderMp = Meta.Widgets.GetWidgetComponent<Image>(25);
+			text_TextMp = Meta.Widgets.GetWidgetComponent<Text>(26);
+			tran_ParametersPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(27);
+			img_PropertyPanel = Meta.Widgets.GetWidgetComponent<Image>(28);
+			btn_Collapse = Meta.Widgets.GetWidgetComponent<Button>(29);
+			tran_PropertyContent = Meta.Widgets.GetWidgetComponent<RectTransform>(30);
+			tran_BossRageHintPanel = Meta.Widgets.GetWidgetComponent<RectTransform>(31);
 			OnInitWidgets();
 		} //@End_InitWidgets
 		
@@ -105,6 +113,10 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 			text_UIHp_Boss_Text = null;
 			text_GameTime = null;
 			btn_BtnFight = null;
+			tran_SelectTeam = null;
+			btn_Recruit = null;
+			input_TeamName = null;
+			tran_CareerRequirement = null;
 			tran_JoystickParent = null;
 			btn_BtnLeft = null;
 			btn_BtnRight = null;
@@ -133,6 +145,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		{
 			UnsubscribeEvents();
 			btn_BtnFight?.onClick.AddListener(OnBtn_BtnFightClicked);
+			btn_Recruit?.onClick.AddListener(OnBtn_RecruitClicked);
 			btn_BtnLeft?.onClick.AddListener(OnBtn_BtnLeftClicked);
 			btn_BtnRight?.onClick.AddListener(OnBtn_BtnRightClicked);
 			btn_BtnAttack?.onClick.AddListener(OnBtn_BtnAttackClicked);
@@ -145,6 +158,7 @@ namespace GameScripts.HeroTeam.UI.HeroTeamGame
 		protected override void UnsubscribeEvents() //@Window
 		{
 			btn_BtnFight?.onClick.RemoveAllListeners();
+			btn_Recruit?.onClick.RemoveAllListeners();
 			btn_BtnLeft?.onClick.RemoveAllListeners();
 			btn_BtnRight?.onClick.RemoveAllListeners();
 			btn_BtnAttack?.onClick.RemoveAllListeners();
